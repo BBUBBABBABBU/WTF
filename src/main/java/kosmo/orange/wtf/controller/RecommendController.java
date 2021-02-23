@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class RecommendController {
 
- @RequestMapping("recommed/recommed")
+ @RequestMapping("recommend/recommend")
  public String recommend(){
-     return "recommed/recommed";
+     return "recommend/recommend";
  }
 
 
