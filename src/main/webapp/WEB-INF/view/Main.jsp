@@ -12,8 +12,6 @@
     <title>Title</title>
 </head>
 <body>
-첫 시작화면 띄우기 ㅇㅋㅋㅋㅋㅋㅋ
-ㅎㅓㄹ ㅁㅜㅓㅈㅣ ㅋㅋㅋ
 
 <br/>
 <a href="recommend/recommend" >추천 화면 가보자</a>
