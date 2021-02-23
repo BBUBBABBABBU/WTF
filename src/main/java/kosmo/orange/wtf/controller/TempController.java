@@ -8,6 +8,6 @@ public class TempController {
 
     @GetMapping("/")
     public String start(){
-        return "Start";
+        return "ReviewInsert";
     }
 }
