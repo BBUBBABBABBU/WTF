@@ -83,5 +83,6 @@
         <textarea placeholder="리뷰를 입력해주세요" rows="5" cols="50"></textarea>
     </div>
 </div>
+
 </body>
 </html>

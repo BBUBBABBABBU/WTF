@@ -9,7 +9,7 @@ public class StartController {
     @GetMapping("/")
     public String start(){
         System.out.println("start");
-        return "Start";
+        return "Join";
     }
 
     @GetMapping("/main")
