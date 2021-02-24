@@ -38,11 +38,14 @@
     </div>
 </div>
 <h2>먹을줄은 정말로 몰랐어</h2>
-<<<<<<< Updated upstream
+
 메인 , 추천
 지도 다시확인
-=======
+
 <a href="/adminHome">관리자페이지로</a>
->>>>>>> Stashed changes
+
+<a href="recommend/recommend"> 추천 화면 가기 </a>
+
+
 </body>
 </html>
