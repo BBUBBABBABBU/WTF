@@ -19,27 +19,48 @@
     <div class>
         <h2>리뷰를 작성해주세요</h2>
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-1">
+                <label>맛</label>
                 <select>
-                    <option></option>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <label>서비스</label>
+                <select>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
                 </select>
             </div>
             <div class="col-sm">
+                <label>접근성</label>
                 <select>
-                    <option></option>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
                 </select>
             </div>
             <div class="col-sm">
+                <label>위생</label>
                 <select>
-                    <option></option>
-                </select>
-            </div>
-            <div class="col-sm">
-                <select>
-                    <option></option>
+                    <option value="1">★☆☆☆☆</option>
+                    <option value="2">★★☆☆☆</option>
+                    <option value="3">★★★☆☆</option>
+                    <option value="4">★★★★☆</option>
+                    <option value="5">★★★★★</option>
                 </select>
             </div>
         </div>
+        <textarea placeholder="리뷰를 입력해주세요" rows="5" cols="50"></textarea>
     </div>
 </div>
 </body>
