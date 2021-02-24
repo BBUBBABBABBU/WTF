@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class TempController {
 
-    @GetMapping
+    @GetMapping("/")
     public String start(){
-        return "ReviewInsert";
+        return "Start";
     }
 }

@@ -1,10 +1,9 @@
 $(function(){
-    $(document).ready(function(){
-        $('#select_menu').formSelect();
-        $('#select_menu').change(()=>{
-            alert($('#select_menu').val())
+        $('#select_kind').formSelect();
 
+        $('#select_kind').on('change', function(){
+            alert($('#select_kind').val())
+            $('#kind_form').submit()
         })
-    });
 })
 

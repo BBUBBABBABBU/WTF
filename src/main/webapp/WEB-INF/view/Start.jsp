@@ -24,13 +24,15 @@
 <div class="row">
     <div class="col s5"></div>
     <div class="input-field col s2">
-        <select id="select_menu" style="width: 300px;">
-            <option value="" disabled selected>이걸</option>
-            <option value="korean">한식</option>
-            <option value="chinese">중식</option>
-            <option value="3">Option 3</option>
-            <option value="4">Option 4</option>
-        </select>
+        <form id = "kind_form" action="/main" method="get">
+            <select id="select_kind" name = "kind" style="width: 300px;">
+                <option value="" disabled selected>이걸</option>
+                <option value="korean">한식</option>
+                <option value="chinese">중식</option>
+                <option value="western">양식</option>
+                <option value="japanese">일식</option>
+            </select>
+        </form>
     </div>
 </div>
 <h2>먹을줄은 정말로 몰랐어</h2>
