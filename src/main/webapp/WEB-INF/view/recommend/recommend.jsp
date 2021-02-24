@@ -1,6 +1,13 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: kosmo_04
+  Date: 2021-02-22
+  Time: 오전 11:16
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html>
 <head>
     <meta charset="utf-8">
     <title>MyPortfolio</title>
@@ -9,34 +16,28 @@
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="img/favicon.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="/res/img/favicon.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700|Raleway:400,700&display=swap"
           rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/res/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="vendor/icofont/icofont.min.css" rel="stylesheet">
-    <link href="vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
-    <link href="vendor/aos/aos.css" rel="stylesheet">
-    <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/res/vendor/icofont/icofont.min.css" rel="stylesheet">
+    <link href="/res/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
+    <link href="/res/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/res/vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- =======================================================
-      Template Name: MyPortfolio
-      Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
-      Author: BootstrapMade.com
-      Author URL: https://bootstrapmade.com/
-    ======================================================= -->
+    <link href="/res/css/style.css" rel="stylesheet">
 </head>
-
 <body>
+<br/>
+<a href="recommend/recommend" >추천 화면 가보자</a>
 
 <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
     <div class="container py-2 py-md-5">
@@ -115,7 +116,7 @@
                                     <h3>Boxed Water</h3>
                                     <span>Web</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_1.jpg">
+                                <img class="img-fluid" src="/res/img/img_1.jpg">
                             </a>
                         </div>
 
@@ -126,7 +127,7 @@
                                     <h3>Build Indoo</h3>
                                     <span>Photography</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_2.jpg">
+                                <img class="img-fluid" src="/res/img/img_2.jpg">
                             </a>
                         </div>
 
@@ -137,7 +138,7 @@
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_3.jpg">
+                                <img class="img-fluid" src="/res/img/img_3.jpg">
                             </a>
                             <table border="0">
                                 <tr>
@@ -159,7 +160,7 @@
                                     <h3>Nike Shoe</h3>
                                     <span>Design</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_4.jpg">
+                                <img class="img-fluid" src="/res/img/img_4.jpg">
                             </a>
                         </div>
 
@@ -170,7 +171,7 @@
                                     <h3>Kitchen Sink</h3>
                                     <span>Photography</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_5.jpg">
+                                <img class="img-fluid" src="/res/img/img_5.jpg">
                             </a>
                         </div>
 
@@ -181,11 +182,12 @@
                                     <h3>Amazon</h3>
                                     <span>brandingn</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_6.jpg">
+                                <img class="img-fluid" src="/res/img/img_6.jpg">
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="testimonial-wrap">
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
                         <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
@@ -194,7 +196,7 @@
                                     <h3>Boxed Water</h3>
                                     <span>Web</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_1.jpg">
+                                <img class="img-fluid" src="/res/img/img_1.jpg">
                             </a>
                         </div>
 
@@ -205,7 +207,7 @@
                                     <h3>Build Indoo</h3>
                                     <span>Photography</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_2.jpg">
+                                <img class="img-fluid" src="/res/img/img_2.jpg">
                             </a>
                         </div>
 
@@ -216,7 +218,7 @@
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_3.jpg">
+                                <img class="img-fluid" src="/res/img/img_3.jpg">
                             </a>
                             <table border="0">
                                 <tr>
@@ -238,7 +240,7 @@
                                     <h3>Nike Shoe</h3>
                                     <span>Design</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_4.jpg">
+                                <img class="img-fluid" src="/res/img/img_4.jpg">
                             </a>
                         </div>
 
@@ -249,7 +251,7 @@
                                     <h3>Kitchen Sink</h3>
                                     <span>Photography</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_5.jpg">
+                                <img class="img-fluid" src="/res/img/img_5.jpg">
                             </a>
                         </div>
 
@@ -260,7 +262,7 @@
                                     <h3>Amazon</h3>
                                     <span>brandingn</span>
                                 </div>
-                                <img class="img-fluid" src="img/img_6.jpg">
+                                <img class="img-fluid" src="/res/img/img_6.jpg">
                             </a>
                         </div>
                     </div>
@@ -272,6 +274,7 @@
 
         </div>
     </div>
+
 
 
     <!--    <div class="site-section">
@@ -376,7 +379,7 @@
 
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="img/person_1.jpg" alt="Image" class="img-fluid">
+                        <img src="/res/img/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                                 explicabo inventore.</p>
@@ -387,7 +390,7 @@
 
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="img/person_2.jpg" alt="Image" class="img-fluid">
+                        <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                                 explicabo inventore.</p>
@@ -398,7 +401,7 @@
 
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="img/person_2.jpg" alt="Image" class="img-fluid">
+                        <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                                 explicabo inventore.</p>
@@ -409,7 +412,7 @@
 
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="img/person_2.jpg" alt="Image" class="img-fluid">
+                        <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
                                 explicabo inventore.</p>
@@ -449,18 +452,15 @@
 </footer>
 
 <!-- Vendor JS Files -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/jquery/jquery-migrate.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script src="vendor/easing/easing.min.js"></script>
-<script src="vendor/php-email-form/validate.js"></script>
-<script src="vendor/isotope/isotope.pkgd.min.js"></script>
-<script src="vendor/aos/aos.js"></script>
-<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="/res/vendor/jquery/jquery.min.js"></script>
+<script src="/res/vendor/jquery/jquery-migrate.min.js"></script>
+<script src="/res/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/res/vendor/easing/easing.min.js"></script>
+<script src="/res/vendor/php-email-form/validate.js"></script>
+<script src="/res/vendor/isotope/isotope.pkgd.min.js"></script>
+<script src="/res/vendor/aos/aos.js"></script>
+<script src="/res/vendor/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template Main JS File -->
-<script src="js/main.js"></script>
-
 </body>
-
 </html>
