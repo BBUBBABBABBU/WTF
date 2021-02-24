@@ -12,6 +12,5 @@ public class ReviewController {
     @RequestMapping("/")
     public String Review(){return "ReviewInsert";}
 
-    Map ratingOptions = new HashMap();
-    
+
 }
