@@ -16,7 +16,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="/res/js/start.js" type="text/javascript"></script>
-    <%--<script src="/res/js/map.js" type="text/javascript"></script>--%>
+    <script src="/res/js/map.js" type="text/javascript"></script>
 
 </head>
 <body>
@@ -26,13 +26,13 @@
 <div class="row">
     <div class="col s5"></div>
     <div class="input-field col s2">
-        <form id="kind_form" action="/main" method="post">
+        <form id="kind_form" action="/main" method="get">
             <select id="select_kind" name="kind" style="width: 300px;">
                 <option value="" disabled selected>이걸</option>
-                <option value="korean">한식</option>
-                <option value="chinese">중식</option>
-                <option value="western">양식</option>
-                <option value="japanese">일식</option>
+                <option value="한식">한식</option>
+                <option value="중식">중식</option>
+                <option value="양식">양식</option>
+                <option value="일식">일식</option>
             </select>
         </form>
     </div>
@@ -45,6 +45,7 @@
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="recommend/recommend"> 추천 화면 가기 </a>
+
 
 
 </body>
