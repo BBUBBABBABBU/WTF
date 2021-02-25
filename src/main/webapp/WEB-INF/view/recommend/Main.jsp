@@ -69,24 +69,9 @@
                     <li class="active"><a href="index.html">마이페이지</a></li>
                     <li><a href="about.html">피드</a></li>
                     <li><a href="services.html">로그아웃</a></li>
-                    <!-- <li><a href="works.html">Works</a></li>
                     <li><a href="contact.html">Contact</a></li> -->
                 </ul>
             </div>
-            <!-- <div class="col-md-6 d-none d-md-block  mr-auto">
-              <div class="tweet d-flex">
-                <span class="icofont-twitter text-white mt-2 mr-3"></span>
-                <div>
-                  <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut
-                      officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 d-none d-md-block">
-              <h3>Hire Me</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                explicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>
-            </div> -->
         </div>
 
     </div>
@@ -97,12 +82,15 @@
     <div class="site-section site-portfolio">
         <div class="container">
             <div class="row mb-5 align-items-center">
-                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h2>현 위치(지도)</h2>
                     <div id="map" style="width: 1120px; height: 400px;"></div>
+                    <div class="custom_zoomcontrol radius_border">
+                        <span><button id="fiveM">500m</button></span>
+                        <span><button id="thousandM">1000m</button></span>
 
+                    </div>
                 </div>
-
             </div>
             <br/><br/><br/><br/>
 
