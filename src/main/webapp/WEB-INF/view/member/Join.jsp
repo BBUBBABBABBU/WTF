@@ -5,35 +5,39 @@
     <meta charset="utf-8">
     <title>로그인 / 회원가입 폼 템플릿</title>
     <link rel="stylesheet" type="text/css" href="/res/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/res/css/login2.css">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="/res/js/js.js" type="text/javascript"></script>
-
-
-
-    <style>
-        div.test {
-            width: 2000px;
-            height:1334px;
-            padding: 40px;
-            background-image: url( "/res/img/background.jpg" );
-            opacity: 0.5;
-        }
-        div.wrap {
-            opacity: 1.0;
-        }
-        p {
-            padding: 30px;
-            font-size: 50px;
-            font-weight: bold;
-            text-align: center;
-            background-color: #ffffff;
-            background-color: rgba( 255, 255, 255, 0.5 );
-        }
-    </style>
+    <script src="/res/js/login.js" type="text/javascript"></script>
 
 </head>
-<body>
+<body><img width="450" src="/res/img/WTF_logo.png">
+<h2>네가</h2><br/>
+<!--TODO 여기 선택부분 생각 -->
+<div class="row">
+    <div class="col s5"></div>
+    <div class="input-field col s2">
+        <form id="kind_form" action="/main" method="post">
+            <select id="select_kind" name="kind" style="width: 300px;">
+                <option value="" disabled selected>이걸</option>
+                <option value="korean">한식</option>
+                <option value="chinese">중식</option>
+                <option value="western">양식</option>
+                <option value="japanese">일식</option>
+            </select>
+        </form>
+    </div>
+</div>
+<h2>먹을줄은 정말로 몰랐어</h2>
+
+메인 , 추천
+지도 다시확인
+
+<a href="/adminHome">관리자페이지로</a>
+
+<a href="recommend/recommend"> 추천 화면 가기 </a>
+<a href="/Join">회원가입 페이지</a>
+<button type="button" id="hidden"  onclick=test1()> 버튼</button>
 
 
 
@@ -41,9 +45,9 @@
 
 
 
+<div class="loginBackground" id = "loginBackground"></div>
 
-<div class="test">
-<div class="wrap">
+<div class="wrap" id="wrap">
     <div class="form-wrap">
         <div class="button-wrap">
             <div id="btn"></div>
@@ -55,7 +59,7 @@
             <img src="/res/img/tw.png" alt="twitter">
             <img src="/res/img/gl.png" alt="google">
         </div>
-        <form id="login" action="/test" class="input-group" method="get">
+        <form id="login" action="/Info" class="input-group" method="post">
             <input type="text" name="email" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" class="input-field" placeholder="Password를 입력하세요" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
@@ -70,31 +74,25 @@
         </form>
     </div>
 </div>
-</div>
 
 
 </body>
+<script>
+    loginForm=document.getElementById('wrap')
+    loginBack=document.getElementById('loginBackground')
+    function test1(){
+        // tes.style.transition="all 3s"
+        // // tes.style.transform = " rotate(45deg)"
+        loginForm.style.visibility="visible"
+        // tes.style.alignItems="center"
+        // tes.style.justifyContent= "center"
+        loginBack.style.visibility="visible"
+        // tes.style.minHeight= "100vh"
+    }
 
 
 
-<%--<script>--%>
-<%--    // var x = document.getElementById("login");--%>
-<%--    // var y = document.getElementById("register");--%>
-<%--    // var z = document.getElementById("btn");--%>
-<%--    //--%>
-<%--    //--%>
-<%--    // function login(){--%>
-<%--    //     x.style.left = "50px";--%>
-<%--    //     y.style.left = "450px";--%>
-<%--    //     z.style.left = "0";--%>
-<%--    // }--%>
-<%--    //--%>
-<%--    // function register(){--%>
-<%--    //     x.style.left = "-400px";--%>
-<%--    //     y.style.left = "50px";--%>
-<%--    //     z.style.left = "110px";--%>
-<%--    // }--%>
-<%--</script>--%>
-</body>
+</script>
+
 
 </html>

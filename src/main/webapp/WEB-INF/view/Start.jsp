@@ -22,7 +22,7 @@
 <body>
 <img width="450" src="/res/img/WTF_logo.png">
 <h2>네가</h2><br/>
-<!--TODO 여기 선택부분 생각 -->
+
 <div class="row">
     <div class="col s5"></div>
     <div class="input-field col s2">
@@ -45,7 +45,6 @@
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="recommend/recommend"> 추천 화면 가기 </a>
-
-
+<a href="/Join">회원가입 페이지</a>
 </body>
 </html>
