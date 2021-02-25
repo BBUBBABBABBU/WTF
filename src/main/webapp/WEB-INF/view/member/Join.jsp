@@ -31,7 +31,7 @@
 <h2>먹을줄은 정말로 몰랐어</h2>
 
 메인 , 추천
-지도 다시확인
+지도 다시확인123123
 
 <a href="/adminHome">관리자페이지로</a>
 
@@ -60,7 +60,7 @@
             <img src="/res/img/gl.png" alt="google">
         </div>
         <form id="login" action="/Info" class="input-group" method="post">
-            <input type="text" name="email" class="input-field" placeholder="Email을 입력하세요" required>
+            <input type="email" name="email" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" class="input-field" placeholder="Password를 입력하세요" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
             <button class="submit">Login</button>

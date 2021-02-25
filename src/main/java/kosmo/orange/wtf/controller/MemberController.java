@@ -19,6 +19,6 @@ public class MemberController {
     public String info(MemberVO memberVO){
         System.out.println(memberVO.getEmail());
         System.out.println("회원정보");
-        return "member/memberInfo";
+        return "member/memInfo";
     }
 }

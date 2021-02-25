@@ -8,7 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <title>Title</title>
+    <style >
+        .w3-center{ border-radius: 20px;
+            width: 300px;
+            align-items: center;
+        }
+
+
+    </style>
 </head>
 <body>
 <div class="w3-content w3-container w3-margin-top">
@@ -26,9 +36,7 @@
                     <label>Email</label>
                     <input class="w3-input" type="text" id="email" name="email" value="${ member.email }" required>
                 </p>
-                <p class="w3-center">
-                    <button type="submit" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원정보 변경</button>
-                </p>
+               
             </form>
             <br />
             <form id="pwForm" action="../member/update_pw.do" method="post">
