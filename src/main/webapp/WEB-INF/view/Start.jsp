@@ -45,7 +45,7 @@
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="recommend/recommend"> 추천 화면 가기 </a>
-
+두둥
 
 
 </body>
