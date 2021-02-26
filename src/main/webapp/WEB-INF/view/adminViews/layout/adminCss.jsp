@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%-- **************************************************************--%>
-<%-- index template --%>
+<%-- index template >> adminIndex.jsp --%>
 
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
@@ -28,7 +28,7 @@
 
 
 <%-- **************************************************************--%>
-<%-- page-login template --%>
+<%-- page-login template >> adminLogin.jsp --%>
 
 <!-- Favicon icon -->
 <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
@@ -41,9 +41,26 @@
 
 
 <%-- **************************************************************--%>
-<%-- (??) template --%>
+<%-- page-register template >> adminJoin.jsp --%>
+
+<!-- Favicon icon -->
+<%--<link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png"> >> 파일 깨져서 주석처리--%>
+<link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+
+<%-- **************************************************************--%>
 
 
+<%-- **************************************************************--%>
+<%-- page-lock template >> adminLoginConfirm.jsp --%>
+
+<%--<link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png"> >> 파일 깨져서 주석처리--%>
+<link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+<link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
 <%-- **************************************************************--%>
 
@@ -51,9 +68,70 @@
 <%-- **************************************************************--%>
 <%-- (??) template --%>
 
+<%-- **************************************************************--%>
 
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
 
 <%-- **************************************************************--%>
 
 
+<%-- **************************************************************--%>
+<%-- (??) template --%>
 
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="kosmo.orange.wtf.model.vo.RecommendVO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kosmo_04
   Date: 2021-02-22
@@ -45,8 +46,6 @@
 </head>
 <body>
 <br/>
-<a href="recommend/recommend" >추천 화면 가보자</a>
-
     <nav class="navbar navbar-light custom-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">MyPortfolio.</a>
@@ -99,195 +98,7 @@
             <div class="container">
                 <div class="row mb-5 align-items-center">
                     <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                        <h2>니가 이걸 먹을줄 알고 있었어</h2>
-                        <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
-                    </div>
-
-
-                    <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
-                        <div id="filters" class="filters">
-                            <a href="#" data-filter="*" class="active">추천순</a>
-                            <a href="#" data-filter=".web">평점순</a>
-                            <a href="#" data-filter=".design">리뷰순</a>
-                            <!--<a href="#" data-filter=".branding">Branding</a>
-                            <a href="#" data-filter=".photography">Photography</a>-->
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-wrap">
-                        <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
-                            <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Boxed Water</h3>
-                                        <span>Web</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_1.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Build Indoo</h3>
-                                        <span>Photography</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_2.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Cocooil</h3>
-                                        <span>Branding</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_3.jpg">
-                                </a>
-                                <table border="0">
-                                    <tr>
-                                        <td>상호명</td><td width = 120></td><td rowspan=3>별점</td>
-                                    </tr>
-                                    <tr>
-                                        <td>위치</td>
-                                    </tr>
-                                    <tr>
-                                        <td>좋아요와 리뷰 수</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-
-                            <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Nike Shoe</h3>
-                                        <span>Design</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_4.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Kitchen Sink</h3>
-                                        <span>Photography</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_5.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Amazon</h3>
-                                        <span>brandingn</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_6.jpg">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-wrap">
-                        <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
-                            <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Boxed Water</h3>
-                                        <span>Web</span>
-                                    </div>
-                                    <img class="img-fluid" src=/res/img/img_1.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Build Indoo</h3>
-                                        <span>Photography</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_2.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="/res/work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Cocooil</h3>
-                                        <span>Branding</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_3.jpg">
-                                </a>
-                                <table border="0">
-                                    <tr>
-                                        <td>상호명</td><td width = 150></td><td rowspan=3>별점</td>
-                                    </tr>
-                                    <tr>
-                                        <td>위치</td>
-                                    </tr>
-                                    <tr>
-                                        <td>좋아요와 리뷰 수</td>
-                                    </tr>
-
-                                </table>
-                            </div>
-
-                            <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="/res/work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Nike Shoe</h3>
-                                        <span>Design</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_4.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Kitchen Sink</h3>
-                                        <span>Photography</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_5.jpg">
-                                </a>
-                            </div>
-
-
-                            <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                                <a href="work-single.html" class="item-wrap fancybox">
-                                    <div class="work-info">
-                                        <h3>Amazon</h3>
-                                        <span>brandingn</span>
-                                    </div>
-                                    <img class="img-fluid" src="/res/img/img_6.jpg">
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div>
-        </div>
-        <div class="site-section site-portfolio">
-            <div class="container">
-                <div class="row mb-5 align-items-center">
-                    <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                        <h2>니가 이걸 먹을줄 알고 있었어2</h2>
+                        <h2>니가 이걸 먹을줄 알고 있었어22</h2>
                         <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                     </div>
 
@@ -306,7 +117,9 @@
 
                 <div class="owl-carousel testimonial-carousel">
 
-                    <% for (int i = 0; i<12; i++){ %>
+                    <%  List<RecommendVO> res_allList =(List<RecommendVO>)request.getAttribute("res_allList");
+                        List<String> photoList = (List<String>)request.getAttribute("photoList");
+                        for (int i = 0; i<12; i++){ %>
 
                     <%if(i%6==0){%>
 
@@ -319,17 +132,18 @@
                                         <h3>Cocooil</h3>
                                         <span>Branding</span>
                                     </div>
-                                    <img class="img-fluid" src="/res/img/img_3.jpg">
+<%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                    <img width="400" height="300"  src=<%=photoList.get(i)%>>
                                 </a>
                                 <table border="0">
                                     <tr>
-                                        <td>상호명</td><td width = 120></td><td rowspan=3>별점</td>
+                                        <td width = 250><%=res_allList.get(i).getRes_name()%></td><td rowspan=3>별점</td>
                                     </tr>
                                     <tr>
-                                        <td>위치</td>
+                                        <td width = 250><%=res_allList.get(i).getRes_addr().split(" ")[1]%></td>
                                     </tr>
                                     <tr>
-                                        <td>좋아요와 리뷰 수</td>
+                                        <td width = 250>좋아요와 리뷰 수</td>
                                     </tr>
 
                                 </table>
