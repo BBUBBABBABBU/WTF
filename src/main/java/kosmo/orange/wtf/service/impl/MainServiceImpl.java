@@ -14,11 +14,22 @@ public class MainServiceImpl implements MainService {
     @Autowired
     MainMapper mainMapper;
 
+//    @Override
+//    public List<RestaurantVO> checkRestaurant(String kind) {
+//        System.out.println("MainServiceImpl 19line : " + kind);
+//        try{
+//            return mainMapper.checkRestaurant(kind);
+//        }catch (Exception e){
+//            System.out.println("checkRestaurant error : " + e.toString());
+//            return null;
+//        }
+//    }
+
     @Override
-    public List<RestaurantVO> checkRestaurant(String kind) {
-        System.out.println("MainServiceImpl 19line : " + kind);
+    public List<RestaurantVO> checkRestaurant() {
+        System.out.println("MainServiceImpl 19line : ");
         try{
-            return mainMapper.checkRestaurant(kind);
+            return mainMapper.checkRestaurant();
         }catch (Exception e){
             System.out.println("checkRestaurant error : " + e.toString());
             return null;

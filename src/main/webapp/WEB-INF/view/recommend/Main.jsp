@@ -34,13 +34,12 @@
 
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
+    <link href="/res/css/main/map.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
 "></script>
-    <%--<script type="text/javascript" src="/res/js/map.js"></script>--%>
-
-
+    <script type="text/javascript" src="/res/js/map.js"></script>
 
 </head>
 <body>
@@ -49,7 +48,6 @@
 
 <nav class="navbar navbar-light custom-navbar">
     <div class="container">
-        <!-- <a class="navbar-brand" href="index.html">네가 이걸 먹을줄은 정말 몰랐어.</a> -->
         <form>
             <input type="text" placeholder="검색" size='50'>
             <button type="input" class="btn btn-info">검색</button>
@@ -88,7 +86,6 @@
                     <div class="custom_zoomcontrol radius_border">
                         <span><button id="fiveM">500m</button></span>
                         <span><button id="thousandM">1000m</button></span>
-
                     </div>
                 </div>
             </div>

@@ -7,14 +7,14 @@
     <select id="checkRestaurant" resultMap="getRestaurant">
         SELECT *
         from restaurant
-        where res_keyword = #{kind}
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">
         <result property="resName" column="res_name"/>
         <result property="resTell" column="res_tell"/>
         <result property="resAddr" column="res_addr"/>
-        <result property="resLatitude" column="res_longitude"/>
+        <result property="resLatitude" column="res_latitude"/>
+        <result property="resLongitude" column="res_longitude"/>
         <result property="resRuntime" column="res_runtime"/>
         <result property="resKeyword" column="res_keyword"/>
         <result property="resRating" column="res_rating"/>

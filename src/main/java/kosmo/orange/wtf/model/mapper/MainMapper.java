@@ -9,5 +9,6 @@ import java.util.List;
 @Repository("mainMapper")
 @Mapper
 public interface MainMapper {
-    List<RestaurantVO> checkRestaurant(String kind) throws Exception;
+//    List<RestaurantVO> checkRestaurant(String kind) throws Exception;
+    List<RestaurantVO> checkRestaurant() throws Exception;
 }
