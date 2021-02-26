@@ -1,4 +1,5 @@
-<%--
+<%@ page import="kosmo.orange.wtf.model.vo.RecommendVO" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kosmo_04
   Date: 2021-02-22
@@ -116,7 +117,9 @@
 
                 <div class="owl-carousel testimonial-carousel">
 
-                    <% for (int i = 0; i<12; i++){ %>
+                    <%  List<RecommendVO> res_allList =(List<RecommendVO>)request.getAttribute("res_allList");
+                        List<String> photoList = (List<String>)request.getAttribute("photoList");
+                        for (int i = 0; i<12; i++){ %>
 
                     <%if(i%6==0){%>
 
@@ -129,17 +132,18 @@
                                         <h3>Cocooil</h3>
                                         <span>Branding</span>
                                     </div>
-                                    <img class="img-fluid" src="/res/img/img_3.jpg">
+<%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                    <img width="400" height="300"  src=<%=photoList.get(i)%>>
                                 </a>
                                 <table border="0">
                                     <tr>
-                                        <td>${res_allList[0].res_name}</td><td width = 120></td><td rowspan=3>별점</td>
+                                        <td width = 250><%=res_allList.get(i).getRes_name()%></td><td rowspan=3>별점</td>
                                     </tr>
                                     <tr>
-                                        <td>위치</td>
+                                        <td width = 250><%=res_allList.get(i).getRes_addr().split(" ")[1]%></td>
                                     </tr>
                                     <tr>
-                                        <td>좋아요와 리뷰 수</td>
+                                        <td width = 250>좋아요와 리뷰 수</td>
                                     </tr>
 
                                 </table>
