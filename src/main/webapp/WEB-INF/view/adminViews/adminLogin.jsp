@@ -52,7 +52,9 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="/"> <h4>Rosella</h4></a>
+
+                                <%--이름 클릭시 홈페이지로 이동--%>
+                                <a class="text-center" href="/"> <h2>니가 이걸 먹을줄은 정말로 몰랐어</h2></a>
 
                                 <form class="mt-5 mb-5 login-input">
                                     <div class="form-group">
@@ -63,7 +65,7 @@
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Sign In</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="page-register.html" class="text-primary">Sign Up</a> now</p>
+                                <p class="mt-5 login-form__footer">Dont have account? <a href="/signUp" class="text-primary">Sign Up</a> now</p>
                             </div>
                         </div>
                     </div>
