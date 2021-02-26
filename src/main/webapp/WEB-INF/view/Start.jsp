@@ -44,7 +44,7 @@
 
 <a href="/adminHome">관리자페이지로</a>
 
-<a href="recommend/recommend"> 추천 화면 가기 </a>
+<a href="/recommend"> 추천 화면 가기 </a>
 <a href="/Join">회원가입 페이지</a>
 </body>
 </html>

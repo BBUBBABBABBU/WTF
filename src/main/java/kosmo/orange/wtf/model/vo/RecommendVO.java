@@ -19,4 +19,7 @@ public class RecommendVO {
     private String menu;
     private String price;
     private String rtr_pic_loc;
+    private String star;
+    private String photo;
+
 }
