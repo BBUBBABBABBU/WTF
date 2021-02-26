@@ -9,7 +9,7 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="/res/js/login.js" type="text/javascript"></script>
-
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body><img width="450" src="/res/img/WTF_logo.png">
 <h2>네가</h2><br/>
@@ -55,6 +55,7 @@
             <button type="button" class="togglebtn" id ='registerbtn' >회원가입</button>
         </div>
         <div class="social-icons">
+            <a href="javascript:kakaoLogin();"><img src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"></a>
             <img src="/res/img/fb.png" alt="facebook">
             <img src="/res/img/tw.png" alt="twitter">
             <img src="/res/img/gl.png" alt="google">
@@ -76,7 +77,6 @@
 </div>
 
 
-</body>
 <script>
     loginForm=document.getElementById('wrap')
     loginBack=document.getElementById('loginBackground')
@@ -95,4 +95,56 @@
 </script>
 
 
+
+<%--<a id="custom-login-btn" href="javascript:loginWithKakao()">--%>
+<%--    <img--%>
+<%--            src="//k.kakaocdn.net/14/dn/btqCn0WEmI3/nijroPfbpCa4at5EIsjyf0/o.jpg"--%>
+<%--            width="222"--%>
+<%--    />--%>
+<%--</a>--%>
+<%--<script type="text/javascript">--%>
+<%--    function loginWithKakao() {--%>
+<%--        window.Kakao.Auth.login({--%>
+<%--            success: function(authObj) {--%>
+<%--                alert(JSON.stringify(authObj))--%>
+<%--            },--%>
+<%--            fail: function(err) {--%>
+<%--                alert(JSON.stringify(err))--%>
+<%--            },--%>
+<%--        })--%>
+<%--    }--%>
+<%--</script>--%>
+
+<script>
+    window.Kakao.init("04282fd63dd03344508a3be888ff6297");
+
+
+    function kakaoLogin(){
+
+        window.Kakao.Auth.login({
+            scope: 'profile, account_email, gender, birthday',
+            success : function(authObj){
+                console.log(authObj);
+                window.Kakao.API.request({
+                    url:'/v2/user/me',
+                    success: res=>{
+                        const kakao_account1 = res.kakao_account;
+                        console.log(kakao_account1.);
+                        window.alert(kakao_account1)
+                        localStorage.setItem('kakao_account',kakao_account1);
+                        document.Test.s.value =kakao_account1;
+
+                    }
+                });
+            }
+
+        });
+    }
+    //
+</script>
+<form name="Test" action="Info">
+    <input type="text" name="s" value="">
+    <button type="submit" name="anything_name" value="으아아아아ㅏㄱ">으아아아악</button>
+</form>
+</body>
 </html>

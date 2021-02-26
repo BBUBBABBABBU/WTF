@@ -28,14 +28,16 @@
             align-items: center;
 
         }
-
+        div.w3-container {
+            border-radius: 30px;
+        }
     </style>
 </head>
 <body>
 <div class="w3-content w3-container w3-margin-top">
     <div class="w3-container w3-card-4">
         <div class="w3-center w3-large w3-margin-top">
-            <h3>My Page</h3>
+            <h3>고객정보</h3>
         </div>
         <div>
             <form id="myForm" action="../member/update_mypage.do" method="post">
@@ -45,21 +47,21 @@
 <%--                </p>--%> -->
                 <div class="i">
                     <p>
-                        <label>Email</label>
+                        <label>이메일</label>
                         <input class="w3-input" type="text" id="email" name="email" value="" required>
                     </p>
                     <br />
                     <input type="hidden" name="id" value="${ member.id }">
                     <p>
-                        <label>BirthDay</label>
+                        <label>생년월일</label>
                         <input class="w3-input" id="old_pw" name="old_pw" type="password" required>
                     </p>
                     <p>
-                        <label>Gender</label>
+                        <label>성별</label>
                         <input class="w3-input" id="pw" name="pw" type="password" required>
                     </p>
                     <p>
-                        <label>preference</label>
+                        <label>당신의 취향</label>
                         <input class="w3-input" type="password" id="pw2" type="password" required>
                     </p>
                 </div>
