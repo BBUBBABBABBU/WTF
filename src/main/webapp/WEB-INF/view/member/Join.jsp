@@ -129,7 +129,7 @@
                     url:'/v2/user/me',
                     success: res=>{
                         const kakao_account1 = res.kakao_account;
-                        console.log(kakao_account1.);
+                        console.log(kakao_account1);
                         window.alert(kakao_account1)
                         localStorage.setItem('kakao_account',kakao_account1);
                         document.Test.s.value =kakao_account1;
