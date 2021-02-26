@@ -30,19 +30,22 @@ public class StartController {
     @GetMapping("/main")
     public String main(String kind, Model model){
         System.out.println("시작에서 받아온 종류 : " + kind);
-        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
+//        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
 //        for(RestaurantVO restaurantVO : restaurantList){
 //            System.out.println(restaurantVO.getResName());
 //        }
-//        model.addAttribute("restaurantList", restaurantList);
+//
+//        model.addAttribute("restaurantList",restaurantList);
 
         return "recommend/Main";
     }
 
-    @PostMapping("/getRestaurant")
+    @PostMapping("/restaurantInfo")
     @ResponseBody
-    public List<RestaurantVO> getRestaurant(String kind){
-        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
+    public List<RestaurantVO> restaurantInfo(String kind){
+//        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
+        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
+        System.out.println("ajax 불림" + restaurantList.size());
         for(RestaurantVO restaurantVO : restaurantList){
             System.out.println(restaurantVO.getResName());
         }

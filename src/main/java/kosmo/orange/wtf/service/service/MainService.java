@@ -5,5 +5,6 @@ import kosmo.orange.wtf.model.vo.RestaurantVO;
 import java.util.List;
 
 public interface MainService {
-    List<RestaurantVO> checkRestaurant(String kind);
+//    List<RestaurantVO> checkRestaurant(String kind);
+    List<RestaurantVO> checkRestaurant();
 }

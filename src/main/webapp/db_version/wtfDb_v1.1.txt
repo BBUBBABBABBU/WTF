@@ -4,6 +4,7 @@
 -- alter table restaurant modify res_tell varchar(100);
 -- alter table restaurant change res_logitude res_longitude varchar(30);
 -- alter table restaurant add column res_rating int;
+-- alter table manager add column mgr_name varchar(20) first;
 
 CREATE TABLE Manager(
 	mgr_id VARCHAR(20) PRIMARY KEY,
