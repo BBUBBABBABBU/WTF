@@ -16,4 +16,5 @@ public class RestaurantVO {
     private String resRuntime;
     private String resKeyword;
 
+
 }
