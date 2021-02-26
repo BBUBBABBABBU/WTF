@@ -14,8 +14,10 @@ public class ReviewController {
     @Autowired
     HttpSession httpSession;
 
-    @RequestMapping("/")
-    public String Review(){return "ReviewInsert";}
+    @RequestMapping("/review")
+    public String Review(){return "review/feed";}
 
+    @RequestMapping("/reviewinsert")
+    public String Reviewinsert(){return "review/ReviewInsert";}
 
 }

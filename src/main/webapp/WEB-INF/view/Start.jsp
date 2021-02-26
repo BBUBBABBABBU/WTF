@@ -46,5 +46,9 @@
 
 <a href="/recommend"> 추천 화면 가기 </a>
 <a href="/Join">회원가입 페이지</a>
+
+<a href="/review">리뷰 피드</a>
+
+<a href="/reviewinsert">리뷰작성</a>
 </body>
 </html>
