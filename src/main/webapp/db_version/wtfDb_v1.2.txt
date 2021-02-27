@@ -1,0 +1,2 @@
+-- 변경부분
+alter taable restaurant modify res_rating float;

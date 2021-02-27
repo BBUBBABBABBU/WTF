@@ -15,6 +15,6 @@ public class RestaurantVO {
     private String resLongitude;
     private String resRuntime;
     private String resKeyword;
-
+    private long resRating;
 
 }
