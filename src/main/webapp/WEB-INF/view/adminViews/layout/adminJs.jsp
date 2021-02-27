@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%-- **************************************************************--%>
-<%-- index template --%>
+<%-- index template >> adminIndex.jsp --%>
 
 <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
 <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
@@ -45,7 +45,7 @@
 
 
 <%-- **************************************************************--%>
-<%-- page-login template --%>
+<%-- page-login template >> adminLogin.jsp --%>
 
 <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
 <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
@@ -54,6 +54,83 @@
 <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
 <%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- page-register template >> adminJoin.jsp --%>
+
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- page-lock template >> adminLoginConfirm.jsp --%>
+
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
+
+<%-- **************************************************************--%>
+<%-- (??) template --%>
+
+<%-- **************************************************************--%>
+
 
 <%-- **************************************************************--%>
 <%-- (??) template --%>
