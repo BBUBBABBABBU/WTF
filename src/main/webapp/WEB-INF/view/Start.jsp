@@ -26,7 +26,7 @@
 <div class="row">
     <div class="col s5"></div>
     <div class="input-field col s2">
-        <form id="kind_form" action="/main" method="post">
+        <form id="kind_form" action="/main" method="get">
             <select id="select_kind" name="kind" style="width: 300px;">
                 <option value="" disabled selected>이걸</option>
                 <option value="korean">한식</option>
@@ -46,5 +46,9 @@
 
 <a href="/recommend"> 추천 화면 가기 </a>
 <a href="/Join">회원가입 페이지</a>
+
+<a href="/review">리뷰 피드</a>
+
+<a href="/reviewinsert">리뷰작성</a>
 </body>
 </html>
