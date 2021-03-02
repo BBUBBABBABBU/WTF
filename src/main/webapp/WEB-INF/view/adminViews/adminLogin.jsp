@@ -9,7 +9,7 @@
 <html>
 <head>
 
-    <title>admin Login</title>
+    <title>adminLogin.jsp / 로그인 페이지</title>
 
     <%--meta tag--%>
     <meta charset="utf-8">
@@ -21,6 +21,18 @@
 
     <%--js--%>
     <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"/>
+    <script type="text/javascript">
+
+        /***********
+         * 로그인
+         */
+        function login(){
+            $('#login').submit()
+        }
+
+    </script>
 
 </head>
 
@@ -41,7 +53,7 @@
     ********************-->
 
 
-
+    <h1>dfgdfgdfgdfgdfgdfgdfgdf ${aaa}</h1>
     <!--*******************
         login start
     ********************-->
@@ -54,18 +66,28 @@
                             <div class="card-body pt-5">
 
                                 <%--이름 클릭시 홈페이지로 이동--%>
-                                <a class="text-center" href="/"> <h2>니가 이걸 먹을줄은 정말로 몰랐어</h2></a>
+                                <a class="text-center" href="/">
+                                    <h2>니가 이걸 먹을줄은 정말로 몰랐어</h2>
+                                </a>
 
-                                <form class="mt-5 mb-5 login-input">
+                                <%--로그인 폼--%>
+                                <form class="mt-5 mb-5 login-input" action="login" id="login" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email">
+                                        <input type="email" class="form-control" placeholder="Email" name="mgr_id">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password">
+                                        <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
                                     </div>
-                                    <button class="btn login-form__btn submit w-100">Sign In</button>
+                                    <button class="btn login-form__btn submit w-100" onclick="login();">Sign In</button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Dont have account? <a href="/signUp" class="text-primary">Sign Up</a> now</p>
+
+                                <%--회원가입 페이지로 이동--%>
+                                <p class="mt-5 login-form__footer">Dont have account?
+                                    <a href="/signUp" class="text-primary">Sign Up</a>
+                                    now
+                                </p>
+
+
                             </div>
                         </div>
                     </div>

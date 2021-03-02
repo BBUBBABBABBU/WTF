@@ -9,7 +9,7 @@
 <html>
 <head>
 
-    <title>admin Index (Dashboard)</title>
+    <title>adminIndex.jsp (Dashboard) / 어드민 메인페이지 (대시보드 열림)</title>
 
     <%--meta tag--%>
     <meta charset="utf-8">
@@ -20,7 +20,8 @@
     <jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>
 
     <%--js--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+    <%-->> 스크립트 적용이 안되서 body 하단에 입력--%>
 
 
 </head>
@@ -234,7 +235,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="./images/users/8.jpg" class="rounded-circle" alt="">
+                                    <img src="${pageContext.request.contextPath}/res/adminTemplate/images/users/8.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Ana Liem</h5>
                                     <p class="m-0">Senior Manager</p>
                                     <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -246,7 +247,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="./images/users/5.jpg" class="rounded-circle" alt="">
+                                    <img src="${pageContext.request.contextPath}/res/adminTemplate/images/users/5.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">John Abraham</h5>
                                     <p class="m-0">Store Manager</p>
                                     <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -258,7 +259,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="./images/users/7.jpg" class="rounded-circle" alt="">
+                                    <img src="${pageContext.request.contextPath}/res/adminTemplate/images/users/7.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">John Doe</h5>
                                     <p class="m-0">Sales Man</p>
                                     <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -270,7 +271,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="./images/users/1.jpg" class="rounded-circle" alt="">
+                                    <img src="${pageContext.request.contextPath}/res/adminTemplate/images/users/1.jpg" class="rounded-circle" alt="">
                                     <h5 class="mt-3 mb-1">Mehedi Titas</h5>
                                     <p class="m-0">Online Marketer</p>
                                     <!-- <a href="javascript:void()" class="btn btn-sm btn-warning">Send Message</a> -->
@@ -300,7 +301,7 @@
                                             </thead>
                                             <tbody>
                                             <tr>
-                                                <td><img src="./images/avatar/1.jpg" class=" rounded-circle mr-3" alt="">Sarah Smith</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/1.jpg" class=" rounded-circle mr-3" alt="">Sarah Smith</td>
                                                 <td>iPhone X</td>
                                                 <td>
                                                     <span>United States</span>
@@ -319,7 +320,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="./images/avatar/2.jpg" class=" rounded-circle mr-3" alt="">Walter R.</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class=" rounded-circle mr-3" alt="">Walter R.</td>
                                                 <td>Pixel 2</td>
                                                 <td><span>Canada</span></td>
                                                 <td>
@@ -336,7 +337,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="./images/avatar/3.jpg" class=" rounded-circle mr-3" alt="">Andrew D.</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/3.jpg" class=" rounded-circle mr-3" alt="">Andrew D.</td>
                                                 <td>OnePlus</td>
                                                 <td><span>Germany</span></td>
                                                 <td>
@@ -353,7 +354,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="./images/avatar/6.jpg" class=" rounded-circle mr-3" alt=""> Megan S.</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/6.jpg" class=" rounded-circle mr-3" alt=""> Megan S.</td>
                                                 <td>Galaxy</td>
                                                 <td><span>Japan</span></td>
                                                 <td>
@@ -370,7 +371,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="./images/avatar/4.jpg" class=" rounded-circle mr-3" alt=""> Doris R.</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/4.jpg" class=" rounded-circle mr-3" alt=""> Doris R.</td>
                                                 <td>Moto Z2</td>
                                                 <td><span>England</span></td>
                                                 <td>
@@ -387,7 +388,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><img src="./images/avatar/5.jpg" class=" rounded-circle mr-3" alt="">Elizabeth W.</td>
+                                                <td><img src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/5.jpg" class=" rounded-circle mr-3" alt="">Elizabeth W.</td>
                                                 <td>Notebook Asus</td>
                                                 <td><span>China</span></td>
                                                 <td>
@@ -457,49 +458,49 @@
                                 <h4 class="card-title">Activity</h4>
                                 <div id="activity">
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/1.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/1.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>Received New Order</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>iPhone develered</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>3 Order Pending</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>Join new Manager</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>Branch open 5 min Late</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media border-bottom-1 pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/2.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/2.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>New support ticket received</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
                                         </div><span class="text-muted ">April 24, 2018</span>
                                     </div>
                                     <div class="media pt-3 pb-3">
-                                        <img width="35" src="./images/avatar/3.jpg" class="mr-3 rounded-circle">
+                                        <img width="35" src="${pageContext.request.contextPath}/res/adminTemplate/images/avatar/3.jpg" class="mr-3 rounded-circle">
                                         <div class="media-body">
                                             <h5>Facebook Post 30 Comments</h5>
                                             <p class="mb-0">I shared this on my fb wall a few months back,</p>
@@ -630,6 +631,9 @@
     <!--**********************************
         Main wrapper end
     ***********************************-->
+
+    <%--js--%>
+    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
 
 </body>
 </html>

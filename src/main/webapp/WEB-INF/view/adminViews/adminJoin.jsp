@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>admin Join</title>
+    <title>adminJoin.jsp / 회원가입 form</title>
 
     <%--meta tag--%>
     <meta charset="utf-8">
@@ -20,6 +20,7 @@
 
     <%--js--%>
     <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
 
@@ -29,20 +30,25 @@
          */
         $(function(){
             $('#email').blur(function(){
+
+                alert("ajax");
+
                 $.ajax({
                     type:"POST",
                     url:"idCheck",
                     data:{
                         "email":$('#email').val()
                     },
-                    success:function(data){	//data : checkSignup에서 넘겨준 결과값
-                        if($.trim(data)=="ok"){
-                            if($('#email').val()!=''){
+                    success:function(str){
+                        alert(str);
+
+                        if($.trim(str) == "ok"){
+                            if($('#email').val() != ''){
                                 alert("사용가능한 아이디입니다.");
                             }
                         }
                         else{
-                            if($('#email').val()!=''){
+                            if($('#email').val() != ''){
                                 alert("중복된 아이디입니다.");
                                 $('#email').val('');
                                 $('#email').focus();
@@ -51,14 +57,12 @@
                     }
                 })
             })
-        }); // end of id 중복 체크
 
 
         /**************************
          * 비번확인
          * https://xodgl2.tistory.com/22
          */
-        $(function(){
             $('#pass2').blur(function(){
                 if($('#pass').val() != $('#pass2').val()){
                     if($('#pass2').val()!=''){
@@ -69,29 +73,29 @@
                     }
                 }
             })
-        }); // end of 비번 확인
 
 
         /*****************************
          * 회원가입
          */
-        $(function(){
 
             $('#join_account').click(()=>{
-
-                var check_list = ['name', 'email', 'pass']
-
-                for(var check in check_list){
-                    if(!document.join_form.check.val.value){
-                        alert(check + " X")
-                        document.join_form.name.focus();
-                        return;
-                    }
+                alert('ok')
+                // var check_list = ['name', 'email', 'pass']
+                //
+                // for(var check in check_list){
+                //     alert(check_list[check])
+                //
+                // }
+                if($('#name').val() ==''){
+                    alert('이름을 입력해주세요')
+                    return;
                 }
 
                 $('#join_form').submit()
 
             })
+
         }) // end of 회원가입 form submit
 
 
@@ -117,8 +121,9 @@
 
 
 
-
-
+    <!--*******************
+        회원가입 폼 start
+    ********************-->
     <div class="login-form-bg h-100">
         <div class="container h-100">
             <div class="row justify-content-center h-100">
@@ -129,12 +134,12 @@
 
                                 <a class="text-center" href="/"> <h4>니가 이걸 먹을줄은 정말로 몰랐어</h4></a>
 
-                                <form class="mt-5 mb-5 login-input" id ="join_form" action="signUp" method="get">
+                                <form class="mt-5 mb-5 login-input" id ="join_form" action="createAccount" method="post">
                                     <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="Name" required name="mgr_name" id="name">
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control"  placeholder="Email" required name="mgr_id" id="email">
+                                        <input type="email" class="form-control"  placeholder="Email / Id" required name="mgr_id" id="email">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password" required name="mgr_pass" id="pass">
@@ -154,6 +159,10 @@
         </div>
     </div>
     </div>
+    <!--*******************
+        회원가입 폼 end
+    ********************-->
+
 
 
 </body>
