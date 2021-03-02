@@ -50,5 +50,6 @@
 <a href="/review">리뷰 피드</a>
 
 <a href="/reviewinsert">리뷰작성</a>
+<a href="/mypage">마이페이지</a>
 </body>
 </html>
