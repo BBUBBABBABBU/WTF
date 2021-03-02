@@ -24,4 +24,9 @@ public class MemberController {
         System.out.println("회원정보");
         return "member/memInfo";
     }
+    @RequestMapping(value = "/signUp",method= RequestMethod.POST )
+    public String signUp(MemberVO memberVO){
+        System.out.println(memberVO.getBirthday());
+        return "member/Join";
+    }
 }

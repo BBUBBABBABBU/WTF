@@ -21,6 +21,13 @@
     <script src="/res/js/login.js" type="text/javascript"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script>
+
+        function normal(){
+            window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
+
+        }
+    </script>
     <style>
         #naver_id_login{
 
@@ -30,7 +37,29 @@
             z-index: 100000;
 
         }
+        #naverSignup{
+            position: absolute;
+            top: 43px;
+            left: 42px;
+        }
+        #kakaoSignup{
+            position: absolute;
+            top: 0px;
+            left: 42px;
+        }
+        #normalSignup{
+            position: relative;
+            top: 4px;
+        }
+        #sub{
+            position: relative;
+            top: 5px;
+        }
+        #normalSignup:hover{
+            cursor: pointer;}
+        #kakao-login-btn:hover{cursor: pointer;
 
+        }
 
     </style>
 
@@ -80,9 +109,7 @@
         </div>
         <div class="social-icons">
 
-            <img src="/res/img/fb.png" alt="facebook">
-            <img src="/res/img/tw.png" alt="twitter">
-            <img src="/res/img/gl.png" alt="google">
+
      </div>
         <form id="login" action="/Info" class="input-group" method="post">
             <input type="email" name="email" class="input-field" placeholder="Email을 입력하세요" required>
@@ -92,10 +119,12 @@
         </form>
         <form id="register" action="" class="input-group">
             <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png"></a>
-            <input type="email" class="input-field" placeholder="Your Email" required>
-            <input type="password" class="input-field" placeholder="Enter Password" required>
-            <input type="checkbox" class="checkbox"><span>Terms and conditions</span>
-            <button class="submit">REGISTER</button>
+            <img id="kakaoSignup" src="/res/img/kakaoSignup.png">
+            <div id="naver_id_login"></div>
+            <img id="naverSignup" src="/res/img/naverSignup.png">
+            <a id="normal" onclick="normal()"><img id="normalSignup" src="/res/img/didntNo.png"></a>
+
+            <button class="submit" id ="sub">REGISTER</button>
         </form>
     </div>
 </div>
@@ -134,12 +163,6 @@
 
                 success: function(res) { //res가 참일때, 자료를 성공적으로 보냈을때 출력되는 부분
 
-                    alert(res.id);//<---- 콘솔 로그에 id 정보 출력(id는 res안에 있기 때문에  res.id 로 불러온다)
-
-                    alert(res.kakao_account.email);//<---- 콘솔 로그에 email 정보 출력 (어딨는지 알겠죠?)
-                    alert(res.kakao_account.gender);
-                    alert(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근
-                    alert(res.kakao_account.birthday);
                     // res.properties.nickname으로도 접근 가능 )
                     console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
 
@@ -169,22 +192,18 @@
                 window.Kakao.API.request({
                     url:'/v2/user/me',
                     success: res=>{
-                        alert(res.kakao_account.email);//<---- 콘솔 로그에 email 정보 출력 (어딨는지 알겠죠?)
-                        alert(res.kakao_account.gender);
-                        alert(res.properties['nickname']);//<---- 콘솔 로그에 닉네임 출력(properties에 있는 nickname 접근
-                        alert(res.kakao_account.birthday);
+
                         // res.properties.nickname으로도 접근 가능 )
                         console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
 
 
                         var kakaonickname = res.properties['nickname'];    //카카오톡 닉네임을 변수에 저장
                         var kakaoe_mail =   res.kakao_account.email;    //카카오톡 이메일을 변수에 저장함
-
-
+                        var gender =res.kakao_account.gender
+                        var birthday=res.kakao_account.birthday
 
                         //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??kakaonickname="+kakaonickname+"&kakaoe_mail="+kakaoe_mail);
-
+                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
 
                     }
                 });
@@ -195,31 +214,32 @@
 
 </script>
 
-
 <!-- 네이버아이디로로그인 버튼 노출 영역 -->
+<%----%>
 
-<div id="naver_id_login"><img src="/res/img/kakao.png">
-<picture src=/res/img/kakao.png"></picture>< </div>
 
 <!-- //네이버아이디로로그인 버튼 노출 영역 -->
 <script type="text/javascript">
-    var naver_id_login = new naver_id_login("xgIAqtm_DJEQkFLVejnq", "http://localhost:8080/Info");
-    var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("white", 2,40);
-    naver_id_login.setDomain("http://localhost:8080");
-    naver_id_login.setState(state);
-    naver_id_login.setPopup();
-    naver_id_login.init_naver_id_login();
-    naver_id_login.get_naver_userprofile("naverSignInCallback()");
-    // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-    function naverSignInCallback() {
-        var email = naver_id_login.getProfileData('email');
-        var nickname = naver_id_login.getProfileData('nickname');
-        alert(naver_id_login.getProfileData('age'));
-        alert(naver_id_login.getProfileData("gender"));
-        alert(naver_id_login.getProfileData("birthday"));
-        window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info??kakaonickname=" + nickname + "&kakaoe_mail=" + email);
+
+        var naver_id_login = new naver_id_login("xgIAqtm_DJEQkFLVejnq", "http://localhost:8080/Info");
+        var state = naver_id_login.getUniqState();
+
+        naver_id_login.setPopup()
+        naver_id_login.setButton("green", 1,40);
+        naver_id_login.setDomain("http://localhost:8080");
+        naver_id_login.setState(state);
+        naver_id_login.setPopup();
+        naver_id_login.init_naver_id_login();
+        naver_id_login.get_naver_userprofile("naverSignInCallback()");
+        // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
+        function naverSignInCallback() {
+            var email = naver_id_login.getProfileData('email');
+            var nickname = naver_id_login.getProfileData('nickname');
+
+
+            window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info??kakaonickname=" + nickname + "&kakaoe_mail=" + email);
     }
+
 </script>
 
 <form name="Test" action="Info">
@@ -227,4 +247,5 @@
     <button type="submit" name="anything_name" value="으아아아아ㅏㄱ">으아아아악</button>
 </form>
 </body>
+
 </html>

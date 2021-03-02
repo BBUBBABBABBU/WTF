@@ -24,6 +24,49 @@ System.out.println(nick);%>
 
 
 </script>
+<script>
+    function chkPW(){
+
+        var pw = $("#pw").val();
+        var num = pw.search(/[0-9]/g);
+        var eng = pw.search(/[a-z]/ig);
+        var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+        if(pw.length < 8 || pw.length > 20){
+
+            alert("8자리 ~ 20자리 이내로 입력해주세요.");
+            $("#pw").val("");
+            return false;
+        }else if(pw.search(/\s/) != -1){
+            $("#pw").val("");
+            $("#pw").focus();
+            alert("비밀번호는 공백 없이 입력해주세요.");
+
+            return false;
+        }else if(num < 0 || eng < 0 || spe < 0 ){
+
+            alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+            $("#pw").val("");
+            $("#pw").focus();
+            return false;
+        }else {
+            console.log("통과");
+            return true;
+        }
+
+    }
+    function checkPassword() {
+        //비밀번호가 입력되었는지 확인하기
+
+        //비밀번호와 비밀번호 확인이 맞지 않다면..
+        if ( $("#pwCheck").val() != $("#pw").val()) {
+            alert("비밀번호가 일치하지 않습니다.");
+            $("#pwCheck").val("");
+            return false;
+        }else alert("비밀번호가 일치합니다.");
+        return true; //확인이 완료되었을 때
+    }
+</script>
 <html>
 
 <head>
@@ -54,16 +97,17 @@ System.out.println(nick);%>
             border-radius: 30px;
         }
     </style>
+
 </head>
 <body>
 
 <div class="w3-content w3-container w3-margin-top">
     <div class="w3-container w3-card-4">
         <div class="w3-center w3-large w3-margin-top">
-            <h3>고객정보</h3>
+            <h3>회원가입</h3>
         </div>
         <div>
-            <form id="myForm" name="myForm" action="../member/update_mypage.do" method="post">
+            <form id="myForm" name="myForm" action="signUp" method="post">
                 <!-- <%--                <p>--%>
 <%--                    <label>ID</label>--%>
 <%--                    <input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }">--%>
@@ -71,21 +115,32 @@ System.out.println(nick);%>
                 <div class="i" name="div1">
                     <p>
                         <label>이메일</label>
-                        <input class="w3-input" type="text" id="email" name="email" value="" required>
+                        <input class="w3-input" type="email" id="email" name="email" value="" required>
                     </p>
-                    <br />
+                    <p>
+                        <label>닉네임</label>
+                        <input class="w3-input" id="nickname" name="nickname" type="text"  value="" required>
+                    </p>
+                    <p>
+                        <label>비밀번호</label>
+                        <input class="w3-input" id="pw" name="pw" type="password" onfocusout="chkPW()" value="" required>
+                    </p>
+                    <p>
+                        <label>비밀번호확인</label>
+                        <input class="w3-input" id="pwCheck" name="password" type="password" onfocusout="checkPassword()" required>
+                    </p>
                     <input type="hidden" name="id" >
                     <p>
                         <label>생년월일</label>
-                        <input class="w3-input" id="old_pw" name="old_pw" type="password" required>
+                        <input class="w3-input" id="birthday" name="birthday" type="text" value="" required>
                     </p>
                     <p>
                         <label>성별</label>
-                        <input class="w3-input" id="pw" name="pw" type="password" required>
+                        <input class="w3-input" id="gender" name="gender" type="text" value="" required>
                     </p>
                     <p>
                         <label>당신의 취향</label>
-                        <input class="w3-input" type="password" id="pw2" type="password" required>
+                        <input class="w3-input" type="prefer" id="prefer" type="text" required>
                     </p>
                 </div>
                 <p class="w3-center">
@@ -95,29 +150,42 @@ System.out.println(nick);%>
         </div>
     </div>
 </div>
-
 <script type="text/javascript">
+
     var naver_id_login = new naver_id_login("xgIAqtm_DJEQkFLVejnq", "http://localhost:8080/Info");
     // 접근 토큰 값 출력
-    alert(naver_id_login.oauthParams.access_token);
+
     // 네이버 사용자 프로필 조회
     naver_id_login.get_naver_userprofile("naverSignInCallback()");
     // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
     function naverSignInCallback() {
         var email=naver_id_login.getProfileData('email');
         var nickname=naver_id_login.getProfileData('nickname');
-        alert(naver_id_login.getProfileData('age'));
-        alert(naver_id_login.getProfileData("gender"));
-        alert(naver_id_login.getProfileData("birthday"));
-        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??kakaonickname="+nickname+"&kakaoe_mail="+email);
+        var gender=naver_id_login.getProfileData('gender');
+        var birthday=naver_id_login.getProfileData('birthday');
+
+
+        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday);
     }
-    var uid = getParameterByName('kakaonickname');
-    var age = getParameterByName('kakaoe_mail');
-    alert(uid)
-    $("#email").attr('value',uid);
+    var uId = getParameterByName('nickname');
+    var uEmail = getParameterByName('email');
+    var uGender = getParameterByName('gender');
+    if (uGender=="male"){
+        uGender="M"
+    }
+    var ubirthday = getParameterByName('birthday');
+    if (ubirthday.includes("-")){
+       ubirthday=ubirthday.replace("-","")
+    }
+    $("#email").attr('value',uEmail);
+    $("#nickname").attr('value',uId);
+    $("#birthday").attr('value',ubirthday);
+    $("#gender").attr('value',uGender);
+
 
 
 </script>
+
 
 <%--<%--%>
 <%--    String clientId = "xgIAqtm_DJEQkFLVejnq";//애플리케이션 클라이언트 아이디값";--%>
@@ -161,4 +229,5 @@ System.out.println(nick);%>
 <%--    }--%>
 <%--%>--%>
 </body>
+
 </html>
