@@ -10,7 +10,6 @@ import java.util.Map;
 
 @Controller
 public class ReviewController {
-
     @Autowired
     HttpSession httpSession;
 
@@ -19,5 +18,4 @@ public class ReviewController {
 
     @RequestMapping("/reviewinsert")
     public String Reviewinsert(){return "review/ReviewInsert";}
-
 }
