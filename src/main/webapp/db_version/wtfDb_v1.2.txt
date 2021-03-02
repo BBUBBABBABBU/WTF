@@ -1,2 +1,3 @@
 -- 변경부분
-alter taable restaurant modify res_rating float;
+-- alter taable restaurant modify res_rating float;
+-- alter table manager modify mgr_pass varchar(350);

@@ -1,8 +1,13 @@
 body{
-    text-align: center;
-    align-items: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 img{
-    display: block; margin:0px auto;
+    margin-left: 50px;
+}
+
+#select_div{
+    margin-left: 50px;
 }

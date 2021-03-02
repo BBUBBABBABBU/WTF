@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -30,25 +31,26 @@ public class StartController {
     @GetMapping("/main")
     public String main(String kind, Model model){
         System.out.println("시작에서 받아온 종류 : " + kind);
-//        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
-//        for(RestaurantVO restaurantVO : restaurantList){
-//            System.out.println(restaurantVO.getResName());
-//        }
-//
-//        model.addAttribute("restaurantList",restaurantList);
+        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
+        List<String> photoList = new ArrayList<>();
+
+        model.addAttribute("restaurantList",restaurantList);
 
         return "recommend/Main";
     }
 
+    //TODO 나중에 선택한 식단으로 골라서 보여줄것
     @PostMapping("/restaurantInfo")
     @ResponseBody
-    public List<RestaurantVO> restaurantInfo(String kind){
+    public List<RestaurantVO> restaurantInfo(String kind,Model model){
 //        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
         System.out.println("ajax 불림" + restaurantList.size());
         for(RestaurantVO restaurantVO : restaurantList){
-            System.out.println(restaurantVO.getResName());
+            System.out.println(restaurantVO.getResName() + ", " + restaurantVO.getResRating());
+            System.out.println(restaurantVO.getResLatitude()+ ", " + restaurantVO.getResLongitude());
         }
+
         return restaurantList;
     }
 }

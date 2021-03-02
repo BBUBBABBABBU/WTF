@@ -1,4 +1,6 @@
-<%--
+<%@ page import="kosmo.orange.wtf.model.vo.RecommendVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="kosmo.orange.wtf.model.vo.RestaurantVO" %><%--
   Created by IntelliJ IDEA.
   User: kosmo_04
   Date: 2021-02-22
@@ -39,20 +41,21 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
 "></script>
-    <script type="text/javascript" src="/res/js/map.js"></script>
 
 </head>
 <body>
 <br/>
-<a href="recommend/recommend">추천 화면 가보자</a>
-
+<nav class="navbar navbar-light custom-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+    </div>
+</nav>
 <nav class="navbar navbar-light custom-navbar">
     <div class="container">
         <form>
             <input type="text" placeholder="검색" size='50'>
             <button type="input" class="btn btn-info">검색</button>
         </form>
-        <img src="">회원 이미지
         <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
         </a>
@@ -67,7 +70,8 @@
                     <li class="active"><a href="index.html">마이페이지</a></li>
                     <li><a href="about.html">피드</a></li>
                     <li><a href="services.html">로그아웃</a></li>
-                    <li><a href="contact.html">Contact</a></li> -->
+                    <li><a href="contact.html">Contact</a></li>
+                    -->
                 </ul>
             </div>
         </div>
@@ -82,85 +86,63 @@
             <div class="row mb-5 align-items-center">
                 <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h2>현 위치(지도)</h2>
-                    <div id="map" style="width: 1120px; height: 400px;"></div>
+                    <div id="map" style="width: 1110px; height: 400px;"></div>
                     <div class="custom_zoomcontrol radius_border">
                         <span><button id="fiveM">500m</button></span>
                         <span><button id="thousandM">1000m</button></span>
                     </div>
                 </div>
             </div>
-            <br/><br/><br/><br/>
+            <br/><br/><br/>
 
-            시작페이지에서 받은 글 위주 추천
-            <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
-                <div class="item web col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>상호 명</h3>
-                            <span>키워드</span>
+            <div class="owl-carousel testimonial-carousel">
+                <% List<RestaurantVO> restaurantList = (List<RestaurantVO>) request.getAttribute("restaurantList");
+                    List<String> photoList = (List<String>) request.getAttribute("photoList");
+                    for (int i = 0; i < 30; i++) { %>
+
+                <%if (i % 6 == 0) {%>
+
+                <div class="testimonial-wrap">
+                    <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                        <%}%>
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href='/restaurant/restaurantInfo?resId=<%=restaurantList.get(i).getResId()%>' id = 'restaurant_img' class="item-wrap fancybox" name=<%=restaurantList.get(i).getResId()%>>
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
+                                <%--<img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img width="400" height="400" class="img-fluid" src="/res/img/ing.jpg">
+
+                                <%--<img width="400" height="300" src=<%=photoList.get(i)%>>--%>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td width=250><%=restaurantList.get(i).getResName()%>
+                                    </td>
+                                    <td rowspan=3>별점 <%=restaurantList.get(i).getResRating()%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width=250><%=restaurantList.get(i).getResAddr().split(" ")[1]%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width=250>좋아요와 리뷰 수</td>
+                                </tr>
+
+                            </table>
                         </div>
-                        <img class="img-fluid" src="/res/img/img_1.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
+                        <%if (i % 6 == 5) {%>
+
+                    </div>
                 </div>
-                <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>Build Indoo</h3>
-                            <span>Photography</span>
-                        </div>
-                        <img class="img-fluid" src="/res/img/img_2.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
-                </div>
-                <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>Cocooil</h3>
-                            <span>Branding</span>
-                        </div>
-                        <img class="img-fluid" src="/res/img/img_3.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
-                </div>
-                <div class="item design col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>Nike Shoe</h3>
-                            <span>Design</span>
-                        </div>
-                        <img class="img-fluid" src="/res/img/img_4.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
-                </div>
-                <div class="item photography col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>Kitchen Sink</h3>
-                            <span>Photography</span>
-                        </div>
-                        <img class="img-fluid" src="/res/img/img_5.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
-                </div>
-                <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                    <a href="work-single.html" class="item-wrap fancybox">
-                        <div class="work-info">
-                            <h3>Amazon</h3>
-                            <span>brandingn</span>
-                        </div>
-                        <img class="img-fluid" src="/res/img/img_6.jpg">
-                    </a>
-                    <p>상호명 평점</p>
-                    <p>주소</p>
-                </div>
+                <%}%>
+
+                <%}%>
             </div>
-            <br/><br/><br/><br/>
+            <br/><br/><br/>
+
 
             팔로워들 글
             <div id="portfolio-grid" class="row no-gutter" data-aos="fade-up" data-aos-delay="200">
@@ -232,57 +214,6 @@
                 </div>
             </div>
 
-            <div class="site-section site-portfolio">
-                <div class="container">
-                    <div class="row mb-5 align-items-center">
-                        <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                            <h2>니가 이걸 먹을줄 알고 있었어2</h2>
-                            <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
-                        </div>
-                        <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
-                            <div id="filters" class="filters">
-                                <a href="#" data-filter="*" class="active">추천순</a>
-                                <a href="#" data-filter=".web">평점순</a>
-                                <a href="#" data-filter=".design">리뷰순</a>
-                                <!--<a href="#" data-filter=".branding">Branding</a>
-                                <a href="#" data-filter=".photography">Photography</a>-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="owl-carousel testimonial-carousel">
-                        <% for (int i = 0; i<12; i++){ %>
-                        <%if(i%6==0){%>
-                        <div class="testimonial-wrap">
-                            <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
-                                <%}%>
-                                <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                                    <a href="work-single.html" class="item-wrap fancybox">
-                                        <div class="work-info">
-                                            <h3>Cocooil</h3>
-                                            <span>Branding</span>
-                                        </div>
-                                        <img class="img-fluid" src="/res/img/img_3.jpg">
-                                    </a>
-                                    <table border="0">
-                                        <tr>
-                                            <td>상호명</td><td width = 120></td><td rowspan=3>별점</td>
-                                        </tr>
-                                        <tr>
-                                            <td>위치</td>
-                                        </tr>
-                                        <tr>
-                                            <td>좋아요와 리뷰 수</td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <%if(i%6==5){%>
-                            </div>
-                        </div>
-                        <%}%>
-                        <%}%>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
@@ -419,6 +350,7 @@
         </div>
     </div>
 </main>
+
 <footer class="footer" role="contentinfo">
     <div class="container">
         <div class="row">
@@ -456,7 +388,7 @@
 
 <!-- Template Main JS File -->
 <script src="/res/js/main.js"></script>
-<script type="text/javascript" src="/res/js/map.js"></script>
+<script type="text/javascript" src="/res/js/mainMap.js"></script>
 
 </body>
 </html>

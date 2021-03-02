@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-        <!DOCTYPE mapper
-                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kosmo.orange.wtf.model.mapper.MainMapper">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kosmo.orange.wtf.model.mapper.RestaurantMapper">
 
-    <select id="checkRestaurant" resultMap="getRestaurant">
+    <select id="restaurantInfo" resultMap="getRestaurant">
         SELECT *
         FROM restaurant
-        ORDER BY res_rating DESC
+        WHERE res_id = #{resId}
+    </select>
+
+    <select id="restaurantMenu" resultMap="getMenu">
+        SELECT *
+        FROM menu
+        WHERE res_id = #{resId}
+        LIMIT 0,5
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">
@@ -20,5 +27,12 @@
         <result property="resRuntime" column="res_runtime"/>
         <result property="resKeyword" column="res_keyword"/>
         <result property="resRating" column="res_rating"/>
+    </resultMap>
+
+    <resultMap id="getMenu" type="MenuVO">
+        <result property="resId" column="res_id"/>
+        <result property="menu" column="menu"/>
+        <result property="price" column="price"/>
+        <result property="picLoc" column="pic_loc"/>
     </resultMap>
 </mapper>
