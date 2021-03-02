@@ -6,10 +6,12 @@
 
     <select id="checkRestaurant" resultMap="getRestaurant">
         SELECT *
-        from restaurant
+        FROM restaurant
+        ORDER BY res_rating DESC
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">
+        <result property="resId" column="res_id"/>
         <result property="resName" column="res_name"/>
         <result property="resTell" column="res_tell"/>
         <result property="resAddr" column="res_addr"/>

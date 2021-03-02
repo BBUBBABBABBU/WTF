@@ -4,6 +4,9 @@ import kosmo.orange.wtf.model.vo.MemberVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -15,10 +18,15 @@ public class MemberController {
 
         return "member/Join";
     }
-    @PostMapping("/Info")
-    public String info(MemberVO memberVO){
-        System.out.println(memberVO.getEmail());
+    @RequestMapping(value="/Info",method= RequestMethod.GET )
+    public String info(HttpSession session){
+//        System.out.println(ses);
         System.out.println("회원정보");
         return "member/memInfo";
+    }
+    @RequestMapping(value = "/signUp",method= RequestMethod.POST )
+    public String signUp(MemberVO memberVO){
+        System.out.println(memberVO.getBirthday());
+        return "member/Join";
     }
 }

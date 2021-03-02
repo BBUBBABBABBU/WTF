@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class RestaurantVO {
+    private int resId;
     private String resName;
     private String resTell;
     private String resAddr;
@@ -15,6 +16,6 @@ public class RestaurantVO {
     private String resLongitude;
     private String resRuntime;
     private String resKeyword;
-
+    private float resRating;
 
 }
