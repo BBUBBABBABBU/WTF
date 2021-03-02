@@ -9,4 +9,8 @@ public class MemberVO {
 
     String email;
     String password;
+    String nickname;
+    String birthday;
+    String gender;
+
 }
