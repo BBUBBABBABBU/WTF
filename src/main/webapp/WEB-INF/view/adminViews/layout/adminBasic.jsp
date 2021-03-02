@@ -11,7 +11,7 @@
 <html>
 <head>
 
-    <title>Admin Basic Form</title>
+    <title>adminBasic.jsp / header.jsp & footer.jsp 적용되고 content 없는 기본 form</title>
 
     <%--meta tag--%>
     <meta charset="utf-8">
@@ -21,8 +21,11 @@
     <%--css--%>
     <jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>
 
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+
     <%--js--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
 </head>
 
@@ -89,6 +92,15 @@
         Main wrapper end
     ***********************************-->
 
+
+    <%--js--%>
+    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
 
 </body>
