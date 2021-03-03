@@ -21,7 +21,7 @@
     position: relative;
     z-index: 10;
     height: 40px;
-    background: url("img/star (2).png") repeat-x 0 0;
+    background: url("/res/img/star (2).png") repeat-x 0 0;
     background-size: contain;
     pointer-events: none;
 }
@@ -54,4 +54,4 @@
     height: 40px;
     pointer-events: none;
 }
-/*# sourceMappingURL=star_rating.css.map */
+/*# sourceMappingURL=review.css.map */
