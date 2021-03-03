@@ -30,7 +30,6 @@
     </script>
     <style>
         #naver_id_login{
-
             background-image:url("/res/img/kakao.png") ;
             width: 30px;
            /*background-image: ;*/
@@ -89,7 +88,7 @@
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="recommend/recommend"> 추천 화면 가기 </a>
-<a href="/Join">회원가입 페이지</a>
+<a href="/join">회원가입 페이지</a>
 <button type="button" id="hidden"  onclick=test1()> 버튼</button>
 
 
@@ -111,13 +110,13 @@
 
 
      </div>
-        <form id="login" action="/Info" class="input-group" method="post">
+        <form id="login" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" class="input-field" placeholder="Password를 입력하세요" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
-            <button class="submit">Login</button>
+            <button type="submit" class="submit">Login</button>
         </form>
-        <form id="register" action="" class="input-group">
+        <form id="register" action="/memberLogin" class="input-group">
             <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png"></a>
             <img id="kakaoSignup" src="/res/img/kakaoSignup.png">
             <div id="naver_id_login"></div>
@@ -173,7 +172,7 @@
 
 
                     //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                    window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??kakaonickname="+kakaonickname+"&kakaoe_mail="+kakaoe_mail);
+                    window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?kakaonickname="+kakaonickname+"&kakaoe_mail="+kakaoe_mail);
 
                 }
             })
@@ -203,7 +202,7 @@
                         var birthday=res.kakao_account.birthday
 
                         //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
+                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
 
                     }
                 });
@@ -237,12 +236,12 @@
             var nickname = naver_id_login.getProfileData('nickname');
 
 
-            window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info??kakaonickname=" + nickname + "&kakaoe_mail=" + email);
+            window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info?kakaonickname=" + nickname + "&kakaoe_mail=" + email);
     }
 
 </script>
 
-<form name="Test" action="Info">
+<form name="Test" action="info">
     <input type="text" name="s" value="">
     <button type="submit" name="anything_name" value="으아아아아ㅏㄱ">으아아아악</button>
 </form>
