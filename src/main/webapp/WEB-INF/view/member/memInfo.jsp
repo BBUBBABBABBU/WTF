@@ -140,7 +140,11 @@ System.out.println(nick);%>
                     </p>
                     <p>
                         <label>당신의 취향</label>
-                        <input class="w3-input" type="prefer" id="prefer" type="text" required>
+                        <input type="radio" name="favor"/>1
+                        <input type="radio" name="favor"/>2
+                        <input type="radio" name="favor"/>3
+                        <input type="radio" name="favor"/>4
+<%--                        <input class="w3-input" type="prefer" id="prefer" type="text" required>--%>
                     </p>
                 </div>
                 <p class="w3-center">

@@ -27,6 +27,8 @@ public class MemberController {
     @RequestMapping(value = "/signUp",method= RequestMethod.POST )
     public String signUp(MemberVO memberVO){
         System.out.println(memberVO.getBirthday());
+        System.out.println(memberVO.getFavor());
+
         return "member/Join";
     }
 }
