@@ -120,15 +120,15 @@
 
                 <div class="owl-carousel testimonial-carousel">
 
-                    <%  List<RecommendVO> res_allList =(List<RecommendVO>)request.getAttribute("res_allList");
-                        List<String> photoList = (List<String>)request.getAttribute("photoList");
-                        for (int i = 0; i<12; i++){ %>
+                            <%  List<RecommendVO> res_allList =(List<RecommendVO>)request.getAttribute("res_allList");
+                                List<String> photoList = (List<String>)request.getAttribute("photoList");
+                                for (int i = 0; i<12; i++){ %>
 
-                    <%if(i%6==0){%>
+                            <%if(i%6==0){%>
 
-                    <div class="testimonial-wrap">
-                        <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
-                    <%}%>
+                            <div class="testimonial-wrap">
+                                <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                                    <%}%>
                             <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                                 <a href="work-single.html" class="item-wrap fancybox">
                                     <div class="work-info">

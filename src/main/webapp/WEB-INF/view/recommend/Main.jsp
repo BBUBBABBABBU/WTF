@@ -64,8 +64,8 @@
 <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
     <div class="container py-2 py-md-5">
         <div class="row align-items-start">
-            <div class="col-md-10"></div>
-            <div class="col-md-2">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
                 <ul class="custom-menu">
                     <li class="active"><a href="index.html">마이페이지</a></li>
                     <li><a href="about.html">피드</a></li>

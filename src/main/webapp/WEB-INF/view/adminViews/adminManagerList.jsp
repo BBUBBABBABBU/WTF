@@ -13,7 +13,6 @@
 
 <html>
 <head>
-
     <title>adminManagerList.jsp / 관리자(manager) 목록 (contact)</title>
 
     <%--meta tag--%>
@@ -49,6 +48,8 @@
 
 </head>
 <body class="vertical  light  ">
+    <c:if test="${sessionScope.name}" == null>
+    <c:if>
 
     <!--*******************
         Preloader start

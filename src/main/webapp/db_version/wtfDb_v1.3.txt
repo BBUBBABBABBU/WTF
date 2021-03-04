@@ -1,2 +1,32 @@
+<<<<<<< HEAD
 --변경 부분
 --alter table restaurant add column like_count int;
+=======
+- 수정사항
+
+    member 테이블 favor 컬럼 추가
+-- ALTER TABLE member ADD favor VARCHAR(600);
+
+    ChatRoom 테이블 생성
+-- CREATE TABLE chatroom(
+    	room_id int AUTO_INCREMENT PRIMARY KEY);
+
+    chatMessage 테이블 생성
+-- CREATE TABLE chatMessage(
+      	message_id INT AUTO_INCREMENT PRIMARY KEY,
+      	room_id INT,
+      	member_id INT,
+      	message TEXT,
+      	TIME DATE,
+      	FOREIGN KEY(room_id) REFERENCES chatRoom(room_id),
+      	FOREIGN KEY(member_id) REFERENCES member(member_id));
+
+    chatRoomJoin 테이블 생성
+-- CREATE TABLE chatroomjoin(
+   	join_id INT AUTO_INCREMENT PRIMARY KEY,
+   	member_id INT,
+   	room_id INT,
+   	FOREIGN KEY(member_id) REFERENCES member(member_id),
+   	FOREIGN KEY(room_id) REFERENCES chatroom(room_id));
+
+>>>>>>> 95f3b214508d2da6738583b74dc83d1ab5470745

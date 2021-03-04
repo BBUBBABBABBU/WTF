@@ -29,7 +29,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public List<MenuVO> restaurantMenu(int resId) {
         try{
-            return restaurantMapper.restaurantMenu(resId);
+            List<MenuVO> list =restaurantMapper.restaurantMenu(resId);
+            return list;
         }catch (Exception e){
             System.out.println("RestaurantImpl restaurantMenu() 33line 실패 : " + e.toString());
             return null;
