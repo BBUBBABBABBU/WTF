@@ -19,7 +19,10 @@ public class RecommendVO {
     private String menu;
     private String price;
     private String rtr_pic_loc;
-    private String star;
+    private String res_rating;
     private String photo;
+    private int review_count;
+    private int like_count;
+
 
 }

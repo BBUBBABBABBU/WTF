@@ -32,9 +32,6 @@ public class RestaurantController {
         RestaurantVO restaurantInfo = restaurantService.restaurantInfo(restaurantVO.getResId());
         System.out.println("RestaurantController restaurantInfo() 25line 이름 : " + restaurantInfo.getResName() + "주소 : "+ restaurantInfo.getResAddr());
         List<MenuVO> restaurantMenu = restaurantService.restaurantMenu(restaurantVO.getResId());
-        for(MenuVO menu : restaurantMenu){
-            System.out.println(menu.getMenu());
-        }
 
         model.addAttribute("restaurantInfo",restaurantInfo);
         model.addAttribute("restaurantMenu", restaurantMenu);

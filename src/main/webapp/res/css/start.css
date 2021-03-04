@@ -8,6 +8,18 @@ img{
     margin-left: 50px;
 }
 
+#title01{
+    margin-top: 150px;
+}
+
 #select_div{
     margin-left: 50px;
+    width:250px;
+    height:50px;
+    font-size:15px;
+    color:white;
+}
+
+#none_selected{
+    inherit: true
 }

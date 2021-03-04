@@ -5,6 +5,7 @@ import kosmo.orange.wtf.model.vo.MenuVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,7 +29,8 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public List<MenuVO> restaurantMenu(int resId) {
         try{
-            return restaurantMapper.restaurantMenu(resId);
+            List<MenuVO> list =restaurantMapper.restaurantMenu(resId);
+            return list;
         }catch (Exception e){
             System.out.println("RestaurantImpl restaurantMenu() 33line 실패 : " + e.toString());
             return null;
