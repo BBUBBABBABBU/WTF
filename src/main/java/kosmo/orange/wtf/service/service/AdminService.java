@@ -1,7 +1,11 @@
 package kosmo.orange.wtf.service.service;
 
 import kosmo.orange.wtf.model.vo.AdminVO;
+import kosmo.orange.wtf.model.vo.MemberVO;
+import kosmo.orange.wtf.model.vo.RestaurantVO;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public interface AdminService {
@@ -29,14 +33,28 @@ public interface AdminService {
 
 
 
-    // ===========================================================
+    // ========================================================================
     // ************************************
     //  AdminIndexController 관련
     // ************************************
 
-    /*******************
-     *
+    /************************
+     * 유저 목록 불러오기
      */
+    public List<MemberVO> memberList();
+
+
+    /******************
+     * 가게 목록 불러오기
+     */
+    public List<RestaurantVO> storeList();
+
+
+    /*******************
+     * 관리자페이지 리스트 불러오기
+     */
+    public List<AdminVO> managerList();
+
 
 
 

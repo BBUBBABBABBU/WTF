@@ -46,10 +46,10 @@ public class StartController {
 //        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
         System.out.println("ajax 불림" + restaurantList.size());
-        for(RestaurantVO restaurantVO : restaurantList){
-            System.out.println(restaurantVO.getResName() + ", " + restaurantVO.getResRating());
-            System.out.println(restaurantVO.getResLatitude()+ ", " + restaurantVO.getResLongitude());
-        }
+//        for(RestaurantVO restaurantVO : restaurantList){
+//            System.out.println(restaurantVO.getResName() + ", " + restaurantVO.getResRating());
+//            System.out.println(restaurantVO.getResLatitude()+ ", " + restaurantVO.getResLongitude());
+//        }
 
         return restaurantList;
     }

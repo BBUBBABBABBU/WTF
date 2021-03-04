@@ -140,11 +140,15 @@ System.out.println(nick);%>
                     </p>
                     <p>
                         <label>당신의 취향</label>
-                        <input class="w3-input" type="prefer" id="prefer" type="text" required>
+                        <input type="radio" name="favor" value="1">1
+                        <input type="radio" name="favor" value="2">2
+                        <input type="radio" name="favor" value="3">3
+                        <input type="radio" name="favor" value="4">4
+<%--                        <input class="w3-input" type="prefer" id="prefer" type="text" required>--%>
                     </p>
                 </div>
                 <p class="w3-center">
-                    <button type="submit" id="joinBtn" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">개인정보 수정</button>
+                    <button type="submit" id="joinBtn" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원가입</button>
                 </p>
             </form>
         </div>

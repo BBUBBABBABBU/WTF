@@ -19,34 +19,30 @@
 
 </head>
 <body>
-<br/><br/><br/><br/><br/>
 
-<img src="/res/img/background_img/title01.jpg"/>
-<div class="row">
-    <div id='select_div' class="col s5">
-        <div class="input-field col s3">
+<img id ='title01'src="/res/img/background_img/title01.jpg"/>
+    <div id='select_div'>
             <form id="kind_form" action="/main" method="get">
-                <select id="select_kind" name="kind" style="width: 300px;">
-                    <option value="" disabled selected>이걸</option>
+                <select id="select_kind" name="kind">
+                    <option value="" disabled selected><p id="none_selected">이걸</p></option>
                     <option value="korean">한식</option>
                     <option value="chinese">중식</option>
                     <option value="western">양식</option>
                     <option value="japanese">일식</option>
                 </select>
             </form>
-        </div>
     </div>
-</div>
 <img src="/res/img/background_img/title02.jpg"/><br/><br/>
-
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="/recommend"> 추천 화면 가기 </a>
-<a href="/Join">회원가입 페이지</a>
+<a href="/join">회원가입 페이지</a>
 
 <a href="/review">리뷰 피드</a>
 
 <a href="/reviewinsert">리뷰작성</a>
 <a href="/mypage">마이페이지</a>
+<br/>
+<a href="/userChat">채팅페이지 확인</a>
 </body>
 </html>

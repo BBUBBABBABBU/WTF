@@ -11,4 +11,6 @@ public interface RecommendService {
 
     //전체 식당 정보 가져오기
     public List<RecommendVO> res_all();
+
+    public List<RecommendVO> res_orderBy(String cate);
 }

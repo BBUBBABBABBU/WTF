@@ -8,7 +8,8 @@
 <%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.InputStreamReader" %>
-
+<%@ page import="javax.servlet.http.*" %>
+<%@ page import="kosmo.orange.wtf.model.vo.MemberVO" %>
 
 <html>
 <head>
@@ -27,10 +28,11 @@
             window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
 
         }
+
+        if ( ${sessionScope.member.getEmail()} ){alert("로그인 되었습니다. 환영합니다!")}
     </script>
     <style>
         #naver_id_login{
-
             background-image:url("/res/img/kakao.png") ;
             width: 30px;
            /*background-image: ;*/
@@ -63,6 +65,7 @@
 
     </style>
 
+
 </head>
 <body><img width="450" src="/res/img/WTF_logo.png">
 <h2>네가</h2><br/>
@@ -89,7 +92,7 @@
 <a href="/adminHome">관리자페이지로</a>
 
 <a href="recommend/recommend"> 추천 화면 가기 </a>
-<a href="/Join">회원가입 페이지</a>
+<a href="/join">회원가입 페이지</a>
 <button type="button" id="hidden"  onclick=test1()> 버튼</button>
 
 
@@ -104,20 +107,30 @@
     <div class="form-wrap">
         <div class="button-wrap">
             <div id="btn"></div>
-            <button type="button" class="togglebtn" id ='loginbtn' >로그인</button>
+            <button type="button" class="togglebtn" id ='loginbtn' >
+
+
+<%--                <%! HttpServletRequest request; %>--%>
+<%--                <%! HttpSession se = request.getSession(); %>--%>
+<%--                <%! MemberVO memberVO = (MemberVO) se.getAttribute("member"); %>--%>
+<%--                <% System.out.println("최종성공:" + memberVO.getEmail()); %>--%>
+
+
+
+                로그인</button>
             <button type="button" class="togglebtn" id ='registerbtn' >회원가입</button>
         </div>
         <div class="social-icons">
 
 
      </div>
-        <form id="login" action="/Info" class="input-group" method="post">
+        <form id="login" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" class="input-field" placeholder="Password를 입력하세요" required>
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
-            <button class="submit">Login</button>
+            <button type="submit" class="submit">Login</button>
         </form>
-        <form id="register" action="" class="input-group">
+        <form id="register" action="/session2Test" class="input-group">
             <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png"></a>
             <img id="kakaoSignup" src="/res/img/kakaoSignup.png">
             <div id="naver_id_login"></div>
@@ -173,7 +186,7 @@
 
 
                     //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                    window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??kakaonickname="+kakaonickname+"&kakaoe_mail="+kakaoe_mail);
+                    window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?kakaonickname="+kakaonickname+"&kakaoe_mail="+kakaoe_mail);
 
                 }
             })
@@ -203,7 +216,7 @@
                         var birthday=res.kakao_account.birthday
 
                         //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info??nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
+                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
 
                     }
                 });
@@ -237,12 +250,12 @@
             var nickname = naver_id_login.getProfileData('nickname');
 
 
-            window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info??kakaonickname=" + nickname + "&kakaoe_mail=" + email);
+            window.location.replace("http://" + window.location.hostname + ((location.port == "" || location.port == undefined) ? "" : ":" + location.port) + "/Info?kakaonickname=" + nickname + "&kakaoe_mail=" + email);
     }
 
 </script>
 
-<form name="Test" action="Info">
+<form name="Test" action="info">
     <input type="text" name="s" value="">
     <button type="submit" name="anything_name" value="으아아아아ㅏㄱ">으아아아악</button>
 </form>
