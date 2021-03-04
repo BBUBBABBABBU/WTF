@@ -71,7 +71,6 @@
                     <li><a href="about.html">피드</a></li>
                     <li><a href="services.html">로그아웃</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    -->
                 </ul>
             </div>
         </div>
@@ -112,7 +111,7 @@
                                     <span>Branding</span>
                                 </div>
                                 <%--<img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
-                                <img width="400" height="400" class="img-fluid" src="/res/img/ing.jpg">
+                                <img width="400" height="400" class="img-fluid img-rounded" src="/res/img/ing.jpg">
 
                                 <%--<img width="400" height="300" src=<%=photoList.get(i)%>>--%>
                             </a>

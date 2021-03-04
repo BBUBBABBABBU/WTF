@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 --변경 부분
 --alter table restaurant add column like_count int;
-=======
-- 수정사항
 
     member 테이블 favor 컬럼 추가
 -- ALTER TABLE member ADD favor VARCHAR(600);
@@ -29,4 +26,15 @@
    	FOREIGN KEY(member_id) REFERENCES member(member_id),
    	FOREIGN KEY(room_id) REFERENCES chatroom(room_id));
 
->>>>>>> 95f3b214508d2da6738583b74dc83d1ab5470745
+    Review_test 테이블 생성
+-- CREATE TABLE Review_test(
+   	review_id INT AUTO_INCREMENT PRIMARY KEY,
+   	member_id INT,
+   	res_id INT,
+   	rating_avg FLOAT NOT null,
+   	recommend_count INT,
+   	charge_count INT);
+
+
+-- INSERT INTO review_test (member_id,res_id,rating_avg,recommend_count)
+  VALUES (truncate((1+RAND()*20),0),truncate((1+RAND()*151),0),truncate((1+RAND()*5),0),truncate((1+RAND()*300),0));
