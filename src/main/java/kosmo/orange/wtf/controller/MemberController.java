@@ -5,12 +5,12 @@ import kosmo.orange.wtf.service.impl.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.beans.Transient;
+
 
 @Controller
 public class MemberController {
@@ -20,9 +20,11 @@ public class MemberController {
     MemberServiceImpl memberService;
     @Autowired
     PasswordEncoder passwordEncoder;
+    @Autowired
+    HttpSession session;
 
     @RequestMapping("/join")
-    public String join(MemberVO memberVO){
+    public String join( MemberVO memberVO){
         System.out.println("회원가입 페이지로");
         System.out.println(memberVO.getEmail());
 
@@ -41,7 +43,7 @@ public class MemberController {
 
 
     @RequestMapping(value = "/signUp",method= RequestMethod.POST )
-    public String signUp(MemberVO memberVO){
+    public String signUp( final MemberVO memberVO){
         System.out.println(memberVO.getBirthday());
         System.out.println(memberVO.getFavor());
 
@@ -53,14 +55,32 @@ public class MemberController {
 
 
     @RequestMapping(value = "/memberLogin", method = RequestMethod.POST)
-    public String memberLogin(MemberVO memberVO){
-        System.out.println(memberVO.getEmail());
+    public String memberLogin(final MemberVO memberVO){
+
+        System.out.println("memberLogin() 61line : " + memberVO.getEmail());
         System.out.println(memberVO.getPassword());
         System.out.println("asdasdasdasdsad");
-        int result =0;
-        result=memberService.memberLogin(memberVO);
-        System.out.println(result);
-        return "Start";
+
+
+        MemberVO result=memberService.memberLogin(memberVO);
+
+        session.setAttribute("member",result);
+        boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
+        MemberVO test=(MemberVO) session.getAttribute("member");
+        System.out.println("1번"+test.getEmail());
+        if (check) {
+            System.out.println(result.getPassword());
+            System.out.println(result.getBirthday());
+            System.out.println(result.getEmail());
+            System.out.println(result.getGender());
+
+        }else {
+            System.out.println("실패1");
+
+        }
+        if (check) return "Start";
+        else return "member/Join";
+
     }
 
 }

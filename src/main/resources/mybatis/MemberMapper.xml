@@ -9,7 +9,27 @@
          VALUES(#{email},#{password},#{nickname},#{birthday},#{gender},SYSDATE(),#{favor});
     </insert>
 
-    <select id="memberLogin" resultType="int">
-        SELECT * FROM member WHERE email = #{email} and password = #{password};
+    <select id="memberLogin" resultMap="getMember">
+        SELECT * FROM member WHERE email = #{email};
     </select>
+
+    <resultMap id="getMember" type="MemberVO">
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birth"/>
+        <result property="gender" column="gender"/>
+        <result property="favor" column="favor"/>
+        <result property="point" column="point"/>
+        <result property="registDate" column="regist_date"/>
+        <result property="exitCheck" column="exit_check"/>
+        <result property="exitDate" column="exit_date"/>
+
+
+
+    </resultMap>
 </mapper>
+
+
+
+

@@ -9,6 +9,6 @@ import org.springframework.stereotype.Repository;
 @Mapper
 public interface MemberMapper {
 
-    int signUp(MemberVO vo) throws Exception;
-    int memberLogin(MemberVO vo) throws Exception;
+    int signUp(final MemberVO vo) throws Exception;
+    MemberVO memberLogin(final MemberVO vo) throws Exception;
 }

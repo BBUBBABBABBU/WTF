@@ -8,7 +8,8 @@
 <%@ page import="java.net.HttpURLConnection" %>
 <%@ page import="java.io.BufferedReader" %>
 <%@ page import="java.io.InputStreamReader" %>
-
+<%@ page import="javax.servlet.http.*" %>
+<%@ page import="kosmo.orange.wtf.model.vo.MemberVO" %>
 
 <html>
 <head>
@@ -27,6 +28,8 @@
             window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
 
         }
+
+        if ( ${sessionScope.member.getEmail()} ){alert("로그인 되었습니다. 환영합니다!")}
     </script>
     <style>
         #naver_id_login{
@@ -61,6 +64,7 @@
         }
 
     </style>
+
 
 </head>
 <body><img width="450" src="/res/img/WTF_logo.png">
@@ -103,7 +107,17 @@
     <div class="form-wrap">
         <div class="button-wrap">
             <div id="btn"></div>
-            <button type="button" class="togglebtn" id ='loginbtn' >로그인</button>
+            <button type="button" class="togglebtn" id ='loginbtn' >
+
+
+<%--                <%! HttpServletRequest request; %>--%>
+<%--                <%! HttpSession se = request.getSession(); %>--%>
+<%--                <%! MemberVO memberVO = (MemberVO) se.getAttribute("member"); %>--%>
+<%--                <% System.out.println("최종성공:" + memberVO.getEmail()); %>--%>
+
+
+
+                로그인</button>
             <button type="button" class="togglebtn" id ='registerbtn' >회원가입</button>
         </div>
         <div class="social-icons">
@@ -116,7 +130,7 @@
             <input type="checkbox" class="checkbox"><span>Remember Password</span>
             <button type="submit" class="submit">Login</button>
         </form>
-        <form id="register" action="/memberLogin" class="input-group">
+        <form id="register" action="/session2Test" class="input-group">
             <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png"></a>
             <img id="kakaoSignup" src="/res/img/kakaoSignup.png">
             <div id="naver_id_login"></div>

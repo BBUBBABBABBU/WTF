@@ -15,8 +15,8 @@ public class MemberServiceImpl implements MemberService {
 
 
     @Override
-    public int signUp(MemberVO vo) {
-        int result= 0;
+    public int signUp(final MemberVO vo) {
+        int result=0;
         try {
             System.out.println(vo.getPassword());
             result = memberMapper.signUp(vo);
@@ -26,8 +26,8 @@ public class MemberServiceImpl implements MemberService {
         return result;
     }
     @Override
-    public int memberLogin(MemberVO vo){
-        int result= 0;
+    public MemberVO memberLogin(final MemberVO vo){
+        MemberVO result = null;
         try {
             result =memberMapper.memberLogin(vo);
         } catch (Exception e) {
