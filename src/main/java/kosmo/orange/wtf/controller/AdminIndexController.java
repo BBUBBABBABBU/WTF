@@ -1,9 +1,15 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.vo.AdminVO;
+import kosmo.orange.wtf.model.vo.MemberVO;
+import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 @Controller
 public class AdminIndexController {
@@ -59,11 +65,6 @@ public class AdminIndexController {
 
     } // end of logout
 
-
-
-
-
-
     // ==================================
     // nav bar / side bar
     // ==================================
@@ -84,10 +85,16 @@ public class AdminIndexController {
     /******************
      * 유저 목록 이동
      * .. > adminMemberList.jsp
+     * .. > adminMemberList.jsp
      */
     @GetMapping("memberList")
-    public String memberList() {
+    public String memberList(Model model) {
         System.out.println("AdminIndexController.memberList");
+
+        List<MemberVO> memberVOList = adminService.memberList();
+        System.out.println("memberVOList.size() = " + memberVOList.size());
+
+        model.addAttribute("memberVOList", memberVOList);
 
         return "adminViews/adminMemberList";
 
@@ -105,8 +112,13 @@ public class AdminIndexController {
      * .. > adminStoreList.jsp
      */
     @GetMapping("storeList")
-    public String storeList() {
+    public String storeList(Model model) {
         System.out.println("AdminIndexController.storeList");
+
+        List<RestaurantVO> restaurantVOList = adminService.storeList();
+        System.out.println("restaurantVOList.size() = " + restaurantVOList.size());
+
+        model.addAttribute("restaurantVOList", restaurantVOList);
 
         return "adminViews/adminStoreList";
 
@@ -157,13 +169,18 @@ public class AdminIndexController {
     } // end of flavorSetting
 
 
-    /***************************
+    /***************************a
      * 관리자 페이지로 이동
      * .. > adminManagerList2.jsp
      */
     @GetMapping("managerList")
-    public String managerList() {
+    public String managerList(Model model) {
         System.out.println("AdminIndexController.adminMemberList");
+
+        List<AdminVO> adminVOList = adminService.managerList();
+        System.out.println("adminVOList = " + adminVOList);
+
+        model.addAttribute("adminVOList", adminVOList);
 
         return "adminViews/adminManagerList";
 

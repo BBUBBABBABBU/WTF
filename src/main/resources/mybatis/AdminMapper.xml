@@ -27,6 +27,26 @@
     </select>
 
 
+    <!--유저 목록 불러오기-->
+    <select id="memberList" resultMap="getMember">
+        SELECT *
+        FROM member
+    </select>
+
+
+    <select id="storeList" resultMap="getRestaurant">
+        SELECT *
+        FROM restaurant
+    </select>
+
+
+    <!--관리자 (manager) 목록 (list)-->
+    <select id="managerList" resultMap="getManager">
+        SELECT *
+        FROM manager
+    </select>
+
+
 
 
 
@@ -36,6 +56,33 @@
         <result property="mgr_name" column="mgr_name"/>
         <result property="mgr_id" column="mgr_id"/>
         <result property="mgr_pass" column="mgr_pass"/>
+    </resultMap>
+
+
+    <resultMap id="getMember" type="MemberVO">
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birth"/>
+        <result property="gender" column="gender"/>
+        <result property="favor" column="favor"/>
+        <result property="point" column="point"/>
+        <result property="registDate" column="regist_date"/>
+        <result property="exitCheck" column="exit_check"/>
+        <result property="exitDate" column="exit_date"/>
+    </resultMap>
+
+    
+    <resultMap id="getRestaurant" type="RestaurantVO">
+        <result property="resId" column="res_id"/>
+        <result property="resName" column="res_name"/>
+        <result property="resTell" column="res_tell"/>
+        <result property="resAddr" column="res_addr"/>
+        <result property="resLatitude" column="res_latitude"/>
+        <result property="resLongitude" column="res_longitude"/>
+        <result property="resRuntime" column="res_runtime"/>
+        <result property="resKeyword" column="res_keyword"/>
+        <result property="resRating" column="res_rating"/>
     </resultMap>
 
 
