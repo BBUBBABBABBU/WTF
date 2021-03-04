@@ -5,6 +5,7 @@ import kosmo.orange.wtf.model.vo.MenuVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
