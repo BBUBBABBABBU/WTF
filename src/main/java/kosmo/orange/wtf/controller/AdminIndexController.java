@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class AdminIndexController {
 
@@ -162,7 +164,12 @@ public class AdminIndexController {
      * .. > adminManagerList2.jsp
      */
     @GetMapping("managerList")
-    public String managerList() {
+    public String managerList(HttpSession httpSession) {
+
+        if (httpSession.getAttribute("name") == null) {
+            return "redirect :/login";
+        }
+
         System.out.println("AdminIndexController.adminMemberList");
 
         return "adminViews/adminManagerList";

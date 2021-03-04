@@ -9,10 +9,10 @@
     tinydash-master > light > contacts-grid.html
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
 <head>
-
     <title>adminManagerList.jsp / 관리자(manager) 목록 (contact)</title>
 
     <%--meta tag--%>
@@ -48,6 +48,8 @@
 
 </head>
 <body class="vertical  light  ">
+    <c:if test="${sessionScope.name}" == null>
+    <c:if>
 
     <!--*******************
         Preloader start

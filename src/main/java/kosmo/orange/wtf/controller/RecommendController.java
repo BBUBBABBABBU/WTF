@@ -18,6 +18,7 @@ public class RecommendController {
     @Autowired
     private RecommendService recommendService;
 
+
     @RequestMapping("/recommend")
     public String recommend(Model model){
         System.out.println("추천 화면 출력");
@@ -50,6 +51,11 @@ public class RecommendController {
         return "recommend/recommend";
 
 
+    }
+
+    public String temp(Model model){
+
+        return "";
     }
 
 
