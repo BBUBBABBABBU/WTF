@@ -1,0 +1,2 @@
+--변경 부분
+--alter table restaurant add column like_count int;

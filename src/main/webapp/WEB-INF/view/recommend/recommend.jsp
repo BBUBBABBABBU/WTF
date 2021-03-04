@@ -36,7 +36,9 @@
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
 
-
+    <%--폰트 연결--%>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
     <!-- =======================================================
       Template Name: MyPortfolio
       Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
@@ -98,15 +100,16 @@
             <div class="container">
                 <div class="row mb-5 align-items-center">
                     <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                        <h2>니가 이걸 먹을줄 알고 있었어22</h2>
+                        <h1>니가 이걸 먹을줄 알고 있었어</h1>
                         <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                     </div>
 
                     <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
-                        <div id="filters" class="filters">
-                            <a href="#" data-filter="*" class="active">추천순</a>
-                            <a href="#" data-filter=".web">평점순</a>
-                            <a href="#" data-filter=".design">리뷰순</a>
+                        <div >
+                            <a href="/resOrdered?cate=recom">추천순</a>
+                            <a href="/resOrdered?cate=rating">평점순</a>
+                            <a href="/resOrdered?cate=review">리뷰순</a>
+
                             <!--<a href="#" data-filter=".branding">Branding</a>
                             <a href="#" data-filter=".photography">Photography</a>-->
 
@@ -133,17 +136,17 @@
                                         <span>Branding</span>
                                     </div>
 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
-                                    <img width="400" height="300"  src=<%=photoList.get(i)%>>
+                                    <img class="res_img" width="400" height="300"  src=<%=photoList.get(i)%>>
                                 </a>
                                 <table border="0">
                                     <tr>
-                                        <td width = 250><%=res_allList.get(i).getRes_name()%></td><td rowspan=3>별점</td>
+                                        <td class ='detail_des' width = 350><%=res_allList.get(i).getRes_name()%><span class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
                                     </tr>
                                     <tr>
-                                        <td width = 250><%=res_allList.get(i).getRes_addr().split(" ")[1]%></td>
+                                        <td class ='detail_des2' width = 350><%=res_allList.get(i).getRes_addr().split(" ")[1]%> </td>
                                     </tr>
                                     <tr>
-                                        <td width = 250>좋아요와 리뷰 수</td>
+                                        <td class ='detail_des2' width = 350>추천 :<%=res_allList.get(i).getLike_count()%>  리뷰 :<%=res_allList.get(i).getReview_count()%></td><td></td>
                                     </tr>
 
                                 </table>
@@ -357,8 +360,8 @@
 <script src="/res/vendor/aos/aos.js"></script>
 <script src="/res/vendor/owlcarousel/owl.carousel.min.js"></script>
 
-<!-- Template Main JS File -->
-
+<!-- Template JS File -->
+<script src="/res/js/recommend.js"></script>
 <script src="/res/js/main.js"></script>
 
 
