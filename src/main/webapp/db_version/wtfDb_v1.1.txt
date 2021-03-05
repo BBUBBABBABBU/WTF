@@ -1,0 +1,95 @@
+-- 추가 부분
+-- alter table menu modify menu varchar(40);
+-- alter table restaurant modify res_runtime varchar(200);
+-- alter table restaurant modify res_tell varchar(100);
+-- alter table restaurant change res_logitude res_longitude varchar(30);
+-- alter table restaurant add column res_rating int;
+-- alter table manager add column mgr_name varchar(20) first;
+
+CREATE TABLE Manager(
+	mgr_id VARCHAR(20) PRIMARY KEY,
+	mgr_pass VARCHAR(30) NOT NULL);
+
+CREATE TABLE MEMBER(
+	member_id INT AUTO_INCREMENT PRIMARY KEY,
+	email VARCHAR(50) not null UNIQUE,
+	PASSWORD VARCHAR(30) NOT NULL,
+	nickname VARCHAR(20) NOT NULL,
+	birth VARCHAR(30) NOT NULL,
+	gender VARCHAR(4) NOT NULL,
+	POINT INT DEFAULT 0,
+	regist_date DATE NOT NULL,
+	exit_check VARCHAR(2) DEFAULT 'N',
+	exit_date DATE);
+	
+CREATE TABLE favor(
+	member_id INT PRIMARY KEY,
+	korean VARCHAR(2),
+	japanese VARCHAR(2),
+	chinese VARCHAR(2),
+	western VARCHAR(2),
+	desert VARCHAR(2),
+	etc VARCHAR(2),
+	FOREIGN KEY(member_id) REFERENCES member(member_id));
+
+CREATE TABLE mem_chat(
+	member_id INT,
+	opp_member_id INT,
+	msgtime DATETIME,
+	message VARCHAR(200),
+	FOREIGN KEY(member_id) REFERENCES member(member_id)); 
+
+CREATE TABLE Restaurant(
+	res_id INT AUTO_INCREMENT PRIMARY KEY,
+	res_name VARCHAR(40) NOT  NULL,
+	res_tell VARCHAR(20),
+	res_addr VARCHAR(100) NOT NULL,
+	res_latitude VARCHAR(30) NOT NULL,
+	res_logitude VARCHAR(30) NOT NULL,
+	res_runtime VARCHAR(50),
+	res_keyword VARCHAR(50));
+
+CREATE TABLE Menu(
+	res_id INT,
+	menu VARCHAR(20) NOT NULL,
+	price VARCHAR(20) NOT NULL,
+	pic_loc VARCHAR(100),
+	FOREIGN KEY (res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE restaurant_pic(
+	res_id INT,
+	rtr_pic_loc VARCHAR(100),
+	FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE Review(
+	review_id INT AUTO_INCREMENT PRIMARY KEY,
+	member_id INT,
+	res_id INT,
+	rating_avg FLOAT NOT null,
+	rating_taste INT NOT NULL,
+	rating_service INT NOT NULL,
+	rating_clean INT NOT NULL,
+	rating_location INT NOT NULL,
+	review_content VARCHAR(200) NOT NULL,
+	review_tag VARCHAR(50) NOT NULL,
+	pic_name VARCHAR(30),
+	recommend_count INT,
+	charge_count INT,
+	FOREIGN KEY(member_id) REFERENCES member(member_id),
+	FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE Manager_chat(
+	seq_mgr_chat INT AUTO_INCREMENT PRIMARY KEY,
+	mgr_id VARCHAR(20),
+	member_id INT,
+	FOREIGN KEY (mgr_id) REFERENCES manager(mgr_id),
+	FOREIGN KEY (member_id) REFERENCES member(member_id));
+
+CREATE TABLE Manager_chat_msg(
+	seq_mgr_chat INT,
+	from_who VARCHAR(20) NOT NULL,
+	message VARCHAR(50) NOT NULL,
+	msg_time DATETIME,
+	FOREIGN KEY (seq_mgr_chat) REFERENCES manager_chat(seq_mgr_chat));
+
+

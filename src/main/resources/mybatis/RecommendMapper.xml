@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosmo.orange.wtf.model.mapper.RecommendMapper">
+
+    <select id="res_all" resultType="RecommendVO">
+
+        SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM restaurant r
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON r.res_id =rt.res_id
+
+    </select>
+
+
+    <select id="res_photo" parameterType="RecommendVO" resultType="PhotoVO">
+
+        SELECT *
+        FROM restaurant_pic rp
+        WHERE res_id =#{res_id}
+
+    </select>
+    
+    
+    <select id="res_orderBy" parameterType="String" resultType="RecommendVO">
+        SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM restaurant r
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON r.res_id =rt.res_id
+        <choose>
+            <when test="cate==null or cate=='review'">
+                ORDER BY rt.review_count DESC
+            </when>
+            <when test="cate =='recom'">
+                ORDER BY r.like_count DESC
+            </when>
+            <when test="cate=='rating'">
+                ORDER BY r.res_rating DESC
+            </when>
+        </choose>
+    </select>
+
+</mapper>
