@@ -39,6 +39,11 @@
     <%--폰트 연결--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+
+    <%--제이 쿼리--%>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/res/js/recommend.js"></script>
+
     <!-- =======================================================
       Template Name: MyPortfolio
       Template URL: https://bootstrapmade.com/myportfolio-bootstrap-portfolio-website-template/
@@ -106,9 +111,12 @@
 
                     <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                         <div >
-                            <a href="/resOrdered?cate=recom">추천순</a>
-                            <a href="/resOrdered?cate=rating">평점순</a>
-                            <a href="/resOrdered?cate=review">리뷰순</a>
+                            <a class = 'recommend_method' href="/resOrdered?cate=recom">추천순</a>
+                            <a class = 'recommend_method' href="/resOrdered?cate=rating">평점순</a>
+                            <a class = 'recommend_method' href="/resOrdered?cate=review">리뷰순</a>
+                            <div id="recommend_order" name="recom">추천순</div>
+                            <div id="rating_order" name="rating">평점순</div>
+                            <div id="review_order" name="review">리뷰순</div>
 
                             <!--<a href="#" data-filter=".branding">Branding</a>
                             <a href="#" data-filter=".photography">Photography</a>-->

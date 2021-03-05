@@ -44,5 +44,7 @@
 <a href="/mypage">마이페이지</a>
 <br/>
 <a href="/userChat">채팅페이지 확인</a>
+
+<a href="/recommendTest">추천화면 테스트</a>
 </body>
 </html>
