@@ -1,6 +1,5 @@
 package kosmo.orange.wtf.controller;
 
-import kosmo.orange.wtf.model.mapper.AdminMapper;
 import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class AdminEnterController {
@@ -28,6 +27,9 @@ public class AdminEnterController {
     @Autowired
     PasswordEncoder passwordEncoder;
 
+    @Autowired
+    HttpSession session;
+
 
     /***************************
      * 메인에서 관리자 페이지 접속
@@ -41,9 +43,11 @@ public class AdminEnterController {
 
         // 근데 로그인이 되어 있으면 잠금화면
 
+
+
         // 안되어있으면 로그인 화면
-        int aa = 3;
-        model.addAttribute("aaa", aa);
+//        int aa = 3;
+//        model.addAttribute("aaa", aa);
 
         String page = "adminLogin";
 
@@ -116,15 +120,19 @@ public class AdminEnterController {
     public String adminLogin(@RequestParam("mgr_id") String id, @RequestParam("mgr_pass") String pass, Model model) {
         System.out.println("AdminEnterController.adminLogin - " + "id : " + id + "/ pass : " + pass);
 
-        AdminVO adminVO = new AdminVO();
         AdminVO tempVO = adminService.adminLogin(id, pass);
-        System.out.println("AdminEnterController.adminLogin - adminVO : " + tempVO);
+        System.out.println("AdminEnterController.adminLogin - tempVO : " + tempVO);
 
         String page = "";
         boolean flag = passwordEncoder.matches(pass, tempVO.getMgr_pass());
 
         if(tempVO != null){
             if(flag){
+                session.setAttribute("name", tempVO.getMgr_name());
+                session.setAttribute("id", tempVO.getMgr_id());
+
+                System.out.println(session.getAttribute("name"));
+
                 page = "adminIndex";
             }
             else{
@@ -135,8 +143,9 @@ public class AdminEnterController {
             page = "adminLogin";
         }
 
-        System.out.println("AdminEnterController.adminLogin - t/f : " + flag);
+        System.out.println("AdminEnterController.adminLogin - flag : " + flag);
         System.out.println("AdminEnterController.adminLogin - page : " + page);
+        System.out.println("AdminEnterController.adminLogin - session = " + session);
 
         return "adminViews/" + page;
 

@@ -18,4 +18,8 @@ public interface RecommendMapper {
     //식당 사진
     List<PhotoVO> res_photo(RecommendVO vo) throws Exception;
 
+
+    //식당 추천 정렬
+    List<RecommendVO> res_orderBy(String cate) throws Exception;
+
 }

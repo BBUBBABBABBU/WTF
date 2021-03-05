@@ -22,6 +22,32 @@ a:hover {
   color: #000;
 }
 
+/*추가한 css*/
+.detail_des{
+  font-family: 'Do Hyeon', sans-serif;
+  font-size:26px;
+}
+
+.detail_des2{
+  font-family: 'Do Hyeon', sans-serif;
+  color: #a8a8a2;
+}
+
+.res_img {
+  border-radius:10%;
+  object-fit: cover;
+  max-width: 100%;
+
+}
+
+.res_rating{
+  color: #ffa700;
+  font-size:30px;
+  float: right;
+
+}
+
+
 h1,
 h2,
 h3,
@@ -29,8 +55,11 @@ h4,
 h5,
 h6,
 .font-heading {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Black Han Sans', sans-serif;
 }
+/*추가한 css 끝*/
+
+
 
 .site-section {
   padding: 7rem 0;
@@ -153,7 +182,7 @@ h6,
 
 .testimonial-wrap {
   padding: 50px 50px 80px 50px;
-  background: #eceff2;
+  background: #ffffff;
 }
 
 .testimonial-wrap .testimonial {

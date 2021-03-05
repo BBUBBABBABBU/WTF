@@ -9,6 +9,7 @@
     concept-master > influencer-finder.html
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -185,209 +186,59 @@
                                 <!-- ============================================================== -->
                                 <!-- card influencer one -->
                                 <!-- ============================================================== -->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="user-avatar float-xl-left pr-4 float-none">
-                                                    <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-2.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
-                                                </div>
-                                                <div class="pl-xl-3">
-                                                    <div class="m-b-0">
-                                                        <div class="user-avatar-name d-inline-block">
-                                                            <h2 class="font-24 m-b-10">Louis Mstara</h2>
+                                <c:forEach var="memberVOList" items="${memberVOList}">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row align-items-center">
+                                                <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="user-avatar float-xl-left pr-4 float-none">
+                                                        <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-2.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
+                                                    </div>
+                                                    <div class="pl-xl-3">
+                                                        <div class="m-b-0">
+                                                            <div class="user-avatar-name d-inline-block">
+                                                                <h2 class="font-24 m-b-10">${memberVOList.nickname}</h2>
+                                                            </div>
+                                                            <div class="rating-star d-inline-block pl-xl-2 mb-2 mb-xl-0">
+                                                                <i class="fa fa-fw fa-star"></i>
+                                                                <i class="fa fa-fw fa-star"></i>
+                                                                <i class="fa fa-fw fa-star"></i>
+                                                                <i class="fa fa-fw fa-star"></i>
+                                                                <i class="fa fa-fw fa-star"></i>
+                                                                <p class="d-inline-block text-dark">14 Reviews </p>
+                                                            </div>
                                                         </div>
-                                                        <div class="rating-star d-inline-block pl-xl-2 mb-2 mb-xl-0">
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <p class="d-inline-block text-dark">14 Reviews </p>
+                                                        <div class="user-avatar-address">
+                                                            <p class="mb-2"><i class="fa fa-map-marker-alt mr-2  text-primary"></i>Avenal, CA, USA<span class="m-l-10">Female<span class="m-l-20">24 Year Old</span></span>
+                                                            </p>
+                                                            <div class="mt-3">
+                                                                <a href="#" class="mr-1 badge badge-light">Fitness</a><a href="#" class="mr-1 badge badge-light">Life Style</a><a href="#" class="mr-1 badge badge-light">Gym</a><a href="#" class="badge badge-light">Crossfit</a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="user-avatar-address">
-                                                        <p class="mb-2"><i class="fa fa-map-marker-alt mr-2  text-primary"></i>Avenal, CA, USA<span class="m-l-10">Female<span class="m-l-20">24 Year Old</span></span>
-                                                        </p>
-                                                        <div class="mt-3">
-                                                            <a href="#" class="mr-1 badge badge-light">Fitness</a><a href="#" class="mr-1 badge badge-light">Life Style</a><a href="#" class="mr-1 badge badge-light">Gym</a><a href="#" class="badge badge-light">Crossfit</a>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="float-xl-right float-none mt-xl-0 mt-4">
-                                                    <a href="#" class="btn-wishlist m-r-10"><i class="far fa-star"></i></a>
-                                                    <a href="#" class="btn btn-secondary">Send Messages</a>
+                                                <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                    <div class="float-xl-right float-none mt-xl-0 mt-4">
+                                                        <a href="#" class="btn-wishlist m-r-10"><i class="far fa-star"></i></a>
+                                                        <a href="#" class="btn btn-secondary">Send Messages</a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="border-top user-social-box">
+                                            <div class="user-social-media d-xl-inline-block "><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
+                                            <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
+                                            <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
+                                            <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
+                                            <div class="user-social-media d-xl-inline-block"><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
+                                            <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
+                                        </div>
                                     </div>
-                                    <div class="border-top user-social-box">
-                                        <div class="user-social-media d-xl-inline-block "><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
-                                    </div>
-                                </div>
+                                </c:forEach>
                                 <!-- ============================================================== -->
                                 <!-- end card influencer one -->
                                 <!-- ============================================================== -->
-                                <!-- ============================================================== -->
-                                <!-- card influencer one -->
-                                <!-- ============================================================== -->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="user-avatar float-xl-left pr-4 float-none">
-                                                    <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-3.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
-                                                </div>
-                                                <div class="pl-xl-3">
-                                                    <div class="m-b-0">
-                                                        <div class="user-avatar-name d-inline-block">
-                                                            <h2 class="font-24 m-b-10">Nichole Oliver</h2>
-                                                        </div>
-                                                        <div class="rating-star d-inline-block pl-xl-2 mb-2 mb-xl-0">
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <p class="d-inline-block text-dark">14 Reviews </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-avatar-address">
-                                                        <p class="mb-2"><i class="fa fa-map-marker-alt mr-2  text-primary"></i>98 Richland Avenue, USA<span class="m-l-10">Male<span class="m-l-20">34 Year Old</span></span>
-                                                        </p>
-                                                        <div class="mt-3">
-                                                            <a href="#" class="mr-1 badge badge-light">Fitness</a><a href="#" class="mr-1 badge badge-light">Life Style</a><a href="#" class="mr-1 badge badge-light">Gym</a><a href="#" class="badge badge-light">Crossfit</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="float-xl-right float-none mt-xl-0 mt-4">
-                                                    <a href="#" class="btn-wishlist m-r-10"><i class="far fa-star"></i></a>
-                                                    <a href="#" class="btn btn-secondary">Send Messages</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border-top user-social-box">
-                                        <div class="user-social-media d-xl-inline-block "><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
-                                    </div>
-                                </div>
-                                <!-- ============================================================== -->
-                                <!-- end card influencer one -->
-                                <!-- ============================================================== -->
-                                <!-- ============================================================== -->
-                                <!-- card influencer one -->
-                                <!-- ============================================================== -->
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="user-avatar float-xl-left pr-4 float-none">
-                                                    <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-4.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
-                                                </div>
-                                                <div class="pl-xl-3">
-                                                    <div class="m-b-0">
-                                                        <div class="user-avatar-name d-inline-block">
-                                                            <h2 class="font-24 m-b-10">Pallavi Johnson</h2>
-                                                        </div>
-                                                        <div class="rating-star d-inline-block pl-xl-2 mb-2 mb-xl-0">
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <p class="d-inline-block text-dark">14 Reviews </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-avatar-address">
-                                                        <p class="mb-2"><i class="fa fa-map-marker-alt mr-2  text-primary"></i>4427 Wines Lane, USA <span class="m-l-10">Female<span class="m-l-20">29 Year Old</span></span>
-                                                        </p>
-                                                        <div class="mt-3">
-                                                            <a href="#" class="mr-1 badge badge-light">Fitness</a><a href="#" class="mr-1 badge badge-light">Life Style</a><a href="#" class="mr-1 badge badge-light">Gym</a><a href="#" class="badge badge-light">Crossfit</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="float-xl-right float-none mt-xl-0 mt-4">
-                                                    <a href="#" class="btn-wishlist m-r-10"><i class="far fa-star"></i></a>
-                                                    <a href="#" class="btn btn-secondary">Send Messages</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border-top user-social-box">
-                                        <div class="user-social-media d-xl-inline-block "><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
-                                    </div>
-                                </div>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row align-items-center">
-                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="user-avatar float-xl-left pr-4 float-none">
-                                                    <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-5.jpg" alt="User Avatar" class="rounded-circle user-avatar-xl">
-                                                </div>
-                                                <div class="pl-xl-3">
-                                                    <div class="m-b-0">
-                                                        <div class="user-avatar-name d-inline-block">
-                                                            <h2 class="font-24 m-b-10">Komal Johnson</h2>
-                                                        </div>
-                                                        <div class="rating-star d-inline-block pl-xl-2 mb-2 mb-xl-0">
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <i class="fa fa-fw fa-star"></i>
-                                                            <p class="d-inline-block text-dark">14 Reviews </p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="user-avatar-address">
-                                                        <p class="mb-2"><i class="fa fa-map-marker-alt mr-2  text-primary"></i>4427 Wines Lane, USA <span class="m-l-10">Female<span class="m-l-20">29 Year Old</span></span>
-                                                        </p>
-                                                        <div class="mt-3">
-                                                            <a href="#" class="mr-1 badge badge-light">Fitness</a><a href="#" class="mr-1 badge badge-light">Life Style</a><a href="#" class="mr-1 badge badge-light">Gym</a><a href="#" class="badge badge-light">Crossfit</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="float-xl-right float-none mt-xl-0 mt-4">
-                                                    <a href="#" class="btn-wishlist m-r-10"><i class="far fa-star"></i></a>
-                                                    <a href="#" class="btn btn-secondary">Send Messages</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border-top user-social-box">
-                                        <div class="user-social-media d-xl-inline-block "><span class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  pinterest-color"> <i class="fab fa-pinterest-square"></i></span><span>84,019</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 instagram-color"> <i class="fab fa-instagram"></i></span><span>12,300</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2  facebook-color"> <i class="fab fa-facebook-square "></i></span><span>92,920</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 medium-color"> <i class="fab fa-medium"></i></span><span>291</span></div>
-                                        <div class="user-social-media d-xl-inline-block"><span class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span></div>
-                                    </div>
-                                </div>
-                                <!-- ============================================================== -->
-                                <!-- end card influencer one -->
-                                <!-- ============================================================== -->
+
 
 
                                 <!-- ============================================================== -->

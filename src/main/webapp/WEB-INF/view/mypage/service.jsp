@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="/res/mypageTemplate/css/ionicons.min.css">
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="/res/mypageTemplate/css/jquery.timepicker.css">
+<%--    <link rel="stylesheet" href="/res/mypageTemplate/css/jquery.timepicker.css">--%>
 
 
     <link rel="stylesheet"  href="/res/mypageTemplate/css/flaticon.css">
@@ -36,6 +36,11 @@
     <!-- <link rel="stylesheet"  href="your_website_domain/css_root/flaticon.css" >  -->
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/style.css">
+
+<%--faq js / css--%>
+    <link rel="stylesheet" href="/res/mypageTemplate/faqchat/faq.css">
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         .bread{
@@ -47,6 +52,23 @@
         /* .breadcrumbs{
             font-family: 'Nanum Gothic', sans-serif;
         } */
+
+
+        /*.chat_category ul li {*/
+        /*    width: 80%;*/
+        /*    height: 30px;*/
+        /*    background: #fff;*/
+        /*    padding: 10px;*/
+        /*    !*box-shadow: 0 4px 8px rgb(0 0 0 / 10%);*!*/
+        /*    margin-bottom: 10px;*/
+        /*    border-radius: 3px;*/
+        /*    border: 1px solid #e0e0e0;*/
+        /*    font-size: 13px;*/
+        /*    cursor: pointer;*/
+        /*    line-height: 30px;*/
+        /*    color: #888;*/
+        /*    text-align: center;*/
+        /*}*/
 
     </style>
 </head>
@@ -177,8 +199,107 @@
 
 
 
+<!-- ------------------------------------------------- Faq ----------------------------------------------------- -->
+<div class="fabs">
+    <div class="chat">
+        <div class="chat_header">
+            <div class="chat_option">
+                <div class="header_img">
+
+                    <img src="/res/mypageTemplate/images/048-ask.png"/>
+                </div>
+                <span id="chat_head">FAQs</span> <br> <span class="agent">자주 묻는 질문</span> <span class="online">(Quick Q&A)</span>
+                <span id="chat_fullscreen_loader" class="chat_fullscreen_loader"><i class="fullscreen zmdi zmdi-window-maximize"></i></span>
+
+            </div>
+
+        </div>
+        <div class="chat_body chat_login">
+            <a id="chat_first_screen" class="fab"><i class="zmdi zmdi-arrow-right"></i></a>
+            <p>니가 OO 먹을줄은 몰랐어 FAQs Chat Box</p>
+        </div>
+
+
+        <div id="chat_converse" class="chat_body">
+
+            <div class="chat_category">
+                <a id="chat_second_screen" class="fab"><i class="zmdi zmdi-arrow-left"></i></a>
+                <!-- <p>회원들이 가장 많이 묻는 질문은?</p> -->
+                <ul>
+                    <li id="member"><a>회원관련</a></li>
+                    <li id="rest"><a>맛집관련</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <!-- 회원관련 (1)번쨰 <li>태그 -->
+        <div id="chat_body" class="chat_conversion chat_converse">
+            <a id="chat_screen_no1" class="fab"><i class="zmdi zmdi-arrow-left"></i></a>
+            <span class="chat_msg_item chat_msg_item_admin">
+              <div class="chat_avatar">
+                 <img src="/res/mypageTemplate/images/048-ask.png"/>
+              </div>회원</span>
+            <span class="chat_msg_item chat_msg_item_user">
+              Hello!</span>
+            <span class="status">20m ago</span>
+            <span class="chat_msg_item chat_msg_item_admin">
+              <div class="chat_avatar">
+                 <img src="/res/mypageTemplate/images/048-ask.png"/>
+              </div>Hey! Would you like to talk sales, support, or anyone?</span>
+            <span class="chat_msg_item chat_msg_item_user">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+            <span class="status2">Just now. Not seen yet</span>
+        </div>
+
+
+        <!-- 맛집관련 (2)번쨰 <li>태그 -->
+        <div id="chat_form" class="chat_conversion chat_converse">
+            <a id="chat_screen_no2" class="fab"><i class="zmdi zmdi-arrow-left"></i></a>
+            <span class="chat_msg_item chat_msg_item_admin">
+            <div class="chat_avatar">
+               <img src="/res/mypageTemplate/images/028-headset.png"/>
+            </div>맛집</span>
+            <span class="chat_msg_item chat_msg_item_user">
+            Hello!</span>
+            <span class="status">20m ago</span>
+            <span class="chat_msg_item chat_msg_item_admin">
+            <div class="chat_avatar">
+               <img src="/res/mypageTemplate/images/028-headset.png"/>
+            </div>Hey! Would you like to talk sales, support, or anyone?</span>
+            <span class="chat_msg_item chat_msg_item_user">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry.</span>
+            <span class="status2">Just now. Not seen yet</span>
+        </div>
+
+
+
+
+        <div class="fab_field">
+            <a id="fab_camera" class="fab"><i class="zmdi zmdi-camera"></i></a>
+            <a id="fab_send" class="fab"><i class="zmdi zmdi-mail-send"></i></a>
+            <textarea id="chatSend" name="chat_message" placeholder="Send a message" class="chat_field chat_message"></textarea>
+        </div>
+    </div>
+    <a id="prime" class="fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
+</div>
+
+
+
+
     </div><!-- END COLORLIB-MAIN -->
 </div><!-- END COLORLIB-PAGE -->
+
+
+
+
+
+<script src="/res/mypageTemplate/faqchat/chat.js"></script>
+
+
+
+
 
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -196,7 +317,7 @@
 <script src="/res/mypageTemplate/js/aos.js"></script>
 <script src="/res/mypageTemplate/js/jquery.animateNumber.min.js"></script>
 <script src="/res/mypageTemplate/js/bootstrap-datepicker.js"></script>
-<script src="/res/mypageTemplate/js/jquery.timepicker.min.js"></script>
+<%--<script src="/res/mypageTemplate/js/jquery.timepicker.min.js"></script>--%>
 <script src="/res/mypageTemplate/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/res/mypageTemplate/js/google-map.js"></script>

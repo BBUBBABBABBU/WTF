@@ -40,4 +40,16 @@ public class RecommendServiceImpl implements RecommendService {
 
         }
     }
+
+    //식당 정보 정렬
+    @Override
+    public List<RecommendVO> res_orderBy(String cate) {
+        try{
+            return recommendMapper.res_orderBy(cate);
+
+        }catch (Exception e){
+            System.out.println("res_orderBy 에러"+e.toString());
+            return null;
+        }
+    }
 }

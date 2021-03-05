@@ -1,0 +1,12 @@
+img {
+    height: 100px;
+    max-width: 100px;
+    overflow: hidden;
+}
+
+.profile-img {
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+}
+

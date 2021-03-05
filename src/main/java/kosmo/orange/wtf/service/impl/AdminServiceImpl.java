@@ -2,15 +2,16 @@ package kosmo.orange.wtf.service.impl;
 
 import kosmo.orange.wtf.model.mapper.AdminMapper;
 import kosmo.orange.wtf.model.vo.AdminVO;
+import kosmo.orange.wtf.model.vo.MemberVO;
+import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
-@Service
+@Service("adminService")
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
@@ -77,10 +78,55 @@ public class AdminServiceImpl implements AdminService {
         System.out.println("AdminServiceImpl.adminLogin - adminVO = " + tempVO);
 
 
-
-
         return tempVO;
-    }
+
+    } // end of adminLogin
+
+
+
+    // ============================================
+
+    /****************
+     * 유저 목록 불러오기
+     */
+    @Override
+    public List<MemberVO> memberList() {
+        System.out.println("AdminServiceImpl.memberList");
+
+        return adminMapper.memberList();
+
+    } // end of memberList
+
+
+    /*********************
+     * 가게 목록 불러오기
+     */
+    @Override
+    public List<RestaurantVO> storeList() {
+        System.out.println("AdminServiceImpl.storeList");
+
+        return adminMapper.storeList();
+
+    } // end of sotreList
+
+
+    /****************************
+     * 관리자 (manager) 리스트 불러오기
+     */
+    @Override
+    public List<AdminVO> managerList() {
+        System.out.println("AdminServiceImpl.managerList");
+
+        return adminMapper.managerList();
+
+    } // end of managerList
+
+
+
+
+
+
+
 
 
 }
