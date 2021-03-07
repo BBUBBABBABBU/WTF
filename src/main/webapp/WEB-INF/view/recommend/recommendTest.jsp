@@ -27,6 +27,8 @@
     <!-- Bootstrap CSS File -->
     <link href="/res/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
+
     <!-- Vendor CSS Files -->
     <link href="/res/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="/res/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
@@ -38,7 +40,8 @@
 
     <%--폰트 연결--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Jua&display=swap"
+          rel="stylesheet">
 
     <%--제이 쿼리--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -80,7 +83,8 @@
                 <div class="tweet d-flex">
                     <span class="icofont-twitter text-white mt-2 mr-3"></span>
                     <div>
-                        <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut
+                        <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
+                            ut
                             officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
                     </div>
                 </div>
@@ -96,13 +100,10 @@
 </div>
 
 
-
-
-
 <main id="main">
 
     <div class="site-section site-portfolio">
-        <div class="container">
+        <div id = 'recommend_container' class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 먹을줄 알고 있었어</h1>
@@ -110,10 +111,10 @@
                 </div>
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
-                    <div >
-                        <a class = 'recommend_method' href="/resOrdered?cate=recom">추천순</a>
-                        <a class = 'recommend_method' href="/resOrdered?cate=rating">평점순</a>
-                        <a class = 'recommend_method' href="/resOrdered?cate=review">리뷰순</a>
+                    <div>
+                        <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
+                        <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
+                        <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
                         <div id="recommend_order" name="recom">추천순</div>
                         <div id="rating_order" name="rating">평점순</div>
                         <div id="review_order" name="review">리뷰순</div>
@@ -126,13 +127,13 @@
             </div>
 
 
-            <div class="owl-carousel testimonial-carousel">
+            <div id='recommend_div' class="owl-carousel testimonial-carousel">
 
-                <%  List<RecommendVO> res_allList =(List<RecommendVO>)request.getAttribute("res_allList");
-                    List<String> photoList = (List<String>)request.getAttribute("photoList");
-                    for (int i = 0; i<12; i++){ %>
+                <% List<RecommendVO> res_allList = (List<RecommendVO>) request.getAttribute("res_allList");
+                    List<String> photoList = (List<String>) request.getAttribute("photoList");
+                    for (int i = 0; i < 12; i++) { %>
 
-                <%if(i%6==0){%>
+                <%if (i % 6 == 0) {%>
 
                 <div class="testimonial-wrap">
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
@@ -144,22 +145,28 @@
                                     <span>Branding</span>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
-                                <img class="res_img" width="400" height="300"  src=<%=photoList.get(i)%>>
+                                <img class="res_img" width="400" height="300" src=<%=photoList.get(i)%>>
                             </a>
                             <table border="0">
                                 <tr>
-                                    <td class ='detail_des' width = 350><%=res_allList.get(i).getRes_name()%><span class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
+                                    <td class='detail_des' width=350><%=res_allList.get(i).getRes_name()%><span
+                                            class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
                                 </tr>
                                 <tr>
-                                    <td class ='detail_des2' width = 350><%=res_allList.get(i).getRes_addr().split(" ")[1]%> </td>
+                                    <td class='detail_des2'
+                                        width=350><%=res_allList.get(i).getRes_addr().split(" ")[1]%>
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <td class ='detail_des2' width = 350>추천 :<%=res_allList.get(i).getLike_count()%>  리뷰 :<%=res_allList.get(i).getReview_count()%></td><td></td>
+                                    <td class='detail_des2' width=350>추천 :<%=res_allList.get(i).getLike_count()%>  리뷰
+                                        :<%=res_allList.get(i).getReview_count()%>
+                                    </td>
+                                    <td></td>
                                 </tr>
 
                             </table>
                         </div>
-                        <%if(i%6==5){%>
+                        <%if (i % 6 == 5) {%>
 
                     </div>
                 </div>
@@ -168,14 +175,11 @@
                 <%}%>
 
 
-
             </div>
 
 
         </div>
     </div>
-
-
 
 
     <!--    <div class="site-section">
@@ -283,7 +287,8 @@
                     <div class="testimonial">
                         <img src="/res/img/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
+                                ut officiis
                                 explicabo inventore.</p>
                         </blockquote>
                         <p>&mdash; Jean Hicks</p>
@@ -296,7 +301,8 @@
                     <div class="testimonial">
                         <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
+                                ut officiis
                                 explicabo inventore.</p>
                         </blockquote>
                         <p>&mdash; Chris Stanworth</p>
@@ -308,7 +314,8 @@
                     <div class="testimonial">
                         <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
+                                ut officiis
                                 explicabo inventore.</p>
                         </blockquote>
                         <p>&mdash; Chris Stanworth</p>
@@ -320,7 +327,8 @@
                     <div class="testimonial">
                         <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
+                                ut officiis
                                 explicabo inventore.</p>
                         </blockquote>
                         <p>&mdash; Chris Stanworth</p>
