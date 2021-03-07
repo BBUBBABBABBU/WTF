@@ -27,6 +27,8 @@
     <!-- Bootstrap CSS File -->
     <link href="/res/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+
+
     <!-- Vendor CSS Files -->
     <link href="/res/vendor/icofont/icofont.min.css" rel="stylesheet">
     <link href="/res/vendor/line-awesome/css/line-awesome.min.css" rel="stylesheet">
@@ -43,6 +45,7 @@
 
     <%--제이 쿼리--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/res/js/recommend.js"></script>
 
     <!-- =======================================================
       Template Name: MyPortfolio
@@ -100,7 +103,7 @@
 <main id="main">
 
     <div class="site-section site-portfolio">
-        <div class="container">
+        <div id = 'recommend_container' class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 먹을줄 알고 있었어</h1>
@@ -124,7 +127,7 @@
             </div>
 
 
-            <div class="owl-carousel testimonial-carousel">
+            <div id='recommend_div' class="owl-carousel testimonial-carousel">
 
                 <% List<RecommendVO> res_allList = (List<RecommendVO>) request.getAttribute("res_allList");
                     List<String> photoList = (List<String>) request.getAttribute("photoList");

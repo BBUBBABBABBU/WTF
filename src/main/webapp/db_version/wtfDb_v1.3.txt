@@ -1,5 +1,7 @@
 --변경 부분
 --alter table restaurant add column like_count int;
+--alter table menu modify menu varchar(200);
+--alter table restaurant_pic modify rtr_pic_loc text;
 
     member 테이블 favor 컬럼 추가
 -- ALTER TABLE member ADD favor VARCHAR(600);
@@ -38,3 +40,7 @@
 
 -- INSERT INTO review_test (member_id,res_id,rating_avg,recommend_count)
   VALUES (truncate((1+RAND()*20),0),truncate((1+RAND()*151),0),truncate((1+RAND()*5),0),truncate((1+RAND()*300),0));
+
+-- alter table menu modify menu varchar(200);
+-- alter table restaurant_pic modify rtr_pic_loc text;
+
