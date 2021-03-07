@@ -1,5 +1,7 @@
 --변경 부분
 --alter table restaurant add column like_count int;
+--alter table menu modify menu varchar(200);
+--alter table restaurant_pic modify rtr_pic_loc text;
 
     member 테이블 favor 컬럼 추가
 -- ALTER TABLE member ADD favor VARCHAR(600);

@@ -10,7 +10,7 @@ ul li{
   margin: 1em;
   right: 0;
   z-index: 998;
-  
+
 }
 
 .fab {
@@ -28,7 +28,7 @@ ul li{
   position: relative;
   z-index: 998;
   overflow: hidden;
-  background: #42a5f5;
+    background: #f18ccb;
 }
 
 .fab > i {
@@ -126,7 +126,7 @@ ul li{
     font-weight: 500;
     color: #f3f3f3;
     height: 55px;
-    background: #42a5f5;
+    background: #f18ccb;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 8px;
@@ -263,29 +263,31 @@ ul li{
 }
 
 .chat_category{
-  margin: 20px;
+  margin: 30px;
   background: rgba(0, 0, 0, 0.03);
   padding: 10px;
 }
 
 .chat_category ul li{
     width: 80%;
-    height: 30px;
+    height: 40px;
     background: #fff;
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     border-radius: 3px;
     border: 1px solid #e0e0e0;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
-    line-height: 30px;
-    color: #888;
+    line-height: 20px;
+    color: rgb(88, 88, 88);
     text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+
 }
 
 .chat_category li:hover{
-    background: #42A5F5;
+    background: #f18ccb;
     color: #fff;
 }
 .chat_category li.active{
@@ -431,8 +433,8 @@ ul li{
 }
 
 .chat .chat_converse .chat_msg_item .chat_avatar, .chat_avatar img{
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   text-align: center;
   border-radius: 50%;
 }
@@ -728,7 +730,7 @@ strong.chat_time {
 
 @-webkit-keyframes ripple {
   /*scale the element to 250% to safely cover the entire link and fade it out*/
-  
+
   100% {
     opacity: 0;
     -moz-transform: scale(5);
@@ -741,7 +743,7 @@ strong.chat_time {
 
 @keyframes ripple {
   /*scale the element to 250% to safely cover the entire link and fade it out*/
-  
+
   100% {
     opacity: 0;
     -moz-transform: scale(5);
