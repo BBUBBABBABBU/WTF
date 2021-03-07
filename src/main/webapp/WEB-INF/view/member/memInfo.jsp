@@ -21,10 +21,10 @@ System.out.println(nick);%>
             results = regex.exec(location.search);
         return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-
-
 </script>
 <script>
+    function chkBirthDay(){
+    }
     function chkPW(){
 
         var pw = $("#pw").val();
@@ -59,23 +59,57 @@ System.out.println(nick);%>
         //비밀번호가 입력되었는지 확인하기
 
         //비밀번호와 비밀번호 확인이 맞지 않다면..
-        if ( $("#pwCheck").val() != $("#pw").val()) {
+        if ( $("#pwCheck").val() != $("#pw").val() & $("#pwCheck").val().length !=0) {
             alert("비밀번호가 일치하지 않습니다.");
             $("#pwCheck").val("");
+            $("#pwCheck").focus();
             return false;
-        }else alert("비밀번호가 일치합니다.");
+        }else if ($("#pwCheck").val() == $("#pw").val() & $("#pwCheck").val().length !=0)
+            alert("비밀번호가 일치합니다.");
+
         return true; //확인이 완료되었을 때
+
     }
+
 </script>
 <html>
-
 <head>
-
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Title</title>
+
+    <script>
+        $(function(){
+            $('#joinBtn').click(function () {
+                    $("#email").attr("disabled", false);
+                    $("#birthday").attr("disabled", false);
+                    $("#gender").attr("disabled", false);
+                }
+            )
+
+
+            $('#email').keyup(function(){
+                if ($('#email').val() !=null)
+                $.ajax({
+                    type : 'POST', // 전송방식
+                    //async : true,  //비동기통신
+                    url : 'idCheckLogin', // **** 요청(request)
+                    // contentType : 'application/x-www-form-urlencoded;charset=utf-8', // 한글처리
+                    data : {'email': $('#email').val()},
+                    success : function(result){
+                        $('#idCheckResult').text(result);
+
+                    },
+                    error : function(err){
+                        console.log(err);
+                    }
+                });
+
+            })
+        })
+    </script>
     <style >
         .w3-center{ border-radius: 20px;
             width: 300px;
@@ -96,6 +130,32 @@ System.out.println(nick);%>
         div.w3-container {
             border-radius: 30px;
         }
+        p.w3-center button.w3-button w3-block w3-black w3-ripple w3-margin-top w3-round{
+            background-color: #E8BE24;
+        }
+        p.w3-center #joinBtn{
+            background-color: #FFCD12;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            transition: opacity 0s;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            border: none;
+        }
+        p.w3-center #joinBtn:hover{
+            background-color:#EAEAEA ;
+        }
+        p.w3-center #joinBtn{
+
+        }
+        form#myForm p.w3-center     .w3-button:hover{
+            background-color: #E8BE24;
+        }
+
     </style>
 
 </head>
@@ -107,7 +167,7 @@ System.out.println(nick);%>
             <h3>회원가입</h3>
         </div>
         <div>
-            <form id="myForm" name="myForm" action="signUp" method="post">
+            <form id="myForm" name="myForm"  action="signUp" method="post" >
                 <!-- <%--                <p>--%>
 <%--                    <label>ID</label>--%>
 <%--                    <input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }">--%>
@@ -115,7 +175,8 @@ System.out.println(nick);%>
                 <div class="i" name="div1">
                     <p>
                         <label>이메일</label>
-                        <input class="w3-input" type="email" id="email" name="email" value="" required>
+                        <input class="w3-input" type="email" id="email" name="email" value=""  required><span id="idCheckResult" style="width:150px;color:#b1b1c0"></span>
+
                     </p>
                     <p>
                         <label>닉네임</label>
@@ -131,12 +192,17 @@ System.out.println(nick);%>
                     </p>
                     <input type="hidden" name="id" >
                     <p>
-                        <label>생년월일</label>
-                        <input class="w3-input" id="birthday" name="birthday" type="text" value="" required>
+                        <label>생년월일 (예시> 0728 )</label>
+                        <input class="w3-input" id="birthday" name="birthday" type="text" value=""  required>
                     </p>
                     <p>
                         <label>성별</label>
-                        <input class="w3-input" id="gender" name="gender" type="text" value="" required>
+
+                        <select name="gender" id="gender" >
+                            <option value="남성">남성</option>
+                            <option value="여성">여성</option>
+                        </select>
+
                     </p>
                     <p>
                         <label>당신의 취향</label>
@@ -148,7 +214,7 @@ System.out.println(nick);%>
                     </p>
                 </div>
                 <p class="w3-center">
-                    <button type="submit" id="joinBtn" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">회원가입</button>
+                    <button type="submit" id="joinBtn"  >회원가입</button>
                 </p>
             </form>
         </div>
@@ -167,71 +233,42 @@ System.out.println(nick);%>
         var nickname=naver_id_login.getProfileData('nickname');
         var gender=naver_id_login.getProfileData('gender');
         var birthday=naver_id_login.getProfileData('birthday');
+        var age=naver_id_login.getProfileData('age');
+        location.href="/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday+"&age="+age;
 
-
-        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday);
+        // window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday+"&age="+age);
     }
     var uId = getParameterByName('nickname');
     var uEmail = getParameterByName('email');
     var uGender = getParameterByName('gender');
+    var uAge = getParameterByName('age');
     if (uGender=="male"){
-        uGender="M"
-    }
+        uGender="남성"
+    }else uGender ="여성"
+
     var ubirthday = getParameterByName('birthday');
     if (ubirthday.includes("-")){
        ubirthday=ubirthday.replace("-","")
     }
-    $("#email").attr('value',uEmail);
-    $("#nickname").attr('value',uId);
-    $("#birthday").attr('value',ubirthday);
-    $("#gender").attr('value',uGender);
+
+    if (uEmail.length!=0) {
+        $("#email").attr('value', uEmail);
+        $("#email").attr("disabled",true);
+        $("#nickname").attr('value', uId);
+        $("#birthday").attr('value',ubirthday);
+        $("#birthday").attr("disabled",true);
+        $("#gender").attr('value', uGender);
+        $("#gender").attr("disabled",true);
+        $("#password").attr('value', uAge);
 
 
+
+    }
 
 </script>
 
 
-<%--<%--%>
-<%--    String clientId = "xgIAqtm_DJEQkFLVejnq";//애플리케이션 클라이언트 아이디값";--%>
-<%--    String clientSecret = "QYYtd4NJPP";//애플리케이션 클라이언트 시크릿값";--%>
-<%--    String code = request.getParameter("code");--%>
-<%--    String state = request.getParameter("state");--%>
-<%--    String redirectURI = URLEncoder.encode("http://8080/Info", "UTF-8");--%>
-<%--    String apiURL;--%>
-<%--    apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&";--%>
-<%--    apiURL += "client_id=" + clientId;--%>
-<%--    apiURL += "&client_secret=" + clientSecret;--%>
-<%--    apiURL += "&redirect_uri=" + redirectURI;--%>
-<%--    apiURL += "&code=" + code;--%>
-<%--    apiURL += "&state=" + state;--%>
-<%--    String access_token = "AAAAOmGdaXaRt5diTjbtW1aVB1z8oVeiJAB1p8eKs8CwWTcXrSvwocdKLiAgMgRrCCew3p-MfPpVKSNwxCSE9CM51y0";--%>
-<%--    String refresh_token = "r3uplD5IsoL8gdlip8CnAUWePUsegUxTh4GtzkC3GFYTjxN5PzF62p4DipyEmrCLMvCEgip1ipipZe7ILOVJTcWxsipaqaiiVOUxtvcSytiiTRrmtqJanQmiidLnfqkYa06FxTj7v";--%>
-<%--    System.out.println("apiURL="+apiURL);--%>
-<%--    try {--%>
-<%--        URL url = new URL(apiURL);--%>
-<%--        HttpURLConnection con = (HttpURLConnection)url.openConnection();--%>
-<%--        con.setRequestMethod("GET");--%>
-<%--        int responseCode = con.getResponseCode();--%>
-<%--        BufferedReader br;--%>
-<%--        System.out.print("responseCode="+responseCode);--%>
-<%--        if(responseCode==200) { // 정상 호출--%>
-<%--            br = new BufferedReader(new InputStreamReader(con.getInputStream()));--%>
-<%--        } else {  // 에러 발생--%>
-<%--            br = new BufferedReader(new InputStreamReader(con.getErrorStream()));--%>
-<%--        }--%>
-<%--        String inputLine;--%>
-<%--        StringBuffer res = new StringBuffer();--%>
-<%--        while ((inputLine = br.readLine()) != null) {--%>
-<%--            res.append(inputLine);--%>
-<%--        }--%>
-<%--        br.close();--%>
-<%--        if(responseCode==200) {--%>
-<%--            System.out.println(res.toString());--%>
-<%--        }--%>
-<%--    } catch (Exception e) {--%>
-<%--        System.out.println(e);--%>
-<%--    }--%>
-<%--%>--%>
+
 </body>
 
 </html>

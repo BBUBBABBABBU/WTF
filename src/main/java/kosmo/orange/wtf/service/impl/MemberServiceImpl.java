@@ -12,8 +12,6 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     MemberMapper memberMapper;
 
-
-
     @Override
     public int signUp(final MemberVO vo) {
         int result=0;
@@ -26,13 +24,24 @@ public class MemberServiceImpl implements MemberService {
         return result;
     }
     @Override
-    public MemberVO memberLogin(final MemberVO vo){
+    public MemberVO memberLogin( MemberVO vo){
         MemberVO result = null;
         try {
             result =memberMapper.memberLogin(vo);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("memberLogin() + " + e.toString());
         }
         return result;
+    }
+
+    @Override
+    public int idcheckMember(String email) throws Exception {
+        int result = 0;
+        MemberVO memberVO = memberMapper.idcheckMember(email);
+            System.out.println(result+"impl");
+        if (memberVO != null)
+            result=1;
+            return result;
+
     }
 }

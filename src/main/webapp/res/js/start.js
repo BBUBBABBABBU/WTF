@@ -13,8 +13,11 @@ $(function () {
 
     $('#select_kind').formSelect();
 
+    var user=window.sessionStorage.getItem("member");
+
+    if (user!=""){
     $('#select_kind').on('change', function () {
         $('#kind_form').submit()
-    })
+    })}
 })
 

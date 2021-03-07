@@ -10,7 +10,13 @@
     </insert>
 
     <select id="memberLogin" resultMap="getMember">
-        SELECT * FROM member WHERE email = #{email};
+        SELECT * FROM member
+        WHERE  email = #{email}
+    </select>
+
+    <select id="idcheckMember"  resultMap="getMember">
+        SELECT * FROM member
+        WHERE  email = #{email};
     </select>
 
     <resultMap id="getMember" type="MemberVO">

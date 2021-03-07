@@ -34,3 +34,35 @@ p {
     border-radius: 40px;
     opacity: 0.3;
 }
+
+#naver_id_login{
+
+    width: 30px;
+    /*background-image: ;*/
+    z-index: 100000;
+
+}
+#naverSignup{
+    position: absolute;
+    top: 43px;
+    left: 42px;
+}
+#kakaoSignup{
+    position: absolute;
+    top: 0px;
+    left: 42px;
+}
+#normalSignup{
+    position: relative;
+    top: 4px;
+}
+#sub{
+    position: relative;
+    top: 5px;
+}
+#normalSignup:hover{
+    cursor: pointer;}
+#kakao-login-btn:hover{cursor: pointer;
+
+}
+

@@ -20,21 +20,24 @@
     padding: 5px;
     overflow: hidden;
     border-radius: 40px;
+    z-index: 3;
 }
-.button-wrap {
-    width: 230px;
+
+#button-wrap {
+    width: 230px ;
     margin: 35px auto;
     position: relative;
     box-shadow: 0 0 600px 9px white;
     border-radius: 30px;
 }
 .togglebtn {
-    padding: 10px 30px;
+    padding: 10px 25px;
     cursor: pointer;
     background: transparent;
     border: 0;
     outline: none;
     position: relative;
+    align-content: center;
 }
 #btn {
     top: 0;
@@ -87,11 +90,23 @@ span {
     color: #777;
     font-size: 12px;
     bottom: 68px;
-    position: absolute;
+    /*position: absolute;*/
 }
 #login {
     left: 50px;
 }
+.togglebtn:focus {background-color:unset; }
 #register {
     left: 450px;
+}
+form .input-field {
+    width: 80%;
+    left: 25px;
+    text-align: center;
+}
+#loginEmail{
+    width: 80%;
+}
+#loginPassword{
+    width: 80%;
 }
