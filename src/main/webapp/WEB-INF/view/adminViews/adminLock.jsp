@@ -1,4 +1,3 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: kosmo_10
@@ -50,8 +49,7 @@
 
 
 
-    <h2> name : ${sessionScope.name}
-    id : ${sessionScope.id} </h2>
+
 
     <div class="login-form-bg h-100">
         <div class="container h-100">
@@ -60,11 +58,10 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="../Start.jsp"> <h2>니가 정말</h2></a>
-                                <form class="mt-5 mb-3 login-input" action="/login" method="post">
+                                <a class="text-center" href="index.html"> <h2>니가 정말</h2></a>
+                                <form class="mt-5 mb-3 login-input">
                                     <div class="form-group">
-                                        <input type="hidden" name="mgr_id" value="${sessionScope.id}">
-                                        <input type="password" class="form-control" placeholder="Password" required name="mgr_pass">
+                                        <input type="password" class="form-control" placeholder="Password" required>
                                     </div>
                                     <button class="btn login-form__btn submit w-100">Unlock</button>
                                 </form>

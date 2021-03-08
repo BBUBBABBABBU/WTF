@@ -6,9 +6,6 @@ import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +13,6 @@ import java.util.List;
 
 @Service("adminService")
 public class AdminServiceImpl implements AdminService {
-//public class AdminServiceImpl implements AdminService, UserDetailsService {
 
     @Autowired
     AdminMapper adminMapper;
@@ -126,21 +122,11 @@ public class AdminServiceImpl implements AdminService {
     } // end of managerList
 
 
-//    @Override
-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//
-//        AdminVO adminVO = findById(username);
-//
-//        if(adminVO == null) {
-//            throw new UsernameNotFoundException(username);
-//        }
-//
-//        return adminVO;
-//    }
-//
-//    public AdminVO findById(String username) {
-//        return (AdminVO) adminMapper.adminLogin(username);
-//
-//    }
+
+
+
+
+
+
 
 }

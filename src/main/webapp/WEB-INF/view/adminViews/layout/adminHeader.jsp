@@ -199,7 +199,7 @@
                                     <li>
                                         <a href="/pageLock"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                     </li>
-                                    <li><a href="/adminLogout"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -269,7 +269,7 @@
                         <i class="icon-envelope menu-icon"></i> <span class="nav-text">QnA / FAQ</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="/adminQnA">QnA</a></li>
+                        <li><a href="#">QnA</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </li>

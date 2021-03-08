@@ -37,9 +37,6 @@
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
     <link href="/res/css/main/map.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
-    </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
@@ -70,10 +67,10 @@
             <div class="col-md-9"></div>
             <div class="col-md-3">
                 <ul class="custom-menu">
-                    <li class="active"><a href="/mypage">마이페이지</a></li>
-                    <li><a href="/recommend">상세추천</a></li>
+                    <li class="active"><a href="index.html">마이페이지</a></li>
                     <li><a href="about.html">피드</a></li>
                     <li><a href="services.html">로그아웃</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -90,8 +87,8 @@
                     <h2>현 위치(지도)</h2>
                     <div id="map" style="width: 1110px; height: 400px;"></div>
                     <div class="custom_zoomcontrol radius_border">
-                        <span><button id="fiveM" class="radius_button">500m</button></span>
-                        <span><button id="thousandM" class="radius_button">1000m</button></span>
+                        <span><button id="fiveM">500m</button></span>
+                        <span><button id="thousandM">1000m</button></span>
                     </div>
                 </div>
             </div>
@@ -108,31 +105,29 @@
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
                         <%}%>
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href='/restaurant/restaurantInfo?resId=<%=restaurantList.get(i).getResId()%>'
-                               id='restaurant_img' class="item-wrap fancybox"
-                               name=<%=restaurantList.get(i).getResId()%>>
+                            <a href='/restaurant/restaurantInfo?resId=<%=restaurantList.get(i).getResId()%>' id = 'restaurant_img' class="item-wrap fancybox" name=<%=restaurantList.get(i).getResId()%>>
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
                                 </div>
-                                <img class="res_img" width="400" height="300" src=<%=photoList.get(i)%>>
-                                <%--<img class="res_img" width="400" height="300" src="/res/img/ing.jpg">--%>
+                                <%--<img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img width="400" height="400" class="img-fluid img-rounded" src="/res/img/ing.jpg">
+
+                                <%--<img width="400" height="300" src=<%=photoList.get(i)%>>--%>
                             </a>
                             <table border="0">
                                 <tr>
-                                    <td class='detail_des' width=350><%=restaurantList.get(i).getResName()%><span
-                                            class="res_rating"><%=restaurantList.get(i).getResRating()%></span></td>
-                                </tr>
-                                <tr>
-                                    <td class='detail_des2'
-                                        width=350><%=restaurantList.get(i).getResAddr().split(" ")[1]%>
+                                    <td width=250><%=restaurantList.get(i).getResName()%>
+                                    </td>
+                                    <td rowspan=3>별점 <%=restaurantList.get(i).getResRating()%>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class='detail_des2' width=350>추천 :<%=restaurantList.get(i).getLikeCount()%>  리뷰
-                                        :<%=restaurantList.get(i).getReviewCount()%>
+                                    <td width=250><%=restaurantList.get(i).getResAddr().split(" ")[1]%>
                                     </td>
-                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td width=250>좋아요와 리뷰 수</td>
                                 </tr>
 
                             </table>

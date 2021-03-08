@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class ReviewVO {
+
     private String Review_id;
     private String mem_id;
     private String res_id;
@@ -21,4 +22,5 @@ public class ReviewVO {
     private String pic_loc;
     private int rec_count;
     private int charge_count;
+
 }

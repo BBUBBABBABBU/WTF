@@ -1,8 +1,6 @@
 package kosmo.orange.wtf.service.impl;
 
 import kosmo.orange.wtf.model.mapper.MainMapper;
-import kosmo.orange.wtf.model.vo.PhotoVO;
-import kosmo.orange.wtf.model.vo.RecommendVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,19 +32,6 @@ public class MainServiceImpl implements MainService {
             return mainMapper.checkRestaurant();
         }catch (Exception e){
             System.out.println("checkRestaurant error : " + e.toString());
-            return null;
-        }
-    }
-
-    //식당 id 로 이미지 가져오기
-    @Override
-    public List<PhotoVO> res_photo(RestaurantVO vo) {
-        try{
-            return mainMapper.res_photo(vo);
-
-        }catch (Exception e){
-
-            System.out.println("res_photo 에러 :"+e.toString());
             return null;
         }
     }

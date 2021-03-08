@@ -377,7 +377,7 @@
 <script src="/res/vendor/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template JS File -->
-<%--<script src="/res/js/recommend.js"></script>--%>
+<script src="/res/js/recommend.js"></script>
 <script src="/res/js/main.js"></script>
 
 
