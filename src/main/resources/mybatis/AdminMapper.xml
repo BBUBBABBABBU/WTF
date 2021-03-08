@@ -34,6 +34,7 @@
     </select>
 
 
+    <!--가게 리스트-->
     <select id="storeList" resultMap="getRestaurant">
         SELECT *
         FROM restaurant

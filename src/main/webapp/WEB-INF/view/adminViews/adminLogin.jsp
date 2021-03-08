@@ -86,6 +86,7 @@
                                         <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
                                     </div>
                                     <button class="btn login-form__btn submit w-100" onclick="login();">Sign In</button>
+<%--                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                                 </form>
 
                                 <%--회원가입 페이지로 이동--%>
