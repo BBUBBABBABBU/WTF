@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%--
+    QUIXLAB-MASTER > blank.html
     tinydash-master > light > contacts-grid.html
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,10 +17,12 @@
     <title>adminManagerList.jsp / 관리자(manager) 목록 (contact)</title>
 
     <%--meta tag--%>
+    <%--QUIXLAB-MASTER > blank.html--%>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <%--tinydash-master > light > contacts-grid.html--%>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -27,10 +30,12 @@
 
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+    <%--QUIXLAB-MASTER > blank.html--%>
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <!-- Custom Stylesheet -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
-    <!--<link rel="icon" href="favicon.ico">-->
+    <%--tinydash-master > light > contacts-grid.html--%>
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/simplebar.css">
     <!-- Fonts CSS -->
@@ -48,8 +53,7 @@
 
 </head>
 <body class="vertical  light  ">
-    <c:if test="${sessionScope.name}" == null>
-    <c:if>
+
 
     <!--*******************
         Preloader start
@@ -92,7 +96,8 @@
             <div class="wrapper">
 
 
-                <main role="main" class="main-content">
+<%--                <main role="main" class="main-content">--%>
+                <main role="main">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <div class="col-12">
@@ -493,35 +498,39 @@
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+    <%--QUIXLAB-MASTER > blank.html--%>
+    <!--**********************************
+        Scripts
+    ***********************************-->
     <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/popper.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/moment.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/simplebar.min.js"></script>
-    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/daterangepicker.js'></script>
-    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.stickOnScroll.js'></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/tinycolor-min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/config.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/apps.js"></script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag()
-        {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-56159088-1');
-    </script>
-
+    <%--tinydash-master > light > contacts-grid.html--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.min.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/popper.min.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/moment.min.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/bootstrap.min.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/simplebar.min.js"></script>--%>
+<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/daterangepicker.js'></script>--%>
+<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.stickOnScroll.js'></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/tinycolor-min.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/config.js"></script>--%>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/apps.js"></script>--%>
+<%--    <!-- Global site tag (gtag.js) - Google Analytics -->--%>
+<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>--%>
+<%--    <script>--%>
+<%--        window.dataLayer = window.dataLayer || [];--%>
+<%----%>
+<%--        function gtag()--%>
+<%--        {--%>
+<%--            dataLayer.push(arguments);--%>
+<%--        }--%>
+<%--        gtag('js', new Date());--%>
+<%--        gtag('config', 'UA-56159088-1');--%>
+<%--    </script>--%>
 
 
 </body>

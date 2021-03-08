@@ -35,6 +35,8 @@
 <img src="/res/img/background_img/title02.jpg"/><br/><br/>
 <a href="/adminHome">관리자페이지로</a>
 
+<a href="/adminTest">관리자페이지 test</a>
+
 <a href="/recommend"> 추천 화면 가기 </a>
 <a href="/join">회원가입 페이지</a>
 
