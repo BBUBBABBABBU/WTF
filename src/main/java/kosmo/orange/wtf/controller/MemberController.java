@@ -1,6 +1,7 @@
 package kosmo.orange.wtf.controller;
 
 import kosmo.orange.wtf.model.vo.MemberVO;
+import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.MainServiceImpl;
 import kosmo.orange.wtf.service.impl.MemberServiceImpl;
@@ -81,11 +82,24 @@ public class MemberController {
             if (check) {
                 List<RestaurantVO> restaurantList = mainService.checkRestaurant();
                 List<String> photoList = new ArrayList<>();
-                model.addAttribute("restaurantList",restaurantList);
+                for(int i=0; i< restaurantList.size(); i++){
+                    List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
+                    try {
+                        photoList.add((String) temp.get(0).getRtr_pic_loc());
+//                System.out.println((String) temp.get(0).getRtr_pic_loc());
 
-                MemberVO test=(MemberVO) session.getAttribute("member");
-                System.out.println("확인2");
-                return "/recommend/Main";
+                    }catch (Exception e){
+//                System.out.println("사진 없음");
+                        photoList.add("/res/img/ing.jpg");
+
+                    }
+
+                }
+                model.addAttribute("restaurantList",restaurantList);
+                model.addAttribute("photoList", photoList);
+//                MemberVO test=(MemberVO) session.getAttribute("member");
+                System.out.println("확인4");
+                return "recommend/Main";
             }
             else {
                 return "Start";
