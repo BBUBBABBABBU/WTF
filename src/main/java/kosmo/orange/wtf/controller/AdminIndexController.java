@@ -115,6 +115,12 @@ public class AdminIndexController {
      * QnA / FAQ 페이지 이동 ..... 은 애들 확인하고 만들기
      * 일단 QnA / FAQ 메뉴 나눠놓기는 함 > 페이지는 아직 안 만들었음
      */
+    @GetMapping("adminQnA")
+    public String adminQnA() {
+        System.out.println("AdminIndexController.adminQnA");
+
+        return "adminViews/adminQnA";
+    }
 
 
     /****************

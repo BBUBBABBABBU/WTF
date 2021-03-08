@@ -269,7 +269,7 @@
                         <i class="icon-envelope menu-icon"></i> <span class="nav-text">QnA / FAQ</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="#">QnA</a></li>
+                        <li><a href="/adminQnA">QnA</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </li>
