@@ -78,7 +78,7 @@
                                 </a>
 
                                 <%--로그인 폼--%>
-                                <form class="mt-5 mb-5 login-input" action="login" id="login" method="post">
+                                <form class="mt-5 mb-5 login-input" action="/login" id="login" method="post">
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email" name="mgr_id">
                                     </div>
@@ -86,11 +86,12 @@
                                         <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
                                     </div>
                                     <button class="btn login-form__btn submit w-100" onclick="login();">Sign In</button>
+<%--                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                                 </form>
 
                                 <%--회원가입 페이지로 이동--%>
                                 <p class="mt-5 login-form__footer">Dont have account?
-                                    <a href="/signUp" class="text-primary">Sign Up</a>
+                                    <a href="/moveToSignUp" class="text-primary">Sign Up</a>
                                     now
                                 </p>
 

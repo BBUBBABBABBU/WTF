@@ -1,0 +1,2 @@
+-- ALTER TABLE member ADD favor VARCHAR(600);
+-- alter table member modify password varchar(200);
