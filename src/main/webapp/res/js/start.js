@@ -12,9 +12,10 @@ $(function () {
     document.body.style.backgroundImage = 'url(' + background_arr[Math.floor(Math.random()*background_arr.length)]+')'
 
     $('#select_kind').formSelect();
-
+    alert("start.js"+$('#select_kind').val());
     var user=window.sessionStorage.getItem("member");
-
+    // var favor=sessionStorage.getItem("favor");
+    // alert(favor);
     if (user!=""){
     $('#select_kind').on('change', function () {
         $('#kind_form').submit()

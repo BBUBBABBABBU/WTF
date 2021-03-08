@@ -51,6 +51,8 @@
 </div>
 <img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
 <a href="/adminHome">관리자페이지로</a>
+<a href="/recommendTest">추천화면 테스트</a>
+
 
 <a href="/adminTest">관리자페이지 test</a>
 
@@ -83,6 +85,7 @@
         <form id="login" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" id="loginPassword" class="input-field" placeholder="Password를 입력하세요" required>
+           <input type="hidden" name="kind" id="favor">
             <button type="submit" class="submit">Login</button>
         </form>
         <form id="register" action="/session2Test" class="input-group">
@@ -101,12 +104,17 @@
 
     <%--    로그인,회원가입 가운데 창 보이게하는 함수--%>
     function show(){
-        // if (user.length ==0) {
-        loginForm.style.visibility = "visible"
-        loginBack.style.visibility = "visible"
-        loginForm.style.display = "block"
-        loginBack.style.display = "block"
-        // }
+        alert("Start.jsp")
+        var kind = $('#select_kind').val();
+        sessionStorage.setItem("favor",kind);
+        $('#favor').attr("value",kind   );
+
+        if (status!="success") {
+            loginForm.style.visibility = "visible"
+            loginBack.style.visibility = "visible"
+            loginForm.style.display = "block"
+            loginBack.style.display = "block"
+        }
     }
     function conceal(){
         loginForm.style.display = "none"
