@@ -40,7 +40,7 @@
 <img id ='title01' class="image" src="/res/img/background_img/title01.jpg"/>
 <div id='select_div'>
     <form id="kind_form" action="/main" method="get">
-        <select id="select_kind" name="kind" onchange="test1()" >
+        <select id="select_kind" name="kind" onchange="show()" >
             <option value="" disabled selected><p id="none_selected">이걸</p></option>
             <option value="korean" >한식</option>
             <option value="chinese">중식</option>
@@ -58,20 +58,21 @@
 <a href="/mypage">마이페이지</a>
 <br/>
 <a href="/userChat">채팅페이지 확인</a>
-<<<<<<< HEAD
-<button type="button" id="hidden"  onclick=test1()> 버튼</button>
+<button type="button" id="hidden"  onclick=show()> 버튼</button>
 <%--화면 가운데 로그인 창  --%>
 <div class="loginBackground" id = "loginBackground"></div>
 <div class="wrap" id="wrap">
     <div class="form-wrap">
+
         <div class="button-wrap" id="button-wrap">
+
             <div id="btn"></div><table>
             <tb><button type="button" class="togglebtn" id ='loginbtn' >  &nbsp; 로그인</button></tb>
             </tb><button type="button" class="togglebtn" id ='registerbtn' > &nbsp;  회원가입  </button></tb>
         </table>
         </div>
         <div class="social-icons">
-
+            <a onclick="conceal()" ><img src="/res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
         </div>
         <form id="login" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" required>
@@ -93,11 +94,17 @@
     <%--memSession=${sessionScope.member.getEmail()}--%>
 
     <%--    로그인,회원가입 가운데 창 보이게하는 함수--%>
-    function test1(){
+    function show(){
         // if (user.length ==0) {
         loginForm.style.visibility = "visible"
         loginBack.style.visibility = "visible"
+        loginForm.style.display = "block"
+        loginBack.style.display = "block"
         // }
+    }
+    function conceal(){
+        loginForm.style.display = "none"
+        loginBack.style.display = "none"
     }
 </script>
 <script>
@@ -139,8 +146,5 @@
     naver_id_login.init_naver_id_login();
     naver_id_login.get_naver_userprofile("naverSignInCallback()");
 </script>
-=======
-<a href="/recommendTest">추천화면 테스트</a>
->>>>>>> 4539df0b7f72d9346b0fdfe344ce17cd3e8b90d4
 </body>
 </html>
