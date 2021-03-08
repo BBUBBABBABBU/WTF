@@ -124,6 +124,9 @@
 
                             <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
                         </div>
+                            <form action="review/reviewinsert" method="get" name="reviewinsert">
+                                <input type="submit" value="리뷰 작성하기" >
+                            </form>
                     </div>
                 </div>
             </div>

@@ -25,6 +25,11 @@ public class RestaurantController {
     @Autowired
     HttpSession httpSession;
 
+    @GetMapping("/feed")
+    public String feed(){
+     return "review/feed";
+    }
+
     @GetMapping("/restaurantInfo")
     public String restaurantInfo(RestaurantVO restaurantVO, Model model){
         System.out.println("RestaurantController 15line : " + restaurantVO.getResId());

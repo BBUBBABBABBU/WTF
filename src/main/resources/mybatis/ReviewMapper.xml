@@ -5,6 +5,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosmo.orange.wtf.model.mapper.ReviewMapper">
 
-    
+    <insert id="SaveReview" >
+        Insert into
+    </insert>
+
+    <select id="loadMessage" resultMap="getMessage">
+    </select>
+
+
+    <resultMap id="getReview" type="ReviewVO">
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+        <result property="" column=""/>
+
+    </resultMap>
 
 </mapper>

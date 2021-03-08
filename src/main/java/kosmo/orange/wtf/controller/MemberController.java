@@ -7,15 +7,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-
 @Controller
 public class MemberController {
-
-
     @Autowired
     MemberServiceImpl memberService;
     @Autowired
@@ -23,64 +21,65 @@ public class MemberController {
     @Autowired
     HttpSession session;
 
+
     @RequestMapping("/join")
     public String join( MemberVO memberVO){
-        System.out.println("회원가입 페이지로");
-        System.out.println(memberVO.getEmail());
-
         return "member/Join";
     }
+
+
     @RequestMapping(value="/Info",method= RequestMethod.GET )
-    public String info(HttpSession session){
-//        System.out.println(ses);
-        System.out.println("회원정보");
-
-
-
+    public String info(HttpSession session) {
         return "member/memInfo";
     }
 
 
+    @RequestMapping(value = "/idCheckLogin")
+    @ResponseBody
+    public String idcheckLogin(MemberVO memberVO) throws Exception{
+        String message = "이미 사용중입니다";
+        try {
+          int  result = memberService.idcheckMember(memberVO.getEmail());
+        if(result == 0) {
+            message = "사용가능한 아이디입니다";
+        }
+        }catch (Exception e){
+
+        }return message;
+    }
 
     @RequestMapping(value = "/signUp",method= RequestMethod.POST )
-    public String signUp( final MemberVO memberVO){
-        System.out.println(memberVO.getBirthday());
-        System.out.println(memberVO.getFavor());
-
+    public String signUp(  MemberVO memberVO){
         memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
-          System.out.println(memberVO.getPassword());
         memberService.signUp(memberVO);
-        return "member/Join";
+        return "Start";
     }
-
 
     @RequestMapping(value = "/memberLogin", method = RequestMethod.POST)
-    public String memberLogin(final MemberVO memberVO){
-
-        System.out.println("memberLogin() 61line : " + memberVO.getEmail());
-        System.out.println(memberVO.getPassword());
-        System.out.println("asdasdasdasdsad");
-
-
+    public String memberLogin( MemberVO memberVO){
         MemberVO result=memberService.memberLogin(memberVO);
-
-        session.setAttribute("member",result);
-        boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
-        MemberVO test=(MemberVO) session.getAttribute("member");
-        System.out.println("1번"+test.getEmail());
-        if (check) {
-            System.out.println(result.getPassword());
-            System.out.println(result.getBirthday());
-            System.out.println(result.getEmail());
-            System.out.println(result.getGender());
-
-        }else {
-            System.out.println("실패1");
-
+        System.out.println(result);
+        if (result!=null) {
+            session.setAttribute("status","success");
+            session.setAttribute("member",result);
+            boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
+            if (check) {
+                System.out.println("비밀번호 일치");
+                session.setAttribute("status","success");
+            }else {
+                session.setAttribute("status","fail");
+                System.out.println("비밀번호 불일치");
+            }
+            if (check) {
+                MemberVO test=(MemberVO) session.getAttribute("member");
+                return "Start";
+            }
+            else {
+                return "Start";
+            }
+        }else{
+            session.setAttribute("status","fail");
+            return "Start";
         }
-        if (check) return "Start";
-        else return "member/Join";
-
     }
-
 }

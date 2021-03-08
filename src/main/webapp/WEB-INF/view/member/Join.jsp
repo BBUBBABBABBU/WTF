@@ -28,8 +28,9 @@
             window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
 
         }
+        var user=  "${sessionScope.member.getEmail()}";
+        if (user != "" ){alert("로그인 되었습니다. 환영합니다!")}
 
-        if ( ${sessionScope.member.getEmail()} ){alert("로그인 되었습니다. 환영합니다!")}
     </script>
     <style>
         #naver_id_login{
@@ -214,9 +215,10 @@
                         var kakaoe_mail =   res.kakao_account.email;    //카카오톡 이메일을 변수에 저장함
                         var gender =res.kakao_account.gender
                         var birthday=res.kakao_account.birthday
+                        var age = res.kakao_account.age_range
 
                         //카카오톡의 닉네임과,mail을 url에 담아 같이 페이지를 이동한다.
-                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday);
+                        window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+kakaonickname+"&email="+kakaoe_mail+"&gender="+gender+"&birthday="+birthday+"&age="+age);
 
                     }
                 });
