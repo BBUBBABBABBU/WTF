@@ -5,6 +5,9 @@
   Time: 04:41
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+    QUIXLAB-MASTER > page-lock.html
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,10 +20,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%--css--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
     <%--js--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
 </head>
 
@@ -66,6 +73,15 @@
         </div>
     </div>
     </div>
+
+
+    <!--**********************************
+            Scripts
+        ***********************************-->
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+
 
 </body>
 </html>
