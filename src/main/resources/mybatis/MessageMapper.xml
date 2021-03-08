@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kosmo.orange.wtf.model.mapper.MemberMapper">
+
+    <insert id="sendMessage" >
+     </insert>
+
+    <select id="loadMessage" resultMap="getMessage">
+    </select>
+
+    <resultMap id="getMessage" type="MessageVO">
+        <result property="FromId" column="member_id"/>
+        <result property="ToId" column="opp_member_id"/>
+        <result property="Time" column="msgtime"/>
+        <result property="Message" column="message"/>
+    </resultMap>
+</mapper>
+
