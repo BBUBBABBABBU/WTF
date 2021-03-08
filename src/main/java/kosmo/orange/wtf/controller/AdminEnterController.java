@@ -73,7 +73,7 @@ public class AdminEnterController {
      * 회원가입 페이지로 이동
      * adminLogin.jsp > adminJoin.jsp
      */
-    @GetMapping("/signUp")
+    @GetMapping("/moveToSignUp")
     public String moveToSignUp() {
         System.out.println("AdminEnterController.moveToSignUp");
 

@@ -199,7 +199,7 @@
                                     <li>
                                         <a href="/pageLock"><i class="icon-lock"></i> <span>Lock Screen</span></a>
                                     </li>
-                                    <li><a href="/logout"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    <li><a href="/adminLogout"><i class="icon-key"></i> <span>Logout</span></a></li>
                                 </ul>
                             </div>
                         </div>
