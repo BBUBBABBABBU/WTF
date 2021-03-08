@@ -118,7 +118,7 @@ function showMap(latitude, longitude) {
         removable: true
     })
 
-    infoWindow.open(map, marker)
+    // infoWindow.open(map, marker)
 
 
     // 레스토랑 위치들

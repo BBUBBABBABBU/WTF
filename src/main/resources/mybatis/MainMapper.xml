@@ -5,9 +5,19 @@
 <mapper namespace="kosmo.orange.wtf.model.mapper.MainMapper">
 
     <select id="checkRestaurant" resultMap="getRestaurant">
-        SELECT *
-        FROM restaurant
+        SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM restaurant r
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON r.res_id =rt.res_id
         ORDER BY res_rating DESC
+    </select>
+
+    <select id="res_photo" parameterType="RestaurantVO" resultType="PhotoVO">
+        SELECT *
+        FROM restaurant_pic rp
+        WHERE res_id =#{resId}
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">
@@ -20,5 +30,6 @@
         <result property="resRuntime" column="res_runtime"/>
         <result property="resKeyword" column="res_keyword"/>
         <result property="resRating" column="res_rating"/>
+        <result property="likeCount" column="like_count"/>
     </resultMap>
 </mapper>
