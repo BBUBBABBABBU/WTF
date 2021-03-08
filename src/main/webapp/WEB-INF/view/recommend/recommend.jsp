@@ -55,8 +55,7 @@
 <br/>
 <nav class="navbar navbar-light custom-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">MyPortfolio.</a>
-
+        <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
         <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
         </a>
@@ -112,9 +111,6 @@
                         <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
                         <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
                         <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
-                        <div id="recommend_order" name="recom">추천순</div>
-                        <div id="rating_order" name="rating">평점순</div>
-                        <div id="review_order" name="review">리뷰순</div>
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->

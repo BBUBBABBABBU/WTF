@@ -1,5 +1,6 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.MainServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
@@ -28,13 +30,31 @@ public class StartController {
         return "Start";
     }
 
+
     @GetMapping("/main")
     public String main(String kind, Model model){
-        System.out.println("시작에서 받아온 종류 : " + kind);
+//        System.out.println("시작에서 받아온 종류 : " + kind);
+
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
         List<String> photoList = new ArrayList<>();
 
+        for(int i=0; i< restaurantList.size(); i++){
+            List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
+
+            try {
+                photoList.add((String) temp.get(0).getRtr_pic_loc());
+//                System.out.println((String) temp.get(0).getRtr_pic_loc());
+
+            }catch (Exception e){
+//                System.out.println("사진 없음");
+                photoList.add("/res/img/ing.jpg");
+
+            }
+
+        }
+
         model.addAttribute("restaurantList",restaurantList);
+        model.addAttribute("photoList", photoList);
 
         return "recommend/Main";
     }

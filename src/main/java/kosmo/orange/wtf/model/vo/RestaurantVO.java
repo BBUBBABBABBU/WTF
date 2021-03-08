@@ -17,5 +17,7 @@ public class RestaurantVO {
     private String resRuntime;
     private String resKeyword;
     private float resRating;
-
+    private int reviewCount;
+    private int likeCount;
+    private ReviewVO reviewVO;
 }

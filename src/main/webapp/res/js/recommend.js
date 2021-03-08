@@ -26,12 +26,15 @@ $(function(){
             success:(data) =>{
                 res_allList = data;
 
-                let recommend_div = $('<div id="recommend_div" class="owl-carousel testimonial-carousel">')
+
 
                 $('#recommend_div').remove()
+
+                let recommend_div = $('<div id="recommend_div" class="recommend_div owl-carousel testimonial-carousel"></div>')
                 $('#recommend_container').append(recommend_div)
 
                 for(let i = 0; i< 12; i++){
+                    // let content =$('<div>'+i+'</div>')
                     let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                                         '<a id = "a_img" href="work-single.html" class="item-wrap fancybox">' +
                                             '<div class="work-info">' +
@@ -55,20 +58,34 @@ $(function(){
                                     '</div>')
 
                     if(i % 6 == 0){
-                        recommend_div.append($('<div id ="testimonial-wrap" class = "testimonial-wrap">'))
-                        $('#testimonial-wrap').append($('<div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
+                        recommend_div.append($('<div class = "t_wrap'+i+' testimonial-wrap">'))
+                        // $('.t_wrap').append($('<div id="temp'+i+'" class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
+
+                        if(i==6){
+                            $('.t_wrap'+i).append($('<div id="temp'+i+'" class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
+                        }else{
+                            $('.t_wrap'+i).append($('<div id="temp'+i+'" class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
+                        }
+
                     }
 
-                    $('#portfolio-grid').append(content)
+                    // $('.portfolio-grid').append(content)
+                    if(i<6){
+                    $('#temp'+0).append(content)
+
+                    }else {
+
+                    $('#temp'+6).append(content)
+                    }
+
 
                     if(i % 6 == 5){
-                        $('#testimonial-wrap').append($('</div>'))
-                        $('#recommend_div').append($('</div>'))
+                        ///$('.t_wrap').append($('<div class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
                     }
 
                 } // for end
 
-                $('#recommend_div').append($('</div>'))
+                // $('#recommend_div').append($('</div>'))
 
                 // $('#recommend_container').append($('</div>'))
 
