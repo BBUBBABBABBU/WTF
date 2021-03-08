@@ -30,6 +30,19 @@ public class AdminEnterController {
     @Autowired
     HttpSession session;
 
+    /****************************
+     * start.jsp > layout/adminBasic.jsp
+     * page test controller
+     *
+     * jsp / css 적용 테스트 용도
+     */
+    @GetMapping("/adminTest")
+    public String adminTest() {
+        return "adminViews/layout/adminBasic";
+
+    } // end of adminTest
+
+
 
     /***************************
      * 메인에서 관리자 페이지 접속
@@ -60,7 +73,7 @@ public class AdminEnterController {
      * 회원가입 페이지로 이동
      * adminLogin.jsp > adminJoin.jsp
      */
-    @GetMapping("/signUp")
+    @GetMapping("/moveToSignUp")
     public String moveToSignUp() {
         System.out.println("AdminEnterController.moveToSignUp");
 

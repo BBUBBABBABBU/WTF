@@ -4,7 +4,6 @@ import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

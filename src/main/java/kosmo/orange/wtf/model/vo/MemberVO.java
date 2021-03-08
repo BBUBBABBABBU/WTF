@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @Data
 public class MemberVO {
-
+    private String memberId;
     private String email;
     private String password;
     private String nickname;

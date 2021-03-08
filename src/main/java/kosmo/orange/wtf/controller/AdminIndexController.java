@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -23,6 +25,9 @@ public class AdminIndexController {
 
     @Autowired
     AdminServiceImpl adminService;
+
+    @Autowired
+    HttpSession session;
 
     // ==================================
     // header / 우측 상단
@@ -58,13 +63,17 @@ public class AdminIndexController {
      * 로그아웃
      * .. > adminLogin.jsp
      */
-    @GetMapping("logout")
-    public String logout() {
-        System.out.println("AdminIndexController.logout");
+    @RequestMapping("adminLogout")
+    public String adminLogout() {
+        System.out.println("AdminIndexController.adminLogout");
+
+        session.removeAttribute("name");
+        session.removeAttribute("id");
 
         return "adminViews/adminLogin";
 
     } // end of logout
+
 
     // ==================================
     // nav bar / side bar
@@ -106,6 +115,12 @@ public class AdminIndexController {
      * QnA / FAQ 페이지 이동 ..... 은 애들 확인하고 만들기
      * 일단 QnA / FAQ 메뉴 나눠놓기는 함 > 페이지는 아직 안 만들었음
      */
+    @GetMapping("adminQnA")
+    public String adminQnA() {
+        System.out.println("AdminIndexController.adminQnA");
+
+        return "adminViews/adminQnA";
+    }
 
 
     /****************

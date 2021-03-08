@@ -5,6 +5,9 @@
   Time: 16:54
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+    QUIXLAB-MASTER > page-login.html
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -17,10 +20,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%--css--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
     <%--js--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"/>
     <script type="text/javascript">
@@ -71,7 +78,7 @@
                                 </a>
 
                                 <%--로그인 폼--%>
-                                <form class="mt-5 mb-5 login-input" action="login" id="login" method="post">
+                                <form class="mt-5 mb-5 login-input" action="/login" id="login" method="post">
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email" name="mgr_id">
                                     </div>
@@ -79,11 +86,12 @@
                                         <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
                                     </div>
                                     <button class="btn login-form__btn submit w-100" onclick="login();">Sign In</button>
+<%--                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                                 </form>
 
                                 <%--회원가입 페이지로 이동--%>
                                 <p class="mt-5 login-form__footer">Dont have account?
-                                    <a href="/signUp" class="text-primary">Sign Up</a>
+                                    <a href="/moveToSignUp" class="text-primary">Sign Up</a>
                                     now
                                 </p>
 
@@ -98,6 +106,15 @@
     <!--*******************
         login end
     ********************-->
+
+    <!--**********************************
+            Scripts
+        ***********************************-->
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
 
 </body>
