@@ -21,9 +21,7 @@
 <div class="container">
     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
         <h1>리뷰작성</h1>
-        <form method="get">
-            <h2></h2>
-        </form>
+        <h2>식당명</h2>
     </div>
     <form method="POST" name="review" >
         <div class="col-md-offset-1 col-md-10 col-md-offset-1">
