@@ -5,6 +5,9 @@
   Time: 02:27
   To change this template use File | Settings | File Templates.
 --%>
+<%--
+    QUIXLAB-MASTER > table-datatable.html
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -18,7 +21,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <%--css--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+
+    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <!-- Custom Stylesheet -->
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
@@ -158,7 +166,20 @@
 
 
     <%--js--%>
-    <jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>
+    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
+
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
 
 </body>

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%--
+    QUIXLAB-MASTER > blank.html
     concept-master > influencer-finder.html
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -16,20 +17,23 @@
     <title>adminMemberList.jsp / 회원(member) 목록</title>
 
     <%--meta tag--%>
+    <%--QUIXLAB-MASTER > blank.html--%>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
+    <%--concept-master > influencer-finder.html--%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
 
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <%--QUIXLAB-MASTER > blank.html--%>
     <!-- Custom Stylesheet -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
+    <%--concept-master > influencer-finder.html--%>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate3/assets/libs/css/style.css">
@@ -82,7 +86,7 @@
             <!-- ============================================================== -->
             <!-- wrapper  -->
             <!-- ============================================================== -->
-            <div class="dashboard-wrapper">
+<%--            <div class="dashboard-wrapper">--%>
                 <div class="influence-finder">
                     <div class="container-fluid dashboard-content">
                         <!-- ============================================================== -->
@@ -355,7 +359,7 @@
                     </div>
 
                 </div>
-            </div>
+<%--            </div>--%>
             <!-- ============================================================== -->
             <!-- end wrapper  -->
             <!-- ============================================================== -->
@@ -386,21 +390,26 @@
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
+    <%--QUIXLAB-MASTER > blank.html--%>
+    <!--**********************************
+        Scripts
+    ***********************************-->
     <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
+    <%--concept-master > influencer-finder.html--%>
+    <!-- Optional JavaScript -->
     <!-- jquery 3.3.1 -->
-    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/jquery/jquery-3.3.1.min.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/jquery/jquery-3.3.1.min.js"></script>--%>
     <!-- bootstap bundle js -->
-    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>--%>
     <!-- slimscroll js -->
-    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/slimscroll/jquery.slimscroll.js"></script>
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/slimscroll/jquery.slimscroll.js"></script>--%>
     <!-- main js -->
-    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/libs/js/main-js.js"></script>
-
+<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/libs/js/main-js.js"></script>--%>
 
 
 </body>

@@ -51,6 +51,9 @@
 </div>
 <img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
 <a href="/adminHome">관리자페이지로</a>
+
+<a href="/adminTest">관리자페이지 test</a>
+
 <a href="/recommend"> 추천 화면 가기 </a>
 <a href="/join">회원가입 페이지</a>
 <a href="/review">리뷰 피드</a>
@@ -59,6 +62,9 @@
 <br/>
 <a href="/userChat">채팅페이지 확인</a>
 <button type="button" id="hidden"  onclick=show()> 버튼</button>
+<a href="/recommendTest">추천화면 테스트</a>
+
+<button type="button" id="hidden"  onclick=test1()> 버튼</button>
 <%--화면 가운데 로그인 창  --%>
 <div class="loginBackground" id = "loginBackground"></div>
 <div class="wrap" id="wrap">
