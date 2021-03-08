@@ -55,3 +55,15 @@
     pointer-events: none;
 }
 /*# sourceMappingURL=review.css.map */
+
+.imgs_wrap img{
+    max-width: 100px;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.imgs_wrap{
+    width: 600px;
+    margin-top: 50px;
+    overflow: hidden;
+}
