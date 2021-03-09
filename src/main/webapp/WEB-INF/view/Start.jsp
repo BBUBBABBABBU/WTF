@@ -104,7 +104,6 @@
 
     <%--    로그인,회원가입 가운데 창 보이게하는 함수--%>
     function show(){
-        alert("Start.jsp")
         var kind = $('#select_kind').val();
         sessionStorage.setItem("favor",kind);
         $('#favor').attr("value",kind   );
