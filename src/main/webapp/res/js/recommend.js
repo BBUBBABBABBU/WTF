@@ -79,6 +79,9 @@ $(function(){
                     }
 
 
+                    $('#portfolio-grid').append(content)
+                    
+
                     if(i % 6 == 5){
                         ///$('.t_wrap').append($('<div class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
                     }
