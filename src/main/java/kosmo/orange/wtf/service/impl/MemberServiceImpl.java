@@ -4,13 +4,23 @@ import kosmo.orange.wtf.model.mapper.MemberMapper;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ws.mime.MimeMessage;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
+import java.util.Properties;
 
 @Service("MemberService")
 public class MemberServiceImpl implements MemberService {
 
     @Autowired
     MemberMapper memberMapper;
+
+
 
     @Override
     public int signUp(final MemberVO vo) {
@@ -44,4 +54,8 @@ public class MemberServiceImpl implements MemberService {
             return result;
 
     }
+
+
+
+
 }

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100;300;500&display=swap');
 div.loginBackground {
 
     visibility: hidden;
@@ -6,8 +7,8 @@ div.loginBackground {
     width: 100%;
     height:120%;
     padding: 40px;
-    background-color: #fdffe3;
-    opacity: 0.3;
+    background-color: black;
+    opacity: 0.8;
 
 }
 div.wrap {
@@ -66,3 +67,84 @@ p {
 
 }
 
+.submit{width: 100%;
+        font-size: smaller;
+    font-family: 'Noto Sans KR', sans-serif;}
+#searchId{
+    width: 134px;
+    position: absolute;
+    top: 153px;
+    font-size: smaller;
+    font-family: 'Noto Sans KR', sans-serif;}
+
+#searchPass{
+    width: 144px;
+    position: absolute;
+    left: 135px;
+    top: 153px;
+    font-size: smaller;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+.togglebtn,.input-field {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+/*.togglebtn{*/
+/*    color: white;   */
+/*}*/
+
+#loginPassword,#loginEmail{
+    font-size: 13px;
+}
+.btn{
+    top: 0;
+left: 0;
+position: absolute;
+width: 110px;
+height: 100%;
+background: linear-gradient(to right,orange,#FFCD12);
+border-radius: 30px;
+transition: .5s;}
+
+#button-wrap2{
+    width: 230px ;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 600px 9px white;
+    border-radius: 30px;
+}
+#login2{
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: .5s;
+    left: 45px;
+
+}
+#btn2{
+    left: 45px;
+    width: 140px;
+
+}
+#loginbtn2{
+    left: 47px;
+
+}
+.input-field2{
+
+    text-align: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    position: relative;
+}
+
+#goToLogin{
+    width: 140px;
+    top: 20px;
+    position: relative;
+    left: -70px;
+
+}
+#loginEmail2, #loginPassword2{
+    font-size: 13px;
+
+
+}

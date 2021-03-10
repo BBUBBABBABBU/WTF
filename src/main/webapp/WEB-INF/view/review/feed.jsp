@@ -72,19 +72,19 @@
                         <div class="container">
                             <div class="col-md-2">
                                 <h4>맛</h4>
-                                <li >★☆☆☆☆</li>
+                                <li >★★★★☆</li>
                             </div>
                             <div class="col-md-2">
                                 <h4>위생</h4>
-                                <li >★☆☆☆☆</li>
+                                <li >★★★★☆</li>
                             </div>
                             <div class="col-md-2">
                                 <h4>서비스</h4>
-                                <li >★☆☆☆☆</li>
+                                <li >★★★☆☆</li>
                             </div>
                             <div class="col-md-2">
                                 <h4>접근성</h4>
-                                <li >★☆☆☆☆</li>
+                                <li >★★★★☆</li>
                             </div>
                         </div>
                     </ul>

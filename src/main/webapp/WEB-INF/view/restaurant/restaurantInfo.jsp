@@ -122,6 +122,8 @@
                                 </c:forEach>
                             </ul>
 
+                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}" name="RestaurantVO" >리뷰작성하기<a>
+
                             <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
                         </div>
                     </div>
