@@ -71,7 +71,6 @@ public class RecommendTestController {
         List<String> photoList = new ArrayList<>();
         for(int i=0; i< res_allList.size(); i++) {
             res_allList.get(i).setRtr_pic_loc("/res/img/ing.jpg");
-            System.out.println(res_allList.get(i).getRes_id());
 //            List<PhotoVO> temp = recommendService.res_photo(res_allList.get(i));
 //            photoList.add("/res/img/ing.jpg");
 

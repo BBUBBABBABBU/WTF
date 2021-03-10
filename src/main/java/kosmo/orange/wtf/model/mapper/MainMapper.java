@@ -15,4 +15,6 @@ public interface MainMapper {
     List<RestaurantVO> checkRestaurant() throws Exception;
     //식당 사진
     List<PhotoVO> res_photo(RestaurantVO vo) throws Exception;
+
+    List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO) throws Exception;
 }

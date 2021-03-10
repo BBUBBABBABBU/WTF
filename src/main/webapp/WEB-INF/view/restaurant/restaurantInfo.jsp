@@ -34,7 +34,8 @@
 
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
-    <link href="/res/css/main/map.css" rel="stylesheet">
+    <link href="/res/css/main/main.css" rel="stylesheet">
+    <link href="/res/css/restaurant/restaurantInfo.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
@@ -102,7 +103,7 @@
             <div class="container">
                 <div class="row align-items-stretch">
                     <div class="col-md-8" data-aos="fade-up">
-                        <img src="/res/img/img_1_big.jpg" alt="Image" class="img-fluid">
+                        <img id = "restaurant_img" src=${resstaurantPhoto} alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
                         <div class="sticky-content" id = 'restaurant_info', name=${restaurantInfo.resId}>

@@ -27,6 +27,7 @@
         <result property="resRuntime" column="res_runtime"/>
         <result property="resKeyword" column="res_keyword"/>
         <result property="resRating" column="res_rating"/>
+        <result property="likeCount" column="like_count"/>
     </resultMap>
 
     <resultMap id="getMenu" type="MenuVO">

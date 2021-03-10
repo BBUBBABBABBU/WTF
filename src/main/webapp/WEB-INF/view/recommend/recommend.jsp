@@ -121,7 +121,6 @@
 
 
             <div class="owl-carousel testimonial-carousel">
-
                 <% List<RecommendVO> res_allList = (List<RecommendVO>) request.getAttribute("res_allList");
                     List<String> photoList = (List<String>) request.getAttribute("photoList");
                     for (int i = 0; i < 12; i++) { %>

@@ -1,0 +1,10 @@
+#restaurant_img{
+    object-fit: cover;
+    width : 750px;
+    height : 600px;
+    border-radius: 5%;
+}
+
+#restaurant_map{
+    border-radius: 5%;
+}
