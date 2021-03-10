@@ -30,7 +30,7 @@ public class StartController {
         return "Start";
     }
 
-
+    //TODO 음식종류 처리할것
     @GetMapping("/main")
     public String main(String kind, Model model){
 //        System.out.println("시작에서 받아온 종류 : " + kind);
@@ -43,10 +43,8 @@ public class StartController {
 
             try {
                 photoList.add((String) temp.get(0).getRtr_pic_loc());
-//                System.out.println((String) temp.get(0).getRtr_pic_loc());
 
             }catch (Exception e){
-//                System.out.println("사진 없음");
                 photoList.add("/res/img/ing.jpg");
 
             }
