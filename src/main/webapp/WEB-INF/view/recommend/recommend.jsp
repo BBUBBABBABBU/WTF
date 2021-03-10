@@ -99,6 +99,8 @@
 <main id="main">
 
     <div class="site-section site-portfolio">
+
+
         <div class="container">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
@@ -130,6 +132,7 @@
                 <div class="testimonial-wrap">
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
                         <%}%>
+
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="work-single.html" class="item-wrap fancybox">
                                 <div class="work-info">
@@ -141,8 +144,8 @@
                             </a>
                             <table border="0">
                                 <tr>
-                                    <td class='detail_des' width=350><%=res_allList.get(i).getRes_name()%><span
-                                            class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
+                                    <td class='detail_des' width=350><%=res_allList.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
                                 </tr>
                                 <tr>
                                     <td class='detail_des2'
@@ -169,6 +172,134 @@
 
             </div>
 
+
+
+
+        </div>
+
+        <div class="container">
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h1>니가 이걸 먹어보면 어떨까</h1>
+                    <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
+                </div>
+
+            </div>
+
+
+            <div class="owl-carousel testimonial-carousel">
+
+                <% List<RecommendVO> res_allList2 = (List<RecommendVO>) request.getAttribute("res_allList2");
+                    List<String> photoList2 = (List<String>) request.getAttribute("photoList2");
+                    for (int i = 0; i < 12; i++) { %>
+
+                <%if (i % 6 == 0) {%>
+
+                <div class="testimonial-wrap">
+                    <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                        <%}%>
+
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href="work-single.html" class="item-wrap fancybox">
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
+                                <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img class="res_img" width="400" height="300" src=<%=photoList2.get(i)%>>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td class='detail_des' width=350><%=res_allList2.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList2.get(i).getRes_rating()%></span></td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2'
+                                        width=350><%=res_allList2.get(i).getRes_addr().split(" ")[1]%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2' width=350>추천 :<%=res_allList2.get(i).getLike_count()%>  리뷰
+                                        :<%=res_allList2.get(i).getReview_count()%>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <%if (i % 6 == 5) {%>
+
+                    </div>
+                </div>
+                <%}%>
+
+                <%}%>
+
+
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h1>니가 이걸 안먹어봤단말이야?</h1>
+                    <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
+                </div>
+
+            </div>
+
+
+            <div class="owl-carousel testimonial-carousel">
+
+                <% List<RecommendVO> res_allList3 = (List<RecommendVO>) request.getAttribute("res_allList3");
+                    List<String> photoList3 = (List<String>) request.getAttribute("photoList3");
+                    for (int i = 0; i < 12; i++) { %>
+
+                <%if (i % 6 == 0) {%>
+
+                <div class="testimonial-wrap">
+                    <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                        <%}%>
+
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href="work-single.html" class="item-wrap fancybox">
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
+                                <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img class="res_img" width="400" height="300" src=<%=photoList3.get(i)%>>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td class='detail_des' width=350><%=res_allList3.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList3.get(i).getRes_rating()%></span></td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2'
+                                        width=350><%=res_allList3.get(i).getRes_addr().split(" ")[1]%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2' width=350>추천 :<%=res_allList3.get(i).getLike_count()%>  리뷰
+                                        :<%=res_allList3.get(i).getReview_count()%>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <%if (i % 6 == 5) {%>
+
+                    </div>
+                </div>
+                <%}%>
+
+                <%}%>
+
+
+            </div>
 
         </div>
     </div>
@@ -269,7 +400,7 @@
          </div>
        </div>-->
 
-    <div class="site-section pt-0">
+ <%--   <div class="site-section pt-0">
         <div class="container">
 
             <div class="owl-carousel testimonial-carousel">
@@ -331,7 +462,7 @@
             </div>
 
         </div>
-    </div>
+    </div>--%>
 </main>
 <footer class="footer" role="contentinfo">
     <div class="container">

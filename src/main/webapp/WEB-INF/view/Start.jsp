@@ -34,6 +34,8 @@
         if (status=="fail"){alert("아이디나 비밀번호가 틀렸습니다.")}
         else { sessionStorage.setItem("member",user);}
 
+
+
     </script>
 </head>
 <body>
@@ -69,14 +71,22 @@
 <button type="button" id="hidden"  onclick=test1()> 버튼</button>
 <%--화면 가운데 로그인 창  --%>
 <div class="loginBackground" id = "loginBackground"></div>
+
+
+
+
+
+
+
+
 <div class="wrap" id="wrap">
     <div class="form-wrap">
 
         <div class="button-wrap" id="button-wrap">
 
             <div id="btn"></div><table>
-            <tb><button type="button" class="togglebtn" id ='loginbtn' >  &nbsp; 로그인</button></tb>
-            </tb><button type="button" class="togglebtn" id ='registerbtn' > &nbsp;  회원가입  </button></tb>
+            <tb><button type="button" class="togglebtn" id ='loginbtn' > &nbsp; 로그인</button></tb>
+            </tb><button type="button" class="togglebtn" id ='registerbtn' > &nbsp;&nbsp;  회원가입  </button></tb>
         </table>
         </div>
         <div class="social-icons">
@@ -86,8 +96,11 @@
             <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" required>
             <input type="password" name="password" id="loginPassword" class="input-field" placeholder="Password를 입력하세요" required>
            <input type="hidden" name="kind" id="favor">
-            <button type="submit" class="submit">Login</button>
+            <button type="submit" class="submit">로그인</button>
+<%--            <button type="button" id="searchId" class="submit">아이디찾기</button>--%>
+            <button type="button" id="searchPass" class="submit" onclick="searchByPass()">비밀번호찾기</button>
         </form>
+
         <form id="register" action="/session2Test" class="input-group">
             <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png" style="left: 41px;position: relative;top:-30px;" ></a>
             <img id="kakaoSignup" src="/res/img/kakaoSignup.png" style= "left: 82px; top:-30px; ">
@@ -97,9 +110,48 @@
         </form>
     </div>
 </div>
+
+
+
+<%--아이디 비밀번호찾기--%>
+
+
+<div class="wrap" id="passWrap" style="left: 0px; display: block; position: absolute; visibility: hidden;">
+    <div class="form-wrap">
+
+        <div class="button-wrap" id="button-wrap2">
+
+            <div id="btn2" class="btn"></div><table>
+            <tb><button type="button" class="togglebtn" id ='loginbtn2' >  &nbsp; 비밀번호 찾기</button></tb>
+
+        </table>
+        </div>
+        <div class="social-icons">
+            <a onclick="conceal()" ><img src="/res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
+        </div>
+        <form id="login2" action="/memberLogin" class="input-group" method="post">
+            <input type="email" name="email" id="loginEmail2" class="input-field2" placeholder="이메일을 입력하세요" required>
+            <input type="text" name="birthday" id="loginPassword2" class="input-field2" placeholder="생일을 입력하세요(예 07/28)" required>
+            <button type="submit" id="passSearch" class="submit">결과보기</button>
+            <button type="button" class="submit" id ="goToLogin" onclick="show()">로그인하기</button>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 <script>
     loginForm=document.getElementById('wrap')
     loginBack=document.getElementById('loginBackground')
+    passWrap=document.getElementById("passWrap")
+
     <%--memSession=${sessionScope.member.getEmail()}--%>
 
     <%--    로그인,회원가입 가운데 창 보이게하는 함수--%>
@@ -110,15 +162,40 @@
 
         if (status!="success") {
             loginForm.style.visibility = "visible"
+            loginForm.style.zIndex="10000"
             loginBack.style.visibility = "visible"
             loginForm.style.display = "block"
             loginBack.style.display = "block"
+            passWrap.style.visibility = "visible"
         }
     }
     function conceal(){
         loginForm.style.display = "none"
         loginBack.style.display = "none"
+        passWrap.style.display="none"
     }
+
+    var passBtn =document.getElementById("searchPass");
+
+
+
+
+    {function searchByPass() {
+        loginForm.style.visibility = "hidden"
+        passWrap.style.visibility = "visible"
+        passWrap.style.display="block"
+        loginForm.style.display = "none"
+    }
+
+    }
+
+
+
+
+
+
+
+
 </script>
 <script>
 

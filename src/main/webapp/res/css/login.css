@@ -24,11 +24,11 @@
 }
 
 #button-wrap {
-    width: 230px ;
-    margin: 35px auto;
-    position: relative;
-    box-shadow: 0 0 600px 9px white;
-    border-radius: 30px;
+        width: 230px ;
+        margin: 35px auto;
+        position: relative;
+        box-shadow: 0 0 600px 9px white;
+        border-radius: 30px;
 }
 .togglebtn {
     padding: 10px 25px;

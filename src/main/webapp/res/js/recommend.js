@@ -65,20 +65,6 @@ $(function () {
 
                     }
 
-                    if (i < 6) {
-                        $('#temp' + 0).append(content)
-                    } else {
-
-                        $('#temp' + 6).append(content)
-                    }
-
-
-                    if (i % 6 == 5) {
-                        ///$('.t_wrap').append($('<div class="portfolio-grid row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
-                    }
-
-                } // for end
-
                 // $('#recommend_div').append($('</div>'))
 
                 // $('#recommend_container').append($('</div>'))

@@ -5,6 +5,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosmo.orange.wtf.model.mapper.RecommendMapper">
 
+    <select id="res_recomById" parameterType="HashMap" resultType="RecommendVO">
+        SELECT ra.res_id as res_id,pred_rating,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM (SELECT r.res_id AS res_id, pred_rating,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count
+		FROM (SELECT * FROM ${table}
+		WHERE member_id =#{member_id} AND res_id NOT IN(SELECT res_id FROM review_test r WHERE member_id =#{member_id})
+		ORDER BY pred_rating DESC LIMIT 20) rr
+		INNER JOIN restaurant r
+		ON rr.res_id= r.res_id) ra
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON ra.res_id =rt.res_id
+
+    </select>
+
     <select id="res_all" resultType="RecommendVO">
 
         SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
@@ -13,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         FROM review_test rt
         GROUP BY res_id) rt
         ON r.res_id =rt.res_id
-
+        ORDER BY res_rating desc
     </select>
 
 
@@ -45,5 +60,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             </when>
         </choose>
     </select>
+
+
+
+    <select id="res_recomByIdorderBy" parameterType="HashMap" resultType="RecommendVO">
+        SELECT ra.res_id as res_id,pred_rating,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM (SELECT r.res_id AS res_id, pred_rating,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count
+        FROM (SELECT * FROM res_recommend_test
+        WHERE member_id =#{member_id} AND res_id NOT IN(SELECT res_id FROM review_test r WHERE member_id =#{member_id})
+        ORDER BY pred_rating DESC LIMIT 20) rr
+        INNER JOIN restaurant r
+        ON rr.res_id= r.res_id) ra
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON ra.res_id =rt.res_id
+        <choose>
+            <when test="cate==null or cate=='review'">
+                ORDER BY rt.review_count DESC
+            </when>
+            <when test="cate =='recom'">
+                ORDER BY ra.like_count DESC
+            </when>
+            <when test="cate=='rating'">
+                ORDER BY ra.res_rating DESC
+            </when>
+        </choose>
+    </select>
+
+
 
 </mapper>
