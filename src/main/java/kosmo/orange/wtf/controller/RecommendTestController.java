@@ -58,36 +58,36 @@ public class RecommendTestController {
 
     }
 
-    @PostMapping("/resOrdered")
-    @ResponseBody
-    public List<RecommendVO> resOrdered(Model model, String category){
-
-        System.out.println("추천순 정렬 클릭"+category);
-        List<RecommendVO> res_allList = recommendTestService.res_orderBy();
-        model.addAttribute("res_allList",res_allList);
-
-        // 식당 사진 가져오기
-
-        List<String> photoList = new ArrayList<>();
-        for(int i=0; i< res_allList.size(); i++) {
-            res_allList.get(i).setRtr_pic_loc("/res/img/ing.jpg");
-//            List<PhotoVO> temp = recommendService.res_photo(res_allList.get(i));
-//            photoList.add("/res/img/ing.jpg");
-
-
-//            try {
-//                photoList.add( temp.get(0).getRtr_pic_loc());
-//                System.out.println(temp.get(0).getRtr_pic_loc());
+//    @PostMapping("/resOrdered")
+//    @ResponseBody
+//    public List<RecommendVO> resOrdered(Model model, String category){
 //
-//            } catch (Exception e) {
-////                System.out.println("사진 없음");
-//                photoList.add("/res/img/ing.jpg");
+//        System.out.println("추천순 정렬 클릭"+category);
+//        List<RecommendVO> res_allList = recommendTestService.res_orderBy();
+//        model.addAttribute("res_allList",res_allList);
 //
-//            }
-        }
-
-        model.addAttribute("photoList", photoList);
-
-        return res_allList;
-    }
+//        // 식당 사진 가져오기
+//
+//        List<String> photoList = new ArrayList<>();
+//        for(int i=0; i< res_allList.size(); i++) {
+//            res_allList.get(i).setRtr_pic_loc("/res/img/ing.jpg");
+////            List<PhotoVO> temp = recommendService.res_photo(res_allList.get(i));
+////            photoList.add("/res/img/ing.jpg");
+//
+//
+////            try {
+////                photoList.add( temp.get(0).getRtr_pic_loc());
+////                System.out.println(temp.get(0).getRtr_pic_loc());
+////
+////            } catch (Exception e) {
+//////                System.out.println("사진 없음");
+////                photoList.add("/res/img/ing.jpg");
+////
+////            }
+//        }
+//
+//        model.addAttribute("photoList", photoList);
+//
+////        return res_allList;
+//    }
 }

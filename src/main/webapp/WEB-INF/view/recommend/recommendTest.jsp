@@ -115,9 +115,9 @@
                         <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
                         <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
                         <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
-                        <div id="recommend_order" name="recom">추천순</div>
-                        <div id="rating_order" name="rating">평점순</div>
-                        <div id="review_order" name="review">리뷰순</div>
+                        <div class="recommend_orderBy" name="recom">추천순</div>
+                        <div class="recommend_orderBy" name="rating">평점순</div>
+                        <div class="recommend_orderBy" name="review">리뷰순</div>
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->
@@ -139,7 +139,7 @@
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
                         <%}%>
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href="work-single.html" class="item-wrap fancybox">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>" class="item-wrap fancybox">
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
