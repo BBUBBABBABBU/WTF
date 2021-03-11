@@ -233,16 +233,19 @@ function showRestaurant(latitude, longitude) {
                     resAddr: result[0]['address'].region_2depth_name
                 },
                 success: (res_allList) => {
+
                     if(res_allList != null){
                         $('#recommend_div').remove()
 
                         let recommend_div = $('<div id="recommend_div" class="recommend_div owl-carousel testimonial-carousel"></div>')
+                        
+                        // #recommend_container의 맨앞에 추가 후 map_div 바로 뒤로 자리 옮김
                         $('#recommend_container').prepend(recommend_div)
                         $('#recommend_div').insertAfter($('#map_div'))
 
                         for (let i = 0; i < 12; i++) {
 
-                            // 식당의
+                            // 식당의 이름이 8자가 넘었을 경우 처리
                             if(res_allList[i].resName.length > 8){
                                 res_allList[i].resName = res_allList[i].resName.substring(0,7)+'...'
                             }

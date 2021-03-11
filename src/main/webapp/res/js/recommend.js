@@ -65,15 +65,21 @@ $(function () {
 
                     }
 
-                // $('#recommend_div').append($('</div>'))
+                    if (i < 6) {
+                        $('#temp' + 0).append(content)
+                    } else {
+                        $('#temp' + 6).append(content)
+                    }
 
-                // $('#recommend_container').append($('</div>'))
 
-                siteOwlCarousel();
+                } // for end
+                siteOwlCarousel()
 
-            }, error: (err) => {
-                alert('failed')
-            }
+            }, error:
+                (err) => {
+                    alert('failed' + err)
+                }
+
         })  // ajax end
     })  // click() end
 
