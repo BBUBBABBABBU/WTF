@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.python.util.PythonInterpreter;
 import org.python.core.PyObject;
@@ -169,26 +170,26 @@ public class RecommendController {
     }
 
 
-    @RequestMapping("/resOrdered")
-    public String resOrdered(Model model, HttpServletRequest request){
+    @PostMapping("/resOrdered")
+    @ResponseBody
+    public Map<String, Object> resOrdered(Model model,String cate){
         //로그인한 사용자 번호 가져오기
         String member_id="1";
-        //정렬 종류 가져오기
-        String cate = request.getParameter("cate");
-        List<RecommendVO> res_allList;
 
+
+
+        //식당 정보 가져오기
+        List<RecommendVO> res_allList;
         if (member_id!=null){
             System.out.println("개인화 추천 정렬 클릭 수정"+cate);
             HashMap map = new HashMap();
             map.put("member_id",member_id);
             map.put("cate", cate);
             res_allList = recommendService.res_recomByIdorderBy(map);
-            model.addAttribute("res_allList",res_allList);
+
         }else {
             System.out.println("정렬 클릭"+cate);
             res_allList = recommendService.res_orderBy(cate);
-            model.addAttribute("res_allList",res_allList);
-
         }
 
 
@@ -210,9 +211,12 @@ public class RecommendController {
 
         }
 
-        model.addAttribute("photoList", photoList);
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("res_allList",res_allList);
+        result.put("photoList",photoList);
 
-        return "recommend/recommend";
+            System.out.println("RecommendController resOrdered 219 line 수정: " + (List<String>)result.get("photoList"));
+        return result;
 
     }
 
