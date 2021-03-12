@@ -110,9 +110,9 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy" name="review"> 리뷰순 </span>
+                        <span class="recommend_orderBy clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy clickPointer" name="review"> 리뷰순 </span>
 
 
 
@@ -188,9 +188,9 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy2" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy2" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy2" name="review"> 리뷰순 </span>
+                        <span class="recommend_orderBy2 clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy2 clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy2 clickPointer" name="review"> 리뷰순 </span>
 
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
@@ -262,9 +262,9 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy3" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy3" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy3" name="review"> 리뷰순 </span>
+                        <span class="recommend_orderBy3 clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy3 clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy3 clickPointer" name="review"> 리뷰순 </span>
 
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
