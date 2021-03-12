@@ -101,7 +101,7 @@
 
     <div class="site-section site-portfolio">
 
-        <div class="container">
+        <div class="container recommend_container1">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 먹을줄 알고 있었어</h1>
@@ -110,12 +110,11 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
-                        <div class="recommend_orderBy" name="recom">추천순</div>
-                        <div class="recommend_orderBy" name="rating">평점순</div>
-                        <div class="recommend_orderBy" name="review">리뷰순</div>
+                        <span class="recommend_orderBy" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy" name="review"> 리뷰순 </span>
+
+
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->
@@ -180,7 +179,7 @@
 
         </div>
 
-        <div class="container">
+        <div class="container recommend_container2">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 먹어 보면 어떨까</h1>
@@ -189,12 +188,10 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
-                        <div class="recommend_orderBy2" name="recom">추천순</div>
-                        <div class="recommend_orderB2" name="rating">평점순</div>
-                        <div class="recommend_orderBy2" name="review">리뷰순</div>
+                        <span class="recommend_orderBy2" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy2" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy2" name="review"> 리뷰순 </span>
+
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->
@@ -256,7 +253,7 @@
 
         </div>
 
-        <div class="container">
+        <div class="container recommend_container3">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 안먹어 봤단 말이야?</h1>
@@ -265,12 +262,10 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
-                        <div class="recommend_orderBy3" name="recom">추천순</div>
-                        <div class="recommend_orderBy3" name="rating">평점순</div>
-                        <div class="recommend_orderBy3" name="review">리뷰순</div>
+                        <span class="recommend_orderBy3" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy3" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy3" name="review"> 리뷰순 </span>
+
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->

@@ -172,10 +172,9 @@ public class RecommendController {
 
     @PostMapping("/resOrdered")
     @ResponseBody
-    public Map<String, Object> resOrdered(Model model,String cate){
+    public Map<String, Object> resOrdered(String cate, String table){
         //로그인한 사용자 번호 가져오기
         String member_id="1";
-
 
 
         //식당 정보 가져오기
@@ -185,6 +184,7 @@ public class RecommendController {
             HashMap map = new HashMap();
             map.put("member_id",member_id);
             map.put("cate", cate);
+            map.put("table", table);
             res_allList = recommendService.res_recomByIdorderBy(map);
 
         }else {
@@ -212,11 +212,12 @@ public class RecommendController {
         }
 
         Map<String, Object> result = new HashMap<String, Object>();
+
         result.put("res_allList",res_allList);
         result.put("photoList",photoList);
-
-            System.out.println("RecommendController resOrdered 219 line 수정: " + (List<String>)result.get("photoList"));
+        System.out.println("RecommendController resOrdered 219 line 수정: " + result.get("photoList"));
         return result;
+
 
     }
 
