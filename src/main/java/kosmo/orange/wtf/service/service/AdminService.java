@@ -21,15 +21,23 @@ public interface AdminService {
 
 
     /********************
-     * 중복검사
+     * id 중복검사
      */
     public int idCheck(String id);
+
+
+    /*************************************
+     * id / name 확인 (비번 찾기 위해)
+     * >> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음
+     */
+//    public int pwCheck(String id, String name);
 
 
     /*********************
      * 관리자 페이지 로그인
      */
     public AdminVO adminLogin(String id, String pass);
+
 
 
 

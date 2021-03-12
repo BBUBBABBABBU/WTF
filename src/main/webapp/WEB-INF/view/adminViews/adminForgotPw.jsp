@@ -28,6 +28,30 @@
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+    <%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>--%>
+    <%--<script type="text/javascript">--%>
+        <%--$(function(){--%>
+            <%--$("button[class='btn login-form__btn submit w-100']").click(function () {--%>
+                <%--alert('ajax')--%>
+
+                <%--$.ajax({--%>
+                    <%--type:"POST",--%>
+                    <%--url:"pwCheck"--%>
+                    <%--data:{--%>
+                        <%--"id":$('#mgr_id').val(),--%>
+                        <%--"name":$('#mgr_name').val()--%>
+                    <%--},--%>
+                    <%--success:function(str){--%>
+                        <%--alert(str)--%>
+
+                        <%--if($.trim(str) == "ok"){}--%>
+                    <%--}--%>
+                <%--})--%>
+            <%--})--%>
+        <%--})--%>
+
+    <%--</script>--%>
+
 
 </head>
 <body class="h-100">
@@ -56,10 +80,18 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="adminIndex.html"> <h2>니가 정말</h2></a>
-                                <form class="mt-5 mb-3 login-input">
+                                <form class="mt-5 mb-3 login-input" action="resetPw">
+
+                                    <%--id--%>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="email(id)" required>
+                                        <input type="email" class="form-control" placeholder="email(id)" required id="mgr_id" name="mgr_id">
                                     </div>
+
+                                    <%--name--%>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="name" required id="mgr_name" name="mgr_name">
+                                    </div>
+
                                     <button class="btn login-form__btn submit w-100">Reset Password</button>
                                     <p class="mt-5 login-form__footer">Do you remember password? <a href="/adminHome" class="text-primary">Login</a> now</p>
                                 </form>

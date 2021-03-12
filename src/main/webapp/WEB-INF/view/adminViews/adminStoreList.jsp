@@ -30,6 +30,16 @@
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // alert('ready')
+            $("tr.restaurant").click(function () {
+                alert('click function')
+                location.href = "/storeDetail"
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -112,7 +122,7 @@
 
                                         <c:forEach var="restaurantVOList" items="${restaurantVOList}">
 
-                                            <tr>
+                                            <tr class="restaurant" style="cursor: pointer;">
                                                 <td>${restaurantVOList.resName}</td>
                                                 <td>${restaurantVOList.resTell}</td>
                                                 <td>${restaurantVOList.resAddr}</td>
