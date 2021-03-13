@@ -19,6 +19,11 @@ repositories {
     mavenCentral()
 }
 
+apply plugin:'war'
+
+bootWar.enabled=false
+war.enabled=true
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-web-services'
@@ -28,6 +33,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
     //websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
 

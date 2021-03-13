@@ -33,7 +33,7 @@ public class StartController {
     /**
      * 시작페이지에서 메인페이지 호출
      */
-    //TODO 음식종류 처리할것
+    //TODO 음식종류 처리할것)
     @GetMapping("/main")
     public String main(Model model) {
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
