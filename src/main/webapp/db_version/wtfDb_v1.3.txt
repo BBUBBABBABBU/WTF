@@ -44,3 +44,4 @@
 -- alter table menu modify menu varchar(200);
 -- alter table restaurant_pic modify rtr_pic_loc text;
 
+

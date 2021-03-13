@@ -23,6 +23,12 @@ a:hover {
 }
 
 /*추가한 css*/
+
+.clickPointer{
+  cursor : pointer;
+}
+
+
 .detail_des{
   font-family: 'Do Hyeon', sans-serif;
   font-size:26px;

@@ -5,6 +5,10 @@ import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RecommendVO;
 import kosmo.orange.wtf.service.service.RecommendService;
+import lombok.extern.java.Log;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,31 +18,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-import org.python.util.PythonInterpreter;
-import org.python.core.PyObject;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
+
 
 @Controller
 public class RecommendController {
 
+    //현재 시간 가져오기
+    Date time = new Date();
+    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String now = format.format(time);
+
     @Autowired
     private RecommendService recommendService;
-
     @Autowired
     HttpSession session;
 
+//    MemberVO vo = (MemberVO) session.getAttribute("member");
+    String member_id = "1";
 
     @RequestMapping("/recommend")
     public String recommend(Model model){
         System.out.println("추천 화면 출력");
         // member_id로 추천 리스트 가져오기
-        MemberVO vo = (MemberVO) session.getAttribute("member");
-        String member_id = "1";
+
 
         List<RecommendVO> res_allList;
 
@@ -78,7 +84,7 @@ public class RecommendController {
         }
         model.addAttribute("photoList", photoList);
 
-        
+
 
         // 추천 2번
         // 식당 정보 가져오기
@@ -172,10 +178,9 @@ public class RecommendController {
 
     @PostMapping("/resOrdered")
     @ResponseBody
-    public Map<String, Object> resOrdered(Model model,String cate){
+    public Map<String, Object> resOrdered(String cate, String table){
         //로그인한 사용자 번호 가져오기
         String member_id="1";
-
 
 
         //식당 정보 가져오기
@@ -185,6 +190,7 @@ public class RecommendController {
             HashMap map = new HashMap();
             map.put("member_id",member_id);
             map.put("cate", cate);
+            map.put("table", table);
             res_allList = recommendService.res_recomByIdorderBy(map);
 
         }else {
@@ -212,11 +218,12 @@ public class RecommendController {
         }
 
         Map<String, Object> result = new HashMap<String, Object>();
+
         result.put("res_allList",res_allList);
         result.put("photoList",photoList);
-
-            System.out.println("RecommendController resOrdered 219 line 수정: " + (List<String>)result.get("photoList"));
+        System.out.println("RecommendController resOrdered 219 line 수정: " + result.get("photoList"));
         return result;
+
 
     }
 

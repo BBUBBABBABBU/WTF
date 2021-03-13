@@ -19,12 +19,37 @@
     </select>
 
 
+    <!--id / name 확인 (비번찾기)-->
+    <!--&gt;> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음-->
+    <!--<select id="pwCHeck" resultMap="getManager">-->
+        <!--SELECT mgr_id, mgr_name-->
+        <!--FROM manager-->
+        <!--WHERE mgr_id = #{id} and mgr_name = #{name}-->
+    <!--</select>-->
+
+
     <!--로그인-->
     <select id="adminLogin" resultMap="getManager">
         SELECT *
         FROM manager
         WHERE mgr_id = #{id}
     </select>
+
+
+    <!--id / name 확인-->
+    <select id="checkAccount" resultMap="getManager">
+        SELECT mgr_id, mgr_name
+        FROM manager
+        WHERE mgr_id = #{mgr_id} and mgr_name = #{mgr_name}
+    </select>
+
+
+    <!--pw 변경-->
+    <update id="updatePw" parameterType="AdminVO">
+        UPDATE manager
+        SET mgr_pass = #{mgr_pass}
+        WHERE mgr_id = #{mgr_id}
+    </update>
 
 
     <!--유저 목록 불러오기-->

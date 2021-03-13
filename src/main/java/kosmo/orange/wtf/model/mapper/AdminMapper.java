@@ -23,10 +23,29 @@ public interface AdminMapper {
     AdminVO idCheck(String id);
 
 
+    /***************************
+     * id / name 확인 (비번찾기)
+     * >> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음
+     */
+//    AdminVO pwCheck(String id, String name);
+
+
     /******************
      * 로그인
      */
     List<AdminVO> adminLogin(String id);
+
+
+    /*********************
+     * 비번 초기화 누르면 id / name 확인
+     */
+    AdminVO checkAccount(AdminVO adminVO);
+
+
+    /****************************************
+     * 비번 초기화 누르고 id / name 확인 되고 임시 pw 생긴거로 업뎃
+     */
+    int updatePw(AdminVO adminVO);
 
 
     // ==========================================================
