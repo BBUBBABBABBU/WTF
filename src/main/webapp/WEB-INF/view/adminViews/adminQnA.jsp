@@ -22,6 +22,7 @@
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
 
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
     <%--js--%>
@@ -68,7 +69,90 @@
     ***********************************-->
     <div class="content-body">
 
-        <!--요기부터 내용 입력 !!!!!!!!!!!!!!!-->
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Data Table</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$320,800</td>
+                                        </tr>
+
+                                        <c:forEach var="restaurantVOList" items="${restaurantVOList}">
+
+                                            <tr>
+                                                <td>${restaurantVOList.resName}</td>
+                                                <td>${restaurantVOList.resTell}</td>
+                                                <td>${restaurantVOList.resAddr}</td>
+                                                <td>${restaurantVOList.resRuntime}</td>
+                                                <td>${restaurantVOList.resKeyword}</td>
+                                                <td>${restaurantVOList.resRating}</td>
+                                            </tr>
+
+                                        </c:forEach>
+
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+
+
+
+
+
+
+
+
+
+
 
     </div>
     <!--**********************************
@@ -102,7 +186,9 @@
 <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
 <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
-
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 </body>
 
 </html>

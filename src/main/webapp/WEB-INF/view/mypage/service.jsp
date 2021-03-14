@@ -160,7 +160,7 @@
                             </div>
                             <div class="media-body p-2 mt-2">
                                 <h3 class="heading mb-3">FAQs</h3>
-                                <p>자주 묻는 질문</p>
+                                <a class="prime">자주 묻는 질문</a>
                             </div>
                         </div>
                     </div>
@@ -323,7 +323,7 @@
                     <textarea id="chatSend" name="chat_message" placeholder="Designed by 'WTF'" class="chat_field chat_message"></textarea>
                 </div>
             </div>
-            <a id="prime" class="fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
+            <a  id="prime_fab" class="prime fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
         </div>
 
 

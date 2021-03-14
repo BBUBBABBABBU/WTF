@@ -56,7 +56,7 @@
         <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
     </div>
 </nav>
-<nav class="navbar navbar-light custom-navbar">
+<nav class="navbar navbar-light custom-navbar2">
     <div class="container">
         <form>
             <input type="text" placeholder="검색" size='50'>

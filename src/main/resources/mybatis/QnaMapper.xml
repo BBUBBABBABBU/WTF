@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kosmo.orange.wtf.model.mapper.QnaMapper">
+
+    <insert id="insertQna" >
+        INSERT INTO qna(member_id,qna_date,anw_date,qna_title,qna_content, anw_content)
+         VALUES(#{member_id},SYSDATE(),#{anw_date},#{qna_title},#{qna_content}, #{anw_content});
+    </insert>
+
+    <select id="MyqnaList" resultMap="getQna">
+        SELECT qna_id, member_id, qna_title, qna_date, anw_check FROM qna
+        WHERE  member_id = #{member_id};
+    </select>
+
+
+    <select id="MyqnaDetail"  resultMap="getQna">
+        SELECT qna_id, member_id, qna_title, qna_content, anw_content FROM qna
+        WHERE  qna_id = #{qna_id};
+    </select>
+
+    <delete id="deleteQna">
+        DELETE
+        FROM qna
+        WHERE qna_id = #{qna_id}
+
+    </delete>
+
+
+
+
+    <resultMap id="getQna" type="QnaVO">
+        <result property="qna_id" column="qna_id"/>
+        <result property="member_id" column="member_id"/>
+        <result property="qna_date" column="qna_date"/>
+        <result property="anw_date" column="anw_date"/>
+        <result property="qna_title" column="qna_title"/>
+        <result property="qna_content" column="qna_content"/>
+        <result property="anw_check" column="anw_check"/>
+        <result property="anw_content" column="anw_content"/>
+    </resultMap>
+</mapper>
+
+
+
+
