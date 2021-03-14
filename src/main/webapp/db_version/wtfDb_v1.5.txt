@@ -1,0 +1,19 @@
+CREATE TABLE res_recommend_test(
+	res_id INT,
+	pred_rating Float,
+	member_id INT,
+	FOREIGN KEY (res_id) REFERENCES restaurant(res_id));
+
+
+CREATE TABLE res_recommend_test2(
+	res_id INT,
+	pred_rating Float,
+	member_id INT,
+	FOREIGN KEY (res_id) REFERENCES restaurant(res_id));
+
+
+CREATE TABLE res_recommend_test3(
+	res_id INT,
+	pred_rating Float,
+	member_id INT,
+	FOREIGN KEY (res_id) REFERENCES restaurant(res_id));

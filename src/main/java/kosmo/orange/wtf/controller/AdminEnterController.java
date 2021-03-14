@@ -1,6 +1,8 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.vo.AdminMailVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
+import kosmo.orange.wtf.service.impl.AdminMailService;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +25,9 @@ public class AdminEnterController {
 
     @Autowired
     AdminServiceImpl adminService;
+
+    @Autowired
+    AdminMailService adminMailService;
 
     @Autowired
     PasswordEncoder passwordEncoder;
@@ -125,6 +130,32 @@ public class AdminEnterController {
     }  // end of idCheck
 
 
+    /*********************
+     * id / name 확인 (비번찾기)
+     * adminForgotPw.jsp > ajax > adminForgotPw.jsp
+     * >> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음
+     */
+//    @PostMapping("pwCheck")
+//    @ResponseBody // ajax
+//    public String pwCheck(@RequestParam("mgr_id") String id, @RequestParam("mgr_name") String name) {
+//        System.out.println("AdminEnterController.pwCheck");
+//
+//        int result = adminService.pwCheck(id, name);
+//        System.out.println("result = " + result);
+//
+//        String str = "";
+//        if(result == 1){
+//            str = "ok";
+//        }
+//        else {
+//            str = "id / name 다시 확인";
+//        }
+//
+//        return str;
+//
+//    } // end of pwCheck
+
+
     /**************
      * 로그인
      * adminLogin.jsp > adminIndex.jsp
@@ -163,6 +194,68 @@ public class AdminEnterController {
         return "adminViews/" + page;
 
     } // end of adminLogin
+
+
+    /****************
+     * 비번찾기
+     * adminLogin.jsp > adminForgotPw.jsp
+     */
+    @GetMapping("/findPw")
+    public String findPw() {
+        System.out.println("AdminEnterController.findPw");
+
+        return "adminViews/adminForgotPw";
+
+    } // end of findPw
+
+
+    /*******************
+     * 비번초기화
+     * (얘는 AdminMailService.java 연결)
+     * adminForgotPw.jsp > DB -->
+     * success > adminLogin.jsp
+     * fail > adminForgotPw.jsp
+     *
+     * checkAccount > DB의 id(email)와 name 확인
+     * updatePw > DB의 id와 name이 확인되면 새로 생성된 임시 pw(uuid)로 DB에 업뎃
+     */
+    @GetMapping("resetPw")
+    public String resetPw(@RequestParam("mgr_id") String id, @RequestParam("mgr_name") String name) {
+        System.out.println("AdminEnterController.resetPw 224line : " +  name);
+        System.out.println("id = [" + id + "], name = [" + name + "]");
+
+        int result = adminMailService.checkAccount(id, name);
+        String page = "";
+
+        // 만약 결과가 있으면(id / name 이 맞으면)
+        if(result == 1){
+
+            // 비번을 생성해서
+            String uuid = adminMailService.pwMake();
+            System.out.println("uuid = " + uuid);
+
+            // 메일 세팅
+            AdminMailVO mailVO = adminMailService.mailSetting(id, name, uuid);
+            System.out.println("mailVO = " + mailVO);
+
+            // 임시 비번 DB에 업뎃
+            int updateResult = adminMailService.updatePw(uuid, id);
+            System.out.println("updateResult = " + updateResult);
+
+            // 멜발
+            adminMailService.mailSend(mailVO);
+
+            page = "adminLogin";
+
+        }
+        else {
+            page = "adminForgotPw";
+
+        }
+
+        return "adminViews/" + page;
+
+    } // end of resetPw
 
 
 }

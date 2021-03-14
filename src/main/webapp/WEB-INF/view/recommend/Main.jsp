@@ -36,14 +36,17 @@
 
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
-    <link href="/res/css/main/map.css" rel="stylesheet">
+    <link href="/res/css/main/main.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
     </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
-"></script>
+    <%--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9--%>
+    <%--"></script>--%>
+    <script type="text/javascript"
+            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9&libraries=services"></script>
+
 
 </head>
 <body>
@@ -84,8 +87,8 @@
 <main id="main">
 
     <div class="site-section site-portfolio">
-        <div class="container">
-            <div class="row mb-5 align-items-center">
+        <div id='recommend_container' class="container">
+            <div id = "map_div" class="row mb-5 align-items-center">
                 <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h2>현 위치(지도)</h2>
                     <div id="map" style="width: 1110px; height: 400px;"></div>
@@ -97,7 +100,8 @@
             </div>
             <br/><br/><br/>
 
-            <div class="owl-carousel testimonial-carousel">
+            <div id="recommend_div" class="owl-carousel testimonial-carousel">
+
                 <% List<RestaurantVO> restaurantList = (List<RestaurantVO>) request.getAttribute("restaurantList");
                     List<String> photoList = (List<String>) request.getAttribute("photoList");
                     for (int i = 0; i < 30; i++) { %>

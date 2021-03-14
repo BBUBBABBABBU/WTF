@@ -95,6 +95,12 @@
                                     now
                                 </p>
 
+                                <%--비번 찾기 페이지로 이동--%>
+                                <p class="mt-5 login-form__footer">비번까묵???
+                                    <a href="/findPw" class="text-primary">resetPw</a>
+                                    now
+                                </p>
+
 
                             </div>
                         </div>

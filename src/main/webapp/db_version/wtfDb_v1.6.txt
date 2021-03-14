@@ -1,0 +1,57 @@
+--FK 이름을 지정해야함
+
+CREATE TABLE Menu(
+	res_id INT,
+	menu VARCHAR(20) NOT NULL,
+	price VARCHAR(20) NOT NULL,
+	pic_loc VARCHAR(100),
+	CONSTRAINT fk_Menu_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE restaurant_pic(
+	res_id INT,
+	rtr_pic_loc VARCHAR(255),
+	CONSTRAINT fk_restaurant_pic_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE Review(
+	review_id INT AUTO_INCREMENT PRIMARY KEY,
+	member_id INT,
+	res_id INT,
+	rating_avg FLOAT NOT null,
+	rating_taste INT NOT NULL,
+	rating_service INT NOT NULL,
+	rating_clean INT NOT NULL,
+	rating_location INT NOT NULL,
+	review_content VARCHAR(200) NOT NULL,
+	review_tag VARCHAR(50) NOT NULL,
+	pic_name VARCHAR(30),
+	recommend_count INT,
+	charge_count INT,
+	FOREIGN KEY(member_id) REFERENCES member(member_id),
+	CONSTRAINT fk_Review_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+
+CREATE TABLE res_recommend_matrix_decomposition(
+	res_id INT,
+	pred_rating Float,
+
+	member_id INT,
+	CONSTRAINT fk_res_recommend_matrix_decomposition_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE res_recommend_cosine_similarity(
+	res_id INT,
+	pred_rating Float,
+	member_id INT,
+	CONSTRAINT fk_res_recommend_cosine_similarity_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+CREATE TABLE res_recommend_svd(
+	res_id INT,
+	pred_rating Float,
+	member_id INT,
+	CONSTRAINT fk_res_recommend_svd_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
+-- 새로 받은 데이터중 강남구 이상부터 밴먹어서 이미지 못가져옴 다 날리고 강남구 부터 새로 받을 예정
+-- 엑셀 데이터 입력 후 적용
+DELETE  FROM restaurant WHERE res_id > 377 ;
+DELETE  FROM menu WHERE res_id > 377 ;
+DELETE  FROM restaurant_pic WHERE res_id > 377 ;
+ALTER TABLE restaurant AUTO_INCREMENT = 378;

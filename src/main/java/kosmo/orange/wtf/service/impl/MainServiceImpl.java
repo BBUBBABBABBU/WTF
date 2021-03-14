@@ -51,4 +51,13 @@ public class MainServiceImpl implements MainService {
         }
     }
 
+    @Override
+    public List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO) {
+        try{
+            return mainMapper.mainRecommend(restaurantVO);
+        }catch (Exception e){
+            System.out.println("MainServiceImpl mainRecommend error : " + e.toString());
+            return null;
+        }
+    }
 }

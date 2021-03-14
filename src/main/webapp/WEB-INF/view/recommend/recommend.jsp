@@ -43,6 +43,7 @@
 
     <%--제이 쿼리--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/res/js/recommend.js"></script>
 
     <!-- =======================================================
       Template Name: MyPortfolio
@@ -99,7 +100,8 @@
 <main id="main">
 
     <div class="site-section site-portfolio">
-        <div class="container">
+
+        <div class="container recommend_container1">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
                     <h1>니가 이걸 먹을줄 알고 있었어</h1>
@@ -108,9 +110,11 @@
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <a class='recommend_method' href="/resOrdered?cate=recom">추천순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=rating">평점순</a>
-                        <a class='recommend_method' href="/resOrdered?cate=review">리뷰순</a>
+                        <span class="recommend_orderBy clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy clickPointer" name="review"> 리뷰순 </span>
+
+
 
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->
@@ -119,8 +123,7 @@
                 </div>
             </div>
 
-
-            <div class="owl-carousel testimonial-carousel">
+            <div id='recommend_div1' class="owl-carousel testimonial-carousel">
 
                 <% List<RecommendVO> res_allList = (List<RecommendVO>) request.getAttribute("res_allList");
                     List<String> photoList = (List<String>) request.getAttribute("photoList");
@@ -131,8 +134,9 @@
                 <div class="testimonial-wrap">
                     <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
                         <%}%>
+
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href="work-single.html" class="item-wrap fancybox">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>" class="item-wrap fancybox">
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
@@ -142,8 +146,8 @@
                             </a>
                             <table border="0">
                                 <tr>
-                                    <td class='detail_des' width=350><%=res_allList.get(i).getRes_name()%><span
-                                            class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
+                                    <td class='detail_des' width=350><%=res_allList.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList.get(i).getRes_rating()%></span></td>
                                 </tr>
                                 <tr>
                                     <td class='detail_des2'
@@ -170,6 +174,156 @@
 
             </div>
 
+
+
+
+        </div>
+
+        <div class="container recommend_container2">
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h1>니가 이걸 먹어 보면 어떨까</h1>
+                    <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
+                </div>
+
+                <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <span class="recommend_orderBy2 clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy2 clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy2 clickPointer" name="review"> 리뷰순 </span>
+
+
+                        <!--<a href="#" data-filter=".branding">Branding</a>
+                        <a href="#" data-filter=".photography">Photography</a>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <div id='recommend_div2' class="owl-carousel testimonial-carousel">
+
+                <% List<RecommendVO> res_allList2 = (List<RecommendVO>) request.getAttribute("res_allList2");
+                    List<String> photoList2 = (List<String>) request.getAttribute("photoList2");
+                    for (int i = 0; i < 12; i++) { %>
+
+                <%if (i % 6 == 0) {%>
+
+                <div class="testimonial-wrap">
+                    <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                        <%}%>
+
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList2.get(i).getRes_id()%>"  class="item-wrap fancybox">
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
+                                <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img class="res_img" width="400" height="300" src=<%=photoList2.get(i)%>>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td class='detail_des' width=350><%=res_allList2.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList2.get(i).getRes_rating()%></span></td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2'
+                                        width=350><%=res_allList2.get(i).getRes_addr().split(" ")[1]%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2' width=350>추천 :<%=res_allList2.get(i).getLike_count()%>  리뷰
+                                        :<%=res_allList2.get(i).getReview_count()%>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <%if (i % 6 == 5) {%>
+
+                    </div>
+                </div>
+                <%}%>
+
+                <%}%>
+
+
+            </div>
+
+        </div>
+
+        <div class="container recommend_container3">
+            <div class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
+                    <h1>니가 이걸 안먹어 봤단 말이야?</h1>
+                    <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
+                </div>
+
+                <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
+                    <div>
+                        <span class="recommend_orderBy3 clickPointer" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy3 clickPointer" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy3 clickPointer" name="review"> 리뷰순 </span>
+
+
+                        <!--<a href="#" data-filter=".branding">Branding</a>
+                        <a href="#" data-filter=".photography">Photography</a>-->
+
+                    </div>
+                </div>
+            </div>
+
+            <div id='recommend_div3' class="owl-carousel testimonial-carousel">
+
+                <% List<RecommendVO> res_allList3 = (List<RecommendVO>) request.getAttribute("res_allList3");
+                    List<String> photoList3 = (List<String>) request.getAttribute("photoList3");
+                    for (int i = 0; i < 12; i++) { %>
+
+                <%if (i % 6 == 0) {%>
+
+                <div class="testimonial-wrap">
+                    <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
+                        <%}%>
+
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList3.get(i).getRes_id()%>"  class="item-wrap fancybox">
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
+                                <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
+                                <img class="res_img" width="400" height="300" src=<%=photoList3.get(i)%>>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td class='detail_des' width=350><%=res_allList3.get(i).getRes_name()%>
+                                        <span class="res_rating"><%=res_allList3.get(i).getRes_rating()%></span></td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2'
+                                        width=350><%=res_allList3.get(i).getRes_addr().split(" ")[1]%>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2' width=350>추천 :<%=res_allList3.get(i).getLike_count()%>  리뷰
+                                        :<%=res_allList3.get(i).getReview_count()%>
+                                    </td>
+                                    <td></td>
+                                </tr>
+
+                            </table>
+                        </div>
+                        <%if (i % 6 == 5) {%>
+
+                    </div>
+                </div>
+                <%}%>
+
+                <%}%>
+
+
+            </div>
 
         </div>
     </div>
@@ -270,7 +424,7 @@
          </div>
        </div>-->
 
-    <div class="site-section pt-0">
+ <%--   <div class="site-section pt-0">
         <div class="container">
 
             <div class="owl-carousel testimonial-carousel">
@@ -332,7 +486,7 @@
             </div>
 
         </div>
-    </div>
+    </div>--%>
 </main>
 <footer class="footer" role="contentinfo">
     <div class="container">

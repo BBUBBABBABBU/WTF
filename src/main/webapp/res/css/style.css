@@ -23,6 +23,12 @@ a:hover {
 }
 
 /*추가한 css*/
+
+.clickPointer{
+  cursor : pointer;
+}
+
+
 .detail_des{
   font-family: 'Do Hyeon', sans-serif;
   font-size:26px;
@@ -444,6 +450,7 @@ h6,
 }
 
 .custom-navbar .navbar-brand {
+  font-family: 'Black Han Sans', sans-serif;
   font-size: 1.7rem;
 }
 

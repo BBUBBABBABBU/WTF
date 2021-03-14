@@ -14,6 +14,13 @@ public class AdminManagerController {
     // ************************************
 
 
+    @GetMapping("managerDetail")
+    public String managerDetail() {
+        System.out.println("AdminManagerController.managerDetail");
+
+        return "adminViews/adminManagerDetail";
+
+    } // end of managerDetail
 
 
 }

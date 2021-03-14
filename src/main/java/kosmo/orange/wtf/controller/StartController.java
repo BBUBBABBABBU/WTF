@@ -25,42 +25,45 @@ public class StartController {
     MainServiceImpl mainService;
 
     @GetMapping("/")
-    public String start(){
+    public String start() {
         System.out.println("start");
         return "Start";
     }
 
-    //TODO 음식종류 처리할것
+    /**
+     * 시작페이지에서 메인페이지 호출
+     */
+    //TODO 음식종류 처리할것)
     @GetMapping("/main")
-    public String main(String kind, Model model){
-//        System.out.println("시작에서 받아온 종류 : " + kind);
-
+    public String main(Model model) {
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
         List<String> photoList = new ArrayList<>();
 
-        for(int i=0; i< restaurantList.size(); i++){
+        for (int i = 0; i < restaurantList.size(); i++) {
             List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
 
             try {
-                photoList.add((String) temp.get(0).getRtr_pic_loc());
+                photoList.add(temp.get(0).getRtr_pic_loc());
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 photoList.add("/res/img/ing.jpg");
-
             }
-
         }
 
-        model.addAttribute("restaurantList",restaurantList);
+        model.addAttribute("restaurantList", restaurantList);
         model.addAttribute("photoList", photoList);
 
         return "recommend/Main";
     }
 
+    /**
+     * 메인페이지 지도에 필요한 정보를 리턴
+     * @return
+     */
     //TODO 나중에 선택한 식단으로 골라서 보여줄것
-    @PostMapping("/restaurantInfo")
+    @PostMapping("/restaurantMap")
     @ResponseBody
-    public List<RestaurantVO> restaurantInfo(String kind,Model model){
+    public List<RestaurantVO> restaurantMap(String kind, Model model) {
 //        List<RestaurantVO> restaurantList = mainService.checkRestaurant(kind);
         List<RestaurantVO> restaurantList = mainService.checkRestaurant();
         System.out.println("ajax 불림" + restaurantList.size());
@@ -68,6 +71,28 @@ public class StartController {
 //            System.out.println(restaurantVO.getResName() + ", " + restaurantVO.getResRating());
 //            System.out.println(restaurantVO.getResLatitude()+ ", " + restaurantVO.getResLongitude());
 //        }
+
+        return restaurantList;
+    }
+
+    /**
+     * 위치 기반 식당 목록
+     * @param restaurantVO
+     * @return
+     */
+    //TODO 시작페이지에서 음식 종류 받아서 처리
+    @PostMapping("/mainRecommend")
+    @ResponseBody
+    public List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO, String kind, Model model) {
+        List<RestaurantVO> restaurantList = mainService.mainRecommend(restaurantVO);
+        List<PhotoVO> photoList;
+
+        for(int i = 0; i<restaurantList.size(); i++){
+            photoList = mainService.res_photo(restaurantList.get(i));
+            for(PhotoVO photo : photoList){
+                restaurantList.get(i).setRtr_pic_loc(photo.getRtr_pic_loc());
+            }
+        }
 
         return restaurantList;
     }

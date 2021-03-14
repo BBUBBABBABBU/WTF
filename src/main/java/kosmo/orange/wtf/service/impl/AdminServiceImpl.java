@@ -67,6 +67,27 @@ public class AdminServiceImpl implements AdminService {
     } // end of idCheck
 
 
+    /*************************************
+     * id / name 확인 (비번찾기)
+     * >> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음
+     */
+//    @Override
+//    public int pwCheck(String id, String name) {
+//        System.out.println("AdminServiceImpl.pwCheck");
+//
+//        AdminVO adminVO = adminMapper.pwCheck(id, name);
+//
+//        int result = 1;
+//
+//        if(adminVO == null){
+//            result = 0;
+//        }
+//
+//        return result;
+//
+//    } // end of pwCheck
+
+
     /****************
      * 로그인
      */

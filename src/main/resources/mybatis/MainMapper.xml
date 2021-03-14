@@ -18,6 +18,18 @@
         SELECT *
         FROM restaurant_pic rp
         WHERE res_id =#{resId}
+        LIMIT 1
+    </select>
+
+    <select id="mainRecommend" resultMap="getRestaurant">
+        SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM restaurant r
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON r.res_id =rt.res_id
+        WHERE  res_addr LIKE CONCAT('%',#{resAddr},'%')
+        ORDER BY res_rating DESC
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">

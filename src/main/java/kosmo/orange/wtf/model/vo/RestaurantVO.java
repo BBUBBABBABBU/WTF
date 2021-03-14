@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.awt.*;
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -20,4 +22,5 @@ public class RestaurantVO {
     private int reviewCount;
     private int likeCount;
     private ReviewVO reviewVO;
+    private String rtr_pic_loc;
 }
