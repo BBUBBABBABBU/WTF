@@ -132,14 +132,50 @@
         <form id="login2" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail2" class="input-field2" placeholder="이메일을 입력하세요" required>
             <input type="text" name="birthday" id="loginPassword2" class="input-field2" placeholder="생일을 입력하세요(예 07/28)" required>
-            <button type="submit" id="passSearch" class="submit">결과보기</button>
+            <button type="button" id="passSearch" class="submit">결과보기</button>
             <button type="button" class="submit" id ="goToLogin" onclick="show()">로그인하기</button>
         </form>
     </div>
 </div>
 
 
+<script>
+    $("#passSearch").click(function () {
+        let userEmail = $("#loginEmail2").val();
+        let userBirthday = $("#loginPassword2").val();
 
+        $.ajax({
+            type: "GET",
+            url: "/check/findPw",
+            data: {
+                "userEmail": userEmail,
+                "userBirthday": userBirthday
+            },
+            success: function (res) {
+                if (res['check']) {
+                    alert("요기")
+                    // swal("발송 완료!", "입력하신 이메일로 임시비밀번호가 발송되었습니다.", "success").then((OK) => {
+                    //     if(OK) {
+                            $.ajax({
+                                type: "POST",
+                                url: "/check/findPw/sendEmail",
+                                data: {
+                                    "userEmail": userEmail,
+                                    "userBirthday": userBirthday
+                                }
+                            })
+                            window.location = "/login";
+                //         }
+                //     }
+                // )
+                //     $('#checkMsg').html('<p style="color:darkblue"></p>');
+                } else {
+                    $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
+                }
+            }
+        })
+    })
+</script>
 
 
 

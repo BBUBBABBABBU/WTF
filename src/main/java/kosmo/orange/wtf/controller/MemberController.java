@@ -36,6 +36,13 @@ public class MemberController {
 
 
 
+    public String passwordTemp(String pw){
+
+        pw=passwordEncoder.encode(pw);
+        return pw;
+    }
+
+
     @RequestMapping("/mypage/{step}")
     public String Step(@PathVariable String step){
         System.out.println("스텝");
@@ -117,6 +124,7 @@ public class MemberController {
                 session.setAttribute("member",result);
                 model.addAttribute("member",result);
             boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
+                System.out.println(memberVO.getPassword()+"/"+result.getPassword());
             if (check) {
                 System.out.println("비밀번호 일치");
                 session.setAttribute("status","success");
@@ -173,8 +181,9 @@ public class MemberController {
     @ResponseBody
     public  void sendEmail(String userEmail, String userBirthday){
 
-//        MemberMailVO dto = sendEmailService.createMailAndChangePassword(userEmail, userBirthday);
-//        sendEmailService.mailSend(dto);
+        MemberMailVO dto = sendEmailService.createMailAndChangePassword(userEmail, userBirthday);
+        System.out.println(dto.getMessage());
+        sendEmailService.mailSend(dto);
 
     }
 

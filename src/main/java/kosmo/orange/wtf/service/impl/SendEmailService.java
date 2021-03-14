@@ -1,49 +1,67 @@
 package kosmo.orange.wtf.service.impl;
 
+import kosmo.orange.wtf.controller.MemberController;
 import kosmo.orange.wtf.model.mapper.MemberMapper;
 import kosmo.orange.wtf.model.vo.MemberMailVO;
+import kosmo.orange.wtf.model.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.security.MessageDigest;
 
 @Service
 public class SendEmailService {
-
+    @Autowired
+    PasswordEncoder passwordEncoder;
     @Autowired
     MemberMapper memberMapper;
-//   private JavaMailSender mailSender;
-    private static final String FROM_ADDRESS = "본인의 이메일 주소를 입력하세요!";
+    @Autowired
+    private JavaMailSender mailSender;
+    @Autowired
+    MemberController memCon;
 
-//
-//    public MemberMailVO createMailAndChangePassword(String userEmail, String userName) {
-//        String str = getTempPassword();
-//        MemberMailVO dto = new MemberMailVO();
-//        dto.setAddress(userEmail);
-//        dto.setTitle(userName + "님의 HOTTHINK 임시비밀번호 안내 이메일 입니다.");
-//        dto.setMessage("안녕하세요. HOTTHINK 임시비밀번호 안내 관련 이메일 입니다." + "[" + userName + "]" + "님의 임시 비밀번호는 "
-//                + str + " 입니다.");
-//        updatePassword(str, userEmail);
-//        return dto;
-//    }
+    private static final String FROM_ADDRESS = "ehdus1149@gmail.com";
+
+
+    public MemberMailVO createMailAndChangePassword(String userEmail, String userName) {
+        System.out.println("ss 26 비밀번호 바뀌는곳");
+        String str = getTempPassword();
+        MemberMailVO dto = new MemberMailVO();
+        dto.setAddress("ehdus1149@naver.com");
+        dto.setTitle(userName + "님의 HOTTHINK 임시비밀번호 안내 이메일 입니다.");
+        dto.setMessage("안녕하세요. HOTTHINK 임시비밀번호 안내 관련 이메일 입니다." + "[" + userEmail + "]" + "님의 임시 비밀번호는 "
+                + str + " 입니다.");
+        updatePassword(str, userEmail);
+        return dto;
+    }
 
     public void updatePassword(String str, String userEmail) {
-        String pw = encryptMD5(str);
+        String pw = str;
         String id = null;
         try {
-            id = memberMapper.idcheckMember(userEmail).getMemberId();
+            MemberVO member =memberMapper.idcheckMember(userEmail);
+            id = member.getMemberId();
+            System.out.println("아이디찾아오기 id"+id);
+            String encodedPass=memCon.passwordTemp(pw);
+
+            member.setPassword(encodedPass);
+            int result =memberMapper.updateUserPassword(member);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        int result =memberMapper.updateUserPassword(id, pw);
+
+
     }
 
 
     public String getTempPassword() {
-        char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
-                'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+        char[] charSet = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f',
+                'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
         String str = "";
 
@@ -52,6 +70,7 @@ public class SendEmailService {
             idx = (int) (charSet.length * Math.random());
             str += charSet[idx];
         }
+        System.out.println("비번"+str);
         return str;
     }
 
@@ -81,5 +100,15 @@ public class SendEmailService {
         }
 
 
-
+    public void mailSend(MemberMailVO mailDto){
+        System.out.println("이멜 전송 완료!");
+        SimpleMailMessage message = new SimpleMailMessage();
+        System.out.println(mailDto.getAddress());
+        message.setTo(mailDto.getAddress());
+        message.setFrom(SendEmailService.FROM_ADDRESS);
+        message.setSubject(mailDto.getTitle());
+        message.setText(mailDto.getMessage());
+        System.out.println(message.getTo());
+        mailSender.send(message);
+    }
 }

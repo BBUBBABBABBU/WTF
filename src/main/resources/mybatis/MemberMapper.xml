@@ -18,9 +18,10 @@
         SELECT * FROM member
         WHERE  email = #{email};
     </select>
-    <update id="updateUserPassword" >
+    <update id="updateUserPassword">
         update member
-        set password = #{pw};
+        set password = #{password}
+        WHERE email =#{email};
 
 
     </update>
@@ -49,9 +50,8 @@
         <result property="exitCheck" column="exit_check"/>
         <result property="exitDate" column="exit_date"/>
 
-
-
     </resultMap>
+
 </mapper>
 
 
