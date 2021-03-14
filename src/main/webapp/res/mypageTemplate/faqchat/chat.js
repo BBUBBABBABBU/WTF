@@ -1,22 +1,35 @@
 hideChat(0);
 
-$('#prime').click(function() {
+$('.prime').click(function() {
   toggleFab();
 });
 
+$('#prime_fab').click(function() {
+    toggleFab2();
+});
 
 //Toggle chat and links
 function toggleFab() {
-  $('.prime').toggleClass('zmdi-comment-outline');
+  // $('.prime').toggleClass('zmdi-comment-outline');
   $('.prime').toggleClass('zmdi-close');
   $('.prime').toggleClass('is-active');
   $('.prime').toggleClass('is-visible');
-  $('#prime').toggleClass('is-float');
+  $('.prime').toggleClass('is-float');
   $('.chat').toggleClass('is-visible');
   $('.fab').toggleClass('is-visible');
   
 }
 
+function toggleFab2() {
+    // $('#prime_fab').toggleClass('zmdi-comment-outline');
+    $('#prime_fab').toggleClass('zmdi-close');
+    $('#prime_fab').toggleClass('is-active');
+    $('#prime_fab').toggleClass('is-visible');
+    $('#prime_fab').toggleClass('is-float');
+    $('.chat').toggleClass('is-visible');
+    $('.fab').toggleClass('is-visible');
+
+}
   $('#member').click(function(e) {
         hideChat(2);
   });

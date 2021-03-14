@@ -38,17 +38,22 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-        .bread{
+
+        .bread {
             font-family: 'Nanum Gothic', sans-serif;
         }
-        .colorlib-logo{
+
+        .colorlib-logo {
             font-family: 'Nanum Gothic', sans-serif;
         }
+
         /* .breadcrumbs{
             font-family: 'Nanum Gothic', sans-serif;
         } */
 
     </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/res/js/mypage/mypage.js/"></script>
 
 </head>
 <body>
@@ -57,7 +62,9 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/small_logo.png);"></span>[ My Page ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img"
+                                                       style="background-image: url(/res/mypageTemplate/images/small_logo.png);"></span>[
+            My Page ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"><a href="/mypage">홈</a></li>
@@ -75,7 +82,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span
+                                class="mr-2"><a href="/service">문의사항</a></span>
                             <!-- <span>문의사항</span></p> -->
                         <h1 class="bread">문의사항(MY Q&A Detail)</h1>
                     </div>
@@ -90,43 +98,41 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">To.Developer ( 개발자에게 )</h3>
-                    <form action="#" class="p-3 p-md-5 bg-light">
+                    <form action="/myqnadetail" class="p-3 p-md-5 bg-light">
+
                         <div class="form-group">
-                            <label for="email">Email(ID)</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="id">Email(ID)</label>
+                            <input type="input" class="form-control" id="id" name="member_id" value="${sessionScope.member.email}" disabled>
                         </div>
 
                         <div class="form-group">
                             <label for="title">제목</label>
-                            <input type="text" class="form-control" id="title">
+                            <input type="text" class="form-control" id="title" name="qna_title"
+                                   value="${qna.qna_title}">
                         </div>
 
-                        <!-- <div class="form-group">
-                          <label for="website">Website</label>
-                          <input type="url" class="form-control" id="website">
-                        </div> -->
-
                         <div class="form-group">
-                            <label for="message">문의 내용</label>
-                            <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                            <label for="content">문의 내용</label>
+                            <textarea name="qna_content" id="content" cols="30" rows="10"
+                                      class="form-control">${qna.qna_content}  ${qna.qna_id}</textarea>
                         </div>
                     </form>
                 </div>
 
                 <div class="comment-form-wrap pt-5">
-                    <h3 class="mb-5">From.Developer ( 개발자로부터 )</h3>
-                    <form action="#" class="p-3 p-md-5 bg-light">
+                    <h3 class="mb-5">From.Developer ( 개발자 답변 )</h3>
+                    <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method = "post" class="p-3 p-md-5 bg-light">
 
                         <div class="form-group">
                             <label for="reply">Reply ( 개발자 답변 )</label>
-                            <textarea name="" id="reply" cols="30" rows="10" class="form-control"></textarea>
+                            <textarea name="anw_content" id="reply" cols="30" rows="10"
+                                      class="form-control">${qna.anw_content}</textarea>
                         </div>
-                        <!-- <div class="form-group">
-                          <input type="submit" value="문의 작성 완료" class="btn py-3 px-4 btn-primary">
-                        </div> -->
+                        <div class="form-group">
+                            <input id = "delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">
+                        </div>
                     </form>
                 </div>
-
             </div><!-- END con -->
         </section>
 
@@ -135,7 +141,13 @@
 </div><!-- END COLORLIB-PAGE -->
 
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="/res/mypageTemplate/js/jquery.min.js"></script>

@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,8 +106,9 @@
 
         <table border="1"  class="jm-font" align="center" >
             <tr>
-                <th bgcolor="lightgrey" width="300">ID(이메일)</th>
-                <th bgcolor="lightgrey" width="300">제목(Q&A)</th>
+                <th bgcolor="lightgrey" width="300">문의번호</th>
+                <th bgcolor="lightgrey" width="300">이메일ID</th>
+                <th bgcolor="lightgrey" width="300">제목</th>
                 <th bgcolor="lightgrey" width="300">등록일자</th>
                 <th bgcolor="lightgrey" width="200">답변여부</th>
                 <!-- <th bgcolor="grey" width="220">그룹</th> -->
@@ -113,23 +116,23 @@
 
             </tr>
 
-            <tr>
-                <td align="left"><a href="/myqnadetail">답변상세</a></td>
-            </tr>
-<%--            <!-- <c:forEach items="${boardList}" var="board">--%>
-<%--			--%>
-<%--				<tr>--%>
-<%--					<td>${board.b_code }</td>--%>
-<%--					<td align="left"><a href="getBoard.do?b_code=${board.b_code }">--%>
-<%--							${board.b_title }</a></td>--%>
-<%--					<td>${board.b_group }</td>		--%>
-<%--					<td>${board.m_id }</td>--%>
-<%--					<td>${board.b_date }</td>--%>
-<%--					<td>${board.b_count }</td>--%>
-<%--					--%>
-<%--				</tr>--%>
-<%--			</c:forEach> -->--%>
-<%--            --%>
+<%--            <tr>--%>
+<%--                <td align="left"><a href="/myqnadetail">답변상세</a></td>--%>
+<%--            </tr>--%>
+
+           <c:forEach items="${qnaList}" var="qna">
+
+				<tr>
+					<td>${qna.qna_id }</td>
+					<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">
+							${qna.member_id }</a></td>
+					<td>${qna.qna_title} </td>
+					<td>${qna.qna_date}</td>
+					<td>${qna.anw_check}</td>
+
+				</tr>
+			</c:forEach>
+
         </table>
 
 
