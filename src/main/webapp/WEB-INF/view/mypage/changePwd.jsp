@@ -168,7 +168,7 @@
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"><a href="/mypage">홈</a></li>
-                <li><a href="/myInfo">나의 정보</a></li>
+                <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
                 <li><a href="contact.html">내 취향 수정</a></li>
