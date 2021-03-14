@@ -18,6 +18,23 @@
         SELECT * FROM member
         WHERE  email = #{email};
     </select>
+    <update id="updateUserPassword" >
+        update member
+        set password = #{pw};
+
+
+    </update>
+
+    <update id="memberUpdate" >
+        update  member SET birth=#{birthday}, gender=#{gender}, nickname =#{nickname}
+        WHERE email = #{email};
+    </update>
+
+    <update id="passwordChge">
+        update member SET password=#{password}
+        WHERE email = #{email};
+
+    </update>
 
     <resultMap id="getMember" type="MemberVO">
         <result property="memberId" column="member_id"/>

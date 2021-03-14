@@ -108,7 +108,17 @@ System.out.println(nick);%>
                 });
 
             })
+
         })
+        function duple() {
+            if ($("#idCheckResult").text()=="이미 사용중입니다"){
+                alert("현재 입력하신 아이디는 중복되는 아이디입니다.")
+
+                $("#joinBtn").attr("type","button");
+
+            } else $("#joinBtn").attr("type","submit");
+        }
+
     </script>
     <style >
         .w3-center{ border-radius: 20px;
@@ -214,7 +224,7 @@ System.out.println(nick);%>
                     </p>
                 </div>
                 <p class="w3-center">
-                    <button type="submit" id="joinBtn"  >회원가입</button>
+                    <button type="button" id="joinBtn" onclick="duple()"  >회원가입</button>
                 </p>
             </form>
         </div>
