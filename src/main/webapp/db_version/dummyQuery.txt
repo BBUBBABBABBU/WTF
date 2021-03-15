@@ -1,0 +1,8 @@
+ALTER TABLE restaurant AUTO_INCREMENT = 1;
+DELETE  FROM restaurant WHERE res_id > 377 ;
+DELETE  FROM menu WHERE res_id > 377 ;
+DELETE  FROM restaurant_pic WHERE res_id > 377 ;
+ALTER TABLE restaurant AUTO_INCREMENT = 378;
+
+INSERT INTO review_test (member_id,res_id,rating_avg,recommend_count)
+  VALUES (truncate((1+RAND()*20),0),truncate((1+RAND()*151),0),truncate((1+RAND()*5),0),truncate((1+RAND()*300),0));

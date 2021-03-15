@@ -263,7 +263,7 @@ function showRestaurant(latitude, longitude) {
                                 '<td class ="detail_des" width = "350">' + res_allList[i].resName + '<span class="res_rating">' + res_allList[i].resRating + '</span></td>' +
                                 '</tr>' +
                                 '<tr id="tr_location">' +
-                                '<td class ="detail_des2" width = "350">' + res_allList[i].resAddr.split(" ") + '</td>' +
+                                '<td class ="detail_des2" width = "350">' + res_allList[i].resAddr.split(" ")[1] + '</td>' +
                                 '</tr>' +
                                 '<tr id="tr_re">' +
                                 '<td class ="detail_des2" width = "350">리뷰 : ' + res_allList[i].likeCount + ' 리뷰 : ' + res_allList[i].reviewCount + '</td>' +

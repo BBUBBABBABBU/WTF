@@ -8,25 +8,25 @@ $(function () {
     let weather = ''
 
     let night_list = new Array()
-    night_list.push('/res/img/background_img/chicken.jpg')
-    night_list.push('/res/img/background_img/jokbal.jpg')
-    night_list.push('/res/img/background_img/pizza.jpg')
+    night_list.push('res/img/background_img/chicken.jpg')
+    night_list.push('res/img/background_img/jokbal.jpg')
+    night_list.push('res/img/background_img/pizza.jpg')
 
     let morning_list = new Array()
-    morning_list.push('/res/img/background_img/sandwich.jpg')
+    morning_list.push('res/img/background_img/sandwich.jpg')
 
     let lunch_list = new Array()
-    lunch_list.push('/res/img/background_img/ricenoodle.jpg')
-    lunch_list.push('/res/img/background_img/tang.jpg')
-    lunch_list.push('/res/img/background_img/kimchiStew.jpg')
-    lunch_list.push('/res/img/background_img/swings.jpg')
+    lunch_list.push('res/img/background_img/ricenoodle.jpg')
+    lunch_list.push('res/img/background_img/tang.jpg')
+    lunch_list.push('res/img/background_img/kimchiStew.jpg')
+    lunch_list.push('res/img/background_img/swings.jpg')
 
     let dinner_list = new Array()
-    dinner_list.push('/res/img/background_img/jeon.jpg')
-    dinner_list.push('/res/img/background_img/galbizzim.jpg')
-    dinner_list.push('/res/img/background_img/chicken.jpg')
-    dinner_list.push('/res/img/background_img/jokbal.jpg')
-    dinner_list.push('/res/img/background_img/pizza.jpg')
+    dinner_list.push('res/img/background_img/jeon.jpg')
+    dinner_list.push('res/img/background_img/galbizzim.jpg')
+    dinner_list.push('res/img/background_img/chicken.jpg')
+    dinner_list.push('res/img/background_img/jokbal.jpg')
+    dinner_list.push('res/img/background_img/pizza.jpg')
 
 
     $('#select_kind').formSelect();
@@ -39,6 +39,8 @@ $(function () {
         $('#select_kind').on('change', function () {
             $('#kind_form').submit()
         })
+    }else{
+        show()
     }
 
     // 현 위치(좌표)
@@ -86,7 +88,7 @@ $(function () {
         if (hour >= 22 || hour <= 4) {  // 야식
             document.body.style.backgroundImage = 'url(' + night_list[Math.floor(Math.random() * night_list.length)] + ')'
         } else if (hour >= 7 && hour <= 11) {   // 아침
-            document.body.style.backgroundImage = 'url('+'/res/img/background_img/sandwich.jpg'+')'
+            document.body.style.backgroundImage = 'url('+'res/img/background_img/sandwich.jpg'+')'
         } else if (hour > 11 && hour <= 15) {   // 점심시간
             // 눈이나 비가 온다면
             if( weather == 'Drizzle' || weather == 'Rain' || weather =='Snow'){
@@ -96,12 +98,12 @@ $(function () {
             }
         } else if(hour >= 17 && hour <= 21){    // 저녁시간
             if( weather == 'Drizzle' || weather == 'Rain'){ // 비가 온다면 전만 배경
-                document.body.style.backgroundImage = 'url('+'/res/img/background_img/jeon.jpg'+')'
+                document.body.style.backgroundImage = 'url('+'res/img/background_img/jeon.jpg'+')'
             }else{
                 document.body.style.backgroundImage = 'url(' + dinner_list[Math.floor(Math.random() * dinner_list.length)] + ')'
             }
         }else{  // 이외의 시간
-            document.body.style.backgroundImage = 'url('+'/res/img/background_img/tang.jpg'+')'
+            document.body.style.backgroundImage = 'url('+'res/img/background_img/tang.jpg'+')'
         }
     }
 

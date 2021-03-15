@@ -12,9 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -151,17 +149,20 @@ public class MemberController {
                 model.addAttribute("restaurantList",restaurantList);
                 model.addAttribute("photoList", photoList);
 //                MemberVO test=(MemberVO) session.getAttribute("member");
-
-                return "recommend/Main";
+                System.out.println("확인4");
+                return "redirect: /";
             }
             else {
-                return "Start";
+                return "redirect: /";
             }
         }else{
             session.setAttribute("status","fail");
-            return "Start";
+            return "redirect: /";
         }
     }
+
+
+
 
     //Email과 name의 일치여부를 check하는 컨트롤러
     @GetMapping("/check/findPw")

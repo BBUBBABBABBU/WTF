@@ -11,7 +11,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>MyPortfolio</title>
+    <title>RecommendPage</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -44,6 +44,17 @@
     <%--제이 쿼리--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="/res/js/recommend.js"></script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XSZH4656Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9XSZH4656Q');
+    </script>
 
     <!-- =======================================================
       Template Name: MyPortfolio
@@ -136,7 +147,7 @@
                         <%}%>
 
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>" class="item-wrap fancybox">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>&origin=recom1" class="item-wrap fancybox">
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
@@ -213,7 +224,7 @@
                         <%}%>
 
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList2.get(i).getRes_id()%>"  class="item-wrap fancybox">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList2.get(i).getRes_id()%>&origin=recom2"  class="item-wrap fancybox">
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>
@@ -287,7 +298,7 @@
                         <%}%>
 
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList3.get(i).getRes_id()%>"  class="item-wrap fancybox">
+                            <a href="/restaurant/restaurantInfo?resId=<%=res_allList3.get(i).getRes_id()%>&origin=recom3"  class="item-wrap fancybox">
                                 <div class="work-info">
                                     <h3>Cocooil</h3>
                                     <span>Branding</span>

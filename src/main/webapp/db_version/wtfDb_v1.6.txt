@@ -51,6 +51,7 @@ CREATE TABLE res_recommend_svd(
 
 -- 새로 받은 데이터중 강남구 이상부터 밴먹어서 이미지 못가져옴 다 날리고 강남구 부터 새로 받을 예정
 -- 엑셀 데이터 입력 후 적용
+ALTER TABLE restaurant AUTO_INCREMENT = 1;
 DELETE  FROM restaurant WHERE res_id > 377 ;
 DELETE  FROM menu WHERE res_id > 377 ;
 DELETE  FROM restaurant_pic WHERE res_id > 377 ;

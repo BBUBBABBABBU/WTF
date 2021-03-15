@@ -23,14 +23,14 @@ public class ReviewController {
     RestaurantServiceImpl restaurantService;
 
     @GetMapping("/reviewinsert")
-    public String Reviewinsert(RestaurantVO restaurantVO, Model model){
+    public String Reviewinsert(RestaurantVO restaurantVO, Model model,String origin){
         System.out.println("ReviewtController 26line 수정: " + restaurantVO.getResId());
 
         RestaurantVO restaurantInfo = restaurantService.restaurantInfo(restaurantVO.getResId());
 
         model.addAttribute("restaurantInfo",restaurantInfo);
 
-
+        System.out.println(origin);
      return "review/ReviewInsert";
     }
 //

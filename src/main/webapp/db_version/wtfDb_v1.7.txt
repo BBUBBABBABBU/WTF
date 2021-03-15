@@ -1,0 +1,40 @@
+
+-- alter table manager add column mgr_key varchar(50);
+-- ALTER TABLE review ADD res_tell VARCHAR(20);
+
+CREATE TABLE qna(
+qna_id INT AUTO_INCREMENT PRIMARY KEY,
+member_id INT NOT NULL ,
+qna_date date ,
+anw_date date ,
+qna_title VARCHAR(50),
+qna_content VARCHAR(500) NOT NULL,
+anw_check VARCHAR(10) DEFAULT '답변대기',
+anw_content VARCHAR(500),
+FOREIGN KEY(member_id) REFERENCES member(member_id));
+
+
+ALTER TABLE review ADD res_tell VARCHAR(20);
+ALTER TABLE review_test ADD res_tell VARCHAR(20);
+ALTER TABLE review ADD origin VARCHAR(20);
+ALTER TABLE review_test ADD origin VARCHAR(20);
+
+--리뷰 테이블의 FK 명이 필요함
+CREATE TABLE Review(
+	review_id INT AUTO_INCREMENT PRIMARY KEY,
+	member_id INT,
+	res_id INT,
+	res_tell VARCHAR(20),
+	rating_avg FLOAT NOT null,
+	rating_taste INT NOT NULL,
+	rating_service INT NOT NULL,
+	rating_clean INT NOT NULL,
+	rating_location INT NOT NULL,
+	review_content VARCHAR(200) NOT NULL,
+	review_tag VARCHAR(50) NOT NULL,
+	pic_name VARCHAR(30),
+	recommend_count INT,
+	charge_count INT,
+	FOREIGN KEY(member_id) REFERENCES member(member_id),
+	CONSTRAINT fk_Review_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
+
