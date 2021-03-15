@@ -34,27 +34,27 @@ public class StartController {
      * 시작페이지에서 메인페이지 호출
      */
     //TODO 음식종류 처리할것)
-//    @GetMapping("/main")
-//    public String main(Model model) {
-//        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
-//        List<String> photoList = new ArrayList<>();
-//
-//        for (int i = 0; i < restaurantList.size(); i++) {
-//            List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
-//
-//            try {
-//                photoList.add(temp.get(0).getRtr_pic_loc());
-//
-//            } catch (Exception e) {
-//                photoList.add("/res/img/ing.jpg");
-//            }
-//        }
-//
-//        model.addAttribute("restaurantList", restaurantList);
-//        model.addAttribute("photoList", photoList);
-//
-//        return "recommend/Main";
-//    }
+    @GetMapping("/main")
+    public String main(Model model) {
+        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
+        List<String> photoList = new ArrayList<>();
+
+        for (int i = 0; i < restaurantList.size(); i++) {
+            List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
+
+            try {
+                photoList.add(temp.get(0).getRtr_pic_loc());
+
+            } catch (Exception e) {
+                photoList.add("/res/img/ing.jpg");
+            }
+        }
+
+        model.addAttribute("restaurantList", restaurantList);
+        model.addAttribute("photoList", photoList);
+
+        return "recommend/Main";
+    }
 
     /**
      * 메인페이지 지도에 필요한 정보를 리턴

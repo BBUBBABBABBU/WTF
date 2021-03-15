@@ -150,40 +150,20 @@ public class MemberController {
                 model.addAttribute("photoList", photoList);
 //                MemberVO test=(MemberVO) session.getAttribute("member");
                 System.out.println("확인4");
-                return "redirect: /main";
+                return "redirect: /";
             }
             else {
-                return "Start";
+                return "redirect: /";
             }
         }else{
             session.setAttribute("status","fail");
-            return "Start";
+            return "redirect: /";
         }
     }
 
-    @GetMapping("/main")
-    public String main(Model model) {
-        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
-        List<String> photoList = new ArrayList<>();
 
-        for (int i = 0; i < restaurantList.size(); i++) {
-            List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
 
-            try {
-                photoList.add(temp.get(0).getRtr_pic_loc());
 
-            } catch (Exception e) {
-                photoList.add("/res/img/ing.jpg");
-            }
-        }
-
-        model.addAttribute("restaurantList", restaurantList);
-        model.addAttribute("photoList", photoList);
-
-        return "recommend/Main";
-    }
-
-    
     //Email과 name의 일치여부를 check하는 컨트롤러
     @GetMapping("/check/findPw")
     @ResponseBody

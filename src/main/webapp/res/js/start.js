@@ -39,6 +39,8 @@ $(function () {
         $('#select_kind').on('change', function () {
             $('#kind_form').submit()
         })
+    }else{
+        show()
     }
 
     // 현 위치(좌표)
