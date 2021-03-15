@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -99,7 +100,7 @@ public class MemberController {
                 model.addAttribute("photoList", photoList);
 //                MemberVO test=(MemberVO) session.getAttribute("member");
                 System.out.println("확인4");
-                return "recommend/Main";
+                return "redirect: /main";
             }
             else {
                 return "Start";
@@ -108,5 +109,27 @@ public class MemberController {
             session.setAttribute("status","fail");
             return "Start";
         }
+    }
+
+    @GetMapping("/main")
+    public String main(Model model) {
+        List<RestaurantVO> restaurantList = mainService.checkRestaurant();
+        List<String> photoList = new ArrayList<>();
+
+        for (int i = 0; i < restaurantList.size(); i++) {
+            List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
+
+            try {
+                photoList.add(temp.get(0).getRtr_pic_loc());
+
+            } catch (Exception e) {
+                photoList.add("/res/img/ing.jpg");
+            }
+        }
+
+        model.addAttribute("restaurantList", restaurantList);
+        model.addAttribute("photoList", photoList);
+
+        return "recommend/Main";
     }
 }

@@ -11,13 +11,13 @@
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/res/css/start.css">
+    <link rel="stylesheet" type="text/css" href="res/css/start.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="/res/js/start.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="/res/css/login.css">
-    <link rel="stylesheet" type="text/css" href="/res/css/login2.css">
-    <script src="/res/js/login.js" type="text/javascript"></script>
+    <script src="res/js/start.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="res/css/login.css">
+    <link rel="stylesheet" type="text/css" href="res/css/login2.css">
+    <script src="res/js/login.js" type="text/javascript"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
 
@@ -39,7 +39,7 @@
     </script>
 </head>
 <body>
-<img id ='title01' class="image" src="/res/img/background_img/title01.jpg"/>
+<img id ='title01' class="image" src="res/img/background_img/title01.jpg"/>
 <div id='select_div'>
     <form id="kind_form" action="/main" method="get">
         <select id="select_kind" name="kind" onchange="show()" >
@@ -51,22 +51,21 @@
         </select>
     </form>
 </div>
-<img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
-<a href="/adminHome">관리자페이지로</a>
-<a href="/recommendTest">추천화면 테스트</a>
+<img class="image" src="res/img/background_img/title02.jpg"/><br/><br/>
+<a href="../adminHome">관리자페이지로</a>
+<a href="../recommendTest">추천화면 테스트</a>
 
+<a href="../adminTest">관리자페이지 test</a>
 
-<a href="/adminTest">관리자페이지 test</a>
-
-<a href="/recommend"> 추천 화면 가기 </a>
-<a href="/join">회원가입 페이지</a>
-<a href="/review">리뷰 피드</a>
-<a href="/reviewinsert">리뷰작성</a>
-<a href="/mypage">마이페이지</a>
+<a href="../recommend"> 추천 화면 가기 </a>
+<a href="../join">회원가입 페이지</a>
+<a href="../review">리뷰 피드</a>
+<a href="../reviewinsert">리뷰작성</a>
+<a href="../mypage">마이페이지</a>
 <br/>
-<a href="/userChat">채팅페이지 확인</a>
+<a href="../userChat">채팅페이지 확인</a>
 <button type="button" id="hidden"  onclick=show()> 버튼</button>
-<a href="/recommendTest">추천화면 테스트</a>
+<a href="../recommendTest">추천화면 테스트</a>
 
 <button type="button" id="hidden"  onclick=test1()> 버튼</button>
 <%--화면 가운데 로그인 창  --%>
@@ -90,7 +89,7 @@
         </table>
         </div>
         <div class="social-icons">
-            <a onclick="conceal()" ><img src="/res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
+            <a onclick="conceal()" ><img src="res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
         </div>
         <form id="login" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" required>
@@ -102,11 +101,11 @@
         </form>
 
         <form id="register" action="/session2Test" class="input-group">
-            <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="/res/img/kakao.png" style="left: 41px;position: relative;top:-30px;" ></a>
-            <img id="kakaoSignup" src="/res/img/kakaoSignup.png" style= "left: 82px; top:-30px; ">
+            <a id="kakao-login-btn" onclick="kakaoLogin()"><img src="res/img/kakao.png" style="left: 41px;position: relative;top:-30px;" ></a>
+            <img id="kakaoSignup" src="res/img/kakaoSignup.png" style= "left: 82px; top:-30px; ">
             <div id="naver_id_login" style="position: relative;left: 40px;"></div>
-            <img id="naverSignup" src="/res/img/naverSignup.png" style= "left: 82px;">
-            <a id="normal" href="/Info"><img id="normalSignup" src="/res/img/didntNo.png" style="position: relative;left: 40px; top:30px;"></a>
+            <img id="naverSignup" src="res/img/naverSignup.png" style= "left: 82px;">
+            <a id="normal" href="/Info"><img id="normalSignup" src="res/img/didntNo.png" style="position: relative;left: 40px; top:30px;"></a>
         </form>
     </div>
 </div>
@@ -127,7 +126,7 @@
         </table>
         </div>
         <div class="social-icons">
-            <a onclick="conceal()" ><img src="/res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
+            <a onclick="conceal()" ><img src="res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
         </div>
         <form id="login2" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail2" class="input-field2" placeholder="이메일을 입력하세요" required>
