@@ -20,6 +20,15 @@
     <script src="res/js/login.js" type="text/javascript"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9XSZH4656Q"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-9XSZH4656Q');
+    </script>
 
 
     <script>
@@ -37,6 +46,8 @@
 
 
     </script>
+
+
 </head>
 <body>
 <img id ='title01' class="image" src="res/img/background_img/title01.jpg"/>

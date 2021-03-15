@@ -31,7 +31,7 @@ public class RestaurantController {
     HttpSession httpSession;
 
     @GetMapping("/restaurantInfo")
-    public String restaurantInfo(RestaurantVO restaurantVO, Model model){
+    public String restaurantInfo(RestaurantVO restaurantVO, Model model, String origin){
         System.out.println("RestaurantController 35line : " + restaurantVO.getResId());
 
         RestaurantVO restaurantInfo = restaurantService.restaurantInfo(restaurantVO.getResId());
@@ -43,7 +43,8 @@ public class RestaurantController {
 //        for(PhotoVO photoVO : photoList){
 //            System.out.println("사진 주소 확인 : " + photoVO.getRtr_pic_loc());
 //        }
-
+        System.out.println("식당정보 상세"+origin);
+        model.addAttribute("origin", origin);
         model.addAttribute("restaurantInfo",restaurantInfo);
         model.addAttribute("restaurantMenu", restaurantMenu);
         model.addAttribute("resstaurantPhoto", resstaurantPhoto);

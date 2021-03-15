@@ -50,7 +50,7 @@ public class RecommendController {
 
         // 식당 정보 가져오기
         if (member_id!=null){
-            String table ="res_recommend_test";
+            String table ="res_recommend_matrix_decomposition";
             HashMap map1 = new HashMap();
             map1.put("member_id",member_id);
             map1.put("table",table);
@@ -90,7 +90,7 @@ public class RecommendController {
         // 식당 정보 가져오기
         List<RecommendVO> res_allList2;
         if (member_id!=null){
-            String table ="res_recommend_test2";
+            String table ="res_recommend_cosine_similarity";
 
             HashMap map1 = new HashMap();
             map1.put("member_id",member_id);
@@ -132,7 +132,7 @@ public class RecommendController {
         // 식당 정보 가져오기
         List<RecommendVO> res_allList3;
         if (member_id!=null){
-            String table ="res_recommend_test3";
+            String table ="res_recommend_svd";
 
             HashMap map1 = new HashMap();
             map1.put("member_id",member_id);
