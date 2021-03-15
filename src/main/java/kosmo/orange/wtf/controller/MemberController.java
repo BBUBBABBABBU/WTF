@@ -1,23 +1,23 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.vo.MemberMailVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.MainServiceImpl;
 import kosmo.orange.wtf.service.impl.MemberServiceImpl;
+import kosmo.orange.wtf.service.impl.SendEmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MemberController {
@@ -29,6 +29,53 @@ public class MemberController {
     HttpSession session;
     @Autowired
     MainServiceImpl mainService;
+    @Autowired
+    SendEmailService sendEmailService;
+
+
+
+    public String passwordTemp(String pw){
+
+        pw=passwordEncoder.encode(pw);
+        return pw;
+    }
+
+
+    @RequestMapping("/mypage/{step}")
+    public String Step(@PathVariable String step){
+        System.out.println("스텝");
+    return "mypage/"+step;
+    }
+
+    @RequestMapping("/pwdChange")
+    public String pwdChange( MemberVO memberVO){
+        memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
+        memberService.passwordChge(memberVO);
+
+
+
+
+        return "mypage/myInfo";
+    }
+
+
+
+
+    @RequestMapping("/modifyInfo")
+    public String memberUpdate(MemberVO member, Model model){
+
+        MemberVO mem= (MemberVO) session.getAttribute("member");
+        member.setEmail(mem.getEmail());
+
+        MemberVO result=null;
+//        MemberVO memSession= (MemberVO) session.getAttribute("member");
+//        model.addAttribute("member",result);
+        result=memberService.memberUpdate(member);
+//        session.setAttribute("member",result);
+
+        model.addAttribute("member",result);
+        return "mypage/myInfo";}
+
 
     @RequestMapping("/join")
     public String join( MemberVO memberVO){
@@ -58,6 +105,7 @@ public class MemberController {
 
     @RequestMapping(value = "/signUp",method= RequestMethod.POST )
     public String signUp(  MemberVO memberVO){
+
         memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
         memberService.signUp(memberVO);
         return "Start";
@@ -67,12 +115,14 @@ public class MemberController {
     public String memberLogin( String kind,MemberVO memberVO, Model model){
         MemberVO result=memberService.memberLogin(memberVO);
 
-        System.out.println(result);
-        model.addAttribute("kind",kind);
-        if (result!=null) {
-            session.setAttribute("status","success");
-            session.setAttribute("member",result);
+
+            model.addAttribute("kind",kind);
+            if (result!=null) {
+                session.setAttribute("status","success");
+                session.setAttribute("member",result);
+                model.addAttribute("member",result);
             boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
+                System.out.println(memberVO.getPassword()+"/"+result.getPassword());
             if (check) {
                 System.out.println("비밀번호 일치");
                 session.setAttribute("status","success");
@@ -87,10 +137,10 @@ public class MemberController {
                     List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
                     try {
                         photoList.add((String) temp.get(0).getRtr_pic_loc());
-//                System.out.println((String) temp.get(0).getRtr_pic_loc());
+
 
                     }catch (Exception e){
-//                System.out.println("사진 없음");
+
                         photoList.add("/res/img/ing.jpg");
 
                     }
@@ -132,4 +182,33 @@ public class MemberController {
 
         return "recommend/Main";
     }
+
+    
+    //Email과 name의 일치여부를 check하는 컨트롤러
+    @GetMapping("/check/findPw")
+    @ResponseBody
+    public
+    Map<String, Boolean> pw_find(String userEmail, String userBirthday){
+        Map<String,Boolean> json = new HashMap<>();
+        boolean pwFindCheck = memberService.userEmailCheck(userEmail,userBirthday);
+
+        System.out.println(pwFindCheck);
+        json.put("check", pwFindCheck);
+        return json;
+    }
+
+    //등록된 이메일로 임시비밀번호를 발송하고 발송된 임시비밀번호로 사용자의 pw를 변경하는 컨트롤러
+    @PostMapping("/check/findPw/sendEmail")
+    @ResponseBody
+    public  void sendEmail(String userEmail, String userBirthday){
+
+        MemberMailVO dto = sendEmailService.createMailAndChangePassword(userEmail, userBirthday);
+        System.out.println(dto.getMessage());
+        sendEmailService.mailSend(dto);
+
+    }
+
+
+
+
 }

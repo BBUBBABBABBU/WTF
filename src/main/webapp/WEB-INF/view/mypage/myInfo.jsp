@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.springframework.ui.Model" %><%--
   Created by IntelliJ IDEA.
   User: bigst
   Date: 2021-03-01
@@ -29,8 +29,12 @@
     <link rel="stylesheet" href="/res/mypageTemplate/css/ionicons.min.css">
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/res/mypageTemplate/scss/bootstrap/bootstrap.scss"
 <%--    <link rel="stylesheet" href="/res/mypageTemplate/css/jquery.timepicker.css">--%>
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet"  href="/res/mypageTemplate/css/flaticon.css">
     <link rel="stylesheet" href="/res/mypageTemplate/css/icomoon.css">
@@ -96,10 +100,95 @@
         [id$="-toggle"] {
             margin-right: 15px;
         }
+        .input-group-text{
+            width: 100px;place-content: center;
 
+        }
+        #infoForm{
 
+            FONT-SIZE: 9pt;
+            left: 120px;
+            position: relative;
+            width: 400px;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+        .form-control{
+            BORDER-BOTTOM: dimgrey 1px solid;
+            BORDER-LEFT: medium none;
+            BORDER-RIGHT: medium none;
+            BORDER-TOP: medium none;
+            background-color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
 
     </style>
+
+
+    <%--성별을 DB값으로 찍히게 하는 함수--%>
+    <script>
+        $(function(){
+            var userGender=  "${member.gender}"
+
+
+            if (userGender == "남성") {
+                $("#selectGender option:eq(0)").prop("selected",true);
+            }else {
+                $("#selectGender option:eq(1)").prop("selected", true);
+                $("#selectGender option:eq(0)").prop("selected",false);
+            }
+
+
+            pwdCh=document.getElementById("passwordChange")
+            pwdCh.onclick = function() {
+                $("#passwordChange").attr("type","submit")
+                $("#infoForm").attr("action","/mypage/changePwd")
+
+                $("#passwordChange").click()
+
+            };
+        })
+    </script>
+
+    <%--개인정보 수정 함수--%>
+    <script>
+
+        // $("#selectGender").attr("selected",true);
+
+        var temp=0;
+           function changable(){
+               $(".form-control").attr("disabled", false);
+               $("#exampleInputEmail1").attr("disabled", true);
+               $("#passwordChange").hide()
+
+            if ( temp==1) {
+
+                // $("#InfoModify").click(function () {
+                    $("#InfoModify").attr("type","submit")
+                    $("#infoForm").attr("action","/modifyInfo")
+                    temp=0;
+
+                    $("#InfoModify").click()
+
+
+                // })
+
+
+
+            }else{ $("#InfoModify").text("변경하기")
+                temp=1;
+                $("#exampleInputEmail1").disabled=false;
+                }
+
+
+       }
+
+
+
+
+
+
+    </script>
 </head>
 <body>
 
@@ -136,63 +225,41 @@
         <section class="ftco-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-add:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">Q&A</h3>
-                                <a href="/qna">개발자에게 문의 글 쓰기</a>
+                    <form role="form" id="infoForm" action="/myInfo"> <div class="form-group"> <label for="exampleInputEmail1">이메일</label>
+                        <input type="email" class="form-control" name="email" id="exampleInputEmail1" value="${member.email}" disabled=true> </div>
+                        <div class="form-group"> <label for="exampleInputPassword2">닉네임</label>
+                            <input type="text" name="nickname" class="form-control" id="exampleInputPassword2" value="${member.nickname}" disabled> </div>
+                        <div class="form-group"> <label for="selectGender">성별</label>
+                            <%--${member.gender}--%>
+                            <select  name="gender" class="form-control" id="selectGender" disabled>
+                                <option value="남성">남성</option>
+                                <option value="여성">여성</option>
+                            </select>
+                            <%--<input type="text" name="gender" class="form-control" id="exampleInputPassword3" value="${member.gender}"  disabled> </div>--%>
+                        <div class="form-group"> <label for="exampleInputPassword4">생일</label>
+                            <input type="text" name="birthday" class="form-control" id="exampleInputPassword4" value="${member.birthday}"  disabled > </div>
+                        <div class="form-group"> </div>
 
-                            </div>
-                        </div>
-                    </div>
+                        <div>
+                            <button type="button" id="passwordChange" class="btn btn-default">비밀번호 변경</button>
+                            <button type="button" class="btn btn-default" id="InfoModify" onclick="changable()">정보 수정하기</button>
+                        </div></form>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">FAQs</h3>
-                                <a class="prime">자주 묻는 질문</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">CALL </h3>
-                                <p>1 : 1 전화 문의 </p>
-                                <p>( Tel. 333 - 3333 )</p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">MY(Q&A)</h3>
-                                <a href="/myqnalist">내가 보낸 문의 사항</a>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </div>
             </div>
@@ -323,7 +390,7 @@
                     <textarea id="chatSend" name="chat_message" placeholder="Designed by 'WTF'" class="chat_field chat_message"></textarea>
                 </div>
             </div>
-            <a  id="prime_fab" class="prime fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
+            <a id="prime" class="fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
         </div>
 
 

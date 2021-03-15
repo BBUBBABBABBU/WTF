@@ -12,5 +12,10 @@ public interface MemberMapper {
     int signUp( MemberVO vo) throws Exception;
     MemberVO memberLogin(  MemberVO vo) throws Exception;
     MemberVO idcheckMember(String email) throws  Exception;
+//    MemberVO findUserByUserId(String userEmail) throws Exception;
+    int updateUserPassword(MemberVO member) throws Exception;
+    int memberUpdate(MemberVO memberVO) throws  Exception;
+
+    void passwordChge(MemberVO memberVO) throws Exception;
 }
 

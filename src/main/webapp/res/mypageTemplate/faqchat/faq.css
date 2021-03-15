@@ -4,6 +4,10 @@
 ul li{
   list-style: none;
 }
+
+.zmdi-close:before {
+    content : "";
+}
 .fabs {
   bottom: 0;
   position: fixed;

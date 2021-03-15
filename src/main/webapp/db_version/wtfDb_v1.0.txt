@@ -1,3 +1,4 @@
+
 CREATE TABLE Manager(
 	mgr_id VARCHAR(20) PRIMARY KEY,
 	mgr_pass VARCHAR(30) NOT NULL);

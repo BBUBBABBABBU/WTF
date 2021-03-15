@@ -61,7 +61,7 @@
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"><a href="/mypage">홈</a></li>
-                <li><a href="about.html">나의 정보</a></li>
+                <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
                 <li><a href="contact.html">내 취향 수정</a></li>
@@ -90,27 +90,24 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">To.Developer ( 개발자에게 )</h3>
-                    <form action="#" class="p-3 p-md-5 bg-light">
+                    <form action="/insertQna" class="p-3 p-md-5 bg-light">
 
                         <div class="form-group">
-                            <label for="email">Email(ID)</label>
-                            <input type="email" class="form-control" id="email">
+                            <label for="id">Email(ID)</label>
+                            <input type="input" class="form-control" id="id" value="${sessionScope.member.email}" disabled>
+                            <input type="hidden" name="member_id" value="${sessionScope.member.memberId}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">제목</label>
-                            <input type="text" class="form-control" id="title">
+                            <input type="text" class="form-control" id="title" name="qna_title">
                         </div>
-
-                        <!-- <div class="form-group">
-                          <label for="website">Website</label>
-                          <input type="url" class="form-control" id="website">
-                        </div> -->
 
                         <div class="form-group">
-                            <label for="message">문의 내용</label>
-                            <textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+                            <label for="content">문의 내용</label>
+                            <textarea name="qna_content" id="content" cols="30" rows="10" class="form-control"></textarea>
                         </div>
+
                         <div class="form-group">
                             <input type="submit" value="문의 작성 완료" class="btn py-3 px-4 btn-primary">
                         </div>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="org.springframework.ui.Model" %><%--
   Created by IntelliJ IDEA.
   User: bigst
   Date: 2021-03-01
@@ -29,8 +29,12 @@
     <link rel="stylesheet" href="/res/mypageTemplate/css/ionicons.min.css">
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="/res/mypageTemplate/scss/bootstrap/bootstrap.scss"
 <%--    <link rel="stylesheet" href="/res/mypageTemplate/css/jquery.timepicker.css">--%>
-
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet"  href="/res/mypageTemplate/css/flaticon.css">
     <link rel="stylesheet" href="/res/mypageTemplate/css/icomoon.css">
@@ -41,7 +45,53 @@
 <%--faq js / css--%>
     <link rel="stylesheet" href="/res/mypageTemplate/faqchat/faq.css">
     <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+<script>
+    function chkPW(){
 
+        var pw = $("#nextPass").val();
+        var num = pw.search(/[0-9]/g);
+        var eng = pw.search(/[a-z]/ig);
+        var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+        if(pw.length < 8 || pw.length > 20){
+
+            alert("8자리 ~ 20자리 이내로 입력해주세요.");
+            $("#nextPass").val("");
+            return false;
+        }else if(pw.search(/\s/) != -1){
+            $("#nextPass").val("");
+            $("#nextPass").focus();
+            alert("비밀번호는 공백 없이 입력해주세요.");
+
+            return false;
+        }else if(num < 0 || eng < 0 || spe < 0 ){
+
+            alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+            $("#nextPass").val("");
+            $("#nextPass").focus();
+            return false;
+        }else {
+            console.log("통과");
+            return true;
+        }
+
+    }
+    function checkPassword() {
+        //비밀번호가 입력되었는지 확인하기
+
+        //비밀번호와 비밀번호 확인이 맞지 않다면..
+        if ( $("#nextPassChan").val() != $("#nextPass").val() & $("#nextPassChan").val().length !=0) {
+            alert("비밀번호가 일치하지 않습니다.");
+            $("#nextPassChan").val("");
+            $("#nextPassChan").focus();
+            return false;
+        }else if ($("#nextPassChan").val() == $("#nextPass").val() & $("#nextPassChan").val().length !=0)
+            alert("비밀번호가 일치합니다.");
+
+        return true; //확인이 완료되었을 때
+
+    }
+</script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@700&display=swap');
@@ -49,12 +99,7 @@
         .bread{
             font-family: 'Nanum Gothic', sans-serif;
         }
-        .colorlib-logo{
-            font-family: 'Nanum Gothic', sans-serif;
-        }
-        /* .breadcrumbs{
-            font-family: 'Nanum Gothic', sans-serif;
-        } */
+
 
 
 
@@ -71,12 +116,7 @@
 
 
         }
-        #faq-title {
-            font-size: 25px;
-        }
-        .faq-content {
-            border-bottom: 1px solid #e0e0e0;
-        }
+
         .question {
             font-size: 15px;
             padding: 5px 0;
@@ -98,8 +138,26 @@
         }
 
 
+        #infoForm{
+
+            FONT-SIZE: 9pt;
+            left: 120px;
+            position: relative;
+            width: 400px;
+            font-family: 'Noto Sans KR', sans-serif;
+
+        }
+        .form-control{
+            BORDER-BOTTOM: dimgrey 1px solid;
+            BORDER-LEFT: medium none;
+            BORDER-RIGHT: medium none;
+            BORDER-TOP: medium none;
+            background-color: white;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
 
     </style>
+
 </head>
 <body>
 
@@ -136,66 +194,40 @@
         <section class="ftco-section">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-add:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">Q&A</h3>
-                                <a href="/qna">개발자에게 문의 글 쓰기</a>
+                    <form role="form" id="infoForm" action="/pwdChange">
+                        <div class="form-group"><label for="currentPass">현재 비밀번호</label>
+                        <input type="password" class="form-control"  id="currentPass" value="${member.password}" > </div>
+                        <div class="form-group"><label for="nextPass" >변경할 비밀번호</label>
+                            <input type="password" class="form-control"  id="nextPass" value="" onfocusout="chkPW()"> </div>
+                        <div class="form-group"><label for="nextPassChan">비밀번호 확인</label>
+                            <input type="password" class="form-control" name="password" id="nextPassChan" onfocusout="checkPassword()" value=""> </div>
+                        <input type="hidden" class="form-control" name="email"  value="${member.email}">
 
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">FAQs</h3>
-                                <a class="prime">자주 묻는 질문</a>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">CALL </h3>
-                                <p>1 : 1 전화 문의 </p>
-                                <p>( Tel. 333 - 3333 )</p>
-                            </div>
-                        </div>
-                    </div>
+                        <div>
+                            <button type="submit" id="passwordChange" class="btn btn-default">변경하기</button>
 
-                    <div class="col-md-4 d-flex align-self-stretch ftco-animate">
-                        <div class="media block-6 services py-4 d-block">
-                            <div class="d-flex justify-content-start">
-                                <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
-                                </div>
-                            </div>
-                            <div class="media-body p-2 mt-2">
-                                <h3 class="heading mb-3">MY(Q&A)</h3>
-                                <a href="/myqnalist">내가 보낸 문의 사항</a>
-                            </div>
-                        </div>
-                    </div>
+                        </div></form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 </div>
-            </div>
+             </div>
         </section>
 
         <!-- ------------------------------------------------------------------------------------------------------ -->
@@ -323,7 +355,7 @@
                     <textarea id="chatSend" name="chat_message" placeholder="Designed by 'WTF'" class="chat_field chat_message"></textarea>
                 </div>
             </div>
-            <a  id="prime_fab" class="prime fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
+            <a id="prime" class="fab"><i class="prime zmdi zmdi-comment-outline"></i></a>
         </div>
 
 

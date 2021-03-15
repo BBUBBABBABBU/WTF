@@ -397,7 +397,11 @@ h6,
 /* Custom Navmenu */
 
 .custom-navmenu {
-  background: #0d1e2d;
+  /*background: #131313;*/
+  background-image: url("../../res/img/헤더_접히기_최종.png");
+  background-repeat:no-repeat;
+  background-size: 1110px 120px;
+  background-position: center center;
 }
 
 .custom-navmenu .custom-menu,
@@ -405,6 +409,7 @@ h6,
   padding: 0;
   margin: 0;
   list-style: none;
+  font-family: "Black Han Sans";
 }
 
 .custom-navmenu .custom-menu li {
@@ -413,7 +418,7 @@ h6,
 }
 
 .custom-navmenu .custom-menu li a {
-  color: #fff;
+  color: #131313;
   padding: 10px 0 !important;
 }
 
@@ -445,13 +450,21 @@ h6,
 /* Custom Navbar */
 
 .custom-navbar {
-  padding-top: 50px;
-  width: 100%;
+  /*padding-top: 50px;*/
+  /*width: 100%;*/
+  background-image: url("../../res/img/메인_헤더_최종.png");
+  background-repeat:no-repeat;
+  /*background-size: 1871px 200px;*/
+  background-position: center center;
 }
+
+
 
 .custom-navbar .navbar-brand {
   font-family: 'Black Han Sans', sans-serif;
   font-size: 1.7rem;
+
+
 }
 
 /* Burger */
