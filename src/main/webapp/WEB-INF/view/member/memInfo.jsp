@@ -82,6 +82,11 @@ System.out.println(nick);%>
 
     <script>
         $(function(){
+
+
+
+
+
             $('#joinBtn').click(function () {
                     $("#email").attr("disabled", false);
                     $("#birthday").attr("disabled", false);
@@ -110,14 +115,20 @@ System.out.println(nick);%>
             })
 
         })
+
+        //아이디 중복일 때 회원가입 버튼 막는 함수
         function duple() {
             if ($("#idCheckResult").text()=="이미 사용중입니다"){
                 alert("현재 입력하신 아이디는 중복되는 아이디입니다.")
 
                 $("#joinBtn").attr("type","button");
 
-            } else $("#joinBtn").attr("type","submit");
-        }
+            } else {
+                $("#joinBtn").attr("type", "submit");
+                alert("회원가입이 완료되었습니다.")
+
+            }
+            }
 
     </script>
     <style >
@@ -164,6 +175,10 @@ System.out.println(nick);%>
         }
         form#myForm p.w3-center     .w3-button:hover{
             background-color: #E8BE24;
+        }
+
+        #myForm{
+
         }
 
     </style>
@@ -216,12 +231,15 @@ System.out.println(nick);%>
                     </p>
                     <p>
                         <label>당신의 취향</label>
-                        <input type="radio" name="favor" value="1">1
-                        <input type="radio" name="favor" value="2">2
-                        <input type="radio" name="favor" value="3">3
-                        <input type="radio" name="favor" value="4">4
+                        <input type="radio" name="favor" value="한식">한식
+                        <input type="radio" name="favor" value="중식">중식
+                        <input type="radio" name="favor" value="양식">양식
+                        <input type="radio" name="favor" value="일식">일식
+                        <input type="radio" name="favor" value="분식">분식
+                        <input type="radio" name="favor" value="디저트">디저트
 <%--                        <input class="w3-input" type="prefer" id="prefer" type="text" required>--%>
                     </p>
+                    <div><span id="favorResult"></span></div>
                 </div>
                 <p class="w3-center">
                     <button type="button" id="joinBtn" onclick="duple()"  >회원가입</button>

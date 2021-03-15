@@ -132,7 +132,7 @@
         <form id="login2" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail2" class="input-field2" placeholder="이메일을 입력하세요" required>
             <input type="text" name="birthday" id="loginPassword2" class="input-field2" placeholder="생일을 입력하세요(예 07/28)" required>
-            <button type="button" id="passSearch" class="submit">결과보기</button>
+            <button type="button" id="passSearch" class="submit">이메일로 임시비밀번호 보내기</button>
             <button type="button" class="submit" id ="goToLogin" onclick="show()">로그인하기</button>
         </form>
     </div>
@@ -153,7 +153,7 @@
             },
             success: function (res) {
                 if (res['check']) {
-                    alert("요기")
+
                     // swal("발송 완료!", "입력하신 이메일로 임시비밀번호가 발송되었습니다.", "success").then((OK) => {
                     //     if(OK) {
                             $.ajax({
@@ -164,13 +164,19 @@
                                     "userBirthday": userBirthday
                                 }
                             })
-                            window.location = "/login";
+                        url: "/";
+                        alert("입력하신 이메일로 임시 비밀번호가 전송되었습니다.")
+                        $("#goToLogin").click()
+                        $("#loginEmail").val($("#loginEmail2").val())
+                        $("#loginEmail2").val("")
+                        $("#loginPassword2").val("")
                 //         }
                 //     }
                 // )
                 //     $('#checkMsg').html('<p style="color:darkblue"></p>');
                 } else {
-                    $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
+                    // $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
+                    alert("일치하는 정보가 없습니다!")
                 }
             }
         })
