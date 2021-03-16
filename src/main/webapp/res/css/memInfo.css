@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@100;300;500&display=swap');
+body,labe, h3, #div1,p,#favorPtag,#h3tag {
+    font-family: "Black Han Sans";
+    z-index: 10000;
+    font-size: larger;
+}

@@ -51,5 +51,5 @@
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.4.0/sockjs.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script type="text/javascript" src="/res/js/chatting.js"></script>
+<script type="text/javascript" src="/res/js/userChat.js"></script>
 </html>
