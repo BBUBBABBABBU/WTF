@@ -70,83 +70,53 @@
     <!--**********************************
         Content body start
     ***********************************-->
-    <div class="content-body">
-
-        <div class="content-body">
-
-            <div class="row page-titles mx-0">
-                <div class="col p-md-0">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                    </ol>
-                </div>
-            </div>
-            <!-- row -->
-
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">유저 QnA 관리</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
-                                        <tr>
-                                            <th>문의번호</th>
-                                            <th>이메일ID</th>
-                                            <th>제목</th>
-                                            <th>등록일자</th>
-                                            <th>답변여부</th>
-                                            <%--<th>Salary</th>--%>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
 
 
-                                        <%--<% List<QnaVO> temp=(List<QnaVO>)request.getAttribute("adminqnaList"); %>--%>
-                                        <%--<tr>--%>
-                                           <%--<td><%= temp.get(0).getQna_id() %></td>--%>
-                                        <%--</tr>--%>
 
-                                        <c:forEach items="${adminqnaList}" var="admin_qna_list">
 
-                                            <tr>
-                                                <td>${admin_qna_list.qna_id }</td>
-                                                <td align="left"><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
-                                                        ${admin_qna_list.member_id }</a></td>
 
-                                                <%--adminQnadetail 들어갈시에 122라인 지우고 위에꺼 주석해제--%>
-                                                <%--<td> ${admin_qna_list.member_id }</td>--%>
+    <section class="ftco-section">
+        <div class="container">
 
-                                                <td>${admin_qna_list.qna_title} </td>
-                                                <td>${admin_qna_list.qna_date}</td>
-                                                <td>${admin_qna_list.anw_check}</td>
+            <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">To.Developer ( 개발자에게 )</h3>
+                <form action="/adminqnadetail" class="p-3 p-md-5 bg-light">
 
-                                            </tr>
-                                        </c:forEach>
-
-                                        </tbody>
-                                        <%--<tfoot>--%>
-                                        <%--<tr>--%>
-                                            <%--<th>Name</th>--%>
-                                            <%--<th>Position</th>--%>
-                                            <%--<th>Office</th>--%>
-                                            <%--<th>Age</th>--%>
-                                            <%--<th>Start date</th>--%>
-                                            <%--<th>Salary</th>--%>
-                                        <%--</tr>--%>
-                                        <%--</tfoot>--%>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="id">Email(ID)</label>
+                        <input type="input" class="form-control" id="id" name="member_id" value="${adminqna.member_id}" disabled>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="title">제목</label>
+                        <input type="text" class="form-control" id="title" name="qna_title"
+                               value="${adminqna.qna_title}" disabled>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="content">문의 내용</label>
+                        <textarea name="qna_content" id="content" cols="30" rows="10"
+                                  class="form-control" disabled>${adminqna.qna_content} </textarea>
+                    </div>
+                </form>
             </div>
-            <!-- #/ container -->
-        </div>
+
+            <div class="comment-form-wrap pt-5">
+                <h3 class="mb-5">From.Developer ( 개발자 답변 )</h3>
+                <form id="detail_form" action="updateQna?qna_id=${adminqna.qna_id}" method = "post" class="p-3 p-md-5 bg-light">
+
+                    <div class="form-group">
+                        <label for="reply">Reply ( 개발자 답변 )</label>
+                        <textarea name="anw_content" id="reply" cols="30" rows="10"
+                                  class="form-control" >${adminqna.anw_content} </textarea>
+                    </div>
+                    <div class="form-group">
+                        <input id = "update_button" type="submit" value="개발자 답변 완료" class="btn py-3 px-4 btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div><!-- END con -->
+    </section>
 
 
 
@@ -158,7 +128,7 @@
 
 
 
-    </div>
+
     <!--**********************************
         Content body end
     ***********************************-->

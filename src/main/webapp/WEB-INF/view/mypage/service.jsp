@@ -55,9 +55,7 @@
         /* .breadcrumbs{
             font-family: 'Nanum Gothic', sans-serif;
         } */
-
-
-
+        
 
         .answer {
             display: none;

@@ -40,6 +40,12 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+a.prime{
+  font-family: "Noto Sans KR";
+  font-color: #999999;
+}
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -49,7 +55,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
-  width: device-width; }
+  width: device-width;
+}
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
@@ -79,7 +86,10 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  font-family: "Noto Sans KR";
+
+}
 
 abbr[title],
 abbr[data-original-title] {
@@ -7298,7 +7308,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #999999; }
+  font-family: "Noto Sans KR";
+  color: #000000DE; }
+
+
   a:hover, a:focus {
     text-decoration: none;
     color: #ffffff;
