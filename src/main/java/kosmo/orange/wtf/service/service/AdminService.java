@@ -118,6 +118,7 @@ public interface AdminService {
      */
     public AdminBoardVO boardDetail(int board_id);
 
+
     /****************
      * 익명 게시판에 신규 게시글 등록 (저장)
      */

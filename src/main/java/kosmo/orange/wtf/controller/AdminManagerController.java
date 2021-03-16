@@ -78,6 +78,24 @@ public class AdminManagerController {
     } // end of boardEnter
 
 
+    /*****************************
+     * 글 상세에서 수정 버튼 누르면,
+     * adminBoardDetail.jsp > 컨트롤러에서 값 받아서 > adminBoardForm.jsp
+     */
+    @GetMapping("boardUpdate")
+    public String boardUpdate(@RequestParam("board_id") int id, Model model) {
+        System.out.println("AdminManagerController.boardUpdate");
+        System.out.println("id = " + id);
+
+
+
+        return "adminViews/adminBoardForm";
+
+    } // end of boardUpdate
+
+
+
+
     /******************
      * 게시판 글 저장 / 수정 / 삭제
      * adminBoardForm.jsp ..>

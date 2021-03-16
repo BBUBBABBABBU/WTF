@@ -27,6 +27,51 @@
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+    <script type="text/javascript">
+
+        // 수정, 삭제
+        function articleUpdate(param) {
+            alert('ararticleUpdate + ' + param);
+
+            // 입력 폼 확인 - 비번 입력 확인
+            var frm = document.frm;
+            if(!frm.board_pw.value){
+                alert("비번 없음")
+                form.board_pw.focus();
+                return;
+            }
+
+
+            var con = "";
+
+            // 수정
+            if(param == 'u') {
+                con = confirm("수정 ㄱ?");
+                if(con){
+
+                    $("#boardForm").attr("action", "/updateArticle");
+                    $("#boardForm").submit();
+
+                    // document.getElementById("sep").va = "u";
+                    // $("#boardForm").submit();
+
+                }
+            }
+
+            // 삭제
+            if(param == 'd') {
+                con = confirm("삭제 ㅇㅋ?");
+                if(con) {
+                    document.getElementById("sep").value = "d";
+                    postForm();
+                    $("#boardForm").attr()
+                    submit();
+                }
+            }
+
+        } // end of articleUpdate
+
+    </script>
 
 </head>
 <body>
@@ -86,8 +131,10 @@
 
                                 <%--게시글 폼*********************--%>
                                 <%--<div class="form-group">--%>
-                                <form name="frm" method="post" id="boardForm" action="/boardAction">
+                                <form name="frm" method="post" id="boardForm" action="">
                                     <input type="hidden" name="sep" value="" id="sep">
+                                    <c:set var="board_id" value="${adminBoardVO.board_id}"></c:set>
+                                    <input type="hidden" name="board_id">
                                     <input type="text" class="form-control input-default" placeholder="제목" name="board_title" readonly value="${adminBoardVO.board_title}"><br>
                                     <%--</div>--%>
                                     <%--<div class="basic-form">--%>
@@ -107,7 +154,6 @@
                                 </form>
 
                                 <div class="outline-button">
-                                    <button type="button" class="btn mb-1 btn-outline-success" onclick="formCheck('i');" id="save">저장</button>
                                     <button type="button" class="btn mb-1 btn-outline-primary" onclick="articleUpdate('u');" id="update">수정</button>
                                     <button type="button" class="btn mb-1 btn-outline-danger" onclick="articleUpdate('d');" id="delete">삭제</button>
                                 </div>

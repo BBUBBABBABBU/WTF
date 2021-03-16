@@ -49,6 +49,9 @@
                 location.href = "/boardDetail?board_id="+articleNo;
 
             });
+
+
+            // 글 목록 등록일 순으로 정렬시키기 (지연함수 사용)
             setTimeout(function() {
 
                 $('.sooort').removeClass('sorting_asc')
