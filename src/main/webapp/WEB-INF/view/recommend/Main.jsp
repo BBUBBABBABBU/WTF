@@ -58,9 +58,9 @@
 </nav>
 <nav class="navbar navbar-light custom-navbar2">
     <div class="container">
-        <form>
-            <input type="text" placeholder="검색" size='50'>
-            <button type="input" class="btn btn-info">검색</button>
+        <form action="/restaurant/searchRestaurant" method="get">
+            <input type="text" name="resKeyword" placeholder="검색" size='65'>
+            <input type="submit" class="btn btn-info" value="검색">
         </form>
         <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
@@ -73,7 +73,7 @@
             <div class="col-md-9"></div>
             <div class="col-md-3">
                 <ul class="custom-menu">
-                    <li class="active"><a href="/mypage">마이페이지</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
                     <li><a href="/recommend">상세추천</a></li>
                     <li><a href="/review/feed">피드</a></li>
                     <li><a href="/memberLogout">로그아웃</a></li>
@@ -85,6 +85,9 @@
 </div>
 
 <main id="main">
+    <%--선택 음식좋류를 넘겨줌--%>
+    <input type="hidden" id="foodKind" value="${foodKind}">
+
     <div class="site-section site-portfolio">
         <div id='recommend_container' class="container">
             <div id = "map_div" class="row mb-5 align-items-center">

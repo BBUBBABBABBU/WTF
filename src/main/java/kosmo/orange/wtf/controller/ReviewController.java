@@ -1,5 +1,6 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.mapper.RestaurantMapper;
 import kosmo.orange.wtf.model.vo.*;
 import kosmo.orange.wtf.service.impl.RestaurantServiceImpl;
 import kosmo.orange.wtf.service.impl.ReviewServiceImpl;
@@ -35,7 +36,6 @@ public class ReviewController{
         System.out.println("ReviewtController ReviewInsert: " + restaurantVO.getResId());
         RestaurantVO restaurantInfo = restaurantService.restaurantInfo(restaurantVO.getResId());
         PhotoVO Photo = reviewService.Photo(restaurantVO.getResId());
-
         model.addAttribute("photo",Photo);
         model.addAttribute("restaurantInfo",restaurantInfo);
         System.out.println("ReviewtController 26line 사진불러오기" );
@@ -44,10 +44,11 @@ public class ReviewController{
     }
 
     @GetMapping("/feed")
-    public String feedReview(MemberVO memberVO, Model model){
-        System.out.println("ReviewtController feedReview:"  + memberVO.getMemberId());
-        List<ReviewVO> reviewFeed = reviewService.ReviewList(memberVO.getMemberId());
-        String nickname = reviewService.memNickname(memberVO.getNickname());
+    public String feedReview(Model model){
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        System.out.println("세션값 불러왔음 " + member.getMemberId());
+        String nickname = member.getNickname();
+        List<ReviewVO> reviewFeed = reviewService.ReviewList(member.getMemberId());
         model.addAttribute("reviewList", reviewFeed);
         model.addAttribute("nickname", nickname);
         System.out.println("ReviewController 리뷰 리스트 jsp 보내기");
@@ -55,12 +56,17 @@ public class ReviewController{
     }
 
     @RequestMapping("/reviewSave")
-    public String reviewSave(ReviewVO reviewVO){
-        System.out.println("ReviewController reviewDB"+ reviewVO.getReview_id());
+    public String reviewSave(ReviewVO reviewVO, int res_id){
+        MemberVO member = (MemberVO) httpSession.getAttribute("member");
+        System.out.println("요기요");
+        RestaurantVO restaurant = restaurantService.restaurantInfo(res_id);
+        System.out.println("저기요");
+        reviewVO.setRes_tell(restaurant.getResTell());
+        reviewVO.setMem_id(member.getMemberId());
         reviewVO.setAvg((float)(reviewVO.getTaste()+reviewVO.getClean()+reviewVO.getLocation()+reviewVO.getService())/8);
         reviewService.ReviewSave(reviewVO);
 
-        return "recommend/restaurantInfo?resId="+reviewVO.getRes_id();
+        return "redirect:/restaurant/restaurantInfo?resId="+restaurant.getResId();
     }
 
 

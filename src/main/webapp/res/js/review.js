@@ -19,10 +19,13 @@ function handleImgsFilesSelect(e){
 
         reader.onload = function(e){
             var img_html = "<img src=\"" + e.target.result + "\" />";
+            open()
             $(".imgs_wrap").append(img_html);
         }
         reader.readAsDataURL(f);
     });
 }
+
+
 
 

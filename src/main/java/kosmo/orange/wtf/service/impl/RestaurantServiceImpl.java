@@ -37,4 +37,14 @@ public class RestaurantServiceImpl implements RestaurantService {
         }
     }
 
+    @Override
+    public List<RestaurantVO> searchRestaurant(String resKeyword) {
+        try{
+            List<RestaurantVO> restaurantList = restaurantMapper.searchRestaurant(resKeyword);
+            return restaurantList;
+        }catch (Exception e){
+            System.out.println("RestaurantServiceImpl searchRestaurant 45line error : " +  e.toString());
+            return null;
+        }
+    }
 }

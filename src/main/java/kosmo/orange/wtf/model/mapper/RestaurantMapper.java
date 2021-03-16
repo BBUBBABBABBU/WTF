@@ -12,4 +12,5 @@ import java.util.List;
 public interface RestaurantMapper {
     RestaurantVO restaurantInfo(int resId) throws Exception;
     List<MenuVO> restaurantMenu(int resId) throws Exception;
+    List<RestaurantVO> searchRestaurant(String resKeyword) throws  Exception;
 }

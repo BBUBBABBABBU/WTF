@@ -42,11 +42,11 @@ var siteOwlCarousel = function () {
 // 식당 데이터 가져옴
 $.ajax({
     type: 'post',
-    url: "/restaurantMap",
+    url: "/mainRecommend",
     contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
     async: false,
     data: {
-        'kind': $('#select_kind').val()
+        'foodKind': $('#foodKind').val()
     },
     success: (data) => {
         restaurantList = data
@@ -164,6 +164,9 @@ function showRestaurant(latitude, longitude) {
             let info = document.createElement('div')
             info.className = 'info'
 
+            let a_restaurantInfo = document.createElement('a')
+            a_restaurantInfo.href = '/restaurant/restaurantInfo?resId='+restaurantList[i].resId
+
             let title = document.createElement('div')
             title.className = 'title'
             title.innerHTML = restaurantList[i].resName
@@ -181,7 +184,9 @@ function showRestaurant(latitude, longitude) {
             div_img.className = 'img'
 
             let img = document.createElement('img')
-            img.src = 'https://cfile181.uf.daum.net/image/250649365602043421936D'
+            img.id = 'marker_restaurantImg'
+            img.src = restaurantList[i].rtr_pic_loc
+
 
             let desc = document.createElement('div')
             desc.className = 'desc'
@@ -201,7 +206,8 @@ function showRestaurant(latitude, longitude) {
             body.appendChild(desc)
             title.appendChild(close)
             info.appendChild(title)
-            info.appendChild(body)
+            info.appendChild(a_restaurantInfo)
+            a_restaurantInfo.appendChild(body)
             wrap.appendChild(info)
 
 
@@ -230,7 +236,8 @@ function showRestaurant(latitude, longitude) {
                 url: '/mainRecommend',
                 contentType: 'application/x-www-form-urlencoded;charset=utf-8', // 한글 처리
                 data: {
-                    resAddr: result[0]['address'].region_2depth_name
+                    'resKeyword': $('#foodKind').val(),
+                    'resAddr': result[0]['address'].region_2depth_name
                 },
                 success: (res_allList) => {
 
@@ -243,7 +250,7 @@ function showRestaurant(latitude, longitude) {
                         $('#recommend_container').prepend(recommend_div)
                         $('#recommend_div').insertAfter($('#map_div'))
 
-                        for (let i = 0; i < 12; i++) {
+                        for (let i = 0; i < res_allList.length; i++) {
 
                             // 식당의 이름이 8자가 넘었을 경우 처리
                             if(res_allList[i].resName.length > 8){

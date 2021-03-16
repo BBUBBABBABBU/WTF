@@ -32,7 +32,7 @@ $(function () {
     // $('#select_kind').formSelect();
 
     // 저장된 세션값 가져오기
-    var user = window.sessionStorage.getItem("member");
+    // var user = window.sessionStorage.getItem("member");
     // var favor=sessionStorage.getItem("favor");
     // alert(favor);
     if (user != "") {

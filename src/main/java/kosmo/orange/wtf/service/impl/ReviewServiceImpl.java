@@ -58,7 +58,9 @@ public class ReviewServiceImpl implements ReviewService {
     public List<ReviewVO> ReviewList(String member_id) {
         try{
             System.out.println("피드 리뷰리스트");
-            List<ReviewVO> result = reviewMapper.ReviewLIst(member_id);
+            List<ReviewVO> result = reviewMapper.ReviewList(member_id);
+
+            System.out.println("여기요");
             return result;
         }catch (Exception e){
             System.out.println("ReviewServiceImpl ReviewList 실패 ");

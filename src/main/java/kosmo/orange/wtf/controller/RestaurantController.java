@@ -30,6 +30,35 @@ public class RestaurantController {
     @Autowired
     HttpSession httpSession;
 
+    /**
+     * 검색기능
+     * @param resKeyword
+     * @param model
+     * @return
+     */
+    @GetMapping("/searchRestaurant")
+    public String searchRestaurant(String resKeyword,Model model){
+        System.out.println("RestaurantController searchRestaurant 35line : " + resKeyword);
+        List<RestaurantVO> restaurantList = restaurantService.searchRestaurant(resKeyword);
+        for(int i = 0; i<restaurantList.size(); i++){
+            if (restaurantList.get(i).getResName().length() > 8) {
+                String resName = restaurantList.get(i).getResName().substring(0,8)+"...";
+                restaurantList.get(i).setResName(resName);
+            }
+            restaurantList.get(i).setResAddr(restaurantList.get(i).getResAddr().split(" ")[1]);
+            List<PhotoVO> photoList = mainService.res_photo(restaurantList.get(i));
+            restaurantList.get(i).setRtr_pic_loc(photoList.get(0).getRtr_pic_loc());
+        }
+
+        model.addAttribute("restaurantList", restaurantList);
+
+        if(restaurantList != null){
+            return "restaurant/searchRestaurant";
+        }
+
+        return "restaurant/searchRestaurant";
+    }
+
     @GetMapping("/restaurantInfo")
     public String restaurantInfo(RestaurantVO restaurantVO, Model model, String origin){
         System.out.println("RestaurantController 35line : " + restaurantVO.getResId());
@@ -38,7 +67,7 @@ public class RestaurantController {
         System.out.println("RestaurantController restaurantInfo() 38line 이름 : " + restaurantInfo.getResName() + "주소 : "+ restaurantInfo.getResAddr());
         List<MenuVO> restaurantMenu = restaurantService.restaurantMenu(restaurantVO.getResId());
         List<PhotoVO> photoList = mainService.res_photo(restaurantInfo);
-        String resstaurantPhoto = photoList.get(0).getRtr_pic_loc();
+        String restaurantPhoto = photoList.get(0).getRtr_pic_loc();
 //        List<PhotoVO> photoList= mainService.res_photo(restaurantInfo);
 //        for(PhotoVO photoVO : photoList){
 //            System.out.println("사진 주소 확인 : " + photoVO.getRtr_pic_loc());
@@ -47,7 +76,7 @@ public class RestaurantController {
         model.addAttribute("origin", origin);
         model.addAttribute("restaurantInfo",restaurantInfo);
         model.addAttribute("restaurantMenu", restaurantMenu);
-        model.addAttribute("resstaurantPhoto", resstaurantPhoto);
+        model.addAttribute("restaurantPhoto", restaurantPhoto);
         return "restaurant/restaurantInfo";
     }
 

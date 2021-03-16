@@ -9,4 +9,5 @@ public interface RestaurantService {
 
     RestaurantVO restaurantInfo(int resId);
     List<MenuVO> restaurantMenu(int resId);
+    List<RestaurantVO> searchRestaurant(String resKeyword);
 }
