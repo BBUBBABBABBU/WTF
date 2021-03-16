@@ -1,3 +1,5 @@
+import java.security.acl.Group
+
 plugins {
     id 'org.springframework.boot' version '2.4.3'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -36,7 +38,6 @@ dependencies {
 
     //websocket
     implementation 'org.springframework.boot:spring-boot-starter-websocket'
-
     // jstl 추가
     implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
     // mybatis 추가

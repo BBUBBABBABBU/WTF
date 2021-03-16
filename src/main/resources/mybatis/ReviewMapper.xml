@@ -5,20 +5,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="kosmo.orange.wtf.model.mapper.ReviewMapper">
 
-    <insert id="ReviewInsert" >
+    <select id="Photo" resultMap="getPhoto">
+        SELECT *
+        FROM restaurant_pic rp
+        WHERE res_id = #{resId} LIMIT 1;
+    </select>
+
+    <insert id="ReviewSave" >
         INSERT INTO review(review_id, member_id, res_id, rating_avg, rating_taste,
                            rating_service, rating_clean, rating_location, review_content,
-                           review_tag, pic_name, reccommend_count, charge_count)
+                           review_tag, pic_name, recommend_count, charge_count, res_tell)
                            VALUES (#{review_id},#{mem_id},#{res_id},#{avg},#{taste},
-                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0);                               )
+                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell});
     </insert>
 
-    <select id="ReviewInfo">
+    <select id="ReviewSel" resultMap="getReview">
+        SELECT * FROM review WHERE rev_id = #{rev_id};
+    </select>
+
+    <select id="ReviewInfo" resultMap="getReview">
         SELECT * FROM review WHERE rev_id =  #{rev_id};
     </select>
 
-    <select id="ReviewList">
-        SELECT * FROM review WHERE membe_idr =  #{member_id};
+    <select id="ReviewList" resultMap="getReview">
+        SELECT * FROM  review WHERE member_id = (SELECT member_id FROM follow_id WHERE member_id=#{member_id})
+         ORDER BY review_datetime DESC;
+    </select>
+
+
+
+    <select id="memNickname">
+        SELECT nickname FROM member WHERE member_id = #{member_id};
     </select>
 
     <resultMap id="getReview" type="ReviewVO">
@@ -33,9 +50,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="content" column="review_content"/>
         <result property="tag" column="review_tag"/>
         <result property="pic_loc" column="pic_name"/>
-        <result property="rec_count" column="reccommend_count"/>
-        <result property="cahrge_count" column="charge_count"/>
+        <result property="rec_count" column="recommend_count"/>
+        <result property="charge_count" column="charge_count"/>
+        <result property="res_tell" column="res_tell"/>
+    </resultMap>
 
+    <resultMap id="getPhoto" type="PhotoVO">
+        <result property="res_id" column="res_id"/>
+        <result property="rtr_pic_loc" column="rtr_pic_loc"/>
     </resultMap>
 
 </mapper>

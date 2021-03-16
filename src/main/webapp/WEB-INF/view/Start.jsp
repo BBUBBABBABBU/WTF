@@ -70,8 +70,6 @@
 
 <a href="../recommend"> 추천 화면 가기 </a>
 <a href="../join">회원가입 페이지</a>
-<a href="../review">리뷰 피드</a>
-<a href="../reviewinsert">리뷰작성</a>
 <a href="../mypage">마이페이지</a>
 <br/>
 <a href="../userChat">채팅페이지 확인</a>
