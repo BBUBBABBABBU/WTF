@@ -61,7 +61,7 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center" href="../Start.jsp"> <h2>니가 정말</h2></a>
-                                <form class="mt-5 mb-3 login-input" action="/login" method="post">
+                                <form class="mt-5 mb-3 login-input" action="/adminHome" method="post">
                                     <div class="form-group">
                                         <input type="hidden" name="mgr_id" value="${sessionScope.id}">
                                         <input type="password" class="form-control" placeholder="Password" required name="mgr_pass">

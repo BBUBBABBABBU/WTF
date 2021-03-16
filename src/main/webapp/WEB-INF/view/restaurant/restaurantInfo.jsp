@@ -79,15 +79,15 @@
 <main id="main">
     <div class="site-section">
         <%--<div class="container">--%>
-            <%--<div class="row mb-4 align-items-center">--%>
-                <%--<!-- <div class="col-md-6" data-aos="fade-up">--%>
+        <%--<div class="row mb-4 align-items-center">--%>
+        <%--<!-- <div class="col-md-6" data-aos="fade-up">--%>
 
-                  <%--<h2>Work Single Page</h2>--%>
-                  <%--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis--%>
-                    <%--explicabo inventore.</p>--%>
+        <%--<h2>Work Single Page</h2>--%>
+        <%--<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis--%>
+        <%--explicabo inventore.</p>--%>
 
-                <%--</div> -->--%>
-            <%--</div>--%>
+        <%--</div> -->--%>
+        <%--</div>--%>
         <%--</div>--%>
 
         <div class="site-section pb-0">
@@ -97,15 +97,15 @@
                         <img id = "restaurant_img" src=${restaurantPhoto} alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
-                        <div class="sticky-content" id = 'restaurant_info', name=${restaurantInfo.resId}>
-                            <h3 id ='restaurant_name' class="h3">${restaurantInfo.resName}</h3>
+                        <div class="sticky-content" id='restaurant_info' , name=${restaurantInfo.resId}>
+                            <h3 id='restaurant_name' class="h3">${restaurantInfo.resName}</h3>
                             <p class="mb-4"><span class="text-muted">평점 ${restaurantInfo.resRating}</span></p>
 
                             <div class="mb-5">
                                 <p>${restaurantInfo.resKeyword}</p><br/>
                                 <p>주소</p>
-                                <p id = 'restaurant_addr'>${restaurantInfo.resAddr}</p>
-                                <p id = 'restaurant_tel'>${restaurantInfo.resTell}</p>
+                                <p id='restaurant_addr'>${restaurantInfo.resAddr}</p>
+                                <p id='restaurant_tel'>${restaurantInfo.resTell}</p>
                             </div>
                             <h4 class="h4 mb-3">대표 메뉴</h4>
                             <ul class="list-unstyled list-line mb-5">
@@ -113,10 +113,8 @@
                                     <li>${restaurantMenu.menu} - ${restaurantMenu.price}</li>
                                 </c:forEach>
                             </ul>
-
-                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}" name="RestaurantVO" >리뷰작성하기<a>
-
-                            <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
+                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}" name="RestaurantVO" >리뷰작성하기</a>
+                                <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
                         </div>
                     </div>
                 </div>

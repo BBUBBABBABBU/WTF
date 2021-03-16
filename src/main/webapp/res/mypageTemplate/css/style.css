@@ -40,6 +40,12 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
+a.prime{
+  font-family: "Noto Sans KR";
+  font-color: #999999;
+}
+
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -49,7 +55,8 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 @-ms-viewport {
-  width: device-width; }
+  width: device-width;
+}
 
 article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
@@ -79,7 +86,10 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem; }
+  margin-bottom: 1rem;
+  font-family: "Noto Sans KR";
+
+}
 
 abbr[title],
 abbr[data-original-title] {
@@ -7283,7 +7293,7 @@ body {
       -o-transform: translateX(0);
       transform: translateX(0);
       width: 270px;
-      background: #fff;
+      background: #fcf9da;
       z-index: 999;
       position: fixed; }
     body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
@@ -7298,7 +7308,10 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #999999; }
+  font-family: "Noto Sans KR";
+  color: #000000DE; }
+
+
   a:hover, a:focus {
     text-decoration: none;
     color: #ffffff;
@@ -7329,7 +7342,7 @@ h1, h2, h3, h4, h5,
   right: 0;
   overflow-y: hidden;
   z-index: 1001;
-  background: rgba(0, 0, 0, 0.04);
+  background: #fcf9da;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -8002,13 +8015,17 @@ h1, h2, h3, h4, h5,
         color: #ccb78f; }
 
 .ftco-bread {
-  background: #ceccce !important;
-  padding: 4em 1.8em !important; }
+  background: #fcf9da!important;
+  padding: 4em 1.8em !important;
+
+}
   .ftco-bread .breadcrumbs {
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1px;
     margin-bottom: 10px;
+
+
     z-index: 99; }
     .ftco-bread .breadcrumbs span {
       border-bottom: 2px solid rgb(0, 0, 0);

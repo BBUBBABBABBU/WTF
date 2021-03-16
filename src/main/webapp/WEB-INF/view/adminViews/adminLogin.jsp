@@ -26,10 +26,42 @@
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
+    <style>
+        /*@font-face {*/
+            /*font-family: 'LotteMartHappy';*/
+            /*font-style: normal;*/
+            /*font-weight: 400;*/
+            /*src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff') format('woff');*/
+        /*}*/
+
+        /*@font-face {*/
+            /*font-family: 'LotteMartHappy';*/
+            /*font-style: normal;*/
+            /*font-weight: 700;*/
+            /*src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');*/
+        /*}*/
+
+        /*.lottemarthappy * {*/
+            /*font-family: 'LotteMartHappy', sans-serif;*/
+        /*}*/
+
+        @font-face {
+            font-family: 'Cafe24Ssukssuk';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .grgr * {
+            font-family: 'Cafe24Ssukssuk', Sans-Serif;
+        }
+
+    </style>
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript">
 
         /***********
@@ -37,6 +69,32 @@
          */
         function login(){
             $('#login').submit()
+        }
+
+
+        /********
+         * otp test
+         */
+        function chk() {
+            var ddd = $('#otp').val();
+
+            var sss = "${otpkey}";
+            alert("타냐?  입력값" + ddd + sss);
+
+            //query ={otp:$('#otp').val(), otpKey: ${otpkey}}
+            var query = { "otp":$('#otp').val(), "otpKey": "${otpkey}" };
+            $.ajax({
+                type:"post",
+                url:"otpProcess",
+                data:query,
+                //type:json, // json 으로 지정 안해도 알아서 넘어감
+                success:function(result){
+                    alert("타긴타ㅣㅁ!"  + result);
+                },error: function(){
+                    alert("통신실패!");
+                }
+            });
+
         }
 
     </script>
@@ -60,7 +118,15 @@
     ********************-->
 
 
-    <h1>dfgdfgdfgdfgdfgdfgdfgdf ${aaa}</h1>
+    <h1>dfgdfgdfgdfgdfgdfgdfgdf ${aaa}  <br>
+     얀랸알나ㅣ아ㅣ런ㅇㄹ otp!!!!! ${otpkey} <br> ${url}
+    </h1>
+
+    <input type="text" value="" id="otp"/>여기에 오티피를 입력
+    <input type="button" value="눌러" onclick="chk();" />
+
+
+
     <!--*******************
         login start
     ********************-->
@@ -73,8 +139,9 @@
                             <div class="card-body pt-5">
 
                                 <%--이름 클릭시 홈페이지로 이동--%>
-                                <a class="text-center" href="/">
-                                    <h2>니가 이걸 먹을줄은 정말로 몰랐어</h2>
+                                <a class="text-center grgr" href="/">
+                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                    <h2>${alert}</h2>
                                 </a>
 
                                 <%--로그인 폼--%>
@@ -85,20 +152,19 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
                                     </div>
-                                    <button class="btn login-form__btn submit w-100" onclick="login();">Sign In</button>
+                                    <button class="btn login-form__btn submit w-100 grgr" onclick="login();">
+                                        <h4><a style="color: #ffffff">니가 지금 일하러올줄은 정말로 몰랐어</a></h4>
+                                    </button>
 <%--                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                                 </form>
 
-                                <%--회원가입 페이지로 이동--%>
-                                <p class="mt-5 login-form__footer">Dont have account?
-                                    <a href="/moveToSignUp" class="text-primary">Sign Up</a>
-                                    now
-                                </p>
 
-                                <%--비번 찾기 페이지로 이동--%>
-                                <p class="mt-5 login-form__footer">비번까묵???
-                                    <a href="/findPw" class="text-primary">resetPw</a>
-                                    now
+                                <p class="mt-5 login-form__footer grgr">
+                                    <%--회원가입 페이지로 이동--%>
+                                    <a href="/moveToSignUp" class="text-primary">계정이 없다면 여기</a><br><br>
+
+                                    <%--비번 찾기 페이지로 이동--%>
+                                    <a href="/findPw" class="text-primary">비번을 까먹었다면 요기로</a>
                                 </p>
 
 

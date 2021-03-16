@@ -108,13 +108,13 @@
                         <div class="form-group">
                             <label for="title">제목</label>
                             <input type="text" class="form-control" id="title" name="qna_title"
-                                   value="${qna.qna_title}">
+                                   value="${qna.qna_title}" disabled>
                         </div>
 
                         <div class="form-group">
                             <label for="content">문의 내용</label>
                             <textarea name="qna_content" id="content" cols="30" rows="10"
-                                      class="form-control">${qna.qna_content}  ${qna.qna_id}</textarea>
+                                      class="form-control" disabled>${qna.qna_content} </textarea>
                         </div>
                     </form>
                 </div>
@@ -126,7 +126,7 @@
                         <div class="form-group">
                             <label for="reply">Reply ( 개발자 답변 )</label>
                             <textarea name="anw_content" id="reply" cols="30" rows="10"
-                                      class="form-control">${qna.anw_content}</textarea>
+                                      class="form-control" disabled>${qna.anw_content} </textarea>
                         </div>
                         <div class="form-group">
                             <input id = "delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">

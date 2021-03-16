@@ -75,12 +75,12 @@
                 <ul class="custom-menu">
                     <li><a href="/mypage">마이페이지</a></li>
                     <li><a href="/recommend">상세추천</a></li>
-                    <li><a href="about.html">피드</a></li>
+                    <li><a href="/review/feed">피드</a></li>
                     <li><a href="/memberLogout">로그아웃</a></li>
+                    <li><a href="/chat">채팅</a></li>
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
 

@@ -66,16 +66,14 @@
         </select>
     </form>
 </div>
-<img class="image" src="res/img/background_img/title02.jpg"/><br/><br/>
-<a href="../adminHome">관리자페이지로</a>
-<a href="../recommendTest">추천화면 테스트</a>
+<img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
+<a href="/adminLogin">관리자페이지로</a>
+<a href="/recommendTest">추천화면 테스트</a>
 
 <a href="../adminTest">관리자페이지 test</a>
 
 <a href="../recommend"> 추천 화면 가기 </a>
 <a href="../join">회원가입 페이지</a>
-<a href="../review">리뷰 피드</a>
-<a href="../reviewinsert">리뷰작성</a>
 <a href="../mypage">마이페이지</a>
 <br/>
 <a href="../userChat">채팅페이지 확인</a>
@@ -146,7 +144,7 @@
         <form id="login2" action="/memberLogin" class="input-group" method="post">
             <input type="email" name="email" id="loginEmail2" class="input-field2" placeholder="이메일을 입력하세요" required>
             <input type="text" name="birthday" id="loginPassword2" class="input-field2" placeholder="생일을 입력하세요(예 07/28)" required>
-            <button type="button" id="passSearch" class="submit">결과보기</button>
+            <button type="button" id="passSearch" class="submit">이메일로 임시비밀번호 보내기</button>
             <button type="button" class="submit" id ="goToLogin" onclick="show()">로그인하기</button>
         </form>
     </div>
@@ -167,7 +165,7 @@
             },
             success: function (res) {
                 if (res['check']) {
-                    alert("요기")
+
                     // swal("발송 완료!", "입력하신 이메일로 임시비밀번호가 발송되었습니다.", "success").then((OK) => {
                     //     if(OK) {
                             $.ajax({
@@ -178,13 +176,19 @@
                                     "userBirthday": userBirthday
                                 }
                             })
-                            window.location = "/login";
+                        url: "/";
+                        alert("입력하신 이메일로 임시 비밀번호가 전송되었습니다.")
+                        $("#goToLogin").click()
+                        $("#loginEmail").val($("#loginEmail2").val())
+                        $("#loginEmail2").val("")
+                        $("#loginPassword2").val("")
                 //         }
                 //     }
                 // )
                 //     $('#checkMsg').html('<p style="color:darkblue"></p>');
                 } else {
-                    $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
+                    // $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
+                    alert("일치하는 정보가 없습니다!")
                 }
             }
         })

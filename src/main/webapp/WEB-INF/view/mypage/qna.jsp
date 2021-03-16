@@ -48,8 +48,11 @@
             font-family: 'Nanum Gothic', sans-serif;
         } */
 
+
     </style>
 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/res/js/mypage/mypage.js/"></script>
 </head>
 <body>
 
@@ -109,7 +112,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="submit" value="문의 작성 완료" class="btn py-3 px-4 btn-primary">
+                            <input id = "insert_button" type="submit" value="문의 작성 완료" class="btn py-3 px-4 btn-primary">
                         </div>
 
                     </form>

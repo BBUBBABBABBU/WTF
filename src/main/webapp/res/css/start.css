@@ -5,7 +5,7 @@ body{
 }
 
 img.image{
-    margin-left: 50px;
+    margin-left: 70px;
 }
 
 #title01{
@@ -13,7 +13,7 @@ img.image{
 }
 
 #select_div{
-    margin-left: 50px;
+    margin-left: 70px;
     width:250px;
     height:50px;
     font-size:15px;
@@ -22,4 +22,21 @@ img.image{
 
 #none_selected{
     inherit: true
+}
+
+#select_kind{
+    margin-top: -15;
+    font-family: "Black Han Sans";
+    color: teal;
+    font-size: 90px;
+    border-radius: 15px;
+    background-color: transparent;
+    border-color: transparent;
+
+
+}
+
+.select_kind_list{
+    font-family: "Black Han Sans";
+    font-size: 34px;
 }

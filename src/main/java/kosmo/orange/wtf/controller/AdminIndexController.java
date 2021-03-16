@@ -1,5 +1,6 @@
 package kosmo.orange.wtf.controller;
 
+import kosmo.orange.wtf.model.vo.AdminBoardVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -115,12 +115,12 @@ public class AdminIndexController {
      * QnA / FAQ 페이지 이동 ..... 은 애들 확인하고 만들기
      * 일단 QnA / FAQ 메뉴 나눠놓기는 함 > 페이지는 아직 안 만들었음
      */
-    @GetMapping("adminQnA")
-    public String adminQnA() {
-        System.out.println("AdminIndexController.adminQnA");
-
-        return "adminViews/adminQnA";
-    }
+//    @GetMapping("adminQnA")
+//    public String adminQnA() {
+//        System.out.println("AdminIndexController.adminQnA");
+//
+//        return "adminViews/adminQnA";
+//    }
 
 
     /****************
@@ -221,16 +221,17 @@ public class AdminIndexController {
      * .. > Community > adminBoard.jsp
      */
     @GetMapping("board")
-    public String board() {
+    public String board(Model model) {
         System.out.println("AdminIndexController.board");
+
+        List<AdminBoardVO> adminBoardVOList = adminService.boardList();
+        System.out.println("adminBoardVOList.size() = " + adminBoardVOList.size());
+
+        model.addAttribute("adminBoardVOList", adminBoardVOList);
 
         return "adminViews/adminBoard";
 
     } // end of board
-
-
-
-
 
 
 
