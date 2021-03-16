@@ -14,75 +14,63 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% String nick=request.getParameter("kakaonickname");
 System.out.println(nick);%>
-<script>
-    function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-            results = regex.exec(location.search);
-        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-    }
-</script>
-<script>
-    function chkBirthDay(){
-    }
-    function chkPW(){
-
-        var pw = $("#pw").val();
-        var num = pw.search(/[0-9]/g);
-        var eng = pw.search(/[a-z]/ig);
-        var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-
-        if(pw.length < 8 || pw.length > 20){
-
-            alert("8자리 ~ 20자리 이내로 입력해주세요.");
-            $("#pw").val("");
-            return false;
-        }else if(pw.search(/\s/) != -1){
-            $("#pw").val("");
-            $("#pw").focus();
-            alert("비밀번호는 공백 없이 입력해주세요.");
-
-            return false;
-        }else if(num < 0 || eng < 0 || spe < 0 ){
-
-            alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
-            $("#pw").val("");
-            $("#pw").focus();
-            return false;
-        }else {
-            console.log("통과");
-            return true;
-        }
-
-    }
-    function checkPassword() {
-        //비밀번호가 입력되었는지 확인하기
-
-        //비밀번호와 비밀번호 확인이 맞지 않다면..
-        if ( $("#pwCheck").val() != $("#pw").val() & $("#pwCheck").val().length !=0) {
-            alert("비밀번호가 일치하지 않습니다.");
-            $("#pwCheck").val("");
-            $("#pwCheck").focus();
-            return false;
-        }else if ($("#pwCheck").val() == $("#pw").val() & $("#pwCheck").val().length !=0)
-            alert("비밀번호가 일치합니다.");
-
-        return true; //확인이 완료되었을 때
-
-    }
-
-</script>
+<link rel="stylesheet" type="text/css" href="res/css/memInfo.css">
 <html>
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <style >
+        .w3-center{ border-radius: 20px;
+            width: 300px;
+            align-items: center;
+        }
+        .w3-input{width: 350px;}
+        .i{position: relative;
+            left: 30%;
+            display: inline-block;
+            /* text-align: center; */
+            align-self: center;
+            align-content: center;
+            object-position: center;
+            align-items: center;
+        }
+        div.w3-container {
+            border-radius: 30px;
+        }
+        p.w3-center button.w3-button w3-block w3-black w3-ripple w3-margin-top w3-round{
+            background-color: #E8BE24;
+        }
+        p.w3-center #joinBtn{
+            background-color: #FFCD12;
+            border-radius: 4px;
+            display: block;
+            width: 100%;
+            transition: opacity 0s;
+            padding: 8px 16px;
+            vertical-align: middle;
+            overflow: hidden;
+            text-decoration: none;
+            color: white;
+            border: none;
+        }
+        p.w3-center #joinBtn:hover{
+            background-color:#EAEAEA ;
+        }
+        p.w3-center #joinBtn{
+        }
+        form#myForm p.w3-center     .w3-button:hover{
+            background-color: #E8BE24;
+        }
+        #myForm{
+        }
+
+    </style>
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <title>Title</title>
 
     <script>
         $(function(){
-
 
 
 
@@ -131,57 +119,77 @@ System.out.println(nick);%>
             }
 
     </script>
-    <style >
-        .w3-center{ border-radius: 20px;
-            width: 300px;
-            align-items: center;
+
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        };
+
+        function test() {
+            var ubirthday =   $("#birthday").val();
+
+
+            if (ubirthday.includes("-")) {
+                ubirthday = ubirthday.replace("-", "/");
+                $("#birthday").val(ubirthday);
+            } else {
+                ubirthday = ubirthday.replace(/(.{2})/g, "$1/");
+                $("#birthday").val(ubirthday.slice(0, -1));
+            }
+        };
+    </script>
+    <script>
+        function chkBirthDay(){
+        }
+        function chkPW(){
+
+            var pw = $("#pw").val();
+            var num = pw.search(/[0-9]/g);
+            var eng = pw.search(/[a-z]/ig);
+            var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+            if(pw.length < 8 || pw.length > 20){
+
+                alert("8자리 ~ 20자리 이내로 입력해주세요.");
+                $("#pw").val("");
+                $("#pwCheck").focus();
+
+            }else if(pw.search(/\s/) != -1){
+                alert("비밀번호는 공백 없이 입력해주세요.");
+                $("#pw").val("");
+                $("#pw").focus();
+
+            }else if(num < 0 || eng < 0 || spe < 0 ){
+                alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+                $("#pw").val("");
+                $("#pw").focus();
+            }else {
+                console.log("통과");
+                return true;
+            }
 
         }
-        .w3-input{width: 350px;}
-        .i{position: relative;
-            left: 30%;
-            display: inline-block;
-            /* text-align: center; */
-            align-self: center;
-            align-content: center;
-            object-position: center;
-            align-items: center;
+        function checkPassword() {
+            //비밀번호가 입력되었는지 확인하기
 
-        }
-        div.w3-container {
-            border-radius: 30px;
-        }
-        p.w3-center button.w3-button w3-block w3-black w3-ripple w3-margin-top w3-round{
-            background-color: #E8BE24;
-        }
-        p.w3-center #joinBtn{
-            background-color: #FFCD12;
-            border-radius: 4px;
-            display: block;
-            width: 100%;
-            transition: opacity 0s;
-            padding: 8px 16px;
-            vertical-align: middle;
-            overflow: hidden;
-            text-decoration: none;
-            color: white;
-            border: none;
-        }
-        p.w3-center #joinBtn:hover{
-            background-color:#EAEAEA ;
-        }
-        p.w3-center #joinBtn{
+            //비밀번호와 비밀번호 확인이 맞지 않다면..
+            if ( $("#pwCheck").val() != $("#pw").val() & $("#pwCheck").val().length !=0) {
+                alert("비밀번호가 일치하지 않습니다.");
+                $("#pwCheck").val("");
+                $("#pwCheck").focus();
+                return false;
+            }else if ($("#pwCheck").val() == $("#pw").val() & $("#pwCheck").val().length !=0)
+                alert("비밀번호가 일치합니다.");
 
-        }
-        form#myForm p.w3-center     .w3-button:hover{
-            background-color: #E8BE24;
-        }
-
-        #myForm{
+            return true; //확인이 완료되었을 때
 
         }
 
-    </style>
+    </script>
+
 
 </head>
 <body>
@@ -189,7 +197,7 @@ System.out.println(nick);%>
 <div class="w3-content w3-container w3-margin-top">
     <div class="w3-container w3-card-4">
         <div class="w3-center w3-large w3-margin-top">
-            <h3>회원가입</h3>
+            <h3 id="h3tag">회원가입</h3>
         </div>
         <div>
             <form id="myForm" name="myForm"  action="signUp" method="post" >
@@ -218,7 +226,7 @@ System.out.println(nick);%>
                     <input type="hidden" name="id" >
                     <p>
                         <label>생년월일 (예시> 0728 )</label>
-                        <input class="w3-input" id="birthday" name="birthday" type="text" value=""  required>
+                        <input class="w3-input" id="birthday" name="birthday" type="text" value="" onfocusout="birthChange()" required>
                     </p>
                     <p>
                         <label>성별</label>
@@ -229,7 +237,7 @@ System.out.println(nick);%>
                         </select>
 
                     </p>
-                    <p>
+                    <p id="favorPtag">
                         <label>당신의 취향</label>
                         <input type="radio" name="favor" value="한식">한식
                         <input type="radio" name="favor" value="중식">중식
@@ -248,6 +256,24 @@ System.out.println(nick);%>
         </div>
     </div>
 </div>
+<script>
+<%--일반 회원가입에서 생년월일 유효성--%>
+    function birthChange(){
+        var ubirthday = $("#birthday").val();
+        if (ubirthday.length < 5 ){
+            if (ubirthday.includes("-")){
+                ubirthday=(ubirthday.replace("-","/"))
+            }else {
+                ubirthday=(ubirthday.replace(/(.{2})/g,"$1/").slice(0,-1))
+            }
+            $("#birthday").val(ubirthday)
+        }else {
+            {$("#birthday").val("")
+                $("#birthday").focus()}
+                alert("4자 이하로 입력해주세요")
+        }
+    }
+</script>
 <script type="text/javascript">
 
     var naver_id_login = new naver_id_login("xgIAqtm_DJEQkFLVejnq", "http://localhost:8080/Info");
@@ -276,8 +302,12 @@ System.out.println(nick);%>
 
     var ubirthday = getParameterByName('birthday');
     if (ubirthday.includes("-")){
-       ubirthday=ubirthday.replace("-","")
+       ubirthday=ubirthday.replace("-","/")
+    }else {
+        ubirthday=ubirthday.replace(/(.{2})/g,"$1/").slice(0,-1)
     }
+
+
 
     if (uEmail.length!=0) {
         $("#email").attr('value', uEmail);
