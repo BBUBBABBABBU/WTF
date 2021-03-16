@@ -42,43 +42,34 @@
 "></script>
 </head>
 <body>
-
+<br/>
 <nav class="navbar navbar-light custom-navbar">
+    <div class="container" id = "header_container">
+        <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+    </div>
+</nav>
+<nav class="navbar navbar-light custom-navbar2">
     <div class="container">
-        <a class="navbar-brand" href="/">네가 이걸 먹을줄은 정말 몰랐어</a>
-
+        <form action="/restaurant/searchRestaurant" method="get">
+            <input type="text" name="resKeyword" placeholder="검색" size='65'>
+            <input type="submit" class="btn btn-info" value="검색">
+        </form>
         <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
         </a>
-
     </div>
 </nav>
 <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
     <div class="container py-2 py-md-5">
         <div class="row align-items-start">
-            <div class="col-md-2">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
                 <ul class="custom-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li class="active"><a href="works.html">Works</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
+                    <li><a href="/recommend">상세추천</a></li>
+                    <li><a href="about.html">피드</a></li>
+                    <li><a href="/memberLogout">로그아웃</a></li>
                 </ul>
-            </div>
-            <div class="col-md-6 d-none d-md-block  mr-auto">
-                <div class="tweet d-flex">
-                    <span class="icofont-twitter text-white mt-2 mr-3"></span>
-                    <div>
-                        <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
-                            ut
-                            officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-none d-md-block">
-                <h3>Hire Me</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                    explicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>
             </div>
         </div>
 
@@ -103,7 +94,7 @@
             <div class="container">
                 <div class="row align-items-stretch">
                     <div class="col-md-8" data-aos="fade-up">
-                        <img id = "restaurant_img" src=${resstaurantPhoto} alt="Image" class="img-fluid">
+                        <img id = "restaurant_img" src=${restaurantPhoto} alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
                         <div class="sticky-content" id = 'restaurant_info', name=${restaurantInfo.resId}>
@@ -137,7 +128,8 @@
             <div class="container">
                 <div class="row mb-5 align-items-center">
                     <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                        <h2>현 위치(지도)</h2>
+                        <br/>
+                        <input type="hidden" id="marker_restaurantImg" value="${restaurantPhoto}"/>
                         <div id="restaurant_map" style="width: 1110px; height: 400px;"></div>
                         <div class="custom_zoomcontrol radius_border">
                         </div>

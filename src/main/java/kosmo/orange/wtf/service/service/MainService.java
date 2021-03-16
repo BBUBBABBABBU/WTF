@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface MainService {
 //    List<RestaurantVO> checkRestaurant(String kind);
-    List<RestaurantVO> checkRestaurant();
+    List<RestaurantVO> checkRestaurant(String foodKind);
     List<PhotoVO> res_photo(RestaurantVO vo);
     List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO);
 }

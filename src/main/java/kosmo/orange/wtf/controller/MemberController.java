@@ -112,11 +112,11 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/memberLogin", method = RequestMethod.POST)
-    public String memberLogin( String kind,MemberVO memberVO, Model model){
+    public String memberLogin(String foodKind,MemberVO memberVO, Model model){
         MemberVO result=memberService.memberLogin(memberVO);
 
 
-            model.addAttribute("kind",kind);
+            model.addAttribute("foodKind",foodKind);
             if (result!=null) {
                 session.setAttribute("status","success");
                 session.setAttribute("member",result);
@@ -131,25 +131,6 @@ public class MemberController {
                 System.out.println("비밀번호 불일치");
             }
             if (check) {
-                List<RestaurantVO> restaurantList = mainService.checkRestaurant();
-                List<String> photoList = new ArrayList<>();
-                for(int i=0; i< restaurantList.size(); i++){
-                    List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
-                    try {
-                        photoList.add((String) temp.get(0).getRtr_pic_loc());
-
-
-                    }catch (Exception e){
-
-                        photoList.add("/res/img/ing.jpg");
-
-                    }
-
-                }
-                model.addAttribute("restaurantList",restaurantList);
-                model.addAttribute("photoList", photoList);
-//                MemberVO test=(MemberVO) session.getAttribute("member");
-                System.out.println("확인4");
                 return "redirect: /";
             }
             else {
@@ -180,7 +161,7 @@ public class MemberController {
     //등록된 이메일로 임시비밀번호를 발송하고 발송된 임시비밀번호로 사용자의 pw를 변경하는 컨트롤러
     @PostMapping("/check/findPw/sendEmail")
     @ResponseBody
-    public  void sendEmail(String userEmail, String userBirthday){
+    public  void sendEmail(String userEmail, String userBirthday) {
 
         MemberMailVO dto = sendEmailService.createMailAndChangePassword(userEmail, userBirthday);
         System.out.println(dto.getMessage());
@@ -188,7 +169,13 @@ public class MemberController {
 
     }
 
-
+    @RequestMapping("memberLogout")
+    public String memberLogout(){
+        System.out.println("로그아웃");
+        session.removeAttribute("member");
+        session.removeAttribute("status");
+        return "redirect: /";
+    }
 
 
 }

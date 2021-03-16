@@ -66,41 +66,32 @@
 <body>
 <br/>
 <nav class="navbar navbar-light custom-navbar">
-    <div class="container">
+    <div class="container" id = "header_container">
         <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+    </div>
+</nav>
+<nav class="navbar navbar-light custom-navbar2">
+    <div class="container">
+        <form action="/restaurant/searchRestaurant" method="get">
+            <input type="text" name="resKeyword" placeholder="검색" size='65'>
+            <input type="submit" class="btn btn-info" value="검색">
+        </form>
         <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
             <span></span>
         </a>
-
     </div>
 </nav>
-
 <div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
     <div class="container py-2 py-md-5">
         <div class="row align-items-start">
-            <div class="col-md-2">
+            <div class="col-md-9"></div>
+            <div class="col-md-3">
                 <ul class="custom-menu">
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Me</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="works.html">Works</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/mypage">마이페이지</a></li>
+                    <li><a href="/recommend">상세추천</a></li>
+                    <li><a href="about.html">피드</a></li>
+                    <li><a href="/memberLogout">로그아웃</a></li>
                 </ul>
-            </div>
-            <div class="col-md-6 d-none d-md-block  mr-auto">
-                <div class="tweet d-flex">
-                    <span class="icofont-twitter text-white mt-2 mr-3"></span>
-                    <div>
-                        <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
-                            ut
-                            officiis explicabo inventore. <br> <a href="#">t.co/v82jsk</a></em></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 d-none d-md-block">
-                <h3>Hire Me</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt ut officiis
-                    explicabo inventore. <br> <a href="#">myemail@gmail.com</a></p>
             </div>
         </div>
 

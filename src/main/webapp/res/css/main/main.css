@@ -59,4 +59,12 @@ h6,
 .font-heading {
     font-family: 'Black Han Sans', sans-serif;
 }
+
+
+#marker_restaurantImg{
+    background-repeat: no-repeat;
+    background-size: cover;
+    wdith :73px;
+    height: 71px;
+}
 /*추가한 css 끝*/

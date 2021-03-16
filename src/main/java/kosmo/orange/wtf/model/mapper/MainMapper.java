@@ -12,7 +12,7 @@ import java.util.List;
 @Mapper
 public interface MainMapper {
 //    List<RestaurantVO> checkRestaurant(String kind) throws Exception;
-    List<RestaurantVO> checkRestaurant() throws Exception;
+    List<RestaurantVO> checkRestaurant(String foodKind) throws Exception;
     //식당 사진
     List<PhotoVO> res_photo(RestaurantVO vo) throws Exception;
 

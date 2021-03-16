@@ -29,7 +29,7 @@ let marker = new kakao.maps.Marker({
     position: new kakao.maps.LatLng(locationList[0], locationList[1])
 });
 
-// 커스텀 오버레이에 표시할 컨텐츠 
+// 커스텀 오버레이에 표시할 컨텐츠
 let content = '<div class="wrap">' +
     '    <div class="info">' +
     '        <div class="title">' +
@@ -38,7 +38,7 @@ let content = '<div class="wrap">' +
     '        </div>' +
     '        <div class="body">' +
     '            <div class="img">' +
-    '                <img src="https://cfile181.uf.daum.net/image/250649365602043421936D" width="73" height="70">' +
+    '                <img src='+$('#marker_restaurantImg').val()+' width="73" height="70">' +
     '           </div>' +
     '            <div class="desc">' +
     '                <div class="ellipsis">'+ $('#restaurant_addr').text() +'</div>' +
