@@ -15,6 +15,15 @@
 <% String nick=request.getParameter("kakaonickname");
 System.out.println(nick);%>
 <link rel="stylesheet" type="text/css" href="res/css/memInfo.css">
+<script>
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+    }
+</script>
+
 <html>
 <head>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" type="text/css">
