@@ -72,91 +72,78 @@
     ***********************************-->
     <div class="content-body">
 
-        <div class="content-body">
-
-            <div class="row page-titles mx-0">
-                <div class="col p-md-0">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
-                    </ol>
-                </div>
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>
+                </ol>
             </div>
-            <!-- row -->
+        </div>
+        <!-- row -->
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">유저 QnA 관리</h4>
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered zero-configuration">
-                                        <thead>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">유저 QnA 관리</h4>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered zero-configuration">
+                                    <thead>
+                                    <tr>
+                                        <th>문의번호</th>
+                                        <th>이메일ID</th>
+                                        <th>제목</th>
+                                        <th>등록일자</th>
+                                        <th>답변여부</th>
+                                        <%--<th>Salary</th>--%>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    <%--<% List<QnaVO> temp=(List<QnaVO>)request.getAttribute("adminqnaList"); %>--%>
+                                    <%--<tr>--%>
+                                       <%--<td><%= temp.get(0).getQna_id() %></td>--%>
+                                    <%--</tr>--%>
+
+                                    <c:forEach items="${adminqnaList}" var="admin_qna_list">
+
                                         <tr>
-                                            <th>문의번호</th>
-                                            <th>이메일ID</th>
-                                            <th>제목</th>
-                                            <th>등록일자</th>
-                                            <th>답변여부</th>
-                                            <%--<th>Salary</th>--%>
+                                            <td>${admin_qna_list.qna_id }</td>
+                                            <td align="left"><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.member_id }</a></td>
+
+                                            <%--adminQnadetail 들어갈시에 122라인 지우고 위에꺼 주석해제--%>
+                                            <%--<td> ${admin_qna_list.member_id }</td>--%>
+
+                                            <td>${admin_qna_list.qna_title} </td>
+                                            <td>${admin_qna_list.qna_date}</td>
+                                            <td>${admin_qna_list.anw_check}</td>
+
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </c:forEach>
 
-
-                                        <%--<% List<QnaVO> temp=(List<QnaVO>)request.getAttribute("adminqnaList"); %>--%>
-                                        <%--<tr>--%>
-                                           <%--<td><%= temp.get(0).getQna_id() %></td>--%>
-                                        <%--</tr>--%>
-
-                                        <c:forEach items="${adminqnaList}" var="admin_qna_list">
-
-                                            <tr>
-                                                <td>${admin_qna_list.qna_id }</td>
-                                                <td align="left"><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
-                                                        ${admin_qna_list.member_id }</a></td>
-
-                                                <%--adminQnadetail 들어갈시에 122라인 지우고 위에꺼 주석해제--%>
-                                                <%--<td> ${admin_qna_list.member_id }</td>--%>
-
-                                                <td>${admin_qna_list.qna_title} </td>
-                                                <td>${admin_qna_list.qna_date}</td>
-                                                <td>${admin_qna_list.anw_check}</td>
-
-                                            </tr>
-                                        </c:forEach>
-
-                                        </tbody>
-                                        <%--<tfoot>--%>
-                                        <%--<tr>--%>
-                                            <%--<th>Name</th>--%>
-                                            <%--<th>Position</th>--%>
-                                            <%--<th>Office</th>--%>
-                                            <%--<th>Age</th>--%>
-                                            <%--<th>Start date</th>--%>
-                                            <%--<th>Salary</th>--%>
-                                        <%--</tr>--%>
-                                        <%--</tfoot>--%>
-                                    </table>
-                                </div>
+                                    </tbody>
+                                    <%--<tfoot>--%>
+                                    <%--<tr>--%>
+                                        <%--<th>Name</th>--%>
+                                        <%--<th>Position</th>--%>
+                                        <%--<th>Office</th>--%>
+                                        <%--<th>Age</th>--%>
+                                        <%--<th>Start date</th>--%>
+                                        <%--<th>Salary</th>--%>
+                                    <%--</tr>--%>
+                                    <%--</tfoot>--%>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- #/ container -->
         </div>
-
-
-
-
-
-
-
-
-
-
+        <!-- #/ container -->
 
     </div>
     <!--**********************************
