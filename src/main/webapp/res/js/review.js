@@ -24,3 +24,5 @@ function handleImgsFilesSelect(e){
         reader.readAsDataURL(f);
     });
 }
+
+

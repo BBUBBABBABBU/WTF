@@ -1,5 +1,6 @@
 package kosmo.orange.wtf.model.mapper;
 
+import kosmo.orange.wtf.model.vo.AdminBoardVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
@@ -33,7 +34,19 @@ public interface AdminMapper {
     /******************
      * 로그인
      */
-    List<AdminVO> adminLogin(String id);
+    List<AdminVO> login(String id);
+
+
+    /***************
+     * otp 키 값 DB에 업데이트
+     */
+    int otpSaveDB(AdminVO adminVO);
+
+
+    /**************
+     * db 의 otp 값과 입력된 otp 값 비교
+     */
+    AdminVO otpCheck(String id);
 
 
     /*********************
@@ -46,6 +59,24 @@ public interface AdminMapper {
      * 비번 초기화 누르고 id / name 확인 되고 임시 pw 생긴거로 업뎃
      */
     int updatePw(AdminVO adminVO);
+
+
+    /*******************
+     * 대시보드의 전체 '회원' 수
+     */
+    int totalUserCount();
+
+
+    /*******************
+     * 대시보드의 전체 '가게' 수
+     */
+    int totalStoreCount();
+
+
+    /*******************
+     * 대시보드의 전체 '리뷰' 수
+     */
+    int totalReviewCount();
 
 
     // ==========================================================
@@ -66,4 +97,36 @@ public interface AdminMapper {
      * 관리자 (manager) 리스트 불러오기
      */
     List<AdminVO> managerList();
+
+
+    /*******************
+     * 관리자 익게 리스트 가져오기
+     */
+    List<AdminBoardVO> boardList();
+
+
+
+
+    // ==========================================================
+
+    /*****************
+     * 익게 게시글 저장
+     */
+    int saveArticle(AdminBoardVO adminBoardVO);
+
+
+    /***************
+     * 익게 게시글 수정
+     */
+    int updateArticle(int id);
+
+
+    /**************
+     * 익게 게시글 불러오기
+     */
+    List<AdminBoardVO> boardDetail(int board_id);
+
+
+
+
 }

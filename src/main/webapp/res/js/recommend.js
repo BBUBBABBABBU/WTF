@@ -23,7 +23,7 @@ $(function () {
                 dataType: "json",
                 data: {
                     cate: cate,
-                    table : "res_recommend_test"
+                    table : "res_recommend_matrix_decomposition"
                 },
                 success: (data) => {
                     res_allList = data.res_allList;
@@ -34,7 +34,7 @@ $(function () {
                     for (let i = 0; i < 12; i++) {
                         // let content =$('<div>'+i+'</div>')
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
-                            '<a id = "a_img" href="work-single.html" class="item-wrap fancybox">' +
+                            '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom1" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
                             '<h3>Cocooil</h3>' +
                             '<span>Branding</span>' +
@@ -88,7 +88,7 @@ $(function () {
                 dataType: "json",
                 data: {
                     cate: cate,
-                    table : "res_recommend_test2"
+                    table : "res_recommend_cosine_similarity"
                 },
                 success: (data) => {
                     res_allList = data.res_allList;
@@ -99,7 +99,7 @@ $(function () {
                     for (let i = 0; i < 12; i++) {
                         // let content =$('<div>'+i+'</div>')
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
-                            '<a id = "a_img" href="work-single.html" class="item-wrap fancybox">' +
+                            '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom2" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
                             '<h3>Cocooil</h3>' +
                             '<span>Branding</span>' +
@@ -153,7 +153,7 @@ $(function () {
                 dataType: "json",
                 data: {
                     cate: cate,
-                    table : "res_recommend_test3"
+                    table : "res_recommend_svd"
                 },
                 success: (data) => {
                     res_allList = data.res_allList;
@@ -164,7 +164,7 @@ $(function () {
                     for (let i = 0; i < 12; i++) {
                         // let content =$('<div>'+i+'</div>')
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
-                            '<a id = "a_img" href="work-single.html" class="item-wrap fancybox">' +
+                            '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom3" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
                             '<h3>Cocooil</h3>' +
                             '<span>Branding</span>' +

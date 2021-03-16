@@ -47,7 +47,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@700&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         .bread{
-            font-family: 'Nanum Gothic', sans-serif;
+            font-family: 'Black Han Sans',sans-serif;
         }
         .colorlib-logo{
             font-family: 'Nanum Gothic', sans-serif;
@@ -55,9 +55,7 @@
         /* .breadcrumbs{
             font-family: 'Nanum Gothic', sans-serif;
         } */
-
-
-
+        
 
         .answer {
             display: none;
@@ -106,7 +104,7 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/small_logo.png);"></span>[ My Page ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/small_logo.png);"></span>[ 마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <li class="colorlib-active"><a href="/mypage">홈</a></li>
@@ -124,8 +122,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span> <span>문의사항</span></p>
-                        <h1 class="bread">문의사항(Q&A / FAQ)</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지</a></span> <span>문의사항</span></p>
+                        <h1 class="bread">문의사항 (Q&A / FAQ)</h1>
                     </div>
                 </div>
             </div>

@@ -40,7 +40,7 @@
 </head>
 <body>
 
-    <!--*******************
+    <!--*******************F
         Preloader start
     ********************-->
     <div id="preloader">
@@ -83,9 +83,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-1">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Products Sold</h3>
+                                <h3 class="card-title text-white">가게 수</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">4565</h2>
+                                    <h2 class="text-white">${store}</h2>
                                     <p class="text-white mb-0">Jan - March 2019</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-shopping-cart"></i></span>
@@ -107,9 +107,9 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-3">
                             <div class="card-body">
-                                <h3 class="card-title text-white">New Customers</h3>
+                                <h3 class="card-title text-white">전체 회원 수</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">4565</h2>
+                                    <h2 class="text-white">${user}</h2>
                                     <p class="text-white mb-0">Jan - March 2019</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-users"></i></span>
@@ -119,10 +119,10 @@
                     <div class="col-lg-3 col-sm-6">
                         <div class="card gradient-4">
                             <div class="card-body">
-                                <h3 class="card-title text-white">Customer Satisfaction</h3>
+                                <h3 class="card-title text-white">전체 리뷰 수</h3>
                                 <div class="d-inline-block">
-                                    <h2 class="text-white">99%</h2>
-                                    <p class="text-white mb-0">Jan - March 2019</p>
+                                    <h2 class="text-white">${review}</h2>
+                                    <p class="text-white mb-0">어제는 몇개였는지</p>
                                 </div>
                                 <span class="float-right display-5 opacity-5"><i class="fa fa-heart"></i></span>
                             </div>

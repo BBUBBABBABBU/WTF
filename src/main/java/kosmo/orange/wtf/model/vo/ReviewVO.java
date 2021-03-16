@@ -21,4 +21,5 @@ public class ReviewVO {
     private String pic_loc;
     private int rec_count;
     private int charge_count;
+    private int res_tell;
 }

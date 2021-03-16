@@ -124,6 +124,7 @@
 
 				<tr>
 					<td>${qna.qna_id }</td>
+
 					<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">
 							${qna.member_id }</a></td>
 					<td>${qna.qna_title} </td>

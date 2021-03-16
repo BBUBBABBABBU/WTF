@@ -4,10 +4,6 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
 
 @Data
 @Setter
@@ -19,6 +15,7 @@ public class AdminVO {
     private String mgr_name;
     private String mgr_id;
     private String mgr_pass;
+    private String mgr_key;
 
 //    private boolean isAccountNonExpired;
 //    private boolean isAccountNonLocked;

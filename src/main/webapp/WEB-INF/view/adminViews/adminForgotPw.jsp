@@ -25,6 +25,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Cafe24Ssukssuk';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .grgr * {
+            font-family: 'Cafe24Ssukssuk', Sans-Serif;
+        }
+    </style>
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
@@ -79,7 +91,11 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center" href="adminIndex.html"> <h2>니가 정말</h2></a>
+                                <a class="text-center grgr" href="/">
+                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                </a>
+
+                                <%--id랑 name 입력하는 form--%>
                                 <form class="mt-5 mb-3 login-input" action="resetPw">
 
                                     <%--id--%>
@@ -92,8 +108,14 @@
                                         <input type="text" class="form-control" placeholder="name" required id="mgr_name" name="mgr_name">
                                     </div>
 
-                                    <button class="btn login-form__btn submit w-100">Reset Password</button>
-                                    <p class="mt-5 login-form__footer">Do you remember password? <a href="/adminHome" class="text-primary">Login</a> now</p>
+                                    <button class="btn login-form__btn submit w-100 grgr">
+                                        <h4><a style="color: #fff">메일로 비번 보내줄줄은 몰랐어</a></h4>
+                                    </button>
+
+                                    <p class="mt-5 login-form__footer grgr">
+                                        <a href="/adminLogin" class="text-primary">비번 기억이 났다면 여기로</a>
+                                    </p>
+
                                 </form>
                             </div>
                         </div>

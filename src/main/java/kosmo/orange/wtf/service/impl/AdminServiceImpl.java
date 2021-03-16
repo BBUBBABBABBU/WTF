@@ -1,14 +1,12 @@
 package kosmo.orange.wtf.service.impl;
 
 import kosmo.orange.wtf.model.mapper.AdminMapper;
+import kosmo.orange.wtf.model.vo.AdminBoardVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +21,11 @@ public class AdminServiceImpl implements AdminService {
 
     @Autowired
     PasswordEncoder passwordEncoder;
+
+
+    // ************************************
+    //  AdminEnterController 관련
+    // ************************************
 
     /******************
      * 회원가입
@@ -92,24 +95,105 @@ public class AdminServiceImpl implements AdminService {
      * 로그인
      */
     @Override
-    public AdminVO adminLogin(String id, String pass) {
-        System.out.println("AdminServiceImpl.adminLogin - " + "id : " + id);
+    public AdminVO login(String id, String pass) {
+        System.out.println("AdminServiceImpl.login - " + "id : " + id);
 
 //        AdminVO adminVO = new AdminVO();
-        List<AdminVO> managerList = adminMapper.adminLogin(id);
-        System.out.println("AdminServiceImpl.adminLogin - managerList = " + managerList);
+        List<AdminVO> managerList = adminMapper.login(id);
+        System.out.println("AdminServiceImpl.login - managerList = " + managerList);
 
         AdminVO tempVO = managerList.get(0);
-        System.out.println("AdminServiceImpl.adminLogin - adminVO = " + tempVO);
+        System.out.println("AdminServiceImpl.login - adminVO = " + tempVO);
 
 
         return tempVO;
 
-    } // end of adminLogin
+    } // end of login
+
+
+    /*****************
+     * otp DB에 저장
+     */
+    @Override
+    public int otpSaveDB(AdminVO adminVO) {
+        System.out.println("AdminServiceImpl.otpSaveDB");
+        System.out.println("adminVO = " + adminVO);
+
+        int result = adminMapper.otpSaveDB(adminVO);
+
+        return result;
+
+    } // end of otpSaveDB
+
+
+    /******************
+     * otp DB의 키 값과 입력돤 값 비교
+     */
+    @Override
+    public String otpCheck(String id) {
+        System.out.println("AdminServiceImpl.otpCheck");
+
+        AdminVO adminVO = adminMapper.otpCheck(id);
+        System.out.println("adminVO = " + adminVO);
+
+        String result = adminVO.getMgr_key();
+        System.out.println("result = " + result);
+
+        return result;
+
+    } // end of otpCheck
+
+
+    /**********************
+     * 대시보드의 전체 '회원' 수 (adminIndex)
+     */
+    @Override
+    public int totalUserCount() {
+        System.out.println("AdminServiceImpl.totalUserCount");
+
+        int result = adminMapper.totalUserCount();
+        System.out.println("result = " + result);
+
+        return result;
+
+    } // end of totalUserCount
+
+
+    /**********************
+     * 대시보드의 전체 '가게' 수 (adminIndex)
+     */
+    @Override
+    public int totalStoreCount() {
+        System.out.println("AdminServiceImpl.totalStoreCount");
+
+        int result = adminMapper.totalStoreCount();
+        System.out.println("result = " + result);
+
+        return result;
+
+    } // end of totalStoreCount
+
+
+    /**********************
+     * 대시보드의 전체 '리뷰' 수 (adminIndex)
+     */
+    @Override
+    public int totalReviewCount() {
+        System.out.println("AdminServiceImpl.totalReviewCount");
+
+        int result = adminMapper.totalReviewCount();
+        System.out.println("result = " + result);
+
+        return result;
+
+    } // end of totalReviewCount
 
 
 
-    // ============================================
+    // ========================================================================
+    // ************************************
+    //  AdminIndexController 관련
+    // ************************************
 
     /****************
      * 유저 목록 불러오기
@@ -147,6 +231,22 @@ public class AdminServiceImpl implements AdminService {
     } // end of managerList
 
 
+    /****************************
+     * 관리자 게시판 리스트 불러오기 (익게)
+     */
+    @Override
+    public List<AdminBoardVO> boardList() {
+        System.out.println("AdminServiceImpl.boardList");
+
+        return adminMapper.boardList();
+
+    } // end of boardList
+
+
+    /***************************
+     * 스프링 시큐리티에 도전
+     * 하다가 실패한 흔적임
+     */
 //    @Override
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //
@@ -163,5 +263,79 @@ public class AdminServiceImpl implements AdminService {
 //        return (AdminVO) adminMapper.adminLogin(username);
 //
 //    }
+
+
+
+
+
+
+    // ========================================================================
+    // ************************************
+    //  AdminManagerController 관련
+    // ************************************
+
+    /******************
+     * 익명 게시판 글 상세보기
+     */
+    @Override
+    public AdminBoardVO boardDetail(int board_id) {
+        System.out.println("AdminServiceImpl.boardDetail");
+        System.out.println("board_id = " + board_id);
+        System.out.println("284");
+
+        List<AdminBoardVO> tempVO = adminMapper.boardDetail(board_id);
+        System.out.println("tempVO = " + tempVO.size());
+
+        AdminBoardVO adminBoardVO = tempVO.get(0);
+        System.out.println("adminBoardVO = " + adminBoardVO);
+
+        return adminBoardVO;
+
+    } // end of boardDetail
+
+
+    /***********************
+     * 익명 게시판 글 저장
+     */
+    @Override
+    public int saveArticle(AdminBoardVO adminBoardVO) {
+        System.out.println("AdminServiceImpl.saveArticle");
+
+        int result = adminMapper.saveArticle(adminBoardVO);
+        System.out.println("AdminServiceImpl.saveArticle : result = " + result);
+
+        return result;
+
+    } // end of saveArticle
+
+
+    /*********************
+     * 익명 게시판 글 수정
+     */
+    @Override
+    public void updateArticle() {
+        System.out.println("AdminServiceImpl.updateArticle");
+
+    } // end of updateArticle
+
+
+    /**********************
+     * 익명 게시판 글 삭제
+     */
+    @Override
+    public void deleteArticle() {
+        System.out.println("AdminServiceImpl.deleteArticle");
+
+    } // end of deleteArticle
+
+
+
+
+
+
+
+
+
+
 
 }
