@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%
     String num = request.getParameter("num");
@@ -34,6 +35,7 @@
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
+
         $(document).ready(function () {
             alert("ready?")
 
@@ -47,7 +49,18 @@
                 location.href = "/boardDetail?board_id="+articleNo;
 
             });
+            setTimeout(function() {
+
+                $('.sooort').removeClass('sorting_asc')
+                $('.sooort').addClass('sorting');
+
+                $('.down').addClass('sorting_desc');
+                $('.down').removeClass('sorting');
+
+            }, 500);
+
         });
+
     </script>
 
 </head>
@@ -112,10 +125,10 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
-                                            <th>글번호</th>
+                                            <th class="sooort">글번호</th>
                                             <th>제목</th>
                                             <th>작성자</th>
-                                            <th>등록일</th>
+                                            <th class="down">등록일</th>
                                             <th>최종수정일</th>
                                             <th>조회수</th>
                                         </tr>
@@ -138,8 +151,8 @@
                                                     <td>${adminBoardVOList.board_id}</td>
                                                     <td>${adminBoardVOList.board_title}</td>
                                                     <td>${adminBoardVOList.board_writer}</td>
-                                                    <td>${adminBoardVOList.board_enterdate}</td>
-                                                    <td>${adminBoardVOList.board_modifydate}</td>
+                                                    <td>${fn:substring(adminBoardVOList.board_enterdate, 0, 19)}</td>
+                                                    <td>${fn:substring(adminBoardVOList.board_modifydate, 0, 19)}</td>
                                                     <td>${adminBoardVOList.board_viewcount}</td>
                                                 </tr>
                                             <%--</a/>--%>

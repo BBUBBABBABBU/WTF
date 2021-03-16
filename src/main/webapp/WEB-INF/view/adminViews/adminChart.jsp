@@ -1,16 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: kosmo_10
-  Date: 2021-03-15
-  Time: 10:15
+  Date: 2021-03-16
+  Time: 16:04
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
-    <title>adminBoardDetail.jsp / 글 상세 보여주는 페이지</title>
+    <title>Title</title>
 
     <%--meta tag--%>
     <meta charset="utf-8">
@@ -19,10 +18,9 @@
 
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
-    <!-- Favicon icon -->
+
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <!-- Custom Stylesheet -->
-    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/summernote/dist/summernote.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
     <%--js--%>
@@ -62,7 +60,6 @@
         <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 
 
-
         <!--**********************************
             Content body start
         ***********************************-->
@@ -80,42 +77,52 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-
-                                <%--게시글 폼*********************--%>
-                                <%--<div class="form-group">--%>
-                                <form name="frm" method="post" id="boardForm" action="/boardAction">
-                                    <input type="hidden" name="sep" value="" id="sep">
-                                    <input type="text" class="form-control input-default" placeholder="제목" name="board_title" readonly value="${adminBoardVO.board_title}"><br>
-                                    <%--</div>--%>
-                                    <%--<div class="basic-form">--%>
-                                    <%--<form>--%>
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" class="form-control" placeholder="닉네임" name="board_writer" readonly value="${adminBoardVO.board_writer}">
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" class="form-control" placeholder="비밀번호" name="board_pw">
-                                        </div>
-                                    </div><br>
-                                    <%--</form>--%>
-                                    <%--</div>--%>
-                                    <textarea name="content" style="display: none;"></textarea>
-                                    <div id="" class="">${adminBoardVO.board_content}</div><br>
-                                </form>
-
-                                <div class="outline-button">
-                                    <button type="button" class="btn mb-1 btn-outline-success" onclick="formCheck('i');" id="save">저장</button>
-                                    <button type="button" class="btn mb-1 btn-outline-primary" onclick="articleUpdate('u');" id="update">수정</button>
-                                    <button type="button" class="btn mb-1 btn-outline-danger" onclick="articleUpdate('d');" id="delete">삭제</button>
-                                </div>
-
+                                <h4 class="card-title">Donut Chart</h4>
+                                <div id="morris-donut-chart"></div>
                             </div>
-
-
-
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Visit Chart</h4>
+                                <div id="morris-area-chart0"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Area Chart</h4>
+                                <div id="extra-area-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Line Chart</h4>
+                                <div id="morris-line-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Line Chart</h4>
+                                <div id="morris-area-chart"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Bar Chart</h4>
+                                <div id="morris-bar-chart"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -125,7 +132,6 @@
         <!--**********************************
             Content body end
         ***********************************-->
-
 
 
         <!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
@@ -150,16 +156,19 @@
     <!--**********************************
         Scripts
     ***********************************-->
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
     <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/summernote/dist/summernote.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/summernote/dist/summernote-init.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/raphael/raphael.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/morris/morris.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/plugins-init/morris-init.js"></script>
+
 
 
 </body>
 </html>
-

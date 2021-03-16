@@ -137,6 +137,14 @@
     </insert>
 
 
+    <!--게시글 상세-->
+    <select id="boardDetail" resultMap="getBoard">
+        SELECT *
+        FROM adminboard
+        WHERE board_id = #{id}
+    </select>
+
+
 
 
 
