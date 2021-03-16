@@ -24,6 +24,18 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Cafe24Ssukssuk';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .grgr * {
+            font-family: 'Cafe24Ssukssuk', Sans-Serif;
+        }
+    </style>
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
@@ -139,7 +151,9 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
 
-                                <a class="text-center" href="/"> <h4>니가 이걸 먹을줄은 정말로 몰랐어</h4></a>
+                                <a class="text-center grgr" href="/">
+                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                </a>
 
                                 <form class="mt-5 mb-5 login-input" id ="join_form" action="createAccount" method="post">
                                     <div class="form-group">
@@ -154,10 +168,15 @@
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="Password Confirm" required id="pass2">
                                     </div>
-                                    <button class="btn login-form__btn submit w-100" id="join_account">create an account</button>
+                                    <button class="btn login-form__btn submit w-100 grgr" id="join_account">
+                                        <h4><a style="color: #fff;">함께하게 되어서 반가울줄은 몰랐어</a></h4>
+                                    </button>
                                 </form>
-                                <p class="mt-5 login-form__footer">Have account <a href="/adminHome" class="text-primary">Sign Up </a> now</p>
+
+                                <p class="mt-5 login-form__footer grgr">
+                                    <a href="/adminLogin" class="text-primary">아이디가 있었어???</a>
                                 </p>
+
                             </div>
                         </div>
                     </div>

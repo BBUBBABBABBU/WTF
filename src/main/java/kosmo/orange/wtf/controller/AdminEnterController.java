@@ -8,12 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
+
+import static kosmo.orange.wtf.otp.GoogleOTP.checkCode;
+import static kosmo.orange.wtf.otp.GoogleOTP.generate;
 
 @Controller
 public class AdminEnterController {
@@ -55,9 +58,30 @@ public class AdminEnterController {
      * > 세션에 로그인 기록이 있는 경우 : adminLogin.jsp
      * or > 없는 경우 : adminLoginConfirm.jsp
      */
-    @GetMapping("/adminHome")
-    public String adminHome(Model model) {
-        System.out.println("AdminEnterController.adminHome : " + model);
+    @GetMapping("/adminLogin")
+    public String adminLogin(Model model , HttpServletRequest request) {
+        System.out.println("AdminEnterController.adminLogin : " + model);
+
+        String email1 =  "buiop11";
+       // String email1 = request.getParameter("email");
+
+        // OTP TEST
+        HashMap<String, String> map = generate(email1, "naver.com");
+        String otpkey = map.get("encodedKey");
+        String url = map.get("url");
+        System.out.println("Generated Key : " + otpkey);
+        System.out.println("QR CODE : " + url);
+
+        //생성된 OTP 패스워드 인증 부분
+//        Scanner scan = new Scanner(System.in);
+//        System.out.print("Input OTP Code : ");
+//        boolean check = checkCode(scan.next(), otpkey);
+//        System.out.println(check);
+
+        // 모델로 보냅니당
+        model.addAttribute("otpkey",otpkey);
+        model.addAttribute("url",url);
+
 
         // 근데 로그인이 되어 있으면 잠금화면
 
@@ -71,7 +95,7 @@ public class AdminEnterController {
 
         return "adminViews/" + page;
 
-    } // end of adminHome
+    } // end of adminLogin
 
 
     /********************
@@ -158,17 +182,19 @@ public class AdminEnterController {
 
     /**************
      * 로그인
-     * adminLogin.jsp > adminIndex.jsp
+     * adminLogin.jsp > adminOtpInput.jsp
      */
     @PostMapping("/login")
-    public String adminLogin(@RequestParam("mgr_id") String id, @RequestParam("mgr_pass") String pass, Model model) {
-        System.out.println("AdminEnterController.adminLogin - " + "id : " + id + "/ pass : " + pass);
+    public String login(@RequestParam("mgr_id") String id, @RequestParam("mgr_pass") String pass, Model model) {
+        System.out.println("AdminEnterController.login - " + "id : " + id + "/ pass : " + pass);
 
-        AdminVO tempVO = adminService.adminLogin(id, pass);
-        System.out.println("AdminEnterController.adminLogin - tempVO : " + tempVO);
+        AdminVO tempVO = adminService.login(id, pass);
+        System.out.println("AdminEnterController.login - tempVO : " + tempVO);
+
+        boolean flag = passwordEncoder.matches(pass, tempVO.getMgr_pass());
 
         String page = "";
-        boolean flag = passwordEncoder.matches(pass, tempVO.getMgr_pass());
+        String alert = "";
 
         if(tempVO != null){
             if(flag){
@@ -177,23 +203,134 @@ public class AdminEnterController {
 
                 System.out.println(session.getAttribute("name"));
 
-                page = "adminIndex";
+                model.addAttribute("inputId", id);
+                model.addAttribute("getId", session.getAttribute("id"));
+                model.addAttribute("getName", session.getAttribute("name"));
+
+                // otp
+                String email = (String) session.getAttribute("id");
+                System.out.println("email = " + email);
+
+                String[] result = email.split("@");
+                System.out.println("result = " + result);
+
+                String userName = result[0];
+                String hostName = result[1];
+                System.out.println("userName = " + userName + " // hostName = " + hostName);
+
+                // OTP TEST
+                HashMap<String, String> map = generate(userName, hostName);
+
+                // 키 값
+                String otpKey = map.get("encodedKey");
+                System.out.println("otpKey = " + otpKey);
+
+                // 키 값의 QR 코드
+                String qrCode = map.get("url");
+                System.out.println("qrCode = " + qrCode);
+
+                model.addAttribute("otpKey", otpKey);
+                model.addAttribute("qrCode", qrCode);
+
+
+                page = "adminOtpInput";
             }
             else{
+                alert = "비번이 틀린듯";
+                model.addAttribute("alert", alert);
                 page = "adminLogin";
             }
         }
         else {
+            alert = "id가 없나봄";
+            model.addAttribute("alert", alert);
             page = "adminLogin";
         }
 
-        System.out.println("AdminEnterController.adminLogin - flag : " + flag);
-        System.out.println("AdminEnterController.adminLogin - page : " + page);
-        System.out.println("AdminEnterController.adminLogin - session = " + session);
+        System.out.println("AdminEnterController.login - flag : " + flag);
+        System.out.println("AdminEnterController.login - page : " + page);
+        System.out.println("AdminEnterController.login - session = " + session);
 
         return "adminViews/" + page;
 
-    } // end of adminLogin
+    } // end of login
+
+
+    /*******************
+     * 키 값 DB 저장
+     * adminOtpInput.jsp > ajax > adminOtpInput.jsp
+     */
+    @PostMapping("/otpSaveDB")
+    @ResponseBody
+    public int otpSaveDB(@RequestParam Map<String, Object> map){
+        System.out.println("AdminEnterController.otpSaveDB");
+        System.out.println("map = " + map);
+
+        String id = (String) map.get("id");
+        String key = (String) map.get("key");
+
+        AdminVO adminVO = new AdminVO();
+
+        adminVO.setMgr_id(id);
+        adminVO.setMgr_key(key);
+
+        int result = adminService.otpSaveDB(adminVO);
+
+        return result;
+
+    } // end of otpSaveDB
+
+
+    /******************
+     * otp 입력
+     * adminOtpInput.jsp > adminIndex.jsp
+     */
+    @PostMapping("/adminHome")
+    public String otpCheck(@RequestParam("inputOtp") String inputOtp, Model model) {
+        System.out.println("AdminEnterController.otpCheck");
+
+        // DB에 저장되어 있는 레알 otp 를 가져오자
+        String id = (String) session.getAttribute("id");
+        System.out.println("id = " + id);
+        String realOtp = adminService.otpCheck(id);
+        System.out.println("inputOtp = " + inputOtp);
+        System.out.println("realOtp = " + realOtp);
+
+        boolean flag = checkCode(inputOtp, realOtp);
+        System.out.println("flag = " + flag);
+
+        String page = "";
+        String alert = "";
+
+        if(flag) {
+
+            // 대시보드 상단 내용
+            int userCount = adminService.totalUserCount();
+            int storeCount = adminService.totalStoreCount();
+            int reviewCount = adminService.totalReviewCount();
+            System.out.println("userCount = " + userCount);
+            System.out.println("storeCount = " + storeCount);
+            System.out.println("reviewCount = " + reviewCount);
+
+            model.addAttribute("user", userCount);
+            model.addAttribute("store", storeCount);
+            model.addAttribute("review", reviewCount);
+
+            page = "adminIndex";
+
+        }
+        else {
+            alert = "otp 다시 보셈";
+            model.addAttribute("alert", alert);
+            page = "adminOtpInput";
+        }
+
+
+
+        return "adminViews/" + page;
+
+
+    }
 
 
     /****************
@@ -256,6 +393,37 @@ public class AdminEnterController {
         return "adminViews/" + page;
 
     } // end of resetPw
+
+
+    /********************
+     * Google OTP 로그인
+     */
+    @RequestMapping("/otpProcess")
+    @ResponseBody
+    public String otpProcess(@RequestParam Map<String, Object> param) {
+
+        String result="";
+
+        String inputOtp = (String) param.get("otp");                 // 입력값
+        String realOtp = (String) param.get("otpKey");  // 원래 otp값
+        //String otp2 = request.getParameter("ddd");
+        System.out.println("받아와지나 확인 " + inputOtp);
+        System.out.println("받아와지나 확인 " + realOtp);
+
+
+         boolean check = checkCode(inputOtp, realOtp);
+         System.out.println(check);
+
+        if(check){
+             result="값이 맞아여!!";
+        }else{
+            result="값이 틀렸어!!!!!";
+        }
+
+
+        return result;
+    }
+
 
 
 }

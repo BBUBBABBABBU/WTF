@@ -4,6 +4,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kosmo.orange.wtf.model.mapper.AdminMapper">
 
+
+<!--=======================================================================-->
+<!-- enter / account -->
+<!--=======================================================================-->
+
     <!--회원가입-->
     <insert id="createAccount" parameterType="AdminVO">
         INSERT INTO manager(mgr_name, mgr_id, mgr_pass)
@@ -29,7 +34,7 @@
 
 
     <!--로그인-->
-    <select id="adminLogin" resultMap="getManager">
+    <select id="login" resultMap="getManager">
         SELECT *
         FROM manager
         WHERE mgr_id = #{id}
@@ -44,12 +49,51 @@
     </select>
 
 
-    <!--pw 변경-->
+    <!--pw 변경 (random 생성한 임시 pw)-->
     <update id="updatePw" parameterType="AdminVO">
         UPDATE manager
         SET mgr_pass = #{mgr_pass}
         WHERE mgr_id = #{mgr_id}
     </update>
+
+
+    <!--otp DB에 업데이트-->
+    <update id="otpSaveDB" parameterType="AdminVO">
+        UPDATE manager
+        SET mgr_key = #{mgr_key}
+        WHERE mgr_id = #{mgr_id}
+    </update>
+
+
+    <!--DB의 otp 값 가져오기-->
+    <select id="otpCheck" resultMap="getManager">
+        SELECT *
+        FROM manager
+        WHERE mgr_id = #{id}
+    </select>
+
+
+<!--=======================================================================-->
+<!-- admin page -->
+<!--=======================================================================-->
+
+    <!--대시보드(index)페이지 회원 수-->
+    <select id="totalUserCount" resultType="int">
+        SELECT count(*)
+        FROM member
+    </select>
+
+    <!--대시보드(index)페이지 가게 수-->
+    <select id="totalStoreCount" resultType="int">
+        SELECT count(*)
+        FROM restaurant
+    </select>
+
+    <!--대시보드(index)페이지 리뷰 수-->
+    <select id="totalReviewCount" resultType="int">
+        SELECT count(*)
+        FROM review
+    </select>
 
 
     <!--유저 목록 불러오기-->
@@ -73,8 +117,34 @@
     </select>
 
 
-    <!--====================================================-->
-    <!--resultMap 설정-->
+    <!--관리자 익명 게시판 목록 (list)-->
+    <select id="boardList" resultMap="getBoard">
+        SELECT *
+        FROM adminboard
+    </select>
+
+
+
+<!--=======================================================================-->
+<!-- admin page -->
+<!--=======================================================================-->
+
+    <!--게시글 저장-->
+    <insert id="saveArticle" parameterType="AdminBoardVO">
+        INSERT INTO adminboard
+              (board_pw, board_title, board_content, board_writer, board_enterdate, board_modifydate)
+        VALUES(#{board_pw}, #{board_title}, #{board_content}, #{board_writer}, sysdate(), sysdate())
+    </insert>
+
+
+
+
+
+
+<!--==============================================================-->
+<!--resultMap 설정-->
+<!--==============================================================-->
+
     <resultMap id="getManager" type="AdminVO">
         <result property="mgr_name" column="mgr_name"/>
         <result property="mgr_id" column="mgr_id"/>
@@ -107,6 +177,19 @@
         <result property="resKeyword" column="res_keyword"/>
         <result property="resRating" column="res_rating"/>
     </resultMap>
+
+
+    <resultMap id="getBoard" type="AdminBoardVO">
+        <result property="board_id" column="board_id"/>
+        <result property="board_pw" column="board_pw"/>
+        <result property="board_title" column="board_title"/>
+        <result property="board_content" column="board_content"/>
+        <result property="board_writer" column="board_writer"/>
+        <result property="board_enterdate" column="board_enterdate"/>
+        <result property="board_modifydate" column="board_modifydate"/>
+        <result property="board_viewcount" column="board_viewcount"/>
+    </resultMap>
+
 
 
 </mapper>

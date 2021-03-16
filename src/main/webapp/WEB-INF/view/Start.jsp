@@ -62,9 +62,9 @@
         </select>
     </form>
 </div>
-<img class="image" src="res/img/background_img/title02.jpg"/><br/><br/>
-<a href="../adminHome">관리자페이지로</a>
-<a href="../recommendTest">추천화면 테스트</a>
+<img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
+<a href="/adminLogin">관리자페이지로</a>
+<a href="/recommendTest">추천화면 테스트</a>
 
 <a href="../adminTest">관리자페이지 test</a>
 
