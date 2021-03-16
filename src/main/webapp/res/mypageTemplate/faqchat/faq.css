@@ -32,7 +32,7 @@ ul li{
   position: relative;
   z-index: 998;
   overflow: hidden;
-    background: #f18ccb;
+    background: #fcf9da;
 }
 
 .fab > i {
@@ -128,9 +128,9 @@ ul li{
     font-size: 13px;
     font-family: 'Roboto';
     font-weight: 500;
-    color: #f3f3f3;
+    color: #000000;
     height: 55px;
-    background: #f18ccb;
+    background: #fcf9da;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     padding-top: 8px;
@@ -291,7 +291,7 @@ ul li{
 }
 
 .chat_category li:hover{
-    background: #f18ccb;
+    background: #fcf9da;
     color: #fff;
 }
 .chat_category li.active{
