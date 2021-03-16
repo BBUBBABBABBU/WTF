@@ -7293,7 +7293,7 @@ body {
       -o-transform: translateX(0);
       transform: translateX(0);
       width: 270px;
-      background: #fff;
+      background: #fcf9da;
       z-index: 999;
       position: fixed; }
     body.offcanvas #colorlib-main, body.offcanvas .colorlib-nav-toggle {
@@ -7342,7 +7342,7 @@ h1, h2, h3, h4, h5,
   right: 0;
   overflow-y: hidden;
   z-index: 1001;
-  background: rgba(0, 0, 0, 0.04);
+  background: #fcf9da;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
@@ -8015,13 +8015,17 @@ h1, h2, h3, h4, h5,
         color: #ccb78f; }
 
 .ftco-bread {
-  background: #ceccce !important;
-  padding: 4em 1.8em !important; }
+  background: #fcf9da!important;
+  padding: 4em 1.8em !important;
+
+}
   .ftco-bread .breadcrumbs {
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1px;
     margin-bottom: 10px;
+
+
     z-index: 99; }
     .ftco-bread .breadcrumbs span {
       border-bottom: 2px solid rgb(0, 0, 0);

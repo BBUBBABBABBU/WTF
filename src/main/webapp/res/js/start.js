@@ -29,7 +29,7 @@ $(function () {
     dinner_list.push('res/img/background_img/pizza.jpg')
 
 
-    $('#select_kind').formSelect();
+    // $('#select_kind').formSelect();
 
     // 저장된 세션값 가져오기
     var user = window.sessionStorage.getItem("member");
