@@ -38,3 +38,15 @@ CREATE TABLE Review(
 	FOREIGN KEY(member_id) REFERENCES member(member_id),
 	CONSTRAINT fk_Review_res_id FOREIGN KEY(res_id) REFERENCES restaurant(res_id));
 
+create table adminboard(
+	board_id int auto_increment primary key,
+    board_pw varchar(100) not null,
+    board_title varchar(100) not null,
+    board_content longtext,
+    board_writer varchar(100) not null,
+    board_enterdate date not null,
+    board_modifydate date,
+    board_viewcount int);
+
+alter table adminboard modify board_enterdate datetime;
+alter table adminboard modify board_modifydate datetime;

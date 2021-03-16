@@ -28,10 +28,9 @@ public class MainServiceImpl implements MainService {
 //    }
 
     @Override
-    public List<RestaurantVO> checkRestaurant() {
-        System.out.println("MainServiceImpl 19line : ");
+    public List<RestaurantVO> checkRestaurant(String foodKind) {
         try{
-            return mainMapper.checkRestaurant();
+            return mainMapper.checkRestaurant(foodKind);
         }catch (Exception e){
             System.out.println("checkRestaurant error : " + e.toString());
             return null;

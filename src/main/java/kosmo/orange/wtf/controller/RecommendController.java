@@ -187,6 +187,7 @@ public class RecommendController {
         List<RecommendVO> res_allList;
         if (member_id!=null){
             System.out.println("개인화 추천 정렬 클릭 수정"+cate);
+
             HashMap map = new HashMap();
             map.put("member_id",member_id);
             map.put("cate", cate);

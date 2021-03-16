@@ -17,6 +17,13 @@
         LIMIT 0,5
     </select>
 
+    <select id="searchRestaurant" parameterType="String" resultMap="getRestaurant">
+        SELECT *
+        FROM restaurant
+        WHERE res_keyword LIKE CONCAT('%',#{resKeyword},'%')
+        OR res_name LIKE CONCAT('%',#{resKeyword},'%')
+    </select>
+
     <resultMap id="getRestaurant" type="RestaurantVO">
         <result property="resId" column="res_id"/>
         <result property="resName" column="res_name"/>
