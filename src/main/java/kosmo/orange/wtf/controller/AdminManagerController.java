@@ -4,6 +4,7 @@ import kosmo.orange.wtf.model.vo.AdminBoardVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,16 +46,19 @@ public class AdminManagerController {
      * adminBoard.jsp > adminBoardDetail.jsp
      */
     @GetMapping("boardDetail")
-    public String boardDetail(@RequestParam("articleNo") String board_id) {
+    public String boardDetail(@RequestParam("board_id") int board_id, Model model) {
         System.out.println("AdminManagerController.boardDetail");
         System.out.println("board_id = " + board_id);
 
 ////         페이지 더 안만들려고 세션을 만들어서 그 값으로 비교를 해보고자 했지 > 근데 실패함
 //        session.setAttribute("page", "boardDetail");
 
-        adminService.boardList();
+        AdminBoardVO adminBoardVO = new AdminBoardVO();
 
+        adminBoardVO = adminService.boardDetail(board_id);
+        System.out.println("adminBoardVO = " + adminBoardVO);
 
+        model.addAttribute("adminBoardVO", adminBoardVO);
 
         return "adminViews/adminBoardDetail";
 
@@ -74,6 +78,24 @@ public class AdminManagerController {
     } // end of boardEnter
 
 
+    /*****************************
+     * 글 상세에서 수정 버튼 누르면,
+     * adminBoardDetail.jsp > 컨트롤러에서 값 받아서 > adminBoardForm.jsp
+     */
+    @GetMapping("boardUpdate")
+    public String boardUpdate(@RequestParam("board_id") int id, Model model) {
+        System.out.println("AdminManagerController.boardUpdate");
+        System.out.println("id = " + id);
+
+
+
+        return "adminViews/adminBoardForm";
+
+    } // end of boardUpdate
+
+
+
+
     /******************
      * 게시판 글 저장 / 수정 / 삭제
      * adminBoardForm.jsp ..>
@@ -88,7 +110,9 @@ public class AdminManagerController {
             @RequestParam("board_pw") String pw, @RequestParam("content") String content) {
 
         System.out.println("AdminManagerController.boardAction");
-        System.out.println("sep = [" + sep + "], title = [" + title + "], writer = [" + writer + "], pw = [" + pw + "], content = [" + content + "]");
+        System.out.println("sep = " + sep);
+        System.out.println("content.length() = " + content.length());
+//        System.out.println("sep = [" + sep + "], title = [" + title + "], writer = [" + writer + "], pw = [" + pw + "], content = [" + content + "]");
 //        System.out.println(content.getClass().getName());
 
         AdminBoardVO adminBoardVO = new AdminBoardVO();

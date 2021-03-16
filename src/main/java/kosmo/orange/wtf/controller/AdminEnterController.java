@@ -46,7 +46,7 @@ public class AdminEnterController {
      */
     @GetMapping("/adminTest")
     public String adminTest() {
-        return "adminViews/layout/adminBasic";
+        return "adminViews/adminChart";
 
     } // end of adminTest
 

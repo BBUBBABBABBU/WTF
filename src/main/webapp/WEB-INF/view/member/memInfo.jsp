@@ -33,7 +33,6 @@ System.out.println(nick);%>
         var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
         if(pw.length < 8 || pw.length > 20){
-
             alert("8자리 ~ 20자리 이내로 입력해주세요.");
             $("#pw").val("");
             return false;

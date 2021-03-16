@@ -137,6 +137,20 @@
     </insert>
 
 
+    <!--게시글 수정-->
+    <update id="updateArticle" parameterType="int">
+        UPDATE
+    </update>
+
+
+    <!--게시글 상세-->
+    <select id="boardDetail" resultMap="getBoard">
+        SELECT *
+        FROM adminboard
+        WHERE board_id = #{id}
+    </select>
+
+
 
 
 

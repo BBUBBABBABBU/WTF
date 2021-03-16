@@ -243,6 +243,10 @@ public class AdminServiceImpl implements AdminService {
     } // end of boardList
 
 
+    /***************************
+     * 스프링 시큐리티에 도전
+     * 하다가 실패한 흔적임
+     */
 //    @Override
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //
@@ -270,6 +274,29 @@ public class AdminServiceImpl implements AdminService {
     //  AdminManagerController 관련
     // ************************************
 
+    /******************
+     * 익명 게시판 글 상세보기
+     */
+    @Override
+    public AdminBoardVO boardDetail(int board_id) {
+        System.out.println("AdminServiceImpl.boardDetail");
+        System.out.println("board_id = " + board_id);
+        System.out.println("284");
+
+        List<AdminBoardVO> tempVO = adminMapper.boardDetail(board_id);
+        System.out.println("tempVO = " + tempVO.size());
+
+        AdminBoardVO adminBoardVO = tempVO.get(0);
+        System.out.println("adminBoardVO = " + adminBoardVO);
+
+        return adminBoardVO;
+
+    } // end of boardDetail
+
+
+    /***********************
+     * 익명 게시판 글 저장
+     */
     @Override
     public int saveArticle(AdminBoardVO adminBoardVO) {
         System.out.println("AdminServiceImpl.saveArticle");
@@ -282,6 +309,9 @@ public class AdminServiceImpl implements AdminService {
     } // end of saveArticle
 
 
+    /*********************
+     * 익명 게시판 글 수정
+     */
     @Override
     public void updateArticle() {
         System.out.println("AdminServiceImpl.updateArticle");
@@ -289,6 +319,9 @@ public class AdminServiceImpl implements AdminService {
     } // end of updateArticle
 
 
+    /**********************
+     * 익명 게시판 글 삭제
+     */
     @Override
     public void deleteArticle() {
         System.out.println("AdminServiceImpl.deleteArticle");

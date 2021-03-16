@@ -115,6 +115,18 @@ public interface AdminMapper {
     int saveArticle(AdminBoardVO adminBoardVO);
 
 
+    /***************
+     * 익게 게시글 수정
+     */
+    int updateArticle(int id);
+
+
+    /**************
+     * 익게 게시글 불러오기
+     */
+    List<AdminBoardVO> boardDetail(int board_id);
+
+
 
 
 }

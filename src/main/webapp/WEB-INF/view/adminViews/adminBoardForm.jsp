@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 
@@ -104,6 +105,9 @@
         } // end of postForm
 
 
+        if(${id}!=0)
+
+
     </script>
 
 </head>
@@ -165,6 +169,7 @@
                                 <%--게시글 폼*********************--%>
                                 <%--<div class="form-group">--%>
                                 <form name="frm" method="post" id="boardForm" action="/boardAction">
+
                                     <input type="hidden" name="sep" value="" id="sep">
                                     <input type="text" class="form-control input-default" placeholder="제목" name="board_title"><br>
                                 <%--</div>--%>
@@ -185,9 +190,24 @@
                                 </form>
 
                                 <div class="outline-button">
-                                    <button type="button" class="btn mb-1 btn-outline-success" onclick="formCheck('i');" id="save">저장</button>
-                                    <button type="button" class="btn mb-1 btn-outline-primary" onclick="articleUpdate('u');" id="update">수정</button>
-                                    <button type="button" class="btn mb-1 btn-outline-danger" onclick="articleUpdate('d');" id="delete">삭제</button>
+
+                                    <c:set var="b_id" value="${id}"></c:set>
+
+                                    <c:choose>
+
+                                        <%--게시글 id 값이 없으면 저장 버튼--%>
+                                        <c:when test="${b_id eq null}">
+                                            <button type="button" class="btn mb-1 btn-outline-success" onclick="formCheck('i');" id="save">저장</button>
+                                        </c:when>
+
+                                        <%--id 값이 있으면 수정/삭제 버튼--%>
+                                        <c:otherwise>
+                                            <button type="button" class="btn mb-1 btn-outline-primary" onclick="articleUpdate('u');" id="update">수정</button>
+                                            <button type="button" class="btn mb-1 btn-outline-danger" onclick="articleUpdate('d');" id="delete">삭제</button>
+                                        </c:otherwise>
+
+
+                                    </c:choose>
                                 </div>
 
                             </div>

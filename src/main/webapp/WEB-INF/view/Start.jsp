@@ -10,10 +10,10 @@
 <head>
     <title>Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
     <link rel="stylesheet" type="text/css" href="res/css/start.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
     <script src="res/js/start.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="res/css/login.css">
     <link rel="stylesheet" type="text/css" href="res/css/login2.css">
@@ -54,11 +54,11 @@
 <div id='select_div'>
     <form id="kind_form" action="/main" method="get">
         <select id="select_kind" name="kind" onchange="show()" >
-            <option value="" disabled selected><p id="none_selected">이걸</p></option>
-            <option value="korean" >한식</option>
-            <option value="chinese">중식</option>
-            <option value="western">양식</option>
-            <option value="japanese">일식</option>
+            <option class ='select_kind_list' value="" disabled selected><p id="none_selected">이걸</p></option>
+            <option class ='select_kind_list' value="korean" >한식</option>
+            <option class ='select_kind_list' value="chinese">중식</option>
+            <option class ='select_kind_list' value="western">양식</option>
+            <option class ='select_kind_list' value="japanese">일식</option>
         </select>
     </form>
 </div>
