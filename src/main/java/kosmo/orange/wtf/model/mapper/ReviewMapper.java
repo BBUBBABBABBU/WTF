@@ -16,7 +16,7 @@ public interface ReviewMapper {
     int ReviewInsert(ReviewVO reviewVO) throws Exception;
 
     // 리뷰피드 불러오기
-    List<ReviewVO> ReviewLIst(String member_id);
+    List<ReviewVO> ReviewList(String member_id);
 
     //팔로우 팔로워 불러오기
     List<MemberVO> followList();
