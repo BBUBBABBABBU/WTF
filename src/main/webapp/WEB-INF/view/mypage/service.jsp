@@ -89,25 +89,28 @@
             font-family: 'Jua', sans-serif;
         }
         .question:hover {
-            color: #f18ccb;
+            color: #fcf9da;
         }
         [id$="-toggle"] {
             margin-right: 15px;
         }
 
-
-
     </style>
+
+    <script type="text/javascript" src="/res/js/mypage/mypage.js/"></script>
+
+
+
 </head>
 <body>
 
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/small_logo.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[ 마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
-                <li class="colorlib-active"><a href="/mypage">홈</a></li>
+                <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
@@ -172,8 +175,8 @@
                             </div>
                             <div class="media-body p-2 mt-2">
                                 <h3 class="heading mb-3">CALL </h3>
-                                <p>1 : 1 전화 문의 </p>
-                                <p>( Tel. 333 - 3333 )</p>
+                                <p id = "call_center">1 : 1 전화 문의 </p>
+                                <%--<p>( Tel. 333 - 3333 )</p>--%>
                             </div>
                         </div>
                     </div>
