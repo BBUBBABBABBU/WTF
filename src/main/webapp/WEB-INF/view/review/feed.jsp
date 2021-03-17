@@ -13,6 +13,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+
+<!-- Favicons -->
+<link href="/res/img/WTF_logo.png" rel="icon">
+<link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
+
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
@@ -38,7 +43,14 @@
     <!--메인화면과 동일하게 헤더 구성-->
     <nav class="navbar navbar-light custom-navbar">
         <div class="container" id = "header_container">
-            <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            <c:choose>
+                <c:when test="${sessionScope.member ne null}">
+                    <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+                </c:when>
+                <c:otherwise>
+                    <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </nav>
     <nav class="navbar navbar-light custom-navbar2">

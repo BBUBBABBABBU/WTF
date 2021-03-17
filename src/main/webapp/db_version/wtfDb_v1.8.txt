@@ -6,3 +6,12 @@ CREATE TABLE `review_pic` (
 INDEX `FK__review` (`review_id`) USING BTREE,
 CONSTRAINT `FK__review` FOREIGN KEY (`review_id`) REFERENCES `wtf`.`review` (`review_id`) ON UPDATE RESTRICT ON DELETE RESTRICT
 )
+
+CREATE TABLE `follow` (
+`member_id` INT(11) NOT NULL,
+`follow_id` INT(11) NOT NULL,
+PRIMARY KEY (`member_id`) USING BTREE,
+CONSTRAINT `FK__member` FOREIGN KEY (`member_id`) REFERENCES `wtf`.`member` (`member_id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)
+
+ALTER TABLE review ADD COLUMN review_date DATETIME;

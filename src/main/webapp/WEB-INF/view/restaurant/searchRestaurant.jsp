@@ -85,10 +85,13 @@
             <div class="col-md-9"></div>
             <div class="col-md-3">
                 <ul class="custom-menu">
-                    <li class="active"><a href="/mypage">마이페이지</a></li>
-                    <li><a href="/recommend">상세추천</a></li>
-                    <li><a href="about.html">피드</a></li>
-                    <li><a href="services.html">로그아웃</a></li>
+                    <ul class="custom-menu">
+                        <li><a href="/mypage">마이페이지</a></li>
+                        <li><a href="/recommend">상세추천</a></li>
+                        <li><a href="/review/feed">피드</a></li>
+                        <li><a href="/memberLogout">로그아웃</a></li>
+                        <li><a href="/chat">채팅</a></li>
+                    </ul>
                 </ul>
             </div>
         </div>
