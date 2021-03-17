@@ -47,8 +47,6 @@ public class MemberController {
 
 
 
-
-
     @RequestMapping("/pwdChange")
     public String pwdChange( MemberVO memberVO){
         memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
