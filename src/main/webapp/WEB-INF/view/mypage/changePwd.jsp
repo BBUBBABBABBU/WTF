@@ -44,54 +44,6 @@
 
 <%--faq js / css--%>
     <link rel="stylesheet" href="/res/mypageTemplate/faqchat/faq.css">
-    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
-<script>
-    function chkPW(){
-
-        var pw = $("#nextPass").val();
-        var num = pw.search(/[0-9]/g);
-        var eng = pw.search(/[a-z]/ig);
-        var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-
-        if(pw.length < 8 || pw.length > 20){
-
-            alert("8자리 ~ 20자리 이내로 입력해주세요.");
-            $("#nextPass").val("");
-            return false;
-        }else if(pw.search(/\s/) != -1){
-            $("#nextPass").val("");
-            $("#nextPass").focus();
-            alert("비밀번호는 공백 없이 입력해주세요.");
-
-            return false;
-        }else if(num < 0 || eng < 0 || spe < 0 ){
-
-            alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
-            $("#nextPass").val("");
-            $("#nextPass").focus();
-            return false;
-        }else {
-            console.log("통과");
-            return true;
-        }
-
-    }
-    function checkPassword() {
-        //비밀번호가 입력되었는지 확인하기
-
-        //비밀번호와 비밀번호 확인이 맞지 않다면..
-        if ( $("#nextPassChan").val() != $("#nextPass").val() & $("#nextPassChan").val().length !=0) {
-            alert("비밀번호가 일치하지 않습니다.");
-            $("#nextPassChan").val("");
-            $("#nextPassChan").focus();
-            return false;
-        }else if ($("#nextPassChan").val() == $("#nextPass").val() & $("#nextPassChan").val().length !=0)
-            alert("비밀번호가 일치합니다.");
-
-        return true; //확인이 완료되었을 때
-
-    }
-</script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Jua&family=Noto+Sans+KR:wght@700&display=swap');
@@ -157,7 +109,58 @@
         }
 
     </style>
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+    <script>
+    function chkPW(){
 
+        var pw = $("#nextPass").val();
+        var num = pw.search(/[0-9]/g);
+        var eng = pw.search(/[a-z]/ig);
+        var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+
+        if(pw.length < 8 || pw.length > 20){
+
+            alert("8자리 ~ 20자리 이내로 입력해주세요.");
+            $("#nextPass").val("");
+            return false;
+        }else if(pw.search(/\s/) != -1){
+            $("#nextPass").val("");
+            $("#nextPass").focus();
+            alert("비밀번호는 공백 없이 입력해주세요.");
+
+            return false;
+        }else if(num < 0 || eng < 0 || spe < 0 ){
+
+            alert("영문,숫자, 특수문자를 혼합하여 입력해주세요.");
+            $("#nextPass").val("");
+            $("#nextPass").focus();
+            return false;
+        }else {
+            console.log("통과");
+            return true;
+        }
+
+    }
+    function checkPassword() {
+        //비밀번호가 입력되었는지 확인하기
+
+        //비밀번호와 비밀번호 확인이 맞지 않다면..
+        if ( $("#nextPassChan").val() != $("#nextPass").val() & $("#nextPassChan").val().length !=0) {
+            alert("비밀번호가 일치하지 않습니다.");
+            $("#nextPassChan").val("");
+            $("#nextPassChan").focus();
+            return false;
+        }else if ($("#nextPassChan").val() == $("#nextPass").val() & $("#nextPassChan").val().length !=0)
+            alert("비밀번호가 일치합니다.");
+
+        return true; //확인이 완료되었을 때
+    }
+
+
+
+
+
+    </script>
 </head>
 <body>
 
@@ -196,7 +199,7 @@
                 <div class="row">
                     <form role="form" id="infoForm" action="/pwdChange">
                         <div class="form-group"><label for="currentPass">현재 비밀번호</label>
-                        <input type="password" class="form-control"  id="currentPass" value="${member.password}" > </div>
+                        <input type="password" class="form-control"  id="currentPass" name="currentPassword" > </div>
                         <div class="form-group"><label for="nextPass" >변경할 비밀번호</label>
                             <input type="password" class="form-control"  id="nextPass" value="" onfocusout="chkPW()"> </div>
                         <div class="form-group"><label for="nextPassChan">비밀번호 확인</label>

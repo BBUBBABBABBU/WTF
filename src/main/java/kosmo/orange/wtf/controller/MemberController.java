@@ -54,9 +54,23 @@ public class MemberController {
 
 
     @RequestMapping("/pwdChange")
-    public String pwdChange( MemberVO memberVO){
-        memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
-        memberService.passwordChge(memberVO);
+    public String pwdChange( MemberVO memberVO, String currentPassword , Model model){
+        MemberVO member=(MemberVO) session.getAttribute("member");
+        MemberVO result=memberService.memberLogin(member);
+        boolean check = passwordEncoder.matches( currentPassword, result.getPassword());
+        System.out.println( currentPassword+"/"+ result.getPassword());
+        if (check){
+            memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
+            System.out.println("성공");
+            model.addAttribute("passChge","success");
+            memberService.passwordChge(memberVO);
+        }
+        else {
+            System.out.println("실패");
+            model.addAttribute("passChge","failed");
+        }
+
+
 
 
 
@@ -109,29 +123,25 @@ public class MemberController {
         }return message;
     }
 
-    @RequestMapping(value = "/signUp",method= RequestMethod.POST )
-    public String signUp(  MemberVO memberVO){
-
+    @RequestMapping(value = "/signUp",method= RequestMethod.POST)
+    public String signUp(  MemberVO memberVO, Model model ){
         memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
         memberService.signUp(memberVO);
+        model.addAttribute("signupEmail",memberVO.getEmail());
+        session.setAttribute("status","signUp");
         return "Start";
     }
-
     @RequestMapping(value = "/memberLogin", method = RequestMethod.POST)
     public String memberLogin(String foodKind,MemberVO memberVO, Model model){
         MemberVO result=memberService.memberLogin(memberVO);
-
-
             model.addAttribute("foodKind",foodKind);
             if (result!=null) {
-                session.setAttribute("status","success");
-                session.setAttribute("member",result);
-                model.addAttribute("member",result);
             boolean check = passwordEncoder.matches(memberVO.getPassword(), result.getPassword());
-                System.out.println(memberVO.getPassword()+"/"+result.getPassword());
             if (check) {
                 System.out.println("비밀번호 일치");
                 session.setAttribute("status","success");
+                session.setAttribute("member",result);
+                model.addAttribute("member",result);
             }else {
                 session.setAttribute("status","fail");
                 System.out.println("비밀번호 불일치");

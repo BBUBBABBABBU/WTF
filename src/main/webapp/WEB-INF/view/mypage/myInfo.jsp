@@ -183,7 +183,15 @@
 
        }
 
-
+        var passChge ="${passChge}";
+        if (passChge=="success"){
+            alert("비밀번호가 변경되었습니다.");
+            passChge = "nothing"
+        }else if (passChge=="failed") {
+            alert("비밀번호 변경이 실패하였습니다.");
+        }
+        
+        
 
 
 
