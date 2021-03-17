@@ -28,15 +28,50 @@ img.image{
     margin-top: -15;
     font-family: "Black Han Sans";
     color: teal;
-    font-size: 90px;
+    font-size: 84px;
     border-radius: 15px;
     background-color: transparent;
     border-color: transparent;
 
 
 }
-
+/*이걸*/
 .select_kind_list{
     font-family: "Black Han Sans";
-    font-size: 34px;
+    color:teal;
+    font-size: 38px;
+}
+/*한식*/
+.select_kind_list_1{
+    font-family: "Black Han Sans";
+    color: teal;
+    font-size: 38px;
+}
+
+/*중식*/
+.select_kind_list_2{
+    font-family: "Black Han Sans";
+    color: #732700;
+    font-size: 38px;
+}
+
+/*양식*/
+.select_kind_list_3{
+    font-family: "Black Han Sans";
+    color: #dada00;
+    font-size: 38px;
+}
+
+/*일식*/
+.select_kind_list_4{
+    font-family: "Black Han Sans";
+    color: #0327ff;
+    font-size: 38px;
+}
+
+/*분식*/
+.select_kind_list_5{
+    font-family: "Black Han Sans";
+    color: #e20010;
+    font-size: 38px;
 }

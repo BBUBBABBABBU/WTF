@@ -50,15 +50,6 @@ public class MemberController {
 
 
 
-//    로그아웃
-    @RequestMapping("/memberLogout")
-    public String logout(){
-        System.out.println("로그아웃");
-        session.removeAttribute("member");
-       return "Start";
-    }
-
-
 
     @RequestMapping("/pwdChange")
     public String pwdChange( MemberVO memberVO){

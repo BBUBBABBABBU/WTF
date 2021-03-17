@@ -100,10 +100,6 @@
             font-family: 'Nanum Gothic', sans-serif;
         }
 
-
-
-
-
         .answer {
             display: none;
             padding-bottom: 5px;
@@ -116,7 +112,12 @@
 
 
         }
-
+        #faq-title {
+            font-size: 25px;
+        }
+        .faq-content {
+            border-bottom: 1px solid #e0e0e0;
+        }
         .question {
             font-size: 15px;
             padding: 5px 0;
@@ -131,7 +132,7 @@
             font-family: 'Jua', sans-serif;
         }
         .question:hover {
-            color: #f18ccb;
+            color: #fcf9da;
         }
         [id$="-toggle"] {
             margin-right: 15px;
@@ -164,7 +165,7 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[ 마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>

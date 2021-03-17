@@ -62,7 +62,7 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[ 마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
