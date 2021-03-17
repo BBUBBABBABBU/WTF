@@ -48,15 +48,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="location" column="rating_location"/>
         <result property="content" column="review_content"/>
         <result property="tag" column="review_tag"/>
-        <result property="pic_loc" column="pic_name"/>
         <result property="rec_count" column="recommend_count"/>
         <result property="charge_count" column="charge_count"/>
         <result property="res_tell" column="res_tell"/>
+        <result property="review_date" column="review_date"/>
     </resultMap>
 
     <resultMap id="getPhoto" type="PhotoVO">
         <result property="res_id" column="res_id"/>
         <result property="rtr_pic_loc" column="rtr_pic_loc"/>
     </resultMap>
+
+
 
 </mapper>

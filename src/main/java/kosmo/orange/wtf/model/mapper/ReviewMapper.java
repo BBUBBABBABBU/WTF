@@ -32,6 +32,7 @@ public interface ReviewMapper {
 
     //가게 사진선택
     PhotoVO Photo(int res_id) throws Exception;
+
     //멤버 이름불러오기
     String memNickname(String mem_id) throws  Exception;
 }

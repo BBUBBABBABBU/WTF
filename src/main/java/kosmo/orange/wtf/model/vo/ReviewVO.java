@@ -18,8 +18,8 @@ public class ReviewVO {
     private int location;
     private String content;
     private String tag;
-    private String pic_loc;
     private int rec_count;
     private int charge_count;
     private String res_tell;
+    private String review_date;
 }
