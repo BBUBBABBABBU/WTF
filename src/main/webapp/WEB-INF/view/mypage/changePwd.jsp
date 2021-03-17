@@ -55,9 +55,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
         .bread {
-            font-family: 'Nanum Gothic', sans-serif;
+            font-family: "Black Han Sans", sans-serif;
         }
-
         .answer {
             display: none;
             padding-bottom: 5px;
@@ -99,7 +98,7 @@
         }
 
 
-        #infoForm {
+        .infoForm {
 
             FONT-SIZE: 9pt;
             left: 120px;
@@ -201,14 +200,13 @@
                         <h1 class="bread">비밀번호 수정 (My Info)</h1>
                     </div>
                 </div>
+            </div>
         </section>
-    </div>
-
 
         <section class="ftco-section">
             <div class="container">
                 <div class="row">
-                    <form role="form" id="infoForm" action="/pwdChange">
+                    <form role="form" id="infoForm" class="infoForm" action="/pwdChange">
                         <div class="form-group"><label for="currentPass">현재 비밀번호</label>
                         <input type="password" class="form-control"  id="currentPass" name="currentPassword" > </div>
                         <div class="form-group"><label for="nextPass" >변경할 비밀번호</label>
