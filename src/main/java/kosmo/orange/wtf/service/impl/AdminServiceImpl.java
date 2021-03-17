@@ -216,7 +216,7 @@ public class AdminServiceImpl implements AdminService {
 
         return adminMapper.storeList();
 
-    } // end of sotreList
+    } // end of storeList
 
 
     /****************************
@@ -287,7 +287,7 @@ public class AdminServiceImpl implements AdminService {
         System.out.println("tempVO = " + tempVO.size());
 
         AdminBoardVO adminBoardVO = tempVO.get(0);
-        System.out.println("adminBoardVO = " + adminBoardVO);
+        System.out.println("AdminServiceImpl.boardDetail adminBoardVO = " + adminBoardVO);
 
         return adminBoardVO;
 
@@ -309,12 +309,52 @@ public class AdminServiceImpl implements AdminService {
     } // end of saveArticle
 
 
+    /**************************************
+     * ajax 를 통해 게시판 수정 및 삭제 할 때 pw 맞는지 확인
+     */
+    @Override
+    public int boardPwCheck(AdminBoardVO adminBoardVO) {
+        System.out.println("AdminServiceImpl.boardPwCheck");
+        System.out.println("adminBoardVO = [" + adminBoardVO + "]");
+
+        int result = adminMapper.boardPwCheck(adminBoardVO);
+        System.out.println("AdminServiceImpl.boardPwCheck result = " + result);
+
+        return result;
+
+    } // end of boardPwCheck
+
+
+    /****************************
+     * 익명 게시판 수정 버튼 누르면 글 가져와서 수정 할 수 있도록 boardForm 에 세팅
+     */
+    @Override
+    public AdminBoardVO boardUpdate(AdminBoardVO adminBoardVO) {
+        System.out.println("AdminServiceImpl.boardUpdate");
+        System.out.println("adminBoardVO = [" + adminBoardVO + "]");
+
+        List<AdminBoardVO> adminBoardVOList = adminMapper.boardUpdate(adminBoardVO);
+        System.out.println("adminBoardVOList 337line = " + adminBoardVOList.get(0).getBoard_title());
+
+        AdminBoardVO tempVO = adminBoardVOList.get(0);
+
+        return tempVO;
+
+    } // end of boardUpdate
+
+
+
     /*********************
      * 익명 게시판 글 수정
      */
     @Override
-    public void updateArticle() {
+    public int updateArticle(AdminBoardVO adminBoardVO) {
         System.out.println("AdminServiceImpl.updateArticle");
+
+        int result = adminMapper.updateArticle(adminBoardVO);
+        System.out.println("result = " + result);
+
+        return result;
 
     } // end of updateArticle
 
@@ -323,8 +363,13 @@ public class AdminServiceImpl implements AdminService {
      * 익명 게시판 글 삭제
      */
     @Override
-    public void deleteArticle() {
+    public int deleteArticle(int id) {
         System.out.println("AdminServiceImpl.deleteArticle");
+
+        int result = adminMapper.deleteArticle(id);
+        System.out.println("AdminServiceImpl.deleteArticle result = " + result);
+
+        return result;
 
     } // end of deleteArticle
 

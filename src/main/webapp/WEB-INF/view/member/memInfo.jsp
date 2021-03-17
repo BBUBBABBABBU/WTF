@@ -49,28 +49,41 @@ System.out.println(nick);%>
         p.w3-center button.w3-button w3-block w3-black w3-ripple w3-margin-top w3-round{
             background-color: #E8BE24;
         }
-        p.w3-center #joinBtn{
+        p.w3-center .joinBtn{
             background-color: #FFCD12;
             border-radius: 4px;
             display: block;
-            width: 100%;
+            width: 60%;
             transition: opacity 0s;
-            padding: 8px 16px;
+            padding: 0px 3px;
             vertical-align: middle;
             overflow: hidden;
             text-decoration: none;
             color: white;
             border: none;
+            position: relative;
+            left: 600px;
+            font-size: x-large;
         }
-        p.w3-center #joinBtn:hover{
+        p.w3-center .joinBtn:hover{
             background-color:#EAEAEA ;
         }
-        p.w3-center #joinBtn{
-        }
+
         form#myForm p.w3-center     .w3-button:hover{
             background-color: #E8BE24;
         }
-        #myForm{
+        #dupleCheck{
+            border: none;
+            color: white;
+            border-radius: 4px;
+            background-color:#FFCD12 ;
+
+        }
+        #toHome{
+            float: left;
+            position: relative;
+            top: -36px;
+            left: 160px;
         }
 
     </style>
@@ -92,7 +105,7 @@ System.out.println(nick);%>
             )
 
 
-            $('#email').keyup(function(){
+            $('#dupleCheck').click(function(){
                 if ($('#email').val() !=null)
                 $.ajax({
                     type : 'POST', // 전송방식
@@ -115,14 +128,13 @@ System.out.println(nick);%>
 
         //아이디 중복일 때 회원가입 버튼 막는 함수
         function duple() {
-            if ($("#idCheckResult").text()=="이미 사용중입니다"){
-                alert("현재 입력하신 아이디는 중복되는 아이디입니다.")
+            if ($("#idCheckResult").text()=="이미 사용중입니다" || $("#idCheckResult").text()==null  ){
+                alert("아이디를 확인해주세요")
 
                 $("#joinBtn").attr("type","button");
 
             } else {
                 $("#joinBtn").attr("type", "submit");
-                alert("회원가입이 완료되었습니다.")
 
             }
             }
@@ -206,7 +218,7 @@ System.out.println(nick);%>
 <div class="w3-content w3-container w3-margin-top">
     <div class="w3-container w3-card-4">
         <div class="w3-center w3-large w3-margin-top">
-            <h3 id="h3tag">회원가입</h3>
+            <h3 id="h3tag" style="font-size: xx-large">회원가입</h3>
         </div>
         <div>
             <form id="myForm" name="myForm"  action="signUp" method="post" >
@@ -217,8 +229,11 @@ System.out.println(nick);%>
                 <div class="i" name="div1">
                     <p>
                         <label>이메일</label>
-                        <input class="w3-input" type="email" id="email" name="email" value=""  required><span id="idCheckResult" style="width:150px;color:#b1b1c0"></span>
+                        <input class="w3-input" type="email" id="email" name="email" value=""  required><button type="button" id="dupleCheck" >중복체크</button>
 
+                    </p>
+                    <p>
+                    <span id="idCheckResult" style="width:150px;color:#b1b1c0"></span>
                     </p>
                     <p>
                         <label>닉네임</label>
@@ -234,7 +249,7 @@ System.out.println(nick);%>
                     </p>
                     <input type="hidden" name="id" >
                     <p>
-                        <label>생년월일 (예시> 0728 )</label>
+                        <label>생일 (예시> 0728 )</label>
                         <input class="w3-input" id="birthday" name="birthday" type="text" value="" onfocusout="birthChange()" required>
                     </p>
                     <p>
@@ -259,7 +274,9 @@ System.out.println(nick);%>
                     <div><span id="favorResult"></span></div>
                 </div>
                 <p class="w3-center">
-                    <button type="button" id="joinBtn" onclick="duple()"  >회원가입</button>
+                   <span> <button type="button" id="joinBtn" class="joinBtn" onclick="duple()" >회원가입</button>
+                    <button type="button" id="toHome" class="joinBtn" onclick="toBack()">홈으로</button></span>
+
                 </p>
             </form>
         </div>
@@ -331,6 +348,12 @@ System.out.println(nick);%>
 
 
     }
+
+    function toBack(){
+
+        window.history.back();
+    }
+
 
 </script>
 

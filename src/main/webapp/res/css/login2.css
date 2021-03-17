@@ -68,7 +68,7 @@ p {
 }
 
 .submit{width: 100%;
-        font-size: smaller;
+    font-size: revert;
     font-family: 'Noto Sans KR', sans-serif;}
 #searchId{
     width: 134px;
@@ -78,11 +78,10 @@ p {
     font-family: 'Noto Sans KR', sans-serif;}
 
 #searchPass{
-    width: 144px;
+    width: 100%;
     position: absolute;
-    left: 135px;
+    left: 0;
     top: 153px;
-    font-size: smaller;
     font-family: 'Noto Sans KR', sans-serif;
 }
 .togglebtn,.input-field {
@@ -94,7 +93,9 @@ p {
 
 #loginPassword,#loginEmail{
     font-size: 13px;
+    position: relative;
 }
+
 .btn{
     top: 0;
 left: 0;
@@ -117,7 +118,7 @@ transition: .5s;}
     position: absolute;
     width: 280px;
     transition: .5s;
-    left: 45px;
+    left: 55px;
 
 }
 #btn2{
@@ -134,13 +135,19 @@ transition: .5s;}
     text-align: center;
     font-family: 'Noto Sans KR', sans-serif;
     position: relative;
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border: none;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
 }
 
 #goToLogin{
-    width: 140px;
+    width: 100%;
     top: 20px;
     position: relative;
-    left: -70px;
 
 }
 #loginEmail2, #loginPassword2{

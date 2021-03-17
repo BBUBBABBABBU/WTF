@@ -25,7 +25,7 @@ img.image{
 }
 
 #select_kind{
-    margin-top: -15;
+    margin-top: -15px;
     font-family: "Black Han Sans";
     color: teal;
     font-size: 84px;
@@ -40,12 +40,16 @@ img.image{
     font-family: "Black Han Sans";
     color:teal;
     font-size: 38px;
+    background-color: transparent;
+    border-color: transparent;
+
 }
 /*한식*/
 .select_kind_list_1{
     font-family: "Black Han Sans";
     color: teal;
     font-size: 38px;
+
 }
 
 /*중식*/

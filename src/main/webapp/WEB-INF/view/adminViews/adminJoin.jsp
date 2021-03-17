@@ -41,6 +41,7 @@
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
 
         /***************************
@@ -49,9 +50,6 @@
          */
         $(function(){
             $('#email').blur(function(){
-
-                alert("ajax");
-
                 $.ajax({
                     type:"POST",
                     url:"idCheck",
@@ -59,23 +57,39 @@
                         "email":$('#email').val()
                     },
                     success:function(str){
-                        alert(str);
+                        alert('> '+str);
+                        check(str);
 
-                        if($.trim(str) == "ok"){
-                            if($('#email').val() != ''){
-                                alert("사용가능한 아이디입니다.");
-                            }
-                        }
-                        else{
-                            if($('#email').val() != ''){
-                                alert("중복된 아이디입니다.");
-                                $('#email').val('');
-                                $('#email').focus();
-                            }
-                        }
+                    },
+                    error:function (err) {
+                        alert("아이디 중복체크 실패"+ err)
                     }
                 })
             })
+
+
+            function check(str) {
+                if ($('#email').val() == "") {
+                    alert("id 입력하셈");
+                    return;
+                }
+                if(str === "ok"){
+                    alert('ok');
+                    if($('#email').val() != ''){
+                        alert("사용가능한 아이디입니다.");
+                        return;
+                    }
+                }
+                if(str === "duplicate"){
+                    alert('duplicate');
+                    if($('#email').val() != ''){
+                        alert("중복된 아이디입니다.");
+                        $('#email').val('');
+                        // $('#email').focus();
+                    }
+                }
+            }
+
 
 
         /**************************

@@ -125,16 +125,28 @@ public interface AdminService {
     public int saveArticle(AdminBoardVO adminBoardVO);
 
 
+    /************************
+     * 수정이나 삭제 할건데, ajax 로 pw 확인을 합시다.
+     */
+    public int boardPwCheck(AdminBoardVO adminBoardVO);
+
+
+    /*******************************************************************************************
+     * 저장되어 있는 글에서 비번 입력 후 수정 버튼 눌렀을 때, 게시글 vo 가지고 boardForm 으로 수정하러 ㄱㄱ
+     */
+    AdminBoardVO boardUpdate(AdminBoardVO adminBoardVO);
+
+
     /*****************
      * 익명 게시판의 기존 게시글 수정
      */
-    public void updateArticle();
+    public int updateArticle(AdminBoardVO adminBoardVO);
 
 
     /*****************
      * 익명 게시판의 기존 게시글 삭제
      */
-    public void deleteArticle();
+    public int deleteArticle(int id);
 
 
 

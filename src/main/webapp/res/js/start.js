@@ -41,6 +41,10 @@ $(function () {
         })
     }else{
         show()
+        $('#select_kind').on('change', function () {
+            show()
+        })
+
     }
 
     // 현 위치(좌표)

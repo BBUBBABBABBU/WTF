@@ -16,11 +16,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
     <link rel="stylesheet" type="text/css" href="res/css/start.css">
+    <link rel="stylesheet" type="text/css" href="res/css/login.css">
+    <link rel="stylesheet" type="text/css" href="res/css/login2.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <%--<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>--%>
     <script src="res/js/start.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="res/css/login.css">
-    <link rel="stylesheet" type="text/css" href="res/css/login2.css">
+
     <script src="res/js/login.js" type="text/javascript"></script>
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
@@ -36,15 +37,22 @@
 
 
     <script>
-        function normal(){
-            window.
-            window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
-        }
+        // function normal(){
+        //     window.
+        //     window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
+        // }
         var user=  "${sessionScope.member.getEmail()}";
         var userNick= "${sessionScope.member.getNickname()}";
         var status = "${sessionScope.status}";
+        var signupEmail="${signupEmail}"
 
-        if (status=="fail"){alert("아이디나 비밀번호가 틀렸습니다.")}
+        if (signupEmail.length>10)
+        {
+            alert("회원가입이 완료되었습니다!")
+        }
+        if (status=="fail"){
+            alert("아이디나 비밀번호가 틀렸습니다.")
+        }
         else { sessionStorage.setItem("member",user);}
 
 
@@ -109,7 +117,7 @@
             <a onclick="conceal()" ><img src="res/img/x.png" style="width: 10px;left: 160px;top: -90px;position: relative;" ></a>
         </div>
         <form id="login" action="/memberLogin" class="input-group" method="post">
-            <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" required>
+            <input type="email" name="email" id="loginEmail" class="input-field" placeholder="Email을 입력하세요" value="${signupEmail}" required>
             <input type="password" name="password" id="loginPassword" class="input-field" placeholder="Password를 입력하세요" required>
            <input type="hidden" name="kind" id="favor">
             <button type="submit" class="submit">로그인</button>
@@ -246,8 +254,6 @@
     }
 
     }
-
-
 
 
 
