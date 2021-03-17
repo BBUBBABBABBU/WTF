@@ -27,6 +27,9 @@
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
 
         // 수정, 삭제
@@ -40,36 +43,75 @@
                 form.board_pw.focus();
                 return;
             }
+            else if(frm.board_pw.value) {
+                alert("비번은 있고, ajax 로 확인 ㄱ");
 
+                alert($('#board_pw').val());
+                alert($('#board_id').val());
 
-            var con = "";
+                $.ajax({
+                    type:"POST",
+                    url:"boardPwCheck",
+                    data:{
+                        "id":$('#board_id').val(),
+                        "pw":$('#board_pw').val()
+                    },
 
-            // 수정
-            if(param == 'u') {
-                con = confirm("수정 ㄱ?");
-                if(con){
+                    success:function(result) {
+                        alert(result);
 
-                    $("#boardForm").attr("action", "/updateArticle");
-                    $("#boardForm").submit();
+                        if(result == 0) {
+                            alert("비번틀림");
+                            form.board_pw.focus();
+                            return;
+                        }
+                        else if(result == 1) {
+                            alert("비번맞네");
 
-                    // document.getElementById("sep").va = "u";
-                    // $("#boardForm").submit();
+                            var con = "";
 
-                }
+                            // 수정
+                            if(param == 'u') {
+                                con = confirm("수정 ㄱ?");
+                                if(con){
+
+                                    document.getElementById("sep").value = "u";
+                                    $("#boardForm").attr("action", "boardUpdate");
+                                    $("#boardForm").submit();
+
+                                    // $("#boardForm").submit();
+
+                                }
+                            }
+
+                            // 삭제
+                            if(param == 'd') {
+                                con = confirm("삭제 ㅇㅋ?");
+                                if(con) {
+
+                                    document.getElementById("sep").value = "d";
+                                    $("#boardForm").attr("action", "boardUpdate");
+                                    $("#boardForm").submit();
+
+                                }
+                            }
+
+                        }
+                        else {
+                            alert("문제가있는데...?")
+                            form.board_pw.focus();
+                            return;
+                        }
+                    }
+                });
+
             }
-
-            // 삭제
-            if(param == 'd') {
-                con = confirm("삭제 ㅇㅋ?");
-                if(con) {
-                    document.getElementById("sep").value = "d";
-                    postForm();
-                    $("#boardForm").attr()
-                    submit();
-                }
-            }
-
         } // end of articleUpdate
+
+
+
+
+
 
     </script>
 
@@ -133,8 +175,10 @@
                                 <%--<div class="form-group">--%>
                                 <form name="frm" method="post" id="boardForm" action="">
                                     <input type="hidden" name="sep" value="" id="sep">
-                                    <c:set var="board_id" value="${adminBoardVO.board_id}"></c:set>
-                                    <input type="hidden" name="board_id">
+                                    <%--<c:set var="board_id" value="${adminBoardVO.board_id}"></c:set>--%>
+                                    <input type="hidden" name="board_id" id="board_id" value="${adminBoardVO.board_id}">
+
+                                    ${message}
                                     <input type="text" class="form-control input-default" placeholder="제목" name="board_title" readonly value="${adminBoardVO.board_title}"><br>
                                     <%--</div>--%>
                                     <%--<div class="basic-form">--%>
@@ -144,7 +188,7 @@
                                             <input type="text" class="form-control" placeholder="닉네임" name="board_writer" readonly value="${adminBoardVO.board_writer}">
                                         </div>
                                         <div class="col">
-                                            <input type="password" class="form-control" placeholder="비밀번호" name="board_pw">
+                                            <input type="password" class="form-control" placeholder="비밀번호" name="board_pw" id="board_pw">
                                         </div>
                                     </div><br>
                                     <%--</form>--%>

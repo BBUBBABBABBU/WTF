@@ -137,10 +137,35 @@
     </insert>
 
 
+    <!--수정 및 삭제할 때 pw 맞는지 확인-->
+    <select id="boardPwCheck" resultType="int">
+        SELECT count(*)
+        FROM adminboard
+        WHERE board_id = #{board_id} and board_pw = #{board_pw}
+    </select>
+
+
+    <!--수정하기 위해 게시글을 가져와야 합니다.-->
+    <select id="boardUpdate" resultMap="getBoard">
+        SELECT *
+        FROM adminboard
+        WHERE board_id = #{board_id} and board_pw = #{board_pw}
+    </select>
+
+
     <!--게시글 수정-->
-    <update id="updateArticle" parameterType="int">
-        UPDATE
+    <update id="updateArticle" parameterType="AdminBoardVO">
+        UPDATE adminboard
+        SET board_pw=#{board_pw}, board_title=#{board_title}, board_content=#{board_content}, board_writer=#{board_writer}, board_modifydate=sysdate()
+        WHERE board_id = #{board_id}
     </update>
+
+
+    <!--게시글 삭제-->
+    <delete id="deleteArticle" parameterType="int">
+        DELETE FROM adminboard
+        WHERE board_id = #{id}
+    </delete>
 
 
     <!--게시글 상세-->
@@ -195,7 +220,8 @@
 
     <resultMap id="getBoard" type="AdminBoardVO">
         <result property="board_id" column="board_id"/>
-        <result property="board_pw" column="board_pw"/>
+        <result property="board_pw" column="bo
+        ard_pw"/>
         <result property="board_title" column="board_title"/>
         <result property="board_content" column="board_content"/>
         <result property="board_writer" column="board_writer"/>
