@@ -115,10 +115,29 @@ public interface AdminMapper {
     int saveArticle(AdminBoardVO adminBoardVO);
 
 
+
+    /******************************
+     * 수정 및 삭제 할 때 입력한 pw가 맞는지 확인
+     */
+    int boardPwCheck(AdminBoardVO adminBoardVO);
+
+
+    /****************************
+     * 수정 버튼을 누르면 수정 할 수 있도록 게시글을 가져옵시다.
+     */
+    List<AdminBoardVO> boardUpdate(AdminBoardVO adminBoardVO);
+
+
     /***************
      * 익게 게시글 수정
      */
-    int updateArticle(int id);
+    int updateArticle(AdminBoardVO adminBoardVO);
+
+
+    /************
+     * 게시글 삭제
+     */
+    int deleteArticle(int id);
 
 
     /**************

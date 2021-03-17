@@ -29,9 +29,14 @@
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
-        alert('??');
+        $(function(){
+            alert('adminBoardForm.jsp');
+            alert('글번호 : ' + ${id});
+            alert('sep : ' + $('#sep').val());
+        });
 
-        // 입력 폼 확인 - 글 신규 등록 (저장버튼 클릭시)
+
+            // 입력 폼 확인 - 글 신규 등록 (저장버튼 클릭시)
         function formCheck(param) {
             alert('formCheck param + ' + param);
 
@@ -70,12 +75,32 @@
         function articleUpdate(param) {
             alert('ararticleUpdate + ' + param);
 
+            var frm = document.frm;
+
+            if(!frm.board_title.value) {
+                alert("제목 없음");
+                form.board_title.focus();
+                return;
+            }
+            if(!frm.board_writer.value) {
+                alert("작성자 없음");
+                form.board_writer.focus();
+                return;
+            }
+            if(!frm.board_pw.value) {
+                alert("비번 없음");
+                form.board_pw.focus();
+                return;
+            }
+
             var con = "";
 
             // 수정
             if(param == 'u') {
                 con = confirm("수정 ㄱ?");
                 if(con){
+                    alert('board_id = ' + ${id});
+                    document.getElementById("article_id").value = "${id}";
                     document.getElementById("sep").value = "u";
                     postForm();
                     $("#boardForm").submit();
@@ -95,7 +120,6 @@
         } // end of articleUpdate
 
 
-
         // Form 보내기
         function postForm() {
             alert('postForm');
@@ -104,8 +128,6 @@
 
         } // end of postForm
 
-
-        if(${id}!=0)
 
 
     </script>
@@ -170,14 +192,17 @@
                                 <%--<div class="form-group">--%>
                                 <form name="frm" method="post" id="boardForm" action="/boardAction">
 
-                                    <input type="hidden" name="sep" value="" id="sep">
-                                    <input type="text" class="form-control input-default" placeholder="제목" name="board_title"><br>
+                                    <input type="hidden" name="board_id" value="0" id="article_id">
+                                    <input type="hidden" name="sep" value="${sep}" id="sep">
+
+                                    ${message}
+                                    <input type="text" class="form-control input-default" placeholder="제목" name="board_title" id="board_title" value="${adminBoardVO.board_title}"><br>
                                 <%--</div>--%>
                                 <%--<div class="basic-form">--%>
                                     <%--<form>--%>
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="form-control" placeholder="닉네임" name="board_writer">
+                                                <input type="text" class="form-control" placeholder="닉네임" name="board_writer" id="board_writer" value="${adminBoardVO.board_writer}">
                                             </div>
                                             <div class="col">
                                                 <input type="password" class="form-control" placeholder="비밀번호" name="board_pw">
@@ -186,7 +211,7 @@
                                     <%--</form>--%>
                                 <%--</div>--%>
                                     <textarea name="content" style="display: none;"></textarea>
-                                    <div id="summernote" class="summernote"></div><br>
+                                    <div id="summernote" class="summernote">${adminBoardVO.board_content}</div><br>
                                 </form>
 
                                 <div class="outline-button">
@@ -196,7 +221,7 @@
                                     <c:choose>
 
                                         <%--게시글 id 값이 없으면 저장 버튼--%>
-                                        <c:when test="${b_id eq null}">
+                                        <c:when test="${b_id eq 0}">
                                             <button type="button" class="btn mb-1 btn-outline-success" onclick="formCheck('i');" id="save">저장</button>
                                         </c:when>
 

@@ -57,8 +57,10 @@
                 $('.sooort').removeClass('sorting_asc')
                 $('.sooort').addClass('sorting');
 
-                $('.down').addClass('sorting_desc');
-                $('.down').removeClass('sorting');
+                // $('.down').addClass('sorting_desc');
+                // $('.down').removeClass('sorting');
+                $('.down').click().click();
+                // $('.down').click();
 
             }, 500);
 
@@ -138,17 +140,7 @@
                                         </thead>
                                         <tbody>
 
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-
                                         <c:forEach var="adminBoardVOList" items="${adminBoardVOList}">
-
                                             <%--<a href="/boardDetail?board_id=${adminBoardVOList.board_id}">--%>
                                                 <tr class="board" style="cursor: pointer;">
                                                     <td>${adminBoardVOList.board_id}</td>
@@ -159,7 +151,6 @@
                                                     <td>${adminBoardVOList.board_viewcount}</td>
                                                 </tr>
                                             <%--</a/>--%>
-
                                         </c:forEach>
 
                                         </tbody>
