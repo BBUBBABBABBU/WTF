@@ -50,6 +50,8 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     // otp login
     compile 'commons-codec:commons-codec:1.15'
+    //cos 이미지업로드용 추가
+    implementation group: 'servlets.com', name: 'cos', version: '05Nov2002'
 
 
 

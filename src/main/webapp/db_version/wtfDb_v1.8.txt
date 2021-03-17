@@ -1,0 +1,8 @@
+ALTER TABLE review drop pic_name;
+
+CREATE TABLE `review_pic` (
+`review_id` INT(11) NOT NULL,
+`review_pic_loc` VARCHAR(50) NOT NULL COLLATE 'utf8_general_ci',
+INDEX `FK__review` (`review_id`) USING BTREE,
+CONSTRAINT `FK__review` FOREIGN KEY (`review_id`) REFERENCES `wtf`.`review` (`review_id`) ON UPDATE RESTRICT ON DELETE RESTRICT
+)

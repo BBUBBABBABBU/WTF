@@ -13,6 +13,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Favicons -->
+    <link href="/res/img/WTF_logo.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
@@ -65,6 +69,7 @@
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
+                <li><a href="/main?foodKind=${sessionScope.foodKind}">돌아가기</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
@@ -99,7 +104,8 @@
 
                         <div class="form-group">
                             <label for="id">Email(ID)</label>
-                            <input type="input" class="form-control" id="id" name="member_id" value="${sessionScope.member.email}" disabled>
+                            <input type="input" class="form-control" id="id" name="member_id"
+                                   value="${sessionScope.member.email}" disabled>
                         </div>
 
                         <div class="form-group">
@@ -118,7 +124,8 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">From.Developer ( 개발자 답변 )</h3>
-                    <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method = "post" class="p-3 p-md-5 bg-light">
+                    <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method="post"
+                          class="p-3 p-md-5 bg-light">
 
                         <div class="form-group">
                             <label for="reply">Reply ( 개발자 답변 )</label>
@@ -126,7 +133,7 @@
                                       class="form-control" disabled>${qna.anw_content} </textarea>
                         </div>
                         <div class="form-group">
-                            <input id = "delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">
+                            <input id="delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">
                         </div>
                     </form>
                 </div>

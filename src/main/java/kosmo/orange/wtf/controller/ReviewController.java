@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -47,10 +48,26 @@ public class ReviewController{
     public String feedReview(Model model){
         MemberVO member = (MemberVO) httpSession.getAttribute("member");
         System.out.println("세션값 불러왔음 " + member.getMemberId());
+       // 세션에 저장된 로그인값을 보냄 - 채팅할때 닉네임 자동입력을 위해서
         String nickname = member.getNickname();
         List<ReviewVO> reviewFeed = reviewService.ReviewList(member.getMemberId());
+        List<PhotoVO> photoList = new ArrayList<PhotoVO>();
+        List<RestaurantVO> resList = new ArrayList<RestaurantVO>();
+        List<String> nickList  = new ArrayList<String>();
+        for(int i=0;i<reviewFeed.size();i++){
+            System.out.println(reviewFeed.get(i).getRes_id());
+            photoList.add(i,reviewService.Photo(Integer.parseInt(reviewFeed.get(i).getRes_id())));
+            System.out.println(photoList.get(i).getRtr_pic_loc());
+            resList.add(i,restaurantService.restaurantInfo(Integer.parseInt(reviewFeed.get(i).getRes_id())));
+            System.out.println(resList.get(i).getResName());
+            nickList.add(i,reviewService.memNickname(reviewFeed.get(i).getMem_id()));
+            System.out.println(nickList.get(i));
+        }
         model.addAttribute("reviewList", reviewFeed);
         model.addAttribute("nickname", nickname);
+        model.addAttribute("PhotoList", photoList);
+        model.addAttribute("ResList", resList);
+        model.addAttribute("nickList", nickList);
         System.out.println("ReviewController 리뷰 리스트 jsp 보내기");
     return "review/feed";
     }

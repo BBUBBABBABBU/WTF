@@ -10,13 +10,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Portfolio Item - MyPortfolio</title>
+    <title>네가 이걸 먹을줄은 정말 몰랐어</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/res/img/favicon.png" rel="icon">
+    <link href="/res/img/WTF_logo.png" rel="icon">
     <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -36,6 +36,7 @@
     <link href="/res/css/style.css" rel="stylesheet">
     <link href="/res/css/main/main.css" rel="stylesheet">
     <link href="/res/css/restaurant/restaurantInfo.css" rel="stylesheet">
+    <link href="/res/css/font.css" rel="stylesheet">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
@@ -45,7 +46,14 @@
 <br/>
 <nav class="navbar navbar-light custom-navbar">
     <div class="container" id = "header_container">
-        <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+        <c:choose>
+            <c:when test="${sessionScope.member ne null}">
+                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:when>
+            <c:otherwise>
+                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:otherwise>
+        </c:choose>
     </div>
 </nav>
 <nav class="navbar navbar-light custom-navbar2">
@@ -98,23 +106,23 @@
                     </div>
                     <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
                         <div class="sticky-content" id='restaurant_info' , name=${restaurantInfo.resId}>
-                            <h3 id='restaurant_name' class="h3">${restaurantInfo.resName}</h3>
-                            <p class="mb-4"><span class="text-muted">평점 ${restaurantInfo.resRating}</span></p>
+                            <h3 id='restaurant_name' class="h3 font_hans" style="font-size: 25px">${restaurantInfo.resName}</h3>
+                            <p class="mb-4"><span class="text-muted font_hans">평점 ${restaurantInfo.resRating}</span></p>
 
                             <div class="mb-5">
-                                <p>${restaurantInfo.resKeyword}</p><br/>
-                                <p>주소</p>
-                                <p id='restaurant_addr'>${restaurantInfo.resAddr}</p>
-                                <p id='restaurant_tel'>${restaurantInfo.resTell}</p>
+                                <p class="font_hans">${restaurantInfo.resKeyword}</p><br/>
+                                <p class="font_hans" style="font-size: 25px">주소</p>
+                                <p id='restaurant_addr' class="font_hans">${restaurantInfo.resAddr}</p>
+                                <p id='restaurant_tel' class="font_hans">${restaurantInfo.resTell}</p>
                             </div>
-                            <h4 class="h4 mb-3">대표 메뉴</h4>
+                            <h4 class="h4 mb-3 font_hans" style="font-size: 25px">대표 메뉴</h4>
                             <ul class="list-unstyled list-line mb-5">
                                 <c:forEach var="restaurantMenu" items="${restaurantMenu}">
-                                    <li>${restaurantMenu.menu} - ${restaurantMenu.price}</li>
+                                    <li class="font_hans">${restaurantMenu.menu} - ${restaurantMenu.price}</li>
                                 </c:forEach>
                             </ul>
-                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}" name="RestaurantVO" >리뷰작성하기</a>
-                                <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
+                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}" name="RestaurantVO" class="font_hans" >리뷰작성하기</a>
+                            <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
                         </div>
                     </div>
                 </div>
