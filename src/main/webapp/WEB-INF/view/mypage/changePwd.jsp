@@ -183,12 +183,13 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span> <span>문의사항</span></p>
-                        <h1 class="bread">문의사항(Q&A / FAQ)</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">내 정보 / </a></span> <span>비밀번호 수정 </span></p>
+                        <h1 class="bread">비밀번호 수정 (My Info)</h1>
+                    </div>
                     </div>
                 </div>
-            </div>
         </section>
+    </div>
 
 
 

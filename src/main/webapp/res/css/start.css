@@ -40,12 +40,16 @@ img.image{
     font-family: "Black Han Sans";
     color:teal;
     font-size: 38px;
+    background-color: transparent;
+    border-color: transparent;
+
 }
 /*한식*/
 .select_kind_list_1{
     font-family: "Black Han Sans";
     color: teal;
     font-size: 38px;
+
 }
 
 /*중식*/

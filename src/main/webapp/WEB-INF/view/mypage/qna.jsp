@@ -39,7 +39,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
         .bread{
-            font-family: 'Nanum Gothic', sans-serif;
+            font-family: 'Black Han Sans',sans-serif;
+        }
+
+        .breadcrumbs{
+            font-family: 'Black Han Sans',sans-serif;
+
         }
         .colorlib-logo{
             font-family: 'Nanum Gothic', sans-serif;
@@ -78,7 +83,7 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의 작성</a></span>
                             <!-- <span>문의사항</span></p> -->
                         <h1 class="bread">문의사항(Q&A 작성)</h1>
                     </div>
