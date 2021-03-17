@@ -234,7 +234,7 @@ System.out.println(nick);%>
                     </p>
                     <input type="hidden" name="id" >
                     <p>
-                        <label>생년월일 (예시> 0728 )</label>
+                        <label>생일 (예시> 0728 )</label>
                         <input class="w3-input" id="birthday" name="birthday" type="text" value="" onfocusout="birthChange()" required>
                     </p>
                     <p>
