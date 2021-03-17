@@ -8,7 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>네가 이걸 먹을줄은 정말 몰랐어</title>
+    <!-- Favicons -->
+    <link href="/res/img/WTF_logo.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
     <link rel="stylesheet" type="text/css" href="res/css/start.css">
@@ -65,12 +69,12 @@
 <div id='select_div'>
     <form id="kind_form" action="/main" method="get">
         <select id="select_kind" name="foodKind">
-            <option value="" disabled selected><p id="none_selected">이걸</p></option>
-            <option value="한식">한식</option>
-            <option value="중식">중식</option>
-            <option value="양식">양식</option>
-            <option value="일식">일식</option>
-            <option value="분식">분식</option>
+            <option class="select_kind_list" value="" disabled selected><p id="none_selected">이걸</p></option>
+            <option class="select_kind_list_1" value="한식">한식</option>
+            <option class="select_kind_list_2" value="중식">중식</option>
+            <option class="select_kind_list_3" value="양식">양식</option>
+            <option class="select_kind_list_4" value="일식">일식</option>
+            <option class="select_kind_list_5" value="분식">분식</option>
         </select>
     </form>
 </div>

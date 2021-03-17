@@ -34,10 +34,15 @@
     <script type="text/javascript">
         $(document).ready(function () {
             // alert('ready')
-            $("tr.restaurant").click(function () {
-                alert('click function')
-                location.href = "/storeDetail"
-            });
+            // $("tr.restaurant").click(function () {
+            //     alert('click function' + $('#resName').val())
+            //     location.href = "/restaurantInfo?resId="+$('#resId').val()
+            // });
+
+            // $('tr.restaurant').on('click', ()=>{
+            //     alert('click function' + $('#resName').val())
+            //     location.href = "/restaurantInfo?resId="+$('#resId').val()
+            // })
         });
     </script>
 
@@ -101,49 +106,30 @@
                                     <table class="table table-striped table-bordered zero-configuration">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>상호명</th>
+                                            <th>연락처</th>
+                                            <th>주소</th>
+                                            <th>영업시간</th>
+                                            <th>키워드</th>
+                                            <th>평점</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
-
                                         <c:forEach var="restaurantVOList" items="${restaurantVOList}">
 
-                                            <tr class="restaurant" style="cursor: pointer;">
-                                                <td>${restaurantVOList.resName}</td>
-                                                <td>${restaurantVOList.resTell}</td>
-                                                <td>${restaurantVOList.resAddr}</td>
-                                                <td>${restaurantVOList.resRuntime}</td>
-                                                <td>${restaurantVOList.resKeyword}</td>
-                                                <td>${restaurantVOList.resRating}</td>
+                                            <tr class="restaurant">
+                                                    <td><a href="/storeDetail?resId=${restaurantVOList.resId}">${restaurantVOList.resName}</a> </td>
+                                                    <td>${restaurantVOList.resTell}</td>
+                                                    <td>${restaurantVOList.resAddr}</td>
+                                                    <td>${restaurantVOList.resRuntime}</td>
+                                                    <td>${restaurantVOList.resKeyword}</td>
+                                                    <td>${restaurantVOList.resRating}</td>
                                             </tr>
 
                                         </c:forEach>
 
                                         </tbody>
-                                        <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                        </tfoot>
                                     </table>
                                 </div>
                             </div>

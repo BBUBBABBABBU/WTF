@@ -13,6 +13,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <!-- Favicons -->
+    <link href="/res/img/WTF_logo.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
@@ -39,10 +43,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-        .bread {
-            font-family: 'Nanum Gothic', sans-serif;
+        .bread{
+            font-family: 'Black Han Sans',sans-serif;
         }
-
         .colorlib-logo {
             font-family: 'Nanum Gothic', sans-serif;
         }
@@ -62,10 +65,11 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[ 마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
+                <li><a href="/main?foodKind=${sessionScope.foodKind}">돌아가기</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
@@ -80,7 +84,7 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span>문의 상세<span
                                 class="mr-2"><a href="/service">문의사항</a></span>
                             <!-- <span>문의사항</span></p> -->
                         <h1 class="bread">문의사항(MY Q&A Detail)</h1>
@@ -100,7 +104,8 @@
 
                         <div class="form-group">
                             <label for="id">Email(ID)</label>
-                            <input type="input" class="form-control" id="id" name="member_id" value="${sessionScope.member.email}" disabled>
+                            <input type="input" class="form-control" id="id" name="member_id"
+                                   value="${sessionScope.member.email}" disabled>
                         </div>
 
                         <div class="form-group">
@@ -119,7 +124,8 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">From.Developer ( 개발자 답변 )</h3>
-                    <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method = "post" class="p-3 p-md-5 bg-light">
+                    <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method="post"
+                          class="p-3 p-md-5 bg-light">
 
                         <div class="form-group">
                             <label for="reply">Reply ( 개발자 답변 )</label>
@@ -127,7 +133,7 @@
                                       class="form-control" disabled>${qna.anw_content} </textarea>
                         </div>
                         <div class="form-group">
-                            <input id = "delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">
+                            <input id="delete_button" type="submit" value="문의 글 삭제" class="btn py-3 px-4 btn-primary">
                         </div>
                     </form>
                 </div>

@@ -1,5 +1,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="kosmo.orange.wtf.model.vo.ReviewVO" %>
+<%@ page import="kosmo.orange.wtf.model.vo.RestaurantVO" %>
+<%@ page import="kosmo.orange.wtf.model.vo.PhotoVO" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
@@ -43,7 +45,7 @@
         <div class="container">
             <form>
                 <input type="text" placeholder="검색" size='50'>
-                <button type="input" class="btn btn-info">검색</button>
+                <button>검색</button>
             </form>
             <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
                 <span></span>
@@ -66,50 +68,71 @@
             </div>
         </div>
     </div>
-
 <!--Main_Feed_Start -->
 <main id = main>
-
 <section class="blog_area section-padding">
     <div class="container">
         <div class="col-md-8">
             <div class="blog_left_sidebar">
-                 <% List<ReviewVO> reviewList = (List<ReviewVO>) request.getAttribute("reviewList");
-                 for (int i = 0 ;i<reviewList.size(); i++){ %>
+                 <%List<ReviewVO> reviewList = (List<ReviewVO>) request.getAttribute("reviewList");
+                 List<PhotoVO> photoList = (List<PhotoVO>)request.getAttribute("PhotoList");
+                List<RestaurantVO> resList = (List<RestaurantVO>)request.getAttribute("ResList");
+                List<String> nickList = (List<String>)request.getAttribute("nickList");
+
+                for (int i = 0 ;i<reviewList.size(); i++){
+                    int taste = reviewList.get(i).getTaste()*10;
+                    int clean = reviewList.get(i).getClean()*10;
+                    int service = reviewList.get(i).getService()*10;
+                    int location = reviewList.get(i).getLocation()*10;
+                    System.out.println(taste);
+                 %>
                 <article>
-                        <div class="blog_item_img">
-                            <div>
-                                <img class="profile-img img-circle"
-                                     src="https://search.pstatic.net/common/?autoRotate=true&quality=95&type=w750&src=https%3A%2F%2Fmyplace-phinf.pstatic.net%2F20200722_231%2F1595418023591O4SrJ_JPEG%2Fupload_28b25e815f5d78422adfcb0f1d2805b7.jpg">
-                                <span><%=reviewList.get(i).getRes_id()%> : </span>
-                                <span><%=reviewList.get(i).getRes_tell()%></span>
-                                <li> <%=reviewList.get(i).getMem_id()%> </li>
-                            </div>
-                        </div>
-                             <ul class="blog_details">
-                                 <div class="container">
-                                     <div class="col-md-2">
-                                          <h4>맛</h4>
-                                           <li ><%=reviewList.get(i).getTaste()%></li>
-                                     </div>
-                                     <div class="col-md-2">
-                                        <h4>위생</h4>
-                                         <li ><%=reviewList.get(i).getClean()%></li>
-                                     </div>
-                                     <div class="col-md-2">
-                                        <h4>서비스</h4>
-                                        <li ><%=reviewList.get(i).getService()%></li>
-                                     </div>
-                                     <div class="col-md-2">
-                                        <h4>접근성</h4>
-                                        <li ><%=reviewList.get(i).getLocation()%></li>
-                                      </div>
-                                 </div>
-                             </ul>
-                             <div class="blog_details">
-                                  <p><%=reviewList.get(i).getContent()%></p>
+                    <div class="chat-container" style="border-radius: 5%;">
+                        <div class="left-padding">
+                             <div style="width: 100%;">
+                                <h1>리뷰 입력한 이미지 캐러셀?</h1>
                              </div>
-                 </article>
+                            <div class="review_img">
+
+                                <%--<img class="review_img"  src="/res/img/img_1.jpg">--%>
+                                <div>
+                                     <li> <%=nickList.get(i) %> </li>
+                                     <div class="star-section col-md-3">
+                                          <h2>맛</h2>
+                                            <span class="star-rating">
+                                             <span style="width:<%=taste%>%"></span>
+                                             </span>
+                                     </div>
+                                     <div class="star-section col-md-3">
+                                        <h2>위생</h2>
+                                         <span class="star-rating">
+                                             <span style="width:<%=clean%>%"></span>
+                                         </span>
+                                     </div>
+                                     <div class="star-section col-md-3">
+                                        <h2>서비스</h2>
+                                         <span class="star-rating">
+                                             <span style="width:<%=service%>%"></span>
+                                             </span>
+                                     </div>
+                                     <div class="star-section col-md-3">
+                                        <h2>접근성</h2>
+                                             <span class="star-rating">
+                                             <span  style="width:<%=location%>%"></span>
+                                             </span>
+                                      </div>
+                         </div>
+                         <div >
+                           <p><%=reviewList.get(i).getContent()%></p>
+                         </div>
+                         <h3>가게정보</h3>
+                        <div >
+                            <span><img  style="width: 100%; border-radius: 10% " src="<%=photoList.get(i).getRtr_pic_loc()%>"></span>
+                            <span><%=resList.get(i).getResName()%> :  </span>
+                            <span><%=reviewList.get(i).getRes_tell()%></span>
+                        </div>
+                    </div>
+                </article>
                 <%}%>
             </div>
         </div>
@@ -129,7 +152,7 @@
                         </div>
                  </div>
                 <div id="chat-page" class="hidden">
-                            <div class="chat-container">
+                            <div class="chat-container1">
                                 <div class="chat-header">
                                     <h4>채팅</h4>
                                 </div>

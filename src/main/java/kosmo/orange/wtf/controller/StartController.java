@@ -54,6 +54,7 @@ public class StartController {
         model.addAttribute("restaurantList", restaurantList);
         model.addAttribute("photoList", photoList);
         model.addAttribute("foodKind", foodKind);
+        httpSession.setAttribute("foodKind",foodKind);
 
         return "recommend/Main";
     }

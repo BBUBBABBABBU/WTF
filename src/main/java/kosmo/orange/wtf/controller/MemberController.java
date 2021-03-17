@@ -2,8 +2,6 @@ package kosmo.orange.wtf.controller;
 
 import kosmo.orange.wtf.model.vo.MemberMailVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
-import kosmo.orange.wtf.model.vo.PhotoVO;
-import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.MainServiceImpl;
 import kosmo.orange.wtf.service.impl.MemberServiceImpl;
 import kosmo.orange.wtf.service.impl.SendEmailService;
@@ -14,9 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -46,8 +42,6 @@ public class MemberController {
         System.out.println("스텝");
     return "mypage/"+step;
     }
-
-
 
 
 

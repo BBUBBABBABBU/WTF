@@ -69,7 +69,7 @@ public class QnaController {
         result = qnaService.insertQna(qnaVO);
         System.out.println(result);
 
-        return "mypage/qna";
+        return "redirect:/myqnalist";
     }
 
     // ****** 유저 qna 문의 글 삭제

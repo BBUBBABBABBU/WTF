@@ -10,5 +10,4 @@ import lombok.Setter;
 public class PhotoVO {
     private String res_id;
     private String rtr_pic_loc;
-
 }

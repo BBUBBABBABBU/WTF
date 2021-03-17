@@ -9,7 +9,7 @@ public class MypageController {
 
 
     @RequestMapping("/mypage")
-    public String Mypage(){return "mypage/changePwd";}
+    public String Mypage(){return "mypage/myInfo";}
 
     @RequestMapping("/service")
     public String Service(){return "mypage/service";}
