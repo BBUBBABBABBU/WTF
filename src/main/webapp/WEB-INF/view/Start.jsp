@@ -8,7 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>네가 이걸 먹을줄은 정말 몰랐어</title>
+    <!-- Favicons -->
+    <link href="/res/img/WTF_logo.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">--%>
     <link rel="stylesheet" type="text/css" href="res/css/start.css">

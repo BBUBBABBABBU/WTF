@@ -12,13 +12,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>MyPortfolio</title>
+    <title>네가 이걸 먹을줄은 정말 몰랐어</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/res/img/favicon.png" rel="icon">
+    <link href="/res/img/WTF_logo.png" rel="icon">
     <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -53,7 +53,14 @@
 <br/>
 <nav class="navbar navbar-light custom-navbar">
     <div class="container" id = "header_container">
-            <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+        <c:choose>
+            <c:when test="${sessionScope.member ne null}">
+                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:when>
+            <c:otherwise>
+                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:otherwise>
+        </c:choose>
     </div>
 </nav>
 <nav class="navbar navbar-light custom-navbar2">

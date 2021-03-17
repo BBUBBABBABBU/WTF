@@ -9,16 +9,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>MyPortfolio</title>
+    <title>네가 이걸 먹을줄은 정말 몰랐어</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicons -->
-    <link href="/res/img/favicon.png" rel="icon">
+    <link href="/res/img/WTF_logo.png" rel="icon">
     <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -39,6 +40,10 @@
     <link href="/res/css/main/main.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+        #searchFail_img{
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
     </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -52,8 +57,15 @@
 <body>
 <br/>
 <nav class="navbar navbar-light custom-navbar">
-    <div class="container" id = "header_container">
-            <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+    <div class="container" id="header_container">
+        <c:choose>
+            <c:when test="${sessionScope.member ne null}">
+                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:when>
+            <c:otherwise>
+                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+            </c:otherwise>
+        </c:choose>
     </div>
 </nav>
 <nav class="navbar navbar-light custom-navbar2">
@@ -95,44 +107,48 @@
             <div id="recommend_div" class="">
 
                 <div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">
-                <c:forEach var="restaurantList" items="${restaurantList}">
-                    <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
-                        <a href='/restaurant/restaurantInfo?resId=${restaurantList.resId}'
-                           id='restaurant_img' class="item-wrap fancybox"
-                           name=${restaurantList.resId}>
-                            <div class="work-info">
-                                <h3>Cocooil</h3>
-                                <span>Branding</span>
-                            </div>
+                    <c:if test="${fn:length(restaurantList)==0}">
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <img src="/res/img/searchFail.jpg" id="searchFail_img">
+                        </div>
+                    </c:if>
+                    <c:forEach var="restaurantList" items="${restaurantList}">
+                        <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
+                            <a href='/restaurant/restaurantInfo?resId=${restaurantList.resId}'
+                               id='restaurant_img' class="item-wrap fancybox"
+                               name=${restaurantList.resId}>
+                                <div class="work-info">
+                                    <h3>Cocooil</h3>
+                                    <span>Branding</span>
+                                </div>
                                 <img class="res_img" width="400" height="300" src=${restaurantList.rtr_pic_loc}>
-                        </a>
-                        <table border="0">
-                            <tr>
-                                <td class='detail_des' width=350>${restaurantList.resName}<span
-                                        class="res_rating">${restaurantList.resRating}</span></td>
-                            </tr>
-                            <tr>
-                                <td class='detail_des2'
-                                    width=350>${restaurantList.resAddr}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class='detail_des2' width=350>추천 :${restaurantList.likeCount}  리뷰
-                                    :${restaurantList.reviewCount}
-                                </td>
-                                <td></td>
-                            </tr>
+                            </a>
+                            <table border="0">
+                                <tr>
+                                    <td class='detail_des' width=350>${restaurantList.resName}<span
+                                            class="res_rating">${restaurantList.resRating}</span></td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2'
+                                        width=350>${restaurantList.resAddr}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='detail_des2' width=350>추천 :${restaurantList.likeCount} 리뷰
+                                        :${restaurantList.reviewCount}
+                                    </td>
+                                    <td></td>
+                                </tr>
 
-                        </table>
-                    </div>
-                </c:forEach>
+                            </table>
+                        </div>
+                    </c:forEach>
                 </div>
 
-            <br/><br/><br/>
-
-
-
-
+                <br/><br/><br/>
+            </div>
+        </div>
+    </div>
 
 </main>
 

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,10 @@
     <title>wtf MY Q&A List</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Favicons -->
+    <link href="/res/img/WTF_logo.png" rel="icon">
+    <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
@@ -40,30 +44,34 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
-        .bread{
+
+        .bread {
             font-family: 'Nanum Gothic', sans-serif;
         }
-        .colorlib-logo{
+
+        .colorlib-logo {
             font-family: 'Nanum Gothic', sans-serif;
         }
+
         /* .breadcrumbs{
             font-family: 'Nanum Gothic', sans-serif;
         } */
-        .jm-font{
+        .jm-font {
             font-family: 'Noto Sans KR', sans-serif;
             color: black;
-            font-size:21px;
+            font-size: 21px;
         }
 
-        .tm-font{
+        .tm-font {
             font-family: 'Noto Sans KR', sans-serif;
             color: black;
-            font-size:28px;
+            font-size: 28px;
         }
-        .em-font{
+
+        .em-font {
             font-family: 'Noto Sans KR', sans-serif;
             color: black;
-            font-size:22px;
+            font-size: 22px;
         }
     </style>
 
@@ -74,10 +82,13 @@
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img"
+                                                       style="background-image: url(/res/mypageTemplate/images/user-3.png);"></span>[
+            마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
+                <li><a href="/main?foodKind=${sessionScope.foodKind}">돌아가기</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
@@ -92,7 +103,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 > </a></span><span
+                                class="mr-2"><a href="/service">문의사항</a></span>
                             <!-- <span>문의사항</span></p> -->
                         <h1 class="bread">문의사항(MY Q&A List)</h1>
                     </div>
@@ -104,7 +116,7 @@
         <p class="table" align="center"></p>
 
 
-        <table border="1"  class="jm-font" align="center" >
+        <table border="1" class="jm-font" align="center">
             <tr>
                 <th bgcolor="lightgrey" width="300">문의번호</th>
                 <th bgcolor="lightgrey" width="300">이메일ID</th>
@@ -116,23 +128,23 @@
 
             </tr>
 
-<%--            <tr>--%>
-<%--                <td align="left"><a href="/myqnadetail">답변상세</a></td>--%>
-<%--            </tr>--%>
+            <%--            <tr>--%>
+            <%--                <td align="left"><a href="/myqnadetail">답변상세</a></td>--%>
+            <%--            </tr>--%>
 
-           <c:forEach items="${qnaList}" var="qna">
+            <c:forEach items="${qnaList}" var="qna">
 
-				<tr>
-					<td>${qna.qna_id }</td>
+                <tr>
+                    <td>${qna.qna_id }</td>
 
-					<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">
-							${qna.member_id }</a></td>
-					<td>${qna.qna_title} </td>
-					<td>${qna.qna_date}</td>
-					<td>${qna.anw_check}</td>
+                    <td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">
+                            ${qna.member_id }</a></td>
+                    <td>${qna.qna_title} </td>
+                    <td>${qna.qna_date}</td>
+                    <td>${qna.anw_check}</td>
 
-				</tr>
-			</c:forEach>
+                </tr>
+            </c:forEach>
 
         </table>
 
@@ -141,7 +153,13 @@
 </div><!-- END COLORLIB-PAGE -->
 
 <!-- loader -->
-<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                stroke="#F96D00"/>
+    </svg>
+</div>
 
 
 <script src="/res/mypageTemplate/js/jquery.min.js"></script>

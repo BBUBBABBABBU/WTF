@@ -11,7 +11,7 @@ $.ajax({
     success: (data) => {
         locationList = data
     }, error: (err) => {
-        alert('ajax 실패 : ' + err)
+        alert('restaurantMap.js ajax 실패 : ' + err)
     }
 })
 
