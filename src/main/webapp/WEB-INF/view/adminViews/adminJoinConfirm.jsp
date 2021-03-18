@@ -27,7 +27,7 @@
         <c:when test="${result ne 0}">
             <script type="text/javascript">
                 alert("회원 가입 성공")
-                location.href = "adminHome"
+                location.href = "adminLogin"
             </script>
         </c:when>
 
