@@ -5,6 +5,8 @@ import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
+import kosmo.orange.wtf.service.impl.MemberServiceImpl;
+import kosmo.orange.wtf.service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,8 @@ public class AdminIndexController {
     //  페이지 이동 컨트롤러
     //  (정확히는 adminHeader.jsp 의 side bar (nav bar) 에서 이동
     // ************************************
-
+    @Autowired
+    MemberServiceImpl memberService;
     @Autowired
     AdminServiceImpl adminService;
 
@@ -233,7 +236,15 @@ public class AdminIndexController {
 
     } // end of board
 
+    @RequestMapping("/memberDetail")
+    public String memberDetail(MemberVO member, Model model){
+        System.out.println("member:"+member.getEmail());
 
+        MemberVO result=(MemberVO) memberService.memberLogin(member);
+        model.addAttribute("member",result);
+
+        return "adminViews/adminMemberDetail";
+    }
 
 
 

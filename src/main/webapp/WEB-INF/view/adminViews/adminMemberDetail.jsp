@@ -94,13 +94,13 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                             <div class="page-header">
-                                <h3 class="mb-2">Influencer Profile </h3>
+                                <h3 class="mb-2"> 회원정보 </h3>
                                 <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
-                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Influencer Profile Template</li>
+                                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link"></a></li>
+                                            <li class="breadcrumb-item active" aria-current="page">  </li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -127,21 +127,29 @@
                                         <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
                                     </div>
                                     <div class="text-center">
-                                        <h2 class="font-24 mb-0">Michael J. Christy</h2>
-                                        <p>Project Manager @Influnce</p>
+                                        <h2 class="font-24 mb-0">${member.nickname} </h2>
+                                        <%
+                                            request.setCharacterEncoding("UTF-8");
+                                            String member = request.getParameter("member");
+                                        %>
+                                        <p> ${member.email } </p>
                                     </div>
                                 </div>
                                 <div class="card-body border-top">
-                                    <h3 class="font-16">Contact Information</h3>
+                                    <h3 class="font-16">개인정보</h3>
                                     <div class="">
                                         <ul class="list-unstyled mb-0">
-                                            <li class="mb-2"><i class="fas fa-fw fa-envelope mr-2"></i>michaelchristy@gmail.com</li>
-                                            <li class="mb-0"><i class="fas fa-fw fa-phone mr-2"></i>(900) 123 4567</li>
+                                            <li class="mb-2" ><i ></i>등록번호 : ${member.memberId} </li>
+                                            <li class="mb-2"><i ></i>생일 : ${member.birthday} </li>
+                                            <li class="mb-0"><i ></i>성별 : ${member.gender} </li>
+                                            <li class="mb-0"><i ></i>회원등록일 : ${member.registDate} </li>
+
+
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="card-body border-top">
-                                    <h3 class="font-16">Rating</h3>
+                                    <h3 class="font-16">평균 별점</h3>
                                     <h1 class="mb-0">4.8</h1>
                                     <div class="rating-star">
                                         <i class="fa fa-fw fa-star"></i>
@@ -152,23 +160,12 @@
                                         <p class="d-inline-block text-dark">14 Reviews </p>
                                     </div>
                                 </div>
+
                                 <div class="card-body border-top">
-                                    <h3 class="font-16">Social Channels</h3>
-                                    <div class="">
-                                        <ul class="mb-0 list-unstyled">
-                                            <li class="mb-1"><a href="#"><i class="fab fa-fw fa-facebook-square mr-1 facebook-color"></i>fb.me/michaelchristy</a></li>
-                                            <li class="mb-1"><a href="#"><i class="fab fa-fw fa-twitter-square mr-1 twitter-color"></i>twitter.com/michaelchristy</a></li>
-                                            <li class="mb-1"><a href="#"><i class="fab fa-fw fa-instagram mr-1 instagram-color"></i>instagram.com/michaelchristy</a></li>
-                                            <li class="mb-1"><a href="#"><i class="fas fa-fw fa-rss-square mr-1 rss-color"></i>michaelchristy.com/blog</a></li>
-                                            <li class="mb-1"><a href="#"><i class="fab fa-fw fa-pinterest-square mr-1 pinterest-color"></i>pinterest.com/michaelchristy</a></li>
-                                            <li class="mb-1"><a href="#"><i class="fab fa-fw fa-youtube mr-1 youtube-color"></i>youtube/michaelchristy</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body border-top">
-                                    <h3 class="font-16">Category</h3>
+                                    <h3 class="font-16">선호 음식</h3>
                                     <div>
-                                        <a href="#" class="badge badge-light mr-1">Fitness</a><a href="#" class="badge badge-light mr-1">Life Style</a><a href="#" class="badge badge-light mr-1">Gym</a>
+                                        <a href="#" class="badge badge-light mr-1"> ${member.favor} </a>
+                                        <%--<a href="#" class="badge badge-light mr-1">Life Style</a><a href="#" class="badge badge-light mr-1">Gym</a>--%>
                                     </div>
                                 </div>
                             </div>
@@ -187,33 +184,33 @@
                             <!-- campaign tab one -->
                             <!-- ============================================================== -->
                             <div class="influence-profile-content pills-regular">
-                                <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campaign</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Reviews</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Send Messages</a>
-                                    </li>
-                                </ul>
+                                <%--<ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">--%>
+                                    <%--<li class="nav-item">--%>
+                                        <%--<a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campaign</a>--%>
+                                    <%--</li>--%>
+                                    <%--<li class="nav-item">--%>
+                                        <%--<a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>--%>
+                                    <%--</li>--%>
+                                    <%--<li class="nav-item">--%>
+                                        <%--<a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Reviews</a>--%>
+                                    <%--</li>--%>
+                                    <%--<li class="nav-item">--%>
+                                        <%--<a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Send Messages</a>--%>
+                                    <%--</li>--%>
+                                <%--</ul>--%>
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                                 <div class="section-block">
-                                                    <h3 class="section-title">My Campaign State</h3>
+                                                    <h3 class="section-title">회원활동 정보</h3>
                                                 </div>
                                             </div>
                                             <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h1 class="mb-1">9</h1>
-                                                        <p>Campaign Invitations</p>
+                                                        <p>앱사용시간</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -221,7 +218,7 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h1 class="mb-1">35</h1>
-                                                        <p>Finished Campaigns</p>
+                                                        <p>팔로워 수</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -229,7 +226,7 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h1 class="mb-1">8</h1>
-                                                        <p>Accepted Campaigns</p>
+                                                        <p>팔로잉 수</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -237,13 +234,13 @@
                                                 <div class="card">
                                                     <div class="card-body">
                                                         <h1 class="mb-1">1</h1>
-                                                        <p>Declined Campaigns</p>
+                                                        <p>검색횟수</p>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="section-block">
-                                            <h3 class="section-title">Campaign List</h3>
+                                            <h3 class="section-title">고객이 남긴 리뷰</h3>
                                         </div>
                                         <div class="card">
                                             <div class="card-body">

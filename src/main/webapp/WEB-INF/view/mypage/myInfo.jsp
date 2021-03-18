@@ -226,7 +226,7 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">마이 페이지 / </a></span> <span>내 정보</span></p>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span> <span>내 정보</span></p>
                         <h1 class="bread">내 정보 (My Info)</h1>
                     </div>
                 </div>

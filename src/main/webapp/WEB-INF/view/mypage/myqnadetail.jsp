@@ -84,10 +84,9 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span>문의 상세<span
-                                class="mr-2"><a href="/service">문의사항</a></span>
-                            <!-- <span>문의사항</span></p> -->
-                        <h1 class="bread">문의사항(MY Q&A Detail)</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+
+                        <h1 class="bread">문의상세(Q&A)</h1>
                     </div>
                 </div>
             </div>
@@ -100,7 +99,7 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">To.Developer ( 개발자에게 )</h3>
-                    <form action="/myqnadetail" class="p-3 p-md-5 bg-light">
+                    <form action="/myqnadetail" class="p-3 p-md-5 bg-light" style="border-radius: 30px; width:80%;" >
 
                         <div class="form-group">
                             <label for="id">Email(ID)</label>
@@ -125,7 +124,7 @@
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">From.Developer ( 개발자 답변 )</h3>
                     <form id="detail_form" action="deleteQna?qna_id=${qna.qna_id}" method="post"
-                          class="p-3 p-md-5 bg-light">
+                          class="p-3 p-md-5 bg-light" style="border-radius: 30px; width:80%;">
 
                         <div class="form-group">
                             <label for="reply">Reply ( 개발자 답변 )</label>

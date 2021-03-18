@@ -29,7 +29,6 @@ public class StartController {
     @GetMapping("/")
     public String start() {
         //로그인 실패시에만 실패 알림 창 뜨게 설정 한부분====================
-        System.out.println(httpSession.getAttribute("status"));
         if (httpSession.getAttribute("status")=="fail" & temp==0){
             temp += 1;
         }else{

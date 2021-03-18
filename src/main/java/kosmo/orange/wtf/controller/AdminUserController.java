@@ -16,13 +16,13 @@ public class AdminUserController {
     // ************************************
 
 
-    @GetMapping("memberDetail")
-    public String memberDetail() {
-        System.out.println("AdminUserController.memberDetail");
-
-        return "adminViews/adminMemberDetail";
-
-    } // end of memberDetail
+//    @GetMapping("memberDetail")
+//    public String memberDetail() {
+//        System.out.println("AdminUserController.memberDetail");
+//
+//        return "adminViews/adminMemberDetail";
+//
+//    } // end of memberDetail
 
 
 }

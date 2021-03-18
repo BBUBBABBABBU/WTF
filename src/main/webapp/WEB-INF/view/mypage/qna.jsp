@@ -93,10 +93,9 @@
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
 
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의 작성</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의 작성</a></span>
 
-                            <!-- <span>문의사항</span></p> -->
-                        <h1 class="bread">문의사항(Q&A 작성)</h1>
+                        <h1 class="bread">문의사항(Q&A)</h1>
                     </div>
                 </div>
             </div>
@@ -109,7 +108,7 @@
 
                 <div class="comment-form-wrap pt-5">
                     <h3 class="mb-5">To.Developer ( 개발자에게 )</h3>
-                    <form action="/insertQna" class="p-3 p-md-5 bg-light">
+                    <form action="/insertQna" class="p-3 p-md-5 bg-light" style="border-radius: 30px; width:80%;">
 
                         <div class="form-group">
                             <label for="id">Email(ID)</label>
