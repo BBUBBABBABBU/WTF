@@ -18,4 +18,6 @@ public interface ReviewService {
     ReviewVO ReviewInfo(int rev_id);
     ReviewVO ReviewInsert(int rev_id);
 
+    List<ReviewVO> mainReview(String foodKind);
+
 }

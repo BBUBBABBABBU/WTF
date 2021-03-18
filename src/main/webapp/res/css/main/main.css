@@ -68,3 +68,23 @@ h6,
     height: 71px;
 }
 /*추가한 css 끝*/
+
+#scroll_top_btn{
+    color-scheme: light;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
+    letter-spacing: -.2px;
+    color: black;
+    text-decoration: none;
+    position: fixed;
+    right: 24px;
+    bottom: 20px;
+    z-index: 100;
+    background: transparent;
+}
+
+a:visited{
+    color:black;
+}
+

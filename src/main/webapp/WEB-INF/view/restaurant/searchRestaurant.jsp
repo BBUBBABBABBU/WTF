@@ -81,8 +81,7 @@
                                id='restaurant_img' class="item-wrap fancybox"
                                name=${restaurantList.resId}>
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3>${restaurantList.resKeyword}</h3>
                                 </div>
                                 <img class="res_img" width="400" height="300" src=${restaurantList.rtr_pic_loc}>
                             </a>

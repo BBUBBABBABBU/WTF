@@ -260,8 +260,7 @@ function showRestaurant(latitude, longitude) {
                             let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                                 '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].resId+'" class="item-wrap fancybox">' +
                                 '<div class="work-info">' +
-                                '<h3>Cocooil</h3>' +
-                                '<span>Branding</span>' +
+                                '<h3>'+res_allList[i].resKeyword+'</h3>' +
                                 '</div>' +
                                 '<img class="res_img" width="400" height="300" src=' + res_allList[i].rtr_pic_loc + '>' +
                                 '</a>' +

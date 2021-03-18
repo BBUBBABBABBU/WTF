@@ -11,7 +11,7 @@
     <div class="container" id = "header_container">
         <c:choose>
             <c:when test="${sessionScope.member ne null}">
-                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>${sessionScope.member.nickname}(이)가 이걸 먹을줄은 정말 몰랐어</h1></a>
             </c:when>
             <c:otherwise>
                 <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>

@@ -35,6 +35,7 @@
 
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
+    <link href="/res/css/main/main.css" rel="stylesheet">
 
     <%--폰트 연결--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -108,8 +109,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>&origin=recom1" class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList.get(i)%>>
@@ -185,8 +185,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList2.get(i).getRes_id()%>&origin=recom2"  class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList2.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList2.get(i)%>>
@@ -259,8 +258,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList3.get(i).getRes_id()%>&origin=recom3"  class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList3.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList3.get(i)%>>
@@ -473,7 +471,6 @@
 <script src="/res/vendor/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template JS File -->
-<script src="/res/js/recommend.js"></script>
 <script src="/res/js/main.js"></script>
 
 

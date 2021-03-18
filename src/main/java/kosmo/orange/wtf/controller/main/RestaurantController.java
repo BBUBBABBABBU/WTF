@@ -1,11 +1,10 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.main;
 
 import kosmo.orange.wtf.model.vo.MenuVO;
 import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.MainServiceImpl;
 import kosmo.orange.wtf.service.impl.RestaurantServiceImpl;
-import kosmo.orange.wtf.service.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

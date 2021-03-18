@@ -101,7 +101,18 @@ public class ReviewServiceImpl implements ReviewService {
         return null;
     }
 
-
+    /**
+     * 메인페이지 리뷰 가져오기
+     */
+    @Override
+    public List<ReviewVO> mainReview(String foodKind) {
+        try{
+            return reviewMapper.mainReview(foodKind);
+        }catch (Exception e){
+            System.out.println("ReviewServiceImpl 112line error: " + e.toString());
+            return null;
+        }
+    }
 }
 
 

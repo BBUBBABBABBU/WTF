@@ -36,8 +36,7 @@ $(function () {
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                             '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom1" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
-                            '<h3>Cocooil</h3>' +
-                            '<span>Branding</span>' +
+                            '<h3>'+res_allList[i].res_keyword+'</h3>' +
                             '</div>' +
                             '<img class="res_img" width="400" height="300" src=' + photoList[i] + '>' +
                             '</a>' +
@@ -101,8 +100,7 @@ $(function () {
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                             '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom2" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
-                            '<h3>Cocooil</h3>' +
-                            '<span>Branding</span>' +
+                            '<h3>'+res_allList[i].res_keyword+'</h3>' +
                             '</div>' +
                             '<img class="res_img" width="400" height="300" src=' + photoList[i] + '>' +
                             '</a>' +
@@ -163,11 +161,11 @@ $(function () {
                     $('.recommend_container3').append(recommend_div3)
                     for (let i = 0; i < 12; i++) {
                         // let content =$('<div>'+i+'</div>')
+
                         let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                             '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom3" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
-                            '<h3>Cocooil</h3>' +
-                            '<span>Branding</span>' +
+                            '<h3>'+res_allList[i].res_keyword+'</h3>' +
                             '</div>' +
                             '<img class="res_img" width="400" height="300" src=' + photoList[i] + '>' +
                             '</a>' +
