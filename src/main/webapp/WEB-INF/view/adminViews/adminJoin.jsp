@@ -57,39 +57,34 @@
                         "email":$('#email').val()
                     },
                     success:function(str){
-                        alert('> '+str);
-                        check(str);
+                        alert('>'+str);
 
+                        if($('#email').val() == "") {
+                            alert("id입력하셈");
+                            return;
+                        }
+                        else if(str === "ok"){
+                            //alert('if')
+                            if($('#email').val() != ''){
+                                alert("사용가능한 아이디입니다.");
+                                return;
+                            }
+                        }
+                        else{
+                            alert('else');
+                            if($('#email').val() != ''){
+                                alert("중복된 아이디입니다.");
+                                $('#email').val('');
+                                // $('#email').focus();
+                                return;
+                            }
+                        }
                     },
                     error:function (err) {
-                        alert("아이디 중복체크 실패"+ err)
+                        alert("아이디 중복체크 실패"+ err);
                     }
                 })
-            })
-
-
-            function check(str) {
-                if ($('#email').val() == "") {
-                    alert("id 입력하셈");
-                    return;
-                }
-                if(str === "ok"){
-                    alert('ok');
-                    if($('#email').val() != ''){
-                        alert("사용가능한 아이디입니다.");
-                        return;
-                    }
-                }
-                if(str === "duplicate"){
-                    alert('duplicate');
-                    if($('#email').val() != ''){
-                        alert("중복된 아이디입니다.");
-                        $('#email').val('');
-                        // $('#email').focus();
-                    }
-                }
-            }
-
+            });
 
 
         /**************************
@@ -105,13 +100,12 @@
                         $('#pass').focus();
                     }
                 }
-            })
+            });
 
 
         /*****************************
          * 회원가입
          */
-
             $('#join_account').click(()=>{
                 alert('ok')
                 // var check_list = ['name', 'email', 'pass']
@@ -121,7 +115,19 @@
                 //
                 // }
                 if($('#name').val() ==''){
-                    alert('이름을 입력해주세요')
+                    alert('이름을 입력해주세요');
+                    return;
+                }
+                if($('#email').val() == "") {
+                    alert("id 입력하라고");
+                    return;
+                }
+                if($('#pass').val() == "") {
+                    alert('pw 입력해라')
+                    return;
+                }
+                if($('pass2').val() == "") {
+                    alert('pw 확인 안 함?')
                     return;
                 }
 

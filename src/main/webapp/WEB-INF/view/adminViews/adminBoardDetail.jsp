@@ -79,8 +79,6 @@
                                     $("#boardForm").attr("action", "boardUpdate");
                                     $("#boardForm").submit();
 
-                                    // $("#boardForm").submit();
-
                                 }
                             }
 
@@ -109,6 +107,11 @@
         } // end of articleUpdate
 
 
+
+        // 목록
+        function list() {
+            location.href = "/board";
+        }
 
 
 
@@ -198,6 +201,7 @@
                                 </form>
 
                                 <div class="outline-button">
+                                    <button type="button" class="btn mb-1 btn-outline-dark" onclick="list();">목록</button>
                                     <button type="button" class="btn mb-1 btn-outline-primary" onclick="articleUpdate('u');" id="update">수정</button>
                                     <button type="button" class="btn mb-1 btn-outline-danger" onclick="articleUpdate('d');" id="delete">삭제</button>
                                 </div>

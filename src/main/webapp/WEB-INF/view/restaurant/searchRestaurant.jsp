@@ -55,48 +55,8 @@
 
 </head>
 <body>
-<br/>
-<nav class="navbar navbar-light custom-navbar">
-    <div class="container" id="header_container">
-        <c:choose>
-            <c:when test="${sessionScope.member ne null}">
-                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
-            </c:when>
-            <c:otherwise>
-                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
-            </c:otherwise>
-        </c:choose>
-    </div>
-</nav>
-<nav class="navbar navbar-light custom-navbar2">
-    <div class="container">
-        <form action="/restaurant/searchRestaurant" method="get">
-            <input type="text" name="resKeyword" placeholder="검색" size='65'>
-            <input type="submit" class="btn btn-info" value="검색">
-        </form>
-        <a href="#" class="burger" data-toggle="collapse" data-target="#main-navbar">
-            <span></span>
-        </a>
-    </div>
-</nav>
-<div class="collapse navbar-collapse custom-navmenu" id="main-navbar">
-    <div class="container py-2 py-md-5">
-        <div class="row align-items-start">
-            <div class="col-md-9"></div>
-            <div class="col-md-3">
-                <ul class="custom-menu">
-                    <ul class="custom-menu">
-                        <li><a href="/mypage">마이페이지</a></li>
-                        <li><a href="/recommend">상세추천</a></li>
-                        <li><a href="/review/feed">피드</a></li>
-                        <li><a href="/memberLogout">로그아웃</a></li>
-                        <li><a href="/chat">채팅</a></li>
-                    </ul>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<jsp:include page="/WEB-INF/view/header_footer/mainHeader.jsp"/>
+
 
 <main id="main">
     <%--선택 음식좋류를 넘겨줌--%>
@@ -155,30 +115,9 @@
 
 </main>
 
-<footer class="footer" role="contentinfo">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-6">
-                <p class="mb-1">&copy; Copyright MyPortfolio. All Rights Reserved</p>
-                <div class="credits">
-                    <!--
-                      All the links in the footer should remain intact.
-                      You can delete the links only if you purchased the pro version.
-                      Licensing information: https://bootstrapmade.com/license/
-                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyPortfolio
-                    -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-                </div>
-            </div>
-            <div class="col-sm-6 social text-md-right">
-                <a href="#"><span class="icofont-twitter"></span></a>
-                <a href="#"><span class="icofont-facebook"></span></a>
-                <a href="#"><span class="icofont-dribbble"></span></a>
-                <a href="#"><span class="icofont-behance"></span></a>
-            </div>
-        </div>
-    </div>
-</footer>
+
+<jsp:include page="/WEB-INF/view/header_footer/mainFooter.jsp"/>
+
 
 <!-- Vendor JS Files -->
 <script src="/res/vendor/jquery/jquery.min.js"></script>
