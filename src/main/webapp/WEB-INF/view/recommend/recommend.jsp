@@ -76,7 +76,9 @@
         <div class="container recommend_container1">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1 class="recommend_category">니가 이걸 먹을줄 알고 있었어</h1>
+
+                    <h1>${sessionScope.member.nickname} 네가 이걸 먹을줄 알고 있었어</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
@@ -86,10 +88,11 @@
                         <span class="recommend_orderBy clickPointer font_hans" name="rating"> 평점순 </span>
                         <span class="recommend_orderBy clickPointer font_hans" name="review"> 리뷰순 </span>
 
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
-
                     </div>
+                    <br/>
+                    <h5>
+                        ${sessionScope.member.nickname} 님이 맘에 들어하신 식당을 기준으로 추천드려요!
+                    </h5>
                 </div>
             </div>
 
@@ -151,7 +154,9 @@
         <div class="container recommend_container2">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1 class="recommend_category">니가 이걸 먹어 보면 어떨까</h1>
+
+                    <h1>${sessionScope.member.nickname} 네가 이걸 먹어 보면 어떨까</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
@@ -162,10 +167,11 @@
                         <span class="recommend_orderBy2 clickPointer font_hans" name="review"> 리뷰순 </span>
 
 
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
-
                     </div>
+                    <br/>
+                    <h5>
+                        ${sessionScope.member.nickname} 님과 비슷한 입맛을 가진 분들이 추천한 식당!
+                    </h5>
                 </div>
             </div>
 
@@ -224,7 +230,9 @@
         <div class="container recommend_container3">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1 class="recommend_category">니가 이걸 안먹어 봤단 말이야?</h1>
+
+                    <h1> ${sessionScope.member.nickname} 네가 이걸 안먹어 봤단 말이야?</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
@@ -235,10 +243,12 @@
                         <span class="recommend_orderBy3 clickPointer font_hans" name="review"> 리뷰순 </span>
 
 
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
 
                     </div>
+                    <br/>
+                    <h5>
+                        WTF 에서 ${sessionScope.member.nickname} 님께 추천 하는 리스트!
+                    </h5>
                 </div>
             </div>
 

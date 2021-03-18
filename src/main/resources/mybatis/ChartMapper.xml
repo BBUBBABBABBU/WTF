@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kosmo.orange.wtf.model.mapper.ChartMapper">
+
+    <select id="originRatio" resultType="ChartVO">
+      SELECT Count(*) AS count, ifnull(origin,'기본') AS subject FROM review_test rt GROUP BY origin
+    </select>
+
+    <select id="ratingRatio" resultType="ChartVO">
+        SELECT t1.rating AS subject, date_format(t1.date,'%x-%m-%d') AS period, ifnull(t2.count,0) AS count
+        FROM(SELECT * FROM rating
+        JOIN (
+        WITH RECURSIVE date_range AS (
+            SELECT sysdate() AS _date
+                UNION ALL
+            SELECT DATE_ADD(_before._date, INTERVAL -1 DAY) AS _date
+            FROM date_range AS _before
+            WHERE DATEDIFF(_before._date, sysdate()) > -6
+        )
+        SELECT date_format(_date,'%Y-%m-%d') AS date FROM date_range ) dd
+        ORDER BY DATE) t1
+        LEFT OUTER JOIN
+        (SELECT count(rating) AS count, rating, date_format(r.review_date,'%Y-%m-%d') AS date
+        FROM (SELECT truncate(rating_avg,0) AS rating, review_date FROM review_test WHERE review_date > date_add(sysdate(),INTERVAL -7 day)) r
+        group BY r.rating, date_format(r.review_date,'%Y-%m-%d')
+        ORDER BY r.review_date) t2
+        ON  t1.rating = t2.rating AND t1.date = t2.date
+        ORDER BY period, subject
+
+    </select>
+
+    <select id="addrRatioTop4" resultType="ChartVO">
+        SELECT substring(res_addr, 4,3) AS subject, count(*) AS count
+        FROM review_test rt
+        JOIN restaurant r
+        ON rt.res_id =r.res_id
+        GROUP BY subject
+        ORDER BY count DESC
+        LIMIT 4;
+    </select>
+
+    <select id="addrRatioEtc" resultType="ChartVO">
+        SELECT sum(count) AS count
+        FROM (SELECT substring(res_addr, 4,3) AS addr, count(*) AS count
+        FROM review_test rt
+        JOIN restaurant r
+        ON rt.res_id =r.res_id
+        GROUP BY addr
+        ORDER BY count DESC
+        LIMIT 4,30
+        ) t
+    </select>
+
+
+    <select id="timeRatio" resultType="ChartVO">
+        SELECT t.time AS period, r.count as count
+        FROM time_table t
+        LEFT OUTER JOIN (SELECT date_format(review_date,'%H:00') AS time, count(*) AS count
+        FROM review_test rt
+        GROUP BY time) r
+        ON t.time = r.time
+
+
+    </select>
+
+</mapper>

@@ -1,0 +1,62 @@
+--조인용 테이블 만들기
+CREATE TABLE time_table(
+	time varchar(20)
+)
+
+DROP TABLE time_table;
+SELECT * FROM time_table;
+INSERT INTO time_table (time) VALUES ('00:00');
+INSERT INTO time_table (time) VALUES ('01:00');
+INSERT INTO time_table (time) VALUES ('02:00');
+INSERT INTO time_table (time) VALUES ('03:00');
+INSERT INTO time_table (time) VALUES ('04:00');
+INSERT INTO time_table (time) VALUES ('05:00');
+INSERT INTO time_table (time) VALUES ('06:00');
+INSERT INTO time_table (time) VALUES ('07:00');
+INSERT INTO time_table (time) VALUES ('08:00');
+INSERT INTO time_table (time) VALUES ('09:00');
+INSERT INTO time_table (time) VALUES ('10:00');
+INSERT INTO time_table (time) VALUES ('11:00');
+INSERT INTO time_table (time) VALUES ('12:00');
+INSERT INTO time_table (time) VALUES ('13:00');
+INSERT INTO time_table (time) VALUES ('14:00');
+INSERT INTO time_table (time) VALUES ('15:00');
+INSERT INTO time_table (time) VALUES ('16:00');
+INSERT INTO time_table (time) VALUES ('17:00');
+INSERT INTO time_table (time) VALUES ('18:00');
+INSERT INTO time_table (time) VALUES ('19:00');
+INSERT INTO time_table (time) VALUES ('20:00');
+INSERT INTO time_table (time) VALUES ('21:00');
+INSERT INTO time_table (time) VALUES ('22:00');
+INSERT INTO time_table (time) VALUES ('23:00');
+
+CREATE TABLE rating(
+	rating int
+
+)
+
+INSERT INTO rating(rating) VALUES (1);
+INSERT INTO rating(rating) VALUES (2);
+INSERT INTO rating(rating) VALUES (3);
+INSERT INTO rating(rating) VALUES (4);
+INSERT INTO rating(rating) VALUES (5);
+
+
+--리뷰 테이블의 임의의 시간값 부여하는 쿼리
+DROP PROCEDURE IF EXISTS whileProc;
+DELIMITER $$
+CREATE PROCEDURE whileProc()
+BEGIN
+	DECLARE i INT;
+	SET i= 1;
+
+	WHILE(i<106) DO
+		UPDATE review_test SET review_date = date_add(date_add(sysdate(),INTERVAL -truncate(rand()*10,0) day),INTERVAL -truncate(1+(rand()*30),0) HOUR) WHERE review_id =i;
+	SET i = i+1;
+	END WHILE;
+
+
+END $$
+DELIMITER ;
+
+CALL whileProc;

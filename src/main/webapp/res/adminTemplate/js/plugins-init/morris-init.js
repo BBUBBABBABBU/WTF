@@ -1,10 +1,13 @@
 // Dashboard 1 Morris-chart
 $(function () {
     "use strict";
-   
+
+    var today = new Date();
+    alert(ratingRatio[30].period)
+
 
     // LINE CHART
-    let line = new Morris.Line({
+    var line = new Morris.Line({
         element: 'morris-line-chart',
         resize: true,
         data: [
@@ -57,23 +60,116 @@ $(function () {
         lineWidth: 1,
         hideHover: 'auto',
     });
+    // Morris bar chart
+    Morris.Bar({
+        element: 'morris-bar-chart',
+        data: [{
+            period: ratingRatio[0].period,
+            point1: ratingRatio[0].count,
+            point2: ratingRatio[1].count,
+            point3: ratingRatio[2].count,
+            point4: ratingRatio[3].count,
+            point5: ratingRatio[4].count
+        }, {
+            period: ratingRatio[5].period,
+            point1: ratingRatio[5].count,
+            point2: ratingRatio[6].count,
+            point3: ratingRatio[7].count,
+            point4: ratingRatio[8].count,
+            point5: ratingRatio[9].count
+        }, {
+            period: ratingRatio[10].period,
+            point1: ratingRatio[10].count,
+            point2: ratingRatio[11].count,
+            point3: ratingRatio[12].count,
+            point4: ratingRatio[13].count,
+            point5: ratingRatio[14].count
+        }, {
+            period: ratingRatio[15].period,
+            point1: ratingRatio[15].count,
+            point2: ratingRatio[16].count,
+            point3: ratingRatio[17].count,
+            point4: ratingRatio[18].count,
+            point5: ratingRatio[19].count
+        }, {
+            period: ratingRatio[20].period,
+            point1: ratingRatio[20].count,
+            point2: ratingRatio[21].count,
+            point3: ratingRatio[22].count,
+            point4: ratingRatio[23].count,
+            point5: ratingRatio[24].count
+        }, {
+            period: ratingRatio[25].period,
+            point1: ratingRatio[25].count,
+            point2: ratingRatio[26].count,
+            point3: ratingRatio[27].count,
+            point4: ratingRatio[28].count,
+            point5: ratingRatio[29].count
+        }, {
+            period: ratingRatio[30].period,
+            point1: ratingRatio[30].count,
+            point2: ratingRatio[31].count,
+            point3: ratingRatio[32].count,
+            point4: ratingRatio[33].count,
+            point5: ratingRatio[34].count
+        }
+
+
+        ],
+        xkey: 'period',
+        ykeys: ['point1', 'point2', 'point3','point4','point5'],
+        labels: ['point1', 'point2', 'point3','point4','point5'],
+        barColors: ['#7571F9', '#9097c4', '#4d7cff','#FF8000','#DF01D7'],
+        hideHover: 'auto',
+        gridLineColor: 'transparent',
+        resize: true
+    });
     // Morris donut chart
+
+    Morris.Donut({
+        element: 'morris-donut-chart2',
+        data: [{
+            label: addrRatio[0].subject,
+            value: addrRatio[0].count
+
+        }, {
+            label: addrRatio[1].subject,
+            value: addrRatio[1].count
+        }, {
+            label: addrRatio[2].subject,
+            value: addrRatio[2].count
+        },{
+            label: addrRatio[3].subject,
+            value: addrRatio[3].count
+
+        },{
+            label: addrRatio[4].subject,
+            value: addrRatio[4].count
+
+        }],
+        resize: true,
+        colors: ['#4d7cff', '#7571F9', '#9097c4','#58FAAC','#FACC2E']
+    });
 
     Morris.Donut({
         element: 'morris-donut-chart',
         data: [{
-            label: "Download Sales",
-            value: 12,
+            label: originRatio2[0].y,
+            value: originRatio2[0].item1
 
         }, {
-            label: "In-Store Sales",
-            value: 30
+            label: originRatio2[1].y,
+            value: originRatio2[1].item1
         }, {
-            label: "Mail-Order Sales",
-            value: 20
+            label: originRatio2[2].y,
+            value: originRatio2[2].item1
+        },{
+            label: originRatio2[3].y,
+            value: originRatio2[3].item1
+
         }],
         resize: true,
-        colors: ['#4d7cff', '#7571F9', '#9097c4']
+        colors: ['#4d7cff', '#7571F9', '#9097c4','#58FAAC']
     });
 
 
@@ -81,49 +177,86 @@ $(function () {
     Morris.Area({
         element: 'extra-area-chart',
         data: [{
-            period: '2001',
-            smartphone: 0,
-            windows: 0,
-            mac: 0
+            time: timeRatio[0].period,
+            review: timeRatio[0].count,
         }, {
-            period: '2002',
-            smartphone: 90,
-            windows: 60,
-            mac: 25
+            time: timeRatio[1].period,
+            review: timeRatio[1].count,
         }, {
-            period: '2003',
-            smartphone: 40,
-            windows: 80,
-            mac: 35
+            time: timeRatio[2].period,
+            review: timeRatio[2].count,
         }, {
-            period: '2004',
-            smartphone: 30,
-            windows: 47,
-            mac: 17
+            time: timeRatio[3].period,
+            review: timeRatio[3].count,
         }, {
-            period: '2005',
-            smartphone: 150,
-            windows: 40,
-            mac: 120
+            time: timeRatio[4].period,
+            review: timeRatio[4].count,
         }, {
-            period: '2006',
-            smartphone: 25,
-            windows: 80,
-            mac: 40
+            time: timeRatio[5].period,
+            review: timeRatio[5].count,
         }, {
-            period: '2007',
-            smartphone: 10,
-            windows: 10,
-            mac: 10
+            time: timeRatio[6].period,
+            review: timeRatio[6].count,
+        }, {
+            time: timeRatio[7].period,
+            review: timeRatio[7].count,
+        }, {
+            time: timeRatio[8].period,
+            review: timeRatio[8].count,
+        }, {
+            time: timeRatio[9].period,
+            review: timeRatio[9].count,
+        }, {
+            time: timeRatio[10].period,
+            review: timeRatio[10].count,
+        }, {
+            time: timeRatio[6].period,
+            review: timeRatio[11].count,
+        }, {
+            time: timeRatio[12].period,
+            review: timeRatio[12].count,
+        }, {
+            time: timeRatio[13].period,
+            review: timeRatio[13].count,
+        }, {
+            time: timeRatio[14].period,
+            review: timeRatio[14].count,
+        }, {
+            time: timeRatio[15].period,
+            review: timeRatio[15].count,
+        }, {
+            time: timeRatio[16].period,
+            review: timeRatio[16].count,
+        }, {
+            time: timeRatio[17].period,
+            review: timeRatio[17].count,
+        }, {
+            time: timeRatio[18].period,
+            review: timeRatio[18].count,
+        }, {
+            time: timeRatio[19].period,
+            review: timeRatio[19].count,
+        }, {
+            time: timeRatio[20].period,
+            review: timeRatio[20].count,
+        }, {
+            time: timeRatio[21].period,
+            review: timeRatio[21].count,
+        }, {
+            time: timeRatio[22].period,
+            review: timeRatio[22].count,
+        }, {
+            time: timeRatio[23].period,
+            review: timeRatio[23].count,
         }
 
-
         ],
-        lineColors: ['#7571F9', '#9097c4', '#4d7cff'],
-        xkey: 'period',
-        ykeys: ['smartphone', 'windows', 'mac'],
-        labels: ['Phone', 'Windows', 'Mac'],
+        lineColors: ['#FA58D0'],
+        xkey: 'time',
+        ykeys: ['review'],
+        labels: ['시간대별 리뷰수'],
         pointSize: 0,
+        parseTime: false,
         lineWidth: 0,
         resize: true,
         fillOpacity: 0.8,
@@ -243,52 +376,6 @@ $(function () {
 
     });
     
- // Morris bar chart
- Morris.Bar({
-    element: 'morris-bar-chart',
-    data: [{
-        y: '2006',
-        a: 100,
-        b: 90,
-        c: 60
-    }, {
-        y: '2007',
-        a: 75,
-        b: 65,
-        c: 40
-    }, {
-        y: '2008',
-        a: 50,
-        b: 40,
-        c: 30
-    }, {
-        y: '2009',
-        a: 75,
-        b: 65,
-        c: 40
-    }, {
-        y: '2010',
-        a: 50,
-        b: 40,
-        c: 30
-    }, {
-        y: '2011',
-        a: 75,
-        b: 65,
-        c: 40
-    }, {
-        y: '2012',
-        a: 100,
-        b: 90,
-        c: 40
-    }],
-    xkey: 'y',
-    ykeys: ['a', 'b', 'c'],
-    labels: ['A', 'B', 'C'],
-    barColors: ['#7571F9', '#9097c4', '#4d7cff'],
-    hideHover: 'auto',
-    gridLineColor: 'transparent',
-    resize: true
-});
+
 
 });
