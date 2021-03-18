@@ -8,7 +8,10 @@ import kosmo.orange.wtf.service.service.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("mainService")
 public class MainServiceImpl implements MainService {
@@ -16,6 +19,8 @@ public class MainServiceImpl implements MainService {
     @Autowired
     MainMapper mainMapper;
 
+    @Autowired
+    HttpSession httpSession;
 //    @Override
 //    public List<RestaurantVO> checkRestaurant(String kind) {
 //        System.out.println("MainServiceImpl 19line : " + kind);
@@ -56,6 +61,33 @@ public class MainServiceImpl implements MainService {
             return mainMapper.mainRecommend(restaurantVO);
         }catch (Exception e){
             System.out.println("MainServiceImpl mainRecommend error : " + e.toString());
+            return null;
+        }
+    }
+
+    @Override
+    public List<RestaurantVO> restaurantSort(String choiceCategory) {
+        Map<String,String> hashMap = new HashMap<>();
+        hashMap.put("choiceCategory",choiceCategory);
+        hashMap.put("foodKind", (String)httpSession.getAttribute("foodKind"));
+        hashMap.put("userAddress",(String)httpSession.getAttribute("userAddress"));
+
+
+        try{
+            List<RestaurantVO> restaurantList = mainMapper.restaurantSort(hashMap);
+            if (restaurantList.size() > 12) {
+                restaurantList = restaurantList.subList(0, 12);
+            }
+
+            for (int i = 0; i < restaurantList.size(); i++) {
+                List<PhotoVO> photoList = mainMapper.res_photo(restaurantList.get(i));
+                for (PhotoVO photo : photoList) {
+                    restaurantList.get(i).setRtr_pic_loc(photo.getRtr_pic_loc());
+                }
+            }
+            return restaurantList;
+        }catch (Exception e){
+            System.out.println("restaurantSort 정렬 실패 : " + e.toString());
             return null;
         }
     }

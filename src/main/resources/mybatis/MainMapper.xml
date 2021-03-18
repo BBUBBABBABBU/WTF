@@ -34,6 +34,30 @@
         ORDER BY res_rating DESC
     </select>
 
+    <select id="restaurantSort" parameterType="hashmap" resultMap="getRestaurant">
+        SELECT r.res_id as res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0) AS review_count
+        FROM restaurant r
+        LEFT OUTER JOIN (SELECT res_id,count(*) AS review_count
+        FROM review_test rt
+        GROUP BY res_id) rt
+        ON r.res_id =rt.res_id
+        WHERE  r.res_addr LIKE CONCAT('%',#{userAddress},'%') AND
+        r.res_keyword LIKE CONCAT('%',#{foodKind},'%')
+        <trim prefix="ORDER BY">
+            <choose>
+                <when test="choiceCategory == 'recommend_order'">
+                    r.like_count DESC
+                </when>
+                <when test="choiceCategory == 'rating_order'">
+                    r.res_rating DESC
+                </when>
+                <when test="choiceCategory == 'review_order'">
+                    review_count DESC
+                </when>
+            </choose>
+        </trim>
+    </select>
+
     <resultMap id="getRestaurant" type="RestaurantVO">
         <result property="resId" column="res_id"/>
         <result property="resName" column="res_name"/>

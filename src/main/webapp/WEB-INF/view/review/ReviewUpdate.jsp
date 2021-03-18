@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/res/css/review.css">
-    <script type="text/javascript" src="/res/js/review.js"></script>
+    <script type="text/javascript" src="/res/js/review/review.js"></script>
     <title>리뷰수정하기</title>
 </head>
 <body>

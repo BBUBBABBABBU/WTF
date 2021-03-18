@@ -2,7 +2,7 @@ $(function () {
 
     $.ajax({
         type: 'post',
-        url: '/mainReview',
+        url: '/review/mainReview',
         data: {
             'foodKind': $('#foodKind').val()
         },

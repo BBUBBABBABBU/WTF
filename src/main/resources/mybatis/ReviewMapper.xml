@@ -49,6 +49,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         LIMIT 5;
     </select>
 
+    <select id="restaurantInfoReview" resultMap="getReview">
+        SELECT res.res_name res_name, rev.rating_avg rating_avg,rev.review_content review_content,
+        m.nickname nickname,res.res_id res_id
+        FROM review rev INNER JOIN member m
+        ON rev.member_id = m.member_id
+        INNER JOIN restaurant res
+        ON rev.res_id = res.res_id
+        WHERE res.res_id = #{resId}
+        ORDER BY rev.review_date
+        LIMIT 5;
+    </select>
+
     <resultMap id="getReview" type="ReviewVO">
         <result property="review_id" column="review_id"/>
         <result property="mem_id" column="member_id"/>

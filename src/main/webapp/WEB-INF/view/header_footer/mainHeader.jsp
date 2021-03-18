@@ -11,23 +11,12 @@
     <div class="container" id = "header_container">
         <c:choose>
             <c:when test="${sessionScope.member ne null}">
-                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>${sessionScope.member.nickname}(이)가 이걸 먹을줄은 정말 몰랐어</h1></a>
+                <a class="navbar-brand" href="/main?foodKind=${sessionScope.foodKind}"><h1>${sessionScope.member.nickname} 네가 이걸 먹을줄은 정말로 몰랐어</h1></a>
             </c:when>
             <c:otherwise>
-                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말 몰랐어</h1></a>
+                <a class="navbar-brand" href="/"><h1>네가 이걸 먹을줄은 정말로 몰랐어</h1></a>
             </c:otherwise>
         </c:choose>
-    </div>
-</nav>
-<nav class="navbar navbar-light custom-navbar2">
-    <div class="container">
-        <form action="/restaurant/searchRestaurant" method="get">
-            <input type="text" name="resKeyword" placeholder="검색" size='65'>
-            <input type="submit" class="btn btn-info" value="검색">
-        </form>
-        <a href="#" class="burger active" data-toggle="collapse" data-target="#main-navbar">
-            <span></span>
-        </a>
     </div>
 </nav>
 <div class="collapse navbar-collapse custom-navmenu show" id="main-navbar">
@@ -46,3 +35,14 @@
         </div>
     </div>
 </div>
+<nav class="navbar navbar-light custom-navbar2">
+    <div id="search_container" class="container">
+        <form action="/restaurant/searchRestaurant" method="get">
+            <input type="text" name="resKeyword" placeholder="검색" size='65'>
+            <input type="submit" class="btn btn-info" value="검색">
+        </form>
+        <a href="#" class="burger active" data-toggle="collapse" data-target="#main-navbar">
+            <span></span>
+        </a>
+    </div>
+</nav>

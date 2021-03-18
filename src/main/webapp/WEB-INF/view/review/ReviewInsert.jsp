@@ -228,5 +228,5 @@
 </div>
 
 </body>
-<script type="text/javascript" src="/res/js/review.js"></script>
+<script type="text/javascript" src="/res/js/review/review.js"></script>
 </html>
