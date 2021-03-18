@@ -86,8 +86,6 @@
                         <span class="recommend_orderBy clickPointer font_hans" name="rating"> 평점순 </span>
                         <span class="recommend_orderBy clickPointer font_hans" name="review"> 리뷰순 </span>
 
-
-
                         <!--<a href="#" data-filter=".branding">Branding</a>
                         <a href="#" data-filter=".photography">Photography</a>-->
 

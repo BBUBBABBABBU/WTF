@@ -272,11 +272,11 @@ function showRestaurant_list(latitude, longitude) {
                                 '<div class="work-info">' +
                                 '<h3>' + res_allList[i].resKeyword + '</h3>' +
                                 '</div>' +
-                                '<img class="res_img" width="400" height="300" src=' + res_allList[i].rtr_pic_loc + '>' +
+                                '<img class="res_img" width="400" height="300" src="' + res_allList[i].rtr_pic_loc + '>' +
                                 '</a>' +
                                 '<table border="0">' +
                                 '<tr id="tr_name">' +
-                                '<td class ="detail_des" width = "350">' + res_allList[i].resName + '<span class="res_rating">' + res_allList[i].resRating + '</span></td>' +
+                                '<td class ="detail_des" width = "350"><a href="/restaurant/restaurantInfo?resId=' + res_allList[i].resId + '">' + res_allList[i].resName + '</a><span class="res_rating">' + res_allList[i].resRating + '</span></td>' +
                                 '</tr>' +
                                 '<tr id="tr_location">' +
                                 '<td class ="detail_des2" width = "350">' + res_allList[i].resAddr.split(" ")[1] + '</td>' +

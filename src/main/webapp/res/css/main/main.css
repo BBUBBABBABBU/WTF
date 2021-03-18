@@ -131,7 +131,8 @@ h6,
     background: transparent;
 }
 
-a:visited{
+a:visited,
+.restaurant_name:visited{
     color:black;
 }
 
