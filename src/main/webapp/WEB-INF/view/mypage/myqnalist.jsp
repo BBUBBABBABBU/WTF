@@ -15,6 +15,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <%--table--%>
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+
     <!-- Favicons -->
     <link href="/res/img/WTF_logo.png" rel="icon">
     <link href="/res/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -89,7 +93,7 @@
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
-                <li><a href="/main?foodKind=${sessionScope.foodKind}">돌아가기</a></li>
+                <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
@@ -105,50 +109,88 @@
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
 
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
-
-                            <!-- <span>문의사항</span></p> -->
-                        <h1 class="bread">문의사항(MY Q&A List)</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+                        <h1 class="bread">문의사항(Q&A)</h1>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 문의 사항 작성 부분 -->
-        <p class="table" align="center"></p>
+
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <%--<li class="breadcrumb-item"><a>나의 문의 게시글</a></li>--%>
+                        <%--<li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>--%>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">My QnA</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                        <tr>
+                                            <th>문의번호</th>
+                                            <th>이메일</th>
+                                            <th>제목</th>
+                                            <th>등록일자</th>
+                                            <th>답변여부</th>
+                                            <%--<th>Salary</th>--%>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        <%--<c:forEach items="${qnaList}" var="qna">--%>
+
+                                            <%--<tr>--%>
+                                                <%--<td>${qna.qna_id }</td>--%>
+
+                                                <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
+                                                        <%--${qna.member_id }</a></td>--%>
+                                                <%--<td>${qna.qna_title} </td>--%>
+                                                <%--<td>${qna.qna_date}</td>--%>
+                                                <%--<td>${qna.anw_check}</td>--%>
+
+                                            <%--</tr>--%>
+                                        <%--</c:forEach>--%>
 
 
-        <table border="1" class="jm-font" align="center">
-            <tr>
-                <th bgcolor="lightgrey" width="300">문의번호</th>
-                <th bgcolor="lightgrey" width="300">이메일ID</th>
-                <th bgcolor="lightgrey" width="300">제목</th>
-                <th bgcolor="lightgrey" width="300">등록일자</th>
-                <th bgcolor="lightgrey" width="200">답변여부</th>
-                <!-- <th bgcolor="grey" width="220">그룹</th> -->
+                                        <c:forEach items="${qnaList}" var="qna">
 
+                                            <tr>
+                                                <td>${qna.qna_id }</td>
 
-            </tr>
+                                                    <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
+                                                    <%--${qna.member_id }</a></td>--%>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${sessionScope.member.email}</a></td>
+                                                <td>${qna.qna_title} </td>
+                                                <td>${qna.qna_date}</td>
+                                                <td>${qna.anw_check}</td>
 
-            <%--            <tr>--%>
-            <%--                <td align="left"><a href="/myqnadetail">답변상세</a></td>--%>
-            <%--            </tr>--%>
+                                            </tr>
+                                        </c:forEach>
 
-            <c:forEach items="${qnaList}" var="qna">
+                                        </tbody>
 
-                <tr>
-                    <td>${qna.qna_id }</td>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
 
-                    <td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">
-                            ${qna.member_id }</a></td>
-                    <td>${qna.qna_title} </td>
-                    <td>${qna.qna_date}</td>
-                    <td>${qna.anw_check}</td>
-
-                </tr>
-            </c:forEach>
-
-        </table>
 
 
     </div><!-- END COLORLIB-MAIN -->
@@ -162,6 +204,12 @@
                 stroke="#F96D00"/>
     </svg>
 </div>
+
+<%-- table--%>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/jquery.dataTables.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
+
 
 
 <script src="/res/mypageTemplate/js/jquery.min.js"></script>

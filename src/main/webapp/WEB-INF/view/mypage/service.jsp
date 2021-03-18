@@ -124,13 +124,12 @@
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
-                <li><a href="/main?foodKind=${sessionScope.foodKind}">돌아가기</a></li>
+                <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
                 <li><a href="contact.html">내 취향 수정</a></li>
                 <li><a href="/service">문의사항</a></li>
-                <li><a href="/main?foodKind="+${sessionScope.foodKind}>메인으로 가기</a></li>
 
             </ul>
         </nav>
@@ -141,7 +140,7 @@
             <div class="container">
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/myinfo">마이 페이지 /</a></span> <span>문의사항</span></p>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 /</a></span> <span>문의사항</span></p>
                         <h1 class="bread">문의사항 (Q&A / FAQ)</h1>
                     </div>
                 </div>
@@ -156,7 +155,7 @@
                         <div class="media block-6 services py-4 d-block">
                             <div class="d-flex justify-content-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-add:before"></span>
+                                    <span class="icon-question"></span>
                                 </div>
                             </div>
                             <div class="media-body p-2 mt-2">
@@ -171,7 +170,7 @@
                         <div class="media block-6 services py-4 d-block">
                             <div class="d-flex justify-content-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
+                                    <span class="ion-ios-chatbubbles"></span>
                                 </div>
                             </div>
                             <div class="media-body p-2 mt-2">
@@ -185,12 +184,15 @@
                         <div class="media block-6 services py-4 d-block">
                             <div class="d-flex justify-content-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
+                                    <%--<span class="flaticon-alarm:before"></span>--%>
+                                    <span class="icon-phone"></span>
+
                                 </div>
                             </div>
+
                             <div class="media-body p-2 mt-2">
                                 <h3 class="heading mb-3">CALL </h3>
-                                <p id="call_center">1 : 1 전화 문의 </p>
+                                <p id="call_center">고객 센터</p>
                                 <%--<p>( Tel. 333 - 3333 )</p>--%>
                             </div>
                         </div>
@@ -200,7 +202,7 @@
                         <div class="media block-6 services py-4 d-block">
                             <div class="d-flex justify-content-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <span class="flaticon-alarm:before"></span>
+                                    <span class="icon-info"></span>
                                 </div>
                             </div>
                             <div class="media-body p-2 mt-2">
@@ -226,7 +228,7 @@
 
                             <img src="/res/mypageTemplate/images/045-question.png"/>
                         </div>
-                        <span id="chat_head">FAQs</span> <br> <span class="agent">자주 묻는 질문</span> <span class="online">(Quick Q&A)</span>
+                        <span id="chat_head">FAQs</span> <br> <span class="agent">자주 묻는 질문</span>
                         <span id="chat_fullscreen_loader" class="chat_fullscreen_loader"><i
                                 class="fullscreen zmdi zmdi-window-maximize"></i></span>
 

@@ -6,7 +6,6 @@
 
 (function ($) {
   "use strict";
-
   var burgerMenu = function() {
 	  $('.burger').click(function(e) {
 	  	$(window).scrollTop(0);

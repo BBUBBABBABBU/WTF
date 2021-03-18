@@ -17,7 +17,7 @@
 
     <select id="MyqnaDetail"  resultMap="getQna">
         SELECT qna_id, member_id, qna_title, qna_content, anw_content FROM qna
-        WHERE  qna_id = #{qna_id};
+        WHERE  qna_title = #{qna_title};
     </select>
 
     <delete id="deleteQna">
