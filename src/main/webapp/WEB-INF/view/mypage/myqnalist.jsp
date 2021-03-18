@@ -110,8 +110,6 @@
                     <div class="col-md-8 ftco-animate">
 
                         <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
-
-                            <!-- <span>문의사항</span></p> -->
                         <h1 class="bread">문의사항(Q&A)</h1>
                     </div>
                 </div>
