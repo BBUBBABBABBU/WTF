@@ -1988,7 +1988,7 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .btn {
   display: inline-block;
-  font-weight: 400;
+  font-weight: 1000;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -6679,7 +6679,7 @@ button.bg-dark:focus {
   .px-md-4 {
     padding-left: 1.5rem !important; }
   .p-md-5 {
-    padding: 3rem !important; }
+    padding: 2rem !important; }
   .pt-md-5,
   .py-md-5 {
     padding-top: 3rem !important; }
@@ -7278,12 +7278,12 @@ a.text-dark:hover, a.text-dark:focus {
     border: 1px solid #dee2e6 !important; } }
 
 body {
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "Black Han Sans", sans-serif;
   background: #fff;
   font-size: 15px;
   line-height: 1.8;
-  font-weight: 500;
-  color: #999999; }
+  font-weight: 900;
+  color: #000000; }
   body.offcanvas {
     overflow-x: hidden; }
     body.offcanvas #colorlib-aside {
@@ -7320,9 +7320,10 @@ a {
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
   line-height: 1.5;
-  color: rgba(0, 0, 0, 0.8);
-  font-weight: 400;
-  font-family: "Poppins", Arial, sans-serif; }
+  color: #000000;
+  font-weight: 1000;
+  font-family: "Black Han Sans", sans-serif;
+}
 
 #colorlib-page {
   width: 100%;
@@ -7978,13 +7979,13 @@ h1, h2, h3, h4, h5,
   .btn:hover, .btn:active, .btn:focus {
     outline: none; }
   .btn.btn-primary {
-    background: #929192;
-    border: 1px solid #929192;
-    color: #fff; }
+    background: #fcf9da;
+    border: 2px solid #000000;
+    color: #000000; }
     .btn.btn-primary:hover {
-      border: 1px solid #ccb78f;
+      border: 2px solid #000000;
       background: transparent;
-      color: #ccb78f; }
+      color: #000000; }
     .btn.btn-primary.btn-outline-primary {
       border: 1px solid #ccb78f;
       background: transparent;
@@ -8192,9 +8193,12 @@ h1, h2, h3, h4, h5,
   background: #fff !important;
   color: #000000 !important;
   font-size: 18px;
-  border-radius: 0px;
+  border-radius: 10px;
   -webkit-box-shadow: none !important;
-  box-shadow: none !important; }
+  box-shadow: none !important;
+  border: none;
+}
+
   .form-control:focus, .form-control:active {
     border-color: #000000; }
 
@@ -8382,7 +8386,7 @@ textarea.form-control {
   background-position: center center; }
 
 .bg-light {
-  background: #f8f9fa !important; }
+  background: #b2b099 !important; }
 
 .bg-primary {
   background: #ccb78f !important; }
