@@ -82,8 +82,39 @@ public class ReviewController{
         reviewVO.setRes_tell(restaurant.getResTell());
         reviewVO.setMem_id(member.getMemberId());
         reviewVO.setAvg((float)(reviewVO.getTaste()+reviewVO.getClean()+reviewVO.getLocation()+reviewVO.getService())/8);
+
         reviewService.ReviewSave(reviewVO);
 
+        // 더미데이터
+        String[] reviewContent = new String[10];
+        reviewContent[0] = "진짜 존맛탱 사장님도 친절하고 좋음";
+        reviewContent[1] = "그럭저럭 먹을만함";
+        reviewContent[2] = "서비스 불친절 맛만 있음";
+        reviewContent[3] = "그냥 딱 기대만큼의 맛, 접근성은 좋음";
+        reviewContent[4] = "... 그냥 말을 잃었다..";
+        reviewContent[5] = "하아.. 이걸 돈주고 먹어야하나 싶을정도로 처참하고 나의 선택을 후회중";
+        reviewContent[6] = "찾았다 인생맛집!!!!!!!";
+        reviewContent[7] = "리뷰를 쓰면 서비스를 준대서 쓰는데 딱히 뭘 써야할지 모르겠네 ㅎ";
+        reviewContent[8] = "그만쓰고싶어 리뷰좀.. ";
+        reviewContent[9] = "무난 그 자체";
+
+
+        for(int i = 0; i<10000; i++){
+            int memberId = (int)(Math.random()*13)+1; // 3 ~ 12
+            int resId = (int)(Math.random()*1213)+1;
+            reviewVO.setTaste((int)(Math.random()*10)+1);
+            reviewVO.setClean((int)(Math.random()*10)+1);
+            reviewVO.setLocation((int)(Math.random()*10)+1);
+            reviewVO.setService((int)(Math.random()*10)+1);
+            reviewVO.setAvg((float)(reviewVO.getTaste()+reviewVO.getClean()+reviewVO.getLocation()+reviewVO.getService())/8);
+            reviewVO.setContent(reviewContent[(int)(Math.random()*10)]);
+            RestaurantVO restaurantVO = restaurantService.restaurantInfo(resId);
+            reviewVO.setRes_id(String.valueOf(resId));
+
+            reviewVO.setMem_id(String.valueOf(memberId));
+            reviewVO.setRes_tell(restaurantVO.getResTell());
+            reviewService.ReviewSave(reviewVO);
+        }
         return "redirect:/restaurant/restaurantInfo?resId="+restaurant.getResId();
     }
 

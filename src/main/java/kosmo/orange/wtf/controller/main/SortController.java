@@ -27,10 +27,7 @@ public class SortController {
         System.out.println("restaurantSort 24line : " + choiceCategory);
 
         List<RestaurantVO> restaurantList = mainService.restaurantSort(choiceCategory);
-        for (RestaurantVO restaurantVO : restaurantList){
-            System.out.println(restaurantVO.getResName());
-            System.out.println(restaurantVO.getResRating());
-        }
+
         return restaurantList;
     }
 }
