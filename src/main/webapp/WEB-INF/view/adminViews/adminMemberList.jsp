@@ -43,21 +43,35 @@
 
           href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 
+    <style>
+
+        #searchBar{
+            max-width: 75%;
+
+        }
+        #searchBtn{
+            top: -60px;
+            left: 2000px;
+            position: sticky;
+
+        }
+    </style>
+
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
         // alert('0')
-        $(document).ready(function () {
-            // alert('ready')
-            $("div[class='row align-items-center']").click(function () {
-                alert('click')
-                location.href = "/memberDetail"
-            })
-        })
+        <%--$(document).ready(function () {--%>
+            <%--// alert('ready')--%>
+            <%--$("div[id='row align-items-center']").click(function () {--%>
+                <%--alert('click')--%>
+                <%--location.href = "/memberDetail?email=${memberVOList.email}"--%>
+            <%--})--%>
+        <%--})--%>
     </script>
-</head>
-<body>
+    </head>
+    <body>
 
 <!--*******************
     Preloader start
@@ -107,16 +121,15 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h3 class="mb-2">Influencer Finder </h3>
+                            <h3 class="mb-2">회원 정보</h3>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce
                                 sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
-                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a>
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link"></a>
                                         </li>
-                                        <li class="breadcrumb-item active" aria-current="page">Influencer Finder
-                                            Template
+                                        <li class="breadcrumb-item active" aria-current="page">
                                         </li>
                                     </ol>
                                 </nav>
@@ -130,18 +143,17 @@
                 <!-- ============================================================== -->
                 <!-- content -->
                 <!-- ============================================================== -->
-                <div class="row">
+
                     <!-- ============================================================== -->
                     <!-- search bar  -->
                     <!-- ============================================================== -->
-                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12" id="searchBar">
                         <div class="card">
                             <div class="card-body">
                                 <form>
-                                    <input class="form-control form-control-lg" type="search" placeholder="Search"
+                                    <input class="form-control form-control-lg" type="search" placeholder="검색어를 입력해주세요"
                                            aria-label="Search">
-                                    <button class="btn btn-primary search-btn" type="submit" style="top: 40px;
-                                    left: 232px;">Search</button>
+                                    <span><button class="btn btn-primary search-btn" type="submit" id="searchBtn">검색하기</button></span>
                                 </form>
                             </div>
                         </div>
@@ -163,8 +175,13 @@
                             <div class="card">
                                 <%--<a href="/memberDetail">--%>
                                     <div class="card-body">
-                                        <div class="row align-items-center" style="cursor: pointer">
-                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12">
+
+
+
+                                        <a href="/memberDetail?email=${memberVOList.email}">
+                                        <div class="row align-items-center" id="row align-items-center" style="cursor: pointer" >
+
+                                            <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12" >
                                                 <div class="user-avatar float-xl-left pr-4 float-none">
                                                     <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-2.jpg"
                                                          alt="User Avatar" class="rounded-circle user-avatar-xl">
@@ -195,18 +212,14 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                <div class="float-xl-right float-none mt-xl-0 mt-4">
-                                                    <a href="" class=""><i class=""></i></a>
-                                                    <a href="memberDetail" class="btn btn-secondary">Send Messages</a>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
-                                    <%--<div class="border-top user-social-box">--%>
-                                        <%--<div class="user-social-media d-xl-inline-block "><span--%>
-                                                <%--class="mr-2 twitter-color"> <i class="fab fa-twitter-square"></i></span><span>13,291</span>--%>
-                                        <%--</div>--%>
+
+                                    </a>
+                                    <div class="border-top user-social-box">
+                                        <div class="user-social-media d-xl-inline-block "><span
+                                                class="mr-2 twitter-color"> </span><span></span>
+                                        </div>
                                         <%--<div class="user-social-media d-xl-inline-block"><span--%>
                                                 <%--class="mr-2  pinterest-color"> <i--%>
                                                 <%--class="fab fa-pinterest-square"></i></span><span>84,019</span></div>--%>
@@ -223,8 +236,8 @@
                                                 <%--class="mr-2 youtube-color"> <i class="fab fa-youtube"></i></span><span>1291</span>--%>
                                         <%--</div>--%>
                                     <%--</div>--%>
-                                <%--&lt;%&ndash;<a>&ndash;%&gt;--%>
-                            <%--</div>--%>
+
+                            </div>
                         </c:forEach>
                         <!-- ============================================================== -->
                         <!-- end card influencer one -->

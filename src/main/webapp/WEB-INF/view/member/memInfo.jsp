@@ -79,11 +79,16 @@ System.out.println(nick);%>
             background-color:#FFCD12 ;
 
         }
+        #joinBtn{
+            left: 480px;
+            top: 10px;
+        }
         #toHome{
             float: left;
             position: relative;
-            top: -36px;
-            left: 160px;
+            top: -24px;
+            left: 30px;
+            width: 40%;
         }
 
     </style>
@@ -106,22 +111,22 @@ System.out.println(nick);%>
 
 
             $('#dupleCheck').click(function(){
-                if ($('#email').val() !=null)
-                $.ajax({
-                    type : 'POST', // 전송방식
-                    //async : true,  //비동기통신
-                    url : 'idCheckLogin', // **** 요청(request)
-                    // contentType : 'application/x-www-form-urlencoded;charset=utf-8', // 한글처리
-                    data : {'email': $('#email').val()},
-                    success : function(result){
-                        $('#idCheckResult').text(result);
+                if ($('#email').val().length > 8) {
+                    $.ajax({
+                        type: 'POST', // 전송방식
+                        //async : true,  //비동기통신
+                        url: 'idCheckLogin', // **** 요청(request)
+                        // contentType : 'application/x-www-form-urlencoded;charset=utf-8', // 한글처리
+                        data: {'email': $('#email').val()},
+                        success: function (result) {
+                            $('#idCheckResult').text(result);
 
-                    },
-                    error : function(err){
-                        console.log(err);
-                    }
-                });
-
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }else {alert("올바른 이메일을 입력하세요")}
             })
 
         })

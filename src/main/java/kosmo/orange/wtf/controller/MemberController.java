@@ -52,15 +52,14 @@ public class MemberController {
         MemberVO member=(MemberVO) session.getAttribute("member");
         MemberVO result=memberService.memberLogin(member);
         boolean check = passwordEncoder.matches( currentPassword, result.getPassword());
-        System.out.println( currentPassword+"/"+ result.getPassword());
         if (check){
             memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
-            System.out.println("성공");
+            System.out.println("비밀번호 교체 성공");
             model.addAttribute("passChge","success");
             memberService.passwordChge(memberVO);
         }
         else {
-            System.out.println("실패");
+            System.out.println("비밀번호 교체 실패");
             model.addAttribute("passChge","failed");
         }
 
