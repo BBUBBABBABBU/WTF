@@ -74,7 +74,6 @@ public class StartController {
 
     /**
      * 위치 기반 식당 목록
-     *
      * @param restaurantVO
      * @return
      */
@@ -106,6 +105,8 @@ public class StartController {
                 restaurantList.get(i).setRtr_pic_loc(photo.getRtr_pic_loc());
             }
         }
+
+        httpSession.setAttribute("userAddress",restaurantVO.getResAddr());
 
         return restaurantList;
     }

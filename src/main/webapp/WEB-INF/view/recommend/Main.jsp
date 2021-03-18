@@ -45,7 +45,8 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9&libraries=services"></script>
-    <script type="text/javascript" src="/res/js/mainReview.js"></script>
+    <script type="text/javascript" src="/res/js/review/mainReview.js"></script>
+    <script type="text/javascript" src="/res/js/mainSort.js"></script>
 
 </head>
 <body>
@@ -61,11 +62,23 @@
         <div id='recommend_container' class="container">
             <div id="map_div" class="row mb-5 align-items-center">
                 <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h2>현 위치(지도)</h2>
+                    <h2>내 위치</h2>
                     <div id="map" style="width: 1110px; height: 400px;"></div>
                     <div class="custom_zoomcontrol radius_border">
-                        <span><button id="fiveM" class="radius_button">500m</button></span>
-                        <span><button id="thousandM" class="radius_button">1000m</button></span>
+                        <span><button id="fiveM" class="radius_button" value="500">5분 거리</button></span>
+                        <span><button id="thousandM" class="radius_button" value="1000">10분 거리</button></span>
+                        <span><button id="twentyM" class="radius_button" value="2000">20분 거리</button></span>
+                    </div>
+                </div>
+            </div>
+            <div id="category" class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up"></div>
+                <div  class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up"
+                     data-aos-delay="100">
+                    <div style="margin-right: 70px">
+                        <span class="recommend_orderBy clickPointer font_hans" name="recommend_order"> 추천순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="rating_order"> 평점순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="review_order"> 리뷰순 </span>
                     </div>
                 </div>
             </div>

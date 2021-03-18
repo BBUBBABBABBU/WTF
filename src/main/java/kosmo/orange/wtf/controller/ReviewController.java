@@ -12,8 +12,9 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 import javax.servlet.http.HttpSession;
@@ -106,6 +107,34 @@ public class ReviewController{
 
    //메세지를 위한 칸트롤러
 
+    /**
+     * 메인페이지 리뷰
+     */
+    @PostMapping("/mainReview")
+    @ResponseBody
+    public List<ReviewVO> mainReview(String foodKind){
+        System.out.println("mainReview() 16line" + foodKind);
+        List<ReviewVO> reviewList = reviewService.mainReview(foodKind);
+        for (ReviewVO review : reviewList){
+            System.out.println("mainReview 27line : " + review.getRestaurantVO().getResName());
+        }
+        return reviewList;
+    }
 
+    /**
+     * 식당 상세페이지 해당 식당 리뷰 가져오기
+     */
+    @PostMapping("/restaurantInfoReview")
+    @ResponseBody
+    public List<ReviewVO> restaurantInfoReview(RestaurantVO restaurantVO){
+        System.out.println("estaurantInfoReview 127line : " + restaurantVO.getResId());
+
+        List<ReviewVO> reviewList = reviewService.restaurantInfoReview(restaurantVO);
+        for (ReviewVO review : reviewList){
+            System.out.println(review.getContent());
+        }
+
+        return reviewList;
+    }
 
 }

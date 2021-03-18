@@ -1,6 +1,7 @@
-let radius = 500
-let level = 4
+let radius = 1000
+let level = 5
 let arr = new Array()
+let mapCount = 0
 
 arr[0] = ["경일고등학교", 37.34750392238187, 126.80510066360843]
 arr[1] = ["신화장어", 37.348152315508955, 126.81579727113643]
@@ -13,18 +14,17 @@ let res_info = ''
 let gasan_latitude = 37.479647527408446
 let gasan_longitude = 126.8820792032653
 
-// 반경 500m 버튼 클릭
-$('#fiveM').click(() => {
-    radius = 500
-    level = 4
-    getLocation();
-})
 
-// 반경 1000m 버튼 클릭
-$('#thousandM').click(() => {
-    radius = 1000
-    level = 5
-    getLocation();
+$('.radius_button').on('click', function () {
+    radius = $(this).val()
+    if (radius == 500) {
+        level = 4
+    } else if (radius == 1000) {
+        level = 5
+    } else if (radius == 2000) {
+        level = 6
+    }
+    getLocation()
 })
 
 // 캐러셀 함수
@@ -63,9 +63,14 @@ function getLocation() {
             // 현재 위치 위도 경도를 가져옴
             let latitude = position.coords.latitude + 0.00069374332828
             let longitude = position.coords.longitude - 0.00484117914359
-            // showMap(latitude, longitude)
 
-            showRestaurant(gasan_latitude, gasan_longitude)
+            if(mapCount == 0){
+                showRestaurant_map(gasan_latitude, gasan_longitude)
+                showRestaurant_list(gasan_latitude, gasan_longitude)
+                mapCount += 1
+            }else{
+                showRestaurant_map(gasan_latitude, gasan_longitude)
+            }
 
         }, function (error) {
             console.error(error);
@@ -80,7 +85,7 @@ function getLocation() {
 } // getLocation() End
 
 // 지도 및 식당들을 보여줌
-function showRestaurant(latitude, longitude) {
+function showRestaurant_map(latitude, longitude) {
 
     let container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     let options = { //지도를 생성할 때 필요한 기본 옵션
@@ -165,7 +170,7 @@ function showRestaurant(latitude, longitude) {
             info.className = 'info'
 
             let a_restaurantInfo = document.createElement('a')
-            a_restaurantInfo.href = '/restaurant/restaurantInfo?resId='+restaurantList[i].resId
+            a_restaurantInfo.href = '/restaurant/restaurantInfo?resId=' + restaurantList[i].resId
 
             let title = document.createElement('div')
             title.className = 'title'
@@ -220,13 +225,17 @@ function showRestaurant(latitude, longitude) {
         } // if End
     } // for End
 
+
+} // showMap End
+
+function showRestaurant_list(latitude, longitude) {
     // 주소 좌표간 변환 서비스 객체 생성
     // https://apis.map.kakao.com/web/documentation/
     let geocoder = new kakao.maps.services.Geocoder()
     let coord = new kakao.maps.LatLng(latitude, longitude)
     let callback = function (result, status) {
         if (status === kakao.maps.services.Status.OK) {
-            
+
             // 현재 위치의 주소 ㅇㅇ구 확인
             console.log(result[0]['address'].region_2depth_name);
 
@@ -241,26 +250,27 @@ function showRestaurant(latitude, longitude) {
                 },
                 success: (res_allList) => {
 
-                    if(res_allList != null){
+                    if (res_allList != null) {
                         $('#recommend_div').remove()
 
                         let recommend_div = $('<div id="recommend_div" class="recommend_div owl-carousel testimonial-carousel"></div>')
-                        
+
                         // #recommend_container의 맨앞에 추가 후 map_div 바로 뒤로 자리 옮김
                         $('#recommend_container').prepend(recommend_div)
-                        $('#recommend_div').insertAfter($('#map_div'))
+                        // $('#recommend_div').insertAfter($('#map_div'))
+                        $('#recommend_div').insertAfter($('#category'))
 
                         for (let i = 0; i < res_allList.length; i++) {
 
                             // 식당의 이름이 8자가 넘었을 경우 처리
-                            if(res_allList[i].resName.length > 8){
-                                res_allList[i].resName = res_allList[i].resName.substring(0,7)+'...'
+                            if (res_allList[i].resName.length > 8) {
+                                res_allList[i].resName = res_allList[i].resName.substring(0, 7) + '...'
                             }
 
                             let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
-                                '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].resId+'" class="item-wrap fancybox">' +
+                                '<a id = "a_img" href="/restaurant/restaurantInfo?resId=' + res_allList[i].resId + '" class="item-wrap fancybox">' +
                                 '<div class="work-info">' +
-                                '<h3>'+res_allList[i].resKeyword+'</h3>' +
+                                '<h3>' + res_allList[i].resKeyword + '</h3>' +
                                 '</div>' +
                                 '<img class="res_img" width="400" height="300" src=' + res_allList[i].rtr_pic_loc + '>' +
                                 '</a>' +
@@ -272,7 +282,7 @@ function showRestaurant(latitude, longitude) {
                                 '<td class ="detail_des2" width = "350">' + res_allList[i].resAddr.split(" ")[1] + '</td>' +
                                 '</tr>' +
                                 '<tr id="tr_re">' +
-                                '<td class ="detail_des2" width = "350">리뷰 : ' + res_allList[i].likeCount + ' 리뷰 : ' + res_allList[i].reviewCount + '</td>' +
+                                '<td class ="detail_des2" width = "350">좋아요 : ' + res_allList[i].likeCount + ' 리뷰 : ' + res_allList[i].reviewCount + '</td>' +
                                 '</tr>' +
                                 '</table>' +
                                 '</div><br/>')
@@ -304,6 +314,6 @@ function showRestaurant(latitude, longitude) {
         }
     };
     geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
-} // showMap End
+}
 
 getLocation()
