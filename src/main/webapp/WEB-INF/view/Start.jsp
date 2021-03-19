@@ -35,12 +35,7 @@
         gtag('config', 'G-9XSZH4656Q');
     </script>
 
-
     <script>
-        // function normal(){
-        //     window.
-        //     window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port)+"/Info");
-        // }
         var user=  "${sessionScope.member.getEmail()}";
         var userNick= "${sessionScope.member.getNickname()}";
         var status = "${sessionScope.status}";
@@ -54,12 +49,7 @@
             alert("아이디나 비밀번호가 틀렸습니다.")
         }
         else { sessionStorage.setItem("member",user);}
-
-
-
     </script>
-
-
 </head>
 <body>
 
@@ -126,17 +116,12 @@
 
 
 
-<%--아이디 비밀번호찾기--%>
-
-
+<%-- 비밀번호찾기--%>
 <div class="wrap" id="passWrap" style="left: 0px; display: block; position: absolute; visibility: hidden;">
     <div class="form-wrap">
-
         <div class="button-wrap" id="button-wrap2">
-
             <div id="btn2" class="btn"></div><table>
             <tb><button type="button" class="togglebtn" id ='loginbtn2' >  &nbsp; 비밀번호 찾기</button></tb>
-
         </table>
         </div>
         <div class="social-icons">
@@ -151,7 +136,7 @@
     </div>
 </div>
 
-
+<%--비밀번호 찾기 ajax 이메일 발송 함수--%>
 <script>
     $("#passSearch").click(function () {
         let userEmail = $("#loginEmail2").val();
@@ -166,9 +151,6 @@
             },
             success: function (res) {
                 if (res['check']) {
-
-                    // swal("발송 완료!", "입력하신 이메일로 임시비밀번호가 발송되었습니다.", "success").then((OK) => {
-                    //     if(OK) {
                             $.ajax({
                                 type: "POST",
                                 url: "/check/findPw/sendEmail",
@@ -182,32 +164,19 @@
                         $("#goToLogin").click()
                         $("#loginEmail").val($("#loginEmail2").val())
                         $("#loginEmail2").val("")
-                        $("#loginPassword2").val("")
-                //         }
-                //     }
-                // )
-                //     $('#checkMsg').html('<p style="color:darkblue"></p>');
+
                 } else {
-                    // $('#checkMsg').html('<p style="color:red">일치하는 정보가 없습니다.</p>');
                     alert("일치하는 정보가 없습니다!")
                 }
             }
         })
     })
 </script>
-
-
-
-
-
-
-
 <script>
     loginForm=document.getElementById('wrap')
     loginBack=document.getElementById('loginBackground')
     passWrap=document.getElementById("passWrap")
 
-    <%--memSession=${sessionScope.member.getEmail()}--%>
 
     <%--    로그인,회원가입 가운데 창 보이게하는 함수--%>
     function show(){
@@ -250,8 +219,11 @@
 
 
 </script>
-<script>
 
+
+
+<%--카카오 로그인 사용하여 받은 값들을 회원정보로 넘겨주기--%>
+<script>
     function kakaoLogin(){
         window.Kakao.init("04282fd63dd03344508a3be888ff6297");
         window.Kakao.Auth.login({
@@ -261,7 +233,7 @@
                 window.Kakao.API.request({
                     url:'/v2/user/me',
                     success: res=>{
-                        // res.properties.nickname으로도 접근 가능 )
+                        // res.properties.nickname으로도 접근 가능
                         console.log(authObj.access_token);//<---- 콘솔 로그에 토큰값 출력
 
                         var kakaonickname = res.properties['nickname'];    //카카오톡 닉네임을 변수에 저장

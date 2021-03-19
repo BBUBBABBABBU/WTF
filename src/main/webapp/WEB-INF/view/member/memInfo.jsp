@@ -1,4 +1,4 @@
-<%--
+87<%--
   Created by IntelliJ IDEA.
   User: Kim
   Date: 2021-02-25
@@ -15,6 +15,7 @@
 <% String nick=request.getParameter("kakaonickname");
 System.out.println(nick);%>
 <link rel="stylesheet" type="text/css" href="res/css/memInfo.css">
+
 <script>
     function getParameterByName(name) {
         name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
@@ -98,10 +99,7 @@ System.out.println(nick);%>
 
     <script>
         $(function(){
-
-
-
-
+            //email,birthday, gender 를 disabled 로 해놓았을 때 값이 컨트롤러로 넘어가지 않는 것을 해결한 것.
             $('#joinBtn').click(function () {
                     $("#email").attr("disabled", false);
                     $("#birthday").attr("disabled", false);
@@ -110,6 +108,7 @@ System.out.println(nick);%>
             )
 
 
+            //아이디 중복체크 (ajax 사용함.)
             $('#dupleCheck').click(function(){
                 if ($('#email').val().length > 8) {
                     $.ajax({
@@ -146,30 +145,26 @@ System.out.println(nick);%>
 
     </script>
 
+    <%--<script>--%>
+
+
+        <%--function test() {--%>
+            <%--var ubirthday =   $("#birthday").val();--%>
+
+
+            <%--if (ubirthday.includes("-")) {--%>
+                <%--ubirthday = ubirthday.replace("-", "/");--%>
+                <%--$("#birthday").val(ubirthday);--%>
+            <%--} else {--%>
+                <%--ubirthday = ubirthday.replace(/(.{2})/g, "$1/");--%>
+                <%--$("#birthday").val(ubirthday.slice(0, -1));--%>
+            <%--}--%>
+        <%--};--%>
+    <%--</script>--%>
+
+
     <script>
-        function getParameterByName(name) {
-            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(location.search);
-            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-        };
-
-        function test() {
-            var ubirthday =   $("#birthday").val();
-
-
-            if (ubirthday.includes("-")) {
-                ubirthday = ubirthday.replace("-", "/");
-                $("#birthday").val(ubirthday);
-            } else {
-                ubirthday = ubirthday.replace(/(.{2})/g, "$1/");
-                $("#birthday").val(ubirthday.slice(0, -1));
-            }
-        };
-    </script>
-    <script>
-        function chkBirthDay(){
-        }
+        //비밀번호 유효성 검증
         function chkPW(){
 
             var pw = $("#pw").val();
@@ -198,6 +193,10 @@ System.out.println(nick);%>
             }
 
         }
+
+
+        //비밀번호 확인 유효성 검증
+
         function checkPassword() {
             //비밀번호가 입력되었는지 확인하기
 
@@ -217,6 +216,26 @@ System.out.println(nick);%>
     </script>
 
 
+    <script>
+
+        <%--일반 회원가입에서 생년월일 유효성--%>
+        function birthChange(){
+            var ubirthday = $("#birthday").val();
+            if (ubirthday.length < 5 ){
+                if (ubirthday.includes("-")){
+                    ubirthday=(ubirthday.replace("-","/"))
+                }else {
+                    ubirthday=(ubirthday.replace(/(.{2})/g,"$1/").slice(0,-1))
+                }
+                $("#birthday").val(ubirthday)
+            }else {
+                {$("#birthday").val("")
+                    $("#birthday").focus()}
+                alert("4자 이하로 입력해주세요")
+            }
+        }
+    </script>
+
 </head>
 <body>
 
@@ -227,15 +246,10 @@ System.out.println(nick);%>
         </div>
         <div>
             <form id="myForm" name="myForm"  action="signUp" method="post" >
-                <!-- <%--                <p>--%>
-<%--                    <label>ID</label>--%>
-<%--                    <input class="w3-input" type="text" id="id" name="id" readonly value="${ member.id }">--%>
-<%--                </p>--%> -->
                 <div class="i" name="div1">
                     <p>
                         <label>이메일</label>
                         <input class="w3-input" type="email" id="email" name="email" value=""  required><button type="button" id="dupleCheck" >중복체크</button>
-
                     </p>
                     <p>
                     <span id="idCheckResult" style="width:150px;color:#b1b1c0"></span>
@@ -264,7 +278,6 @@ System.out.println(nick);%>
                             <option value="남성">남성</option>
                             <option value="여성">여성</option>
                         </select>
-
                     </p>
                     <p id="favorPtag">
                         <label>당신의 취향</label>
@@ -274,7 +287,6 @@ System.out.println(nick);%>
                         <input type="radio" name="favor" value="일식">일식
                         <input type="radio" name="favor" value="분식">분식
                         <input type="radio" name="favor" value="디저트">디저트
-<%--                        <input class="w3-input" type="prefer" id="prefer" type="text" required>--%>
                     </p>
                     <div><span id="favorResult"></span></div>
                 </div>
@@ -287,24 +299,7 @@ System.out.println(nick);%>
         </div>
     </div>
 </div>
-<script>
-<%--일반 회원가입에서 생년월일 유효성--%>
-    function birthChange(){
-        var ubirthday = $("#birthday").val();
-        if (ubirthday.length < 5 ){
-            if (ubirthday.includes("-")){
-                ubirthday=(ubirthday.replace("-","/"))
-            }else {
-                ubirthday=(ubirthday.replace(/(.{2})/g,"$1/").slice(0,-1))
-            }
-            $("#birthday").val(ubirthday)
-        }else {
-            {$("#birthday").val("")
-                $("#birthday").focus()}
-                alert("4자 이하로 입력해주세요")
-        }
-    }
-</script>
+
 <script type="text/javascript">
 
     var naver_id_login = new naver_id_login("xgIAqtm_DJEQkFLVejnq", "http://localhost:8080/Info");
@@ -321,7 +316,6 @@ System.out.println(nick);%>
         var age=naver_id_login.getProfileData('age');
         location.href="/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday+"&age="+age;
 
-        // window.location.replace("http://" + window.location.hostname + ( (location.port==""||location.port==undefined)?"":":" + location.port) + "/Info?nickname="+nickname+"&email="+email+"&gender="+gender+"&birthday="+birthday+"&age="+age);
     }
     var uId = getParameterByName('nickname');
     var uEmail = getParameterByName('email');
@@ -339,7 +333,7 @@ System.out.println(nick);%>
     }
 
 
-
+// sns로그인을 사용하는 경우 값을 세팅해주고, 수정 못하도록 disabled 처리
     if (uEmail.length!=0) {
         $("#email").attr('value', uEmail);
         $("#email").attr("disabled",true);
@@ -350,20 +344,11 @@ System.out.println(nick);%>
         $("#gender").attr("disabled",true);
         $("#password").attr('value', uAge);
 
-
-
     }
-
+    //뒤로가기 함수
     function toBack(){
-
         window.history.back();
     }
-
-
 </script>
-
-
-
 </body>
-
 </html>
