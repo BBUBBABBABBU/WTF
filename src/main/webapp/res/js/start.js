@@ -28,6 +28,16 @@ $(function () {
     dinner_list.push('res/img/background_img/jokbal.jpg')
     dinner_list.push('res/img/background_img/pizza.jpg')
 
+    let food_list = new Array()
+    food_list.push('res/img/background_img/chicken.jpg')
+    food_list.push('res/img/background_img/jokbal.jpg')
+    food_list.push('res/img/background_img/pizza.jpg')
+    food_list.push('res/img/background_img/sandwich.jpg')
+    food_list.push('res/img/background_img/ricenoodle.jpg')
+    food_list.push('res/img/background_img/kimchiStew.jpg')
+    food_list.push('res/img/background_img/swings.jpg')
+    food_list.push('res/img/background_img/jeon.jpg')
+    food_list.push('res/img/background_img/galbizzim.jpg')
 
     // $('#select_kind').formSelect();
 
@@ -107,7 +117,7 @@ $(function () {
                 document.body.style.backgroundImage = 'url(' + dinner_list[Math.floor(Math.random() * dinner_list.length)] + ')'
             }
         }else{  // 이외의 시간
-            document.body.style.backgroundImage = 'url('+'res/img/background_img/tang.jpg'+')'
+            document.body.style.backgroundImage = 'url(' + food_list[Math.floor(Math.random() * food_list.length)] + ')'
         }
     }
 

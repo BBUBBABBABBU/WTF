@@ -18,10 +18,15 @@ $(function () {
 
                 $('#testimonial'+i).append($('<blockquote>' +
                     '<p class="font_hans" style="font-size:45px">' + reviewList[i].content + '</p>' +
-                    '<a href="/restaurant/restaurantInfo?resId=' + reviewList[i].restaurantVO.resId + '"' +
-                    '<p class="font_hans" style="font-size: 25px" >' + reviewList[i].restaurantVO.resName + '</p></a>' +
+                    '<a id="main_review'+i+'" href="/restaurant/restaurantInfo?resId=' + reviewList[i].restaurantVO.resId +'">' +
                     '</blockquote>' +
                     '<p class="" style="font-size: 18px">' + reviewList[i].memberVO.nickname + '</p>'))
+
+                if(reviewList[i].avg >= 4.5){
+                    $('#main_review'+i).append($('<p class="font_hans" style="font-size: 25px" >' + reviewList[i].restaurantVO.resName + ' ★★★★★</p>'))
+                }else if(reviewList[i].avg >= 4.0){
+                    $('#main_review'+i).append($('<p class="font_hans" style="font-size: 25px" >' + reviewList[i].restaurantVO.resName + ' ★★★★</p>'))
+                }
             }
         }, fail: (err) => {
             alert("리뷰를 못가져옴" + err)
