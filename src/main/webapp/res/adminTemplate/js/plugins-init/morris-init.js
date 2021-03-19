@@ -2,128 +2,71 @@
 $(function () {
     "use strict";
 
-    var today = new Date();
-    alert(ratingRatio[30].period)
-
 
     // LINE CHART
-    var line = new Morris.Line({
-        element: 'morris-line-chart',
-        resize: true,
-        data: [
-            {
-                y: '2011 Q1',
-                item1: 2666
-            },
-            {
-                y: '2011 Q2',
-                item1: 2778
-            },
-            {
-                y: '2011 Q3',
-                item1: 4912
-            },
-            {
-                y: '2011 Q4',
-                item1: 3767
-            },
-            {
-                y: '2012 Q1',
-                item1: 6810
-            },
-            {
-                y: '2012 Q2',
-                item1: 5670
-            },
-            {
-                y: '2012 Q3',
-                item1: 4820
-            },
-            {
-                y: '2012 Q4',
-                item1: 15073
-            },
-            {
-                y: '2013 Q1',
-                item1: 10687
-            },
-            {
-                y: '2013 Q2',
-                item1: 8432
-            }
-        ],
-        xkey: 'y',
-        ykeys: ['item1'],
-        labels: ['Item 1'],
-        gridLineColor: 'transparent',
-        lineColors: ['#4d7cff'],
-        lineWidth: 1,
-        hideHover: 'auto',
-    });
-    // Morris bar chart
-    Morris.Bar({
-        element: 'morris-bar-chart',
-        data: [{
-            period: ratingRatio[0].period,
-            point1: ratingRatio[0].count,
-            point2: ratingRatio[1].count,
-            point3: ratingRatio[2].count,
-            point4: ratingRatio[3].count,
-            point5: ratingRatio[4].count
-        }, {
-            period: ratingRatio[5].period,
-            point1: ratingRatio[5].count,
-            point2: ratingRatio[6].count,
-            point3: ratingRatio[7].count,
-            point4: ratingRatio[8].count,
-            point5: ratingRatio[9].count
-        }, {
-            period: ratingRatio[10].period,
-            point1: ratingRatio[10].count,
-            point2: ratingRatio[11].count,
-            point3: ratingRatio[12].count,
-            point4: ratingRatio[13].count,
-            point5: ratingRatio[14].count
-        }, {
-            period: ratingRatio[15].period,
-            point1: ratingRatio[15].count,
-            point2: ratingRatio[16].count,
-            point3: ratingRatio[17].count,
-            point4: ratingRatio[18].count,
-            point5: ratingRatio[19].count
-        }, {
-            period: ratingRatio[20].period,
-            point1: ratingRatio[20].count,
-            point2: ratingRatio[21].count,
-            point3: ratingRatio[22].count,
-            point4: ratingRatio[23].count,
-            point5: ratingRatio[24].count
-        }, {
-            period: ratingRatio[25].period,
-            point1: ratingRatio[25].count,
-            point2: ratingRatio[26].count,
-            point3: ratingRatio[27].count,
-            point4: ratingRatio[28].count,
-            point5: ratingRatio[29].count
-        }, {
-            period: ratingRatio[30].period,
-            point1: ratingRatio[30].count,
-            point2: ratingRatio[31].count,
-            point3: ratingRatio[32].count,
-            point4: ratingRatio[33].count,
-            point5: ratingRatio[34].count
-        }
-
-
-        ],
-        xkey: 'period',
-        ykeys: ['point1', 'point2', 'point3','point4','point5'],
-        labels: ['point1', 'point2', 'point3','point4','point5'],
-        barColors: ['#7571F9', '#9097c4', '#4d7cff','#FF8000','#DF01D7'],
-        hideHover: 'auto',
-        gridLineColor: 'transparent',
-        resize: true
-    });
+    // Morris.Bar({
+    //     element: 'morris-bar-chart',
+    //     data: [{
+    //         period: ratingRatio[0].period,
+    //         point1: ratingRatio[0].count,
+    //         point2: ratingRatio[1].count,
+    //         point3: ratingRatio[2].count,
+    //         point4: ratingRatio[3].count,
+    //         point5: ratingRatio[4].count
+    //     }, {
+    //         period: ratingRatio[5].period,
+    //         point1: ratingRatio[5].count,
+    //         point2: ratingRatio[6].count,
+    //         point3: ratingRatio[7].count,
+    //         point4: ratingRatio[8].count,
+    //         point5: ratingRatio[9].count
+    //     }, {
+    //         period: ratingRatio[10].period,
+    //         point1: ratingRatio[10].count,
+    //         point2: ratingRatio[11].count,
+    //         point3: ratingRatio[12].count,
+    //         point4: ratingRatio[13].count,
+    //         point5: ratingRatio[14].count
+    //     }, {
+    //         period: ratingRatio[15].period,
+    //         point1: ratingRatio[15].count,
+    //         point2: ratingRatio[16].count,
+    //         point3: ratingRatio[17].count,
+    //         point4: ratingRatio[18].count,
+    //         point5: ratingRatio[19].count
+    //     }, {
+    //         period: ratingRatio[20].period,
+    //         point1: ratingRatio[20].count,
+    //         point2: ratingRatio[21].count,
+    //         point3: ratingRatio[22].count,
+    //         point4: ratingRatio[23].count,
+    //         point5: ratingRatio[24].count
+    //     }, {
+    //         period: ratingRatio[25].period,
+    //         point1: ratingRatio[25].count,
+    //         point2: ratingRatio[26].count,
+    //         point3: ratingRatio[27].count,
+    //         point4: ratingRatio[28].count,
+    //         point5: ratingRatio[29].count
+    //     }, {
+    //         period: ratingRatio[30].period,
+    //         point1: ratingRatio[30].count,
+    //         point2: ratingRatio[31].count,
+    //         point3: ratingRatio[32].count,
+    //         point4: ratingRatio[33].count,
+    //         point5: ratingRatio[34].count
+    //     }
+    //
+    //
+    //     ],
+    //     xkey: 'period',
+    //     ykeys: ['point1', 'point2', 'point3','point4','point5'],
+    //     labels: ['point1', 'point2', 'point3','point4','point5'],
+    //     barColors: ['#A9F5F2', '#81DAF5', '#58ACFA','#2E64FE','#0000FF'],
+    //     hideHover: 'auto',
+    //     gridLineColor: 'transparent',
+    //     resize: true
+    // });
     // Morris donut chart
 
     Morris.Donut({
@@ -172,6 +115,132 @@ $(function () {
         colors: ['#4d7cff', '#7571F9', '#9097c4','#58FAAC']
     });
 
+    Morris.Bar({
+        element: 'morris-bar-chart2',
+        data: [{
+            cate: "행열 분해",
+            plus: efficiency[1].count,
+            minus: efficiency[5].count
+
+        }, {
+            cate: "코사인 유사도",
+            plus: efficiency[2].count,
+            minus: efficiency[6].count
+
+        }, {
+            cate: "SVD 모델",
+            plus: efficiency[3].count,
+            minus: efficiency[7].count
+
+        }
+        ],
+        xkey: 'cate',
+        ykeys: ['plus', 'minus'],
+        labels: ['plus', 'minus'],
+        barColors: ['#2E9AFE', '#FF8000'],
+        hideHover: 'auto',
+        parseTime: false,
+        xLabelMargin : 10,
+        gridLineColor: 'transparent',
+        resize: true
+    });
+    // Morris donut chart
+    Morris.Bar({
+        element: 'morris-bar-chart3',
+        data: [{
+            cate: "행열 분해",
+            plus: efficiency[1].value,
+            minus: efficiency[5].value
+
+        }, {
+            cate: "코사인 유사도",
+            plus: efficiency[2].value,
+            minus: efficiency[6].value
+
+        }, {
+            cate: "SVD 모델",
+            plus: efficiency[3].value,
+            minus: efficiency[7].value
+
+        }
+        ],
+        xkey: 'cate',
+        ykeys: ['plus', 'minus'],
+        labels: ['plus', 'minus'],
+        barColors: ['#2E9AFE', '#FF8000'],
+        hideHover: 'auto',
+        parseTime: false,
+        xLabelMargin : 10,
+        gridLineColor: 'transparent',
+        resize: true
+    });
+    // Morris donut chart
+
+    let line = new Morris.Line({
+        element: 'morris-bar-chart0',
+        resize: true,
+            data: [{
+                period: ratingRatio[0].period,
+                point1: ratingRatio[0].count,
+                point2: ratingRatio[1].count,
+                point3: ratingRatio[2].count,
+                point4: ratingRatio[3].count,
+                point5: ratingRatio[4].count
+            }, {
+                period: ratingRatio[5].period,
+                point1: ratingRatio[5].count,
+                point2: ratingRatio[6].count,
+                point3: ratingRatio[7].count,
+                point4: ratingRatio[8].count,
+                point5: ratingRatio[9].count
+            }, {
+                period: ratingRatio[10].period,
+                point1: ratingRatio[10].count,
+                point2: ratingRatio[11].count,
+                point3: ratingRatio[12].count,
+                point4: ratingRatio[13].count,
+                point5: ratingRatio[14].count
+            }, {
+                period: ratingRatio[15].period,
+                point1: ratingRatio[15].count,
+                point2: ratingRatio[16].count,
+                point3: ratingRatio[17].count,
+                point4: ratingRatio[18].count,
+                point5: ratingRatio[19].count
+            }, {
+                period: ratingRatio[20].period,
+                point1: ratingRatio[20].count,
+                point2: ratingRatio[21].count,
+                point3: ratingRatio[22].count,
+                point4: ratingRatio[23].count,
+                point5: ratingRatio[24].count
+            }, {
+                period: ratingRatio[25].period,
+                point1: ratingRatio[25].count,
+                point2: ratingRatio[26].count,
+                point3: ratingRatio[27].count,
+                point4: ratingRatio[28].count,
+                point5: ratingRatio[29].count
+            }, {
+                period: ratingRatio[30].period,
+                point1: ratingRatio[30].count,
+                point2: ratingRatio[31].count,
+                point3: ratingRatio[32].count,
+                point4: ratingRatio[33].count,
+                point5: ratingRatio[34].count
+            }
+
+
+            ],
+        xkey: 'period',
+        ykeys: ['point1', 'point2', 'point3','point4','point5'],
+        labels: ['point1', 'point2', 'point3','point4','point5'],
+        gridLineColor: 'transparent',
+        lineColors: ['#A9F5F2', '#81DAF5', '#58ACFA','#2E64FE','#0000FF'],
+        lineWidth: 1,
+        hideHover: 'auto',
+    });
+    // Morris donut chart
 
     // Extra chart
     Morris.Area({
@@ -265,116 +334,116 @@ $(function () {
         hideHover: 'auto'
 
     });
-    Morris.Area({
-        element: 'morris-area-chart',
-        data: [{
-            period: '2001',
-            smartphone: 0,
-            windows: 0,
-            mac: 0
-        }, {
-            period: '2002',
-            smartphone: 90,
-            windows: 60,
-            mac: 25
-        }, {
-            period: '2003',
-            smartphone: 40,
-            windows: 80,
-            mac: 35
-        }, {
-            period: '2004',
-            smartphone: 30,
-            windows: 47,
-            mac: 17
-        }, {
-            period: '2005',
-            smartphone: 150,
-            windows: 40,
-            mac: 120
-        }, {
-            period: '2006',
-            smartphone: 25,
-            windows: 80,
-            mac: 40
-        }, {
-            period: '2007',
-            smartphone: 10,
-            windows: 10,
-            mac: 10
-        }
-
-
-        ],
-        xkey: 'period',
-        ykeys: ['smartphone', 'windows', 'mac'],
-        labels: ['Phone', 'Windows', 'Mac'],
-        pointSize: 3,
-        fillOpacity: 0,
-        pointStrokeColors: ['#7571F9', '#4d7cff', '#9097c4'],
-        behaveLikeLine: true,
-        gridLineColor: 'transparent',
-        lineWidth: 3,
-        hideHover: 'auto',
-        lineColors: ['#7571F9', '#4d7cff', '#9097c4'],
-        resize: true
-
-    });
-
-    Morris.Area({
-        element: 'morris-area-chart0',
-        data: [{
-            period: '2010',
-            SiteA: 0,
-            SiteB: 0,
-
-        }, {
-            period: '2011',
-            SiteA: 130,
-            SiteB: 100,
-
-        }, {
-            period: '2012',
-            SiteA: 80,
-            SiteB: 60,
-
-        }, {
-            period: '2013',
-            SiteA: 70,
-            SiteB: 200,
-
-        }, {
-            period: '2014',
-            SiteA: 180,
-            SiteB: 150,
-
-        }, {
-            period: '2015',
-            SiteA: 105,
-            SiteB: 90,
-
-        },
-        {
-            period: '2016',
-            SiteA: 250,
-            SiteB: 150,
-
-        }],
-        xkey: 'period',
-        ykeys: ['SiteA', 'SiteB'],
-        labels: ['Site A', 'Site B'],
-        pointSize: 0,
-        fillOpacity: 0.4,
-        pointStrokeColors: ['#b4becb', '#4d7cff'],
-        behaveLikeLine: true,
-        gridLineColor: 'transparent',
-        lineWidth: 0,
-        smooth: false,
-        hideHover: 'auto',
-        lineColors: ['#b4becb', '#4d7cff'],
-        resize: true
-
-    });
+    // Morris.Area({
+    //     element: 'morris-area-chart',
+    //     data: [{
+    //         period: '2001',
+    //         smartphone: 0,
+    //         windows: 0,
+    //         mac: 0
+    //     }, {
+    //         period: '2002',
+    //         smartphone: 90,
+    //         windows: 60,
+    //         mac: 25
+    //     }, {
+    //         period: '2003',
+    //         smartphone: 40,
+    //         windows: 80,
+    //         mac: 35
+    //     }, {
+    //         period: '2004',
+    //         smartphone: 30,
+    //         windows: 47,
+    //         mac: 17
+    //     }, {
+    //         period: '2005',
+    //         smartphone: 150,
+    //         windows: 40,
+    //         mac: 120
+    //     }, {
+    //         period: '2006',
+    //         smartphone: 25,
+    //         windows: 80,
+    //         mac: 40
+    //     }, {
+    //         period: '2007',
+    //         smartphone: 10,
+    //         windows: 10,
+    //         mac: 10
+    //     }
+    //
+    //
+    //     ],
+    //     xkey: 'period',
+    //     ykeys: ['smartphone', 'windows', 'mac'],
+    //     labels: ['Phone', 'Windows', 'Mac'],
+    //     pointSize: 3,
+    //     fillOpacity: 0,
+    //     pointStrokeColors: ['#7571F9', '#4d7cff', '#9097c4'],
+    //     behaveLikeLine: true,
+    //     gridLineColor: 'transparent',
+    //     lineWidth: 3,
+    //     hideHover: 'auto',
+    //     lineColors: ['#7571F9', '#4d7cff', '#9097c4'],
+    //     resize: true
+    //
+    // });
+    //
+    // Morris.Area({
+    //     element: 'morris-area-chart0',
+    //     data: [{
+    //         period: '2010',
+    //         SiteA: 0,
+    //         SiteB: 0,
+    //
+    //     }, {
+    //         period: '2011',
+    //         SiteA: 130,
+    //         SiteB: 100,
+    //
+    //     }, {
+    //         period: '2012',
+    //         SiteA: 80,
+    //         SiteB: 60,
+    //
+    //     }, {
+    //         period: '2013',
+    //         SiteA: 70,
+    //         SiteB: 200,
+    //
+    //     }, {
+    //         period: '2014',
+    //         SiteA: 180,
+    //         SiteB: 150,
+    //
+    //     }, {
+    //         period: '2015',
+    //         SiteA: 105,
+    //         SiteB: 90,
+    //
+    //     },
+    //     {
+    //         period: '2016',
+    //         SiteA: 250,
+    //         SiteB: 150,
+    //
+    //     }],
+    //     xkey: 'period',
+    //     ykeys: ['SiteA', 'SiteB'],
+    //     labels: ['Site A', 'Site B'],
+    //     pointSize: 0,
+    //     fillOpacity: 0.4,
+    //     pointStrokeColors: ['#b4becb', '#4d7cff'],
+    //     behaveLikeLine: true,
+    //     gridLineColor: 'transparent',
+    //     lineWidth: 0,
+    //     smooth: false,
+    //     hideHover: 'auto',
+    //     lineColors: ['#b4becb', '#4d7cff'],
+    //     resize: true
+    //
+    // });
     
 
 

@@ -19,4 +19,8 @@ public interface ChartMapper {
 
     List<ChartVO> timeRatio() throws Exception;
 
+    List<ChartVO> plusEfficiency() throws Exception;
+
+    List<ChartVO> minusEfficiency() throws Exception;
+
 }

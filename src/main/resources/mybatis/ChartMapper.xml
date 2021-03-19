@@ -65,5 +65,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
     </select>
+    
+    
+    <select id="plusEfficiency" resultType="ChartVO">
+        SELECT ifnull(origin,'기본')  AS subject,  sqrt(avg(pow(deviation,2))) AS value, count(*) AS count FROM review_test rt
+        WHERE deviation >0
+        GROUP BY origin
+
+    </select>
+
+    <select id="minusEfficiency" resultType="ChartVO">
+        SELECT ifnull(origin,'기본') AS subject, sqrt(avg(pow(deviation,2))) AS value, count(*) AS count FROM review_test rt
+        WHERE 0> deviation
+        GROUP BY origin
+
+    </select>
 
 </mapper>

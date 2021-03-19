@@ -88,4 +88,25 @@ public class ChartServiceImpl implements ChartService {
         }
     }
 
+    //추천 성과 지표
+    @Override
+    public List<ChartVO> efficiency() {
+        try{
+            List<ChartVO> efficiency = chartMapper.plusEfficiency();
+            List<ChartVO> minus = chartMapper.minusEfficiency();
+
+            for (int i=0; i<minus.size(); i++){
+                efficiency.add(minus.get(i));
+
+            }
+
+            return efficiency;
+
+        }catch (Exception e){
+            System.out.println("efficiency error"+e.toString());
+            return null;
+        }
+
+    }
+
 }
