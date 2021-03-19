@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="ReviewSave" >
         INSERT INTO review(review_id, member_id, res_id, rating_avg, rating_taste,
                            rating_service, rating_clean, rating_location, review_content,
-                           review_tag, review_pic1, recommend_count, charge_count, res_tell,review_date)
+                           review_tag,  recommend_count, charge_count, res_tell,review_date,review_pic1,review_pic2,review_pic3,review_pic4,review_pic5)
                            VALUES (#{review_id},#{mem_id},#{res_id},#{avg},#{taste},
-                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell},sysdate());
+                                   #{service},#{clean},#{location},#{content},#{tag},0,0,#{res_tell},sysdate(),#{review_pic1},#{review_pic2},#{review_pic3},#{review_pic4},#{review_pic5});
     </insert>
 
     <select id="ReviewSel" resultMap="getReview">
@@ -31,6 +31,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT * FROM  review WHERE member_id = #{member_id};
     </select>
 
+    <select id="Reviewpic">
+        SELECT * FROM review_pic WHERE review_id = #{review_id};
+    </select>
 
 
     <select id="memNickname">
@@ -77,7 +80,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="charge_count" column="charge_count"/>
         <result property="res_tell" column="res_tell"/>
         <result property="review_date" column="review_date"/>
-        <result property="pic_name" column="review_pic1"/>
+        <result property="review_pic1" column="review_pic1"/>
+        <result property="review_pic2" column="review_pic2"/>
+        <result property="review_pic3" column="review_pic3"/>
+        <result property="review_pic4" column="review_pic4"/>
+        <result property="review_pic5" column="review_pic5"/>
         <collection property="memberVO" resultMap="getMember"/>
         <collection property="restaurantVO" resultMap="getRestaurant"/>
     </resultMap>
@@ -113,5 +120,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="resRating" column="res_rating"/>
         <result property="likeCount" column="like_count"/>
     </resultMap>
+
+    <!--<resultMap id="getreviewPhoto" type="ReviewPhotoVO">-->
+        <!--<result property="review_id" column="review_id"/>-->
+        <!--<result property="review_pic_loc" column="review_pic_loc"/>-->
+    <!--</resultMap>-->
 
 </mapper>

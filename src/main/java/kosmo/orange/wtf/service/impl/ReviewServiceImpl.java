@@ -1,6 +1,5 @@
 package kosmo.orange.wtf.service.impl;
 
-import kosmo.orange.wtf.model.mapper.RestaurantMapper;
 import kosmo.orange.wtf.model.mapper.ReviewMapper;
 import kosmo.orange.wtf.model.vo.PhotoVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
@@ -60,7 +59,6 @@ public class ReviewServiceImpl implements ReviewService {
         try{
             System.out.println("피드 리뷰리스트");
             List<ReviewVO> result = reviewMapper.ReviewList(member_id);
-
             System.out.println("여기요");
             return result;
         }catch (Exception e){
