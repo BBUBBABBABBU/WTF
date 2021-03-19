@@ -17,5 +17,8 @@ public interface ChartService {
 
     List<ChartVO> timeRatio();
 
+    List<ChartVO> efficiency();
+
+
 }
 

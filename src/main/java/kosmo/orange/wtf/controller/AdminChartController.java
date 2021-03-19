@@ -43,6 +43,11 @@ public class AdminChartController {
         System.out.println(timeRatio.get(0).getCount());
 
 
+        //성과 지표
+        List<ChartVO> efficiency = chartService.efficiency();
+        model.addAttribute("efficiency", efficiency);
+        System.out.println(efficiency.get(0).getSubject());
+
 
         return "adminViews/chart/chart-morris";
 

@@ -11,5 +11,6 @@ public class ChartVO {
     private int count;
     private String subject;
     private String period;
+    private float value;
 
 }

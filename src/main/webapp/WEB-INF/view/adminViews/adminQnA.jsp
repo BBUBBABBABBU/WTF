@@ -120,7 +120,7 @@
                                                     ${admin_qna_list.qna_title}</a></td>
 
                                             <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
-                                                    ${admin_qna_list.qna_date}</a></td>]
+                                                    ${admin_qna_list.qna_date}</a></td>
 
                                             <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
                                                     ${admin_qna_list.anw_check}</a></td>

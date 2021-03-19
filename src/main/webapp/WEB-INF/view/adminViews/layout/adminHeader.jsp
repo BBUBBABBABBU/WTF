@@ -261,12 +261,12 @@
                         <i class="icon-graph menu-icon"></i> <span class="nav-text">차트</span>
                     </a>
                     <ul aria-expanded="false">
-                        <li><a href="./chart-flot.html">Flot</a></li>
-                        <li><a href="/chart-morris">Morris</a></li>
-                        <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-chartjs.html">Chartjs</a></li>
+<%--                        <li><a href="./chart-flot.html">Flot</a></li>--%>
+                        <li><a href="/chart-morris">리뷰 차트</a></li>
+<%--                        <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-chartjs.html">Chartjs</a></li>
                         <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-chartist.html">Chartist</a></li>
                         <li><a href="./chart-sparkline.html">Sparkline</a></li>
-                        <li><a href="./chart-peity.html">Peity</a></li>
+                        <li><a href="./chart-peity.html">Peity</a></li>--%>
                     </ul>
                 </li>
                 <%--=========================--%>

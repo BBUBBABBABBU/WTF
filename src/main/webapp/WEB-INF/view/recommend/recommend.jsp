@@ -90,9 +90,9 @@
 
                     </div>
                     <br/>
-                    <h5>
-                        ${sessionScope.member.nickname} 님이 맘에 들어하신 식당을 기준으로 추천드려요!
-                    </h5>
+                    <h4>
+                        ${sessionScope.member.nickname} 님이 남긴 리뷰를 보고 가져왔지비!
+                    </h4>
                 </div>
             </div>
 
@@ -169,9 +169,9 @@
 
                     </div>
                     <br/>
-                    <h5>
+                    <h4>
                         ${sessionScope.member.nickname} 님과 비슷한 입맛을 가진 분들이 추천한 식당!
-                    </h5>
+                    </h4>
                 </div>
             </div>
 
@@ -246,9 +246,9 @@
 
                     </div>
                     <br/>
-                    <h5>
+                    <h4>
                         WTF 에서 ${sessionScope.member.nickname} 님께 추천 하는 리스트!
-                    </h5>
+                    </h4>
                 </div>
             </div>
 

@@ -112,7 +112,27 @@
             timeRatio.push(json);
         }
 
+        //성과 지표
+        var effiSubject = new Array();
+        var effiValue = new Array();
+        var effiCount = new Array();
 
+        <C:forEach items ="${efficiency}" var ="item">
+
+        effiSubject.push("${item.subject}")
+        effiValue.push("${item.value}")
+        effiCount.push("${item.count}");
+        </C:forEach>
+
+        var efficiency = new Array();
+
+        for (var i = 0; i<effiSubject.length; i++){
+            var json = new Object();
+            json.subject = effiSubject[i];
+            json.value = effiValue[i];
+            json.count = effiCount[i];
+            efficiency.push(json)
+        }
 
     </script>
 
@@ -198,23 +218,23 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">별점 별 리뷰 수</h4>
-                                <div id="morris-bar-chart"></div>
+                                <div id="morris-bar-chart0"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Line Chart</h4>
-                                <div id="morris-line-chart"></div>
+                                <h4 class="card-title">추천 모델 별 성과 지표</h4>
+                                <div id="morris-bar-chart2"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="card-title">Line Chart</h4>
-                                <div id="morris-area-chart"></div>
+                                <h4 class="card-title">추천 모델 별 편차</h4>
+                                <div id="morris-bar-chart3"></div>
                             </div>
                         </div>
                     </div>

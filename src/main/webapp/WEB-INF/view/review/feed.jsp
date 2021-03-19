@@ -30,7 +30,6 @@
 <link href="/res/css/style.css" rel="stylesheet">
 <link href="/res/css/main/main.css" rel="stylesheet">
 <link rel="stylesheet" href="/res/css/cahtting.css" />
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
 </style>
@@ -83,11 +82,11 @@
 <!--Main_Feed_Start -->
 <main id = main>
 <section class="blog_area section-padding">
-    <div class="container">
+    <div class="container">w
         <div class="col-md-8">
             <div class="blog_left_sidebar">
                  <%List<ReviewVO> reviewList = (List<ReviewVO>) request.getAttribute("reviewList");
-                 List<PhotoVO> photoList = (List<PhotoVO>)request.getAttribute("PhotoList");
+                 List<List<String>> photoList = (List<List<String>>)request.getAttribute("PhotoList");
                 List<RestaurantVO> resList = (List<RestaurantVO>)request.getAttribute("ResList");
                 List<String> nickList = (List<String>)request.getAttribute("nickList");
 
@@ -103,10 +102,13 @@
                         <div class="left-padding">
                              <div style="width: 100%;">
                                 <h1>리뷰 입력한 이미지 캐러셀?</h1>
+                                 <img src=<%=reviewList.get(i).getReview_pic1()%>>
+                                 <img src=<%=reviewList.get(i).getReview_pic2()%>>
+                                 <img src=<%=reviewList.get(i).getReview_pic3()%>>
+                                 <img src=<%=reviewList.get(i).getReview_pic4()%>>
+                                 <img src=<%=reviewList.get(i).getReview_pic5()%>>
                              </div>
                             <div class="review_img">
-
-                                <%--<img class="review_img"  src="/res/img/img_1.jpg">--%>
                                 <div>
                                      <li> <%=nickList.get(i) %> </li>
                                      <div class="star-section col-md-3">
@@ -139,9 +141,10 @@
                          </div>
                          <h3>가게정보</h3>
                         <div >
-                            <span><img  style="width: 100%; border-radius: 10% " src="<%=photoList.get(i).getRtr_pic_loc()%>"></span>
+                            <span></span>
                             <span><%=resList.get(i).getResName()%> :  </span>
                             <span><%=reviewList.get(i).getRes_tell()%></span>
+                            <span> <%=resList.get(i).getResAddr()%></span>
                         </div>
                     </div>
                 </article>
