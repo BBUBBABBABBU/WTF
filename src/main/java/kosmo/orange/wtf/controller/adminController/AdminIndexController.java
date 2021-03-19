@@ -1,12 +1,8 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.adminController;
 
-import kosmo.orange.wtf.model.vo.AdminBoardVO;
-import kosmo.orange.wtf.model.vo.AdminVO;
-import kosmo.orange.wtf.model.vo.MemberVO;
-import kosmo.orange.wtf.model.vo.RestaurantVO;
+import kosmo.orange.wtf.model.vo.*;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import kosmo.orange.wtf.service.impl.MemberServiceImpl;
-import kosmo.orange.wtf.service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -149,9 +145,13 @@ public class AdminIndexController {
      * .. > adminReviewList.jsp
      */
     @GetMapping("reviewList")
-    public String reviewList() {
+    public String reviewList(Model model) {
         System.out.println("AdminIndexController.reviewList");
 
+        List<ReviewVO> reviewList = adminService.reviewList();
+        System.out.println("AdminIndexController.reviewList 153line : " + reviewList.size());
+
+        model.addAttribute("reviewList",reviewList);
         return "adminViews/adminReviewList";
 
     } // end of reviewList

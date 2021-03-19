@@ -176,8 +176,19 @@
     </select>
 
 
-
-
+<!--=======================================================================-->
+<!-- admin review -->
+<!--=======================================================================-->
+    <select id="reviewList" resultMap="getReview">
+        SELECT res.res_name res_name, m.nickname nickname, rev.rating_avg rating_avg,
+        rev.rating_taste rating_taste, rev.rating_location rating_location, rev.rating_service rating_service,
+        rev.rating_clean rating_clean, rev.review_content review_content, rev.review_date review_date, res.res_id
+        FROM review rev INNER JOIN member m
+        ON rev.member_id = m.member_id
+        INNER JOIN restaurant res
+        ON rev.res_id = res.res_id
+        ORDER BY review_date DESC
+    </select>
 
 
 <!--==============================================================-->
@@ -228,6 +239,26 @@
         <result property="board_enterdate" column="board_enterdate"/>
         <result property="board_modifydate" column="board_modifydate"/>
         <result property="board_viewcount" column="board_viewcount"/>
+    </resultMap>
+
+    <resultMap id="getReview" type="ReviewVO">
+        <result property="review_id" column="review_id"/>
+        <result property="mem_id" column="member_id"/>
+        <result property="res_id" column="res_id"/>
+        <result property="avg" column="rating_avg"/>
+        <result property="taste" column="rating_taste"/>
+        <result property="service" column="rating_service"/>
+        <result property="clean" column="rating_clean"/>
+        <result property="location" column="rating_location"/>
+        <result property="content" column="review_content"/>
+        <result property="tag" column="review_tag"/>
+        <result property="rec_count" column="recommend_count"/>
+        <result property="charge_count" column="charge_count"/>
+        <result property="res_tell" column="res_tell"/>
+        <result property="review_date" column="review_date"/>
+        <result property="pic_name" column="review_pic1"/>
+        <collection property="memberVO" resultMap="getMember"/>
+        <collection property="restaurantVO" resultMap="getRestaurant"/>
     </resultMap>
 
 
