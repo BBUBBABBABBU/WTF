@@ -146,9 +146,7 @@ public class ReviewController{
     public List<ReviewVO> mainReview(String foodKind){
         System.out.println("mainReview() 16line" + foodKind);
         List<ReviewVO> reviewList = reviewService.mainReview(foodKind);
-        for (ReviewVO review : reviewList){
-            System.out.println("mainReview 27line : " + review.getRestaurantVO().getResName());
-        }
+
         return reviewList;
     }
 
