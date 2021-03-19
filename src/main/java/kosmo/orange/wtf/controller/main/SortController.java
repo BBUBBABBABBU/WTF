@@ -26,11 +26,7 @@ public class SortController {
     public List<RestaurantVO> restaurantSort(String choiceCategory){
         System.out.println("restaurantSort 24line : " + choiceCategory);
 
-        if (choiceCategory == null) {
-            choiceCategory = "rating_order";
-        }
         List<RestaurantVO> restaurantList = mainService.restaurantSort(choiceCategory);
-
 
         return restaurantList;
     }

@@ -8,9 +8,9 @@ $(function () {
                 choiceCategory: $(this).attr('name')
             },
             success: (restaurantList) => {
-                if (restaurantList != null) {
-                    $('#recommend_div').remove()
-
+                $('#recommend_div').remove()
+                // 메인화면에서 정렬
+                if (restaurantList != null && $(this).attr('name').indexOf("search") == -1) {
                     let recommend_div = $('<div id="recommend_div" class="recommend_div owl-carousel testimonial-carousel"></div>')
 
                     // #recommend_container의 맨앞에 추가 후 map_div 바로 뒤로 자리 옮김
@@ -19,7 +19,6 @@ $(function () {
                     $('#recommend_div').insertAfter($('#category'))
 
                     for (let i = 0; i < restaurantList.length; i++) {
-
                         // 식당의 이름이 8자가 넘었을 경우 처리
                         if (restaurantList[i].resName.length > 8) {
                             restaurantList[i].resName = restaurantList[i].resName.substring(0, 7) + '...'
@@ -34,13 +33,13 @@ $(function () {
                             '</a>' +
                             '<table border="0">' +
                             '<tr id="tr_name">' +
-                            '<td class ="detail_des" width = "350">' + restaurantList[i].resName + '<span class="res_rating">' + restaurantList[i].resRating + '</span></td>' +
+                            '<td class ="detail_des" width = "350"><a class="restaurant_name" href="/restaurant/restaurantInfo?resId=' + restaurantList[i].resId + '">' + restaurantList[i].resName + '</a><span class="res_rating">' + restaurantList[i].resRating + '</span></td>' +
                             '</tr>' +
                             '<tr id="tr_location">' +
                             '<td class ="detail_des2" width = "350">' + restaurantList[i].resAddr.split(" ")[1] + '</td>' +
                             '</tr>' +
                             '<tr id="tr_re">' +
-                            '<td class ="detail_des2" width = "350">좋아요 : ' + restaurantList[i].likeCount + ' 리뷰 : ' + restaurantList[i].reviewCount + '</td>' +
+                            '<td class ="detail_des2" width = "350">추천 : ' + restaurantList[i].likeCount + ' 리뷰 : ' + restaurantList[i].reviewCount + '</td>' +
                             '</tr>' +
                             '</table>' +
                             '</div><br/>')
@@ -62,6 +61,39 @@ $(function () {
 
                     } // for end
                     siteOwlCarousel();
+                } else {  // 검색화면 정렬
+                    let recommend_div = $('<div id="recommend_div"></div>')
+                    $('#recommend_container').append(recommend_div)
+
+                    $('#recommend_div').append($('<div id="portfolio-grid" class="row no-gutter " data-aos="fade-up" data-aos-delay="200">'))
+
+                    for (let i = 0; i < restaurantList.length; i++) {
+                        // 식당의 이름이 8자가 넘었을 경우 처리
+                        if (restaurantList[i].resName.length > 8) {
+                            restaurantList[i].resName = restaurantList[i].resName.substring(0, 7) + '...'
+                        }
+
+                        $('#portfolio-grid').append($('<div id="item'+i+'" class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">'))
+                        $('#item'+i).append($('<a href="/restaurant/restaurantInfo?resId=' + restaurantList[i].resId + '"' +
+                            ' id="restaurant_img" class="item-wrap fancybox"' +
+                            ' name="' + restaurantList[i].resName + '">' +
+                            '<div class="work-info">' +
+                            '<h3>' + restaurantList[i].resKeyword + '</h3>' +
+                            '</div>' +
+                            '<img class="res_img" width="400" height="300" src=' + restaurantList[i].rtr_pic_loc + '>' +
+                            '</a>' +
+                            '<table border="0">' +
+                            '<tr id="tr_name">' +
+                            '<td class ="detail_des" width = "350"><a class="restaurant_name" href="/restaurant/restaurantInfo?resId=' + restaurantList[i].resId + '">' + restaurantList[i].resName + '</a><span class="res_rating">' + restaurantList[i].resRating + '</span></td>' +
+                            '</tr>' +
+                            '<tr id="tr_location">' +
+                            '<td class ="detail_des2" width = "350">' + restaurantList[i].resAddr.split(" ")[1] + '</td>' +
+                            '</tr>' +
+                            '<tr id="tr_re">' +
+                            '<td class ="detail_des2" width = "350">추천 : ' + restaurantList[i].likeCount + ' 리뷰 : ' + restaurantList[i].reviewCount + '</td>' +
+                            '</tr>' +
+                            '</table>'))
+                    }
                 }
             },
             error: (err) => {

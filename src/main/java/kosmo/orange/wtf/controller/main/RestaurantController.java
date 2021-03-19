@@ -50,10 +50,7 @@ public class RestaurantController {
         }
 
         model.addAttribute("restaurantList", restaurantList);
-
-        if(restaurantList != null){
-            return "restaurant/searchRestaurant";
-        }
+        httpSession.setAttribute("resKeyword", resKeyword);
 
         return "restaurant/searchRestaurant";
     }

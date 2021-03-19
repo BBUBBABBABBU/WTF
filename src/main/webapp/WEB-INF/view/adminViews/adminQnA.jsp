@@ -111,18 +111,20 @@
                                     <c:forEach items="${adminqnaList}" var="admin_qna_list">
 
                                         <tr>
+
                                             <td>${admin_qna_list.qna_id }</td>
-                                            <td align="left"><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
-                                                    ${admin_qna_list.member_id }</a></td>
+                                            <td align="left">
+                                                    ${admin_qna_list.member_id }</td>
 
                                             <%--adminQnadetail 들어갈시에 122라인 지우고 위에꺼 주석해제--%>
                                             <%--<td> ${admin_qna_list.member_id }</td>--%>
-
-                                            <td>${admin_qna_list.qna_title} </td>
+                                            <a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                            <td>${admin_qna_list.qna_title} </td>    </a>
                                             <td>${admin_qna_list.qna_date}</td>
                                             <td>${admin_qna_list.anw_check}</td>
 
                                         </tr>
+
                                     </c:forEach>
 
                                     </tbody>

@@ -26,14 +26,14 @@ $(function () {
                     table : "res_recommend_matrix_decomposition"
                 },
                 success: (data) => {
-                    res_allList = data.res_allList;
+                    var res_allList = data.res_allList;
                     photoList = data.photoList;
                     $('#recommend_div1').remove()
-                    let recommend_div1 = $('<div id="recommend_div1" class="recommend_div owl-carousel testimonial-carousel"></div>')
+                    var recommend_div1 = $('<div id="recommend_div1" class="recommend_div owl-carousel testimonial-carousel"></div>')
                     $('.recommend_container1').append(recommend_div1)
-                    for (let i = 0; i < 12; i++) {
+                    for (var i = 0; i < 12; i++) {
                         // let content =$('<div>'+i+'</div>')
-                        let content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
+                        var content = $('<div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">' +
                             '<a id = "a_img" href="/restaurant/restaurantInfo?resId='+res_allList[i].res_id+'&origin=recom1" class="item-wrap fancybox">' +
                             '<div class="work-info">' +
                             '<h3>'+res_allList[i].res_keyword+'</h3>' +

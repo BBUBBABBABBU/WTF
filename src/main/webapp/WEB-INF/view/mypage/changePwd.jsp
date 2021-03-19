@@ -115,6 +115,7 @@
             BORDER-TOP: medium none;
             background-color: white;
             font-family: 'Noto Sans KR', sans-serif;
+            font-size: x-small;
         }
 
     </style>
@@ -236,7 +237,7 @@
 
 
                         <div>
-                            <button type="submit" id="passwordChange" class="btn btn-default">변경하기</button>
+                            <button type="submit" id="passwordChange" class="btn btn-default" style="font-size: x-small">변경하기</button>
 
                         </div>
                     </form>

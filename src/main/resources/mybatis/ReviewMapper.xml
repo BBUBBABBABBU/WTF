@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="ReviewSave" >
         INSERT INTO review(review_id, member_id, res_id, rating_avg, rating_taste,
                            rating_service, rating_clean, rating_location, review_content,
-                           review_tag, pic_name, recommend_count, charge_count, res_tell)
+                           review_tag, review_pic1, recommend_count, charge_count, res_tell,review_date)
                            VALUES (#{review_id},#{mem_id},#{res_id},#{avg},#{taste},
-                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell});
+                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell},sysdate());
     </insert>
 
     <select id="ReviewSel" resultMap="getReview">
@@ -45,8 +45,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         INNER JOIN restaurant res
         ON rev.res_id = res.res_id
         WHERE res.res_keyword LIKE CONCAT('%',#{foodKind},'%')
-        ORDER BY rev.review_date
-        LIMIT 5;
+        AND rev.rating_avg >= 4
+        ORDER BY rev.review_date DESC
+        LIMIT 10;
     </select>
 
     <select id="restaurantInfoReview" resultMap="getReview">
@@ -57,8 +58,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         INNER JOIN restaurant res
         ON rev.res_id = res.res_id
         WHERE res.res_id = #{resId}
-        ORDER BY rev.review_date
-        LIMIT 5;
+        ORDER BY rev.review_date DESC
+        LIMIT 10;
     </select>
 
     <resultMap id="getReview" type="ReviewVO">
@@ -76,6 +77,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="charge_count" column="charge_count"/>
         <result property="res_tell" column="res_tell"/>
         <result property="review_date" column="review_date"/>
+        <result property="pic_name" column="review_pic1"/>
         <collection property="memberVO" resultMap="getMember"/>
         <collection property="restaurantVO" resultMap="getRestaurant"/>
     </resultMap>

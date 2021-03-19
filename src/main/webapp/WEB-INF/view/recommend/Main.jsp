@@ -82,7 +82,6 @@
                     </div>
                 </div>
             </div>
-            <br/><br/><br/>
 
             <div id="recommend_div" class="owl-carousel testimonial-carousel">
 

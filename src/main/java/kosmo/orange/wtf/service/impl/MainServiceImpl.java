@@ -68,16 +68,24 @@ public class MainServiceImpl implements MainService {
     @Override
     public List<RestaurantVO> restaurantSort(String choiceCategory) {
         Map<String,String> hashMap = new HashMap<>();
-        hashMap.put("choiceCategory",choiceCategory);
         hashMap.put("foodKind", (String)httpSession.getAttribute("foodKind"));
         hashMap.put("userAddress",(String)httpSession.getAttribute("userAddress"));
 
+        if (choiceCategory == null) {
+            choiceCategory = "rating_order";
+        } else if (choiceCategory.contains("search")) {
+            choiceCategory = choiceCategory.replaceAll("search","").replace("R","r");
+            hashMap.put("userAddress", null);
+            hashMap.put("resKeyword",(String)httpSession.getAttribute("resKeyword"));
+        }
+        hashMap.put("choiceCategory",choiceCategory);
 
         try{
             List<RestaurantVO> restaurantList = mainMapper.restaurantSort(hashMap);
             if (restaurantList.size() > 12) {
                 restaurantList = restaurantList.subList(0, 12);
             }
+
 
             for (int i = 0; i < restaurantList.size(); i++) {
                 List<PhotoVO> photoList = mainMapper.res_photo(restaurantList.get(i));

@@ -276,13 +276,13 @@ function showRestaurant_list(latitude, longitude) {
                                 '</a>' +
                                 '<table border="0">' +
                                 '<tr id="tr_name">' +
-                                '<td class ="detail_des" width = "350">' + res_allList[i].resName + '<span class="res_rating">' + res_allList[i].resRating + '</span></td>' +
+                                '<td class ="detail_des" width = "350"><a class="restaurant_name" href="/restaurant/restaurantInfo?resId=' + res_allList[i].resId + '">' + res_allList[i].resName + '</a><span class="res_rating">' + restaurantList[i].resRating + '</span></td>' +
                                 '</tr>' +
                                 '<tr id="tr_location">' +
                                 '<td class ="detail_des2" width = "350">' + res_allList[i].resAddr.split(" ")[1] + '</td>' +
                                 '</tr>' +
                                 '<tr id="tr_re">' +
-                                '<td class ="detail_des2" width = "350">좋아요 : ' + res_allList[i].likeCount + ' 리뷰 : ' + res_allList[i].reviewCount + '</td>' +
+                                '<td class ="detail_des2" width = "350">추천 : ' + res_allList[i].likeCount + ' 리뷰 : ' + res_allList[i].reviewCount + '</td>' +
                                 '</tr>' +
                                 '</table>' +
                                 '</div><br/>')

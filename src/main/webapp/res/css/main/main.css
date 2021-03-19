@@ -121,17 +121,19 @@ h6,
     font-size: 12px;
     line-height: 16px;
     font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic","맑은 고딕",helvetica,"Apple SD Gothic Neo",sans-serif;
-    letter-spacing: -.2px;
+    /*letter-spacing: -.2px;*/
     color: black;
     text-decoration: none;
     position: fixed;
     right: 24px;
     bottom: 20px;
     z-index: 100;
-    background: transparent;
+    background: #FCF9DA;
+
 }
 
-a:visited{
+a:visited,
+.restaurant_name:visited{
     color:black;
 }
 
