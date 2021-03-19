@@ -1,1 +1,19 @@
 drop table review_pic;
+
+--리뷰 작성 위치 추적
+--recom1 ,recom1, recom1, null 4가지 데이터가 들어가있어야함
+
+ALTER TABLE review ADD origin VARCHAR(20);
+ALTER TABLE review_test ADD origin VARCHAR(20);
+
+
+-- 리뷰남길때 기존 리뷰 평균 점수와 편차를 기록하는 컬럼
+-- +- 값들이 다양하게 들어감
+
+ALTER TABLE review_test ADD deviation float;
+ALTER TABLE review ADD deviation float;
+
+--데이터 추가를 위한 코드
+UPDATE review_test SET deviation = rating_avg -3;
+UPDATE review SET deviation = rating_avg -3;
+drop table review_pic;

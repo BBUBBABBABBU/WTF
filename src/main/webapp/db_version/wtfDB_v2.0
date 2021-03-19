@@ -1,3 +1,5 @@
+drop table review_pic;
+
 --리뷰 작성 위치 추적
 --recom1 ,recom1, recom1, null 4가지 데이터가 들어가있어야함
 
@@ -14,3 +16,4 @@ ALTER TABLE review ADD deviation float;
 --데이터 추가를 위한 코드
 UPDATE review_test SET deviation = rating_avg -3;
 UPDATE review SET deviation = rating_avg -3;
+drop table review_pic;
