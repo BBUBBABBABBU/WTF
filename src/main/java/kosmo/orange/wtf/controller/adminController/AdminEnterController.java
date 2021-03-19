@@ -1,4 +1,4 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.adminController;
 
 import kosmo.orange.wtf.model.vo.AdminMailVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
