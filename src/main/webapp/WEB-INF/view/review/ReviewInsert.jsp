@@ -1,3 +1,4 @@
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
@@ -17,30 +18,65 @@
     <link rel="stylesheet" href="/res/css/review.css">
     <title>리뷰작성하기</title>
 </head>
+<style>
+    @font-face {
+        font-family: 'Cafe24Ohsquare';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+    body {
+    font-family: 'Cafe24Ohsquare';
+    background-image:url(${photo.rtr_pic_loc}) ;
+    background-repeat: no-repeat;
+    background-position:top;
+    background-size: cover;
+}
+.container{
+
+    width: 80%;
+    height: 100%;
+    background: white;
+}
+textarea{
+    resize: none;
+}
+    text-muted{
+        font-size: 9px;
+    }
+
+</style>
 <body>
 <div class="container">
     <div class="col-md-offset-1 col-md-10 col-md-offset-1">
-        <h1>리뷰작성</h1>
         <div id = "restaurant_info", name="${restaurantInfo.resId}">
-            <h3>식당정보</h3>
-            <input type="text" name ="userNikc" value="">
+            <h2>식당정보</h2>
             <h3 id="restaurant_name" >${restaurantInfo.resName}</h3>
+            <div class="col-md-2">
             <img style="height: 100px; width: 100px; border-radius: 10%" src=${photo.rtr_pic_loc} >
-            <p class="mb-4"><span class="text-muted"> 주소 : ${restaurantInfo.resAddr}</span></p>
-            <p class="mb-4"><span class="text-muted"> 평점 : ${restaurantInfo.resRating}</span></p>
+            </div>
+             <div class="col-md-10">
+                 주소 : ${restaurantInfo.resAddr}
+            <br/>
+                평점 : ${restaurantInfo.resRating}<br/>
+                 전화번호 : ${restaurantInfo.resTell}
+             </div>
         </div>
     </div>
-    <form method="post" id="reviewSave" action="/review/reviewSave"  >
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1">
+    <div class="reviewInsert col-md-offset-1 col-md-10 col-md-offset-1">
+        <h1>리뷰작성</h1>
+        <form method="post" id="reviewSave" action="/review/reviewSave" enctype="multipart/form-data" >
+        <div>
             <input type="hidden" name="res_id" value=${restaurantInfo.resId} >
-            <input type="file" id="input_imgs" value="" name="pic_loc" multiple/>
+            <input type="file" id="input_imgs" value="" name="uploadFile" multiple/>
             <div>
-                <div class="imgs_wrap">
+               <div class="imgs_wrap">
+               </div>
+            </div >
 
-                </div>
-            </div>
-            <h3>평점</h3>
-            <label>맛</label>
+            <h2>평점</h2>
+            <div class="col-md-6">
+            <h3>맛</h3>
             <div class="startRadio">
                 <label class="startRadio__box">
                     <input type="radio" name="taste" value=1>
@@ -83,7 +119,7 @@
                     <span class="startRadio__img"><span class="blind">별 5.5개</span></span>
                 </label>
             </div>
-            <label>서비스</label>
+            <h3>서비스</h3>
             <div class="startRadio">
                 <label class="startRadio__box">
                     <input type="radio" name="service" value=1>
@@ -127,8 +163,9 @@
                 </label>
             </div>
         </div>
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1">
-            <label>위생</label>
+        </div>
+        <div class="col-md-6" >
+            <h3>위생</h3>
             <div class="startRadio">
                 <label class="startRadio__box">
                     <input type="radio" name="clean" value=1>
@@ -171,7 +208,7 @@
                     <span class="startRadio__img"><span class="blind">별 5개</span></span>
                 </label>
             </div>
-            <label>접급성</label>
+            <h3>접근성</h3>
             <div class="startRadio">
                 <label class="startRadio__box">
                     <input type="radio" name="location" value=1>
@@ -215,16 +252,14 @@
                 </label>
             </div>
         </div>
-
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1">
-            <textarea name="tag" placeholder="태그를 입력하세요" rows="1" cols="50%"></textarea>
-            <textarea name="content" placeholder="리뷰를 입력하세요" rows="8" cols=100 %></textarea>
-        </div>
-        <div class="col-md-offset-1 col-md-10 col-md-offset-1" style="float: right">
-            <input type="submit" class="col-md-offset-9 " value="리뷰 입력하기">
+        <div class="col-md-10">
+            <textarea name="tag" placeholder="태그를 입력하세요" ></textarea>
+            <br/>
+            <textarea name="content" placeholder="리뷰를 입력하세요" rows="8" cols=70%></textarea>
+            <input type="submit"  style="width: 100px; height: 30px;  font-size: 14px" value="리뷰 입력하기">
         </div>
     </form>
-
+    </div>
 </div>
 
 </body>
