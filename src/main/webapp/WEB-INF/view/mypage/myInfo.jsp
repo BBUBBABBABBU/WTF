@@ -207,7 +207,7 @@
 
 <img src="/res/img/화면_졸라맨.png"style="
     position: absolute;
-    left: 1310px;
+    left: 1200px;
     top: 40px;
     z-index: 10000;
     width: 300px;
@@ -215,7 +215,7 @@
 
 <img src="/res/img/화면_졸라맨_2.png"style="
     position: absolute;
-    left: 660px;
+    left: 500px;
     top: 40px;
     z-index: 10000;
     width: 260px;

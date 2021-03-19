@@ -86,7 +86,7 @@
 
 <img src="/res/img/화면_졸라맨.png"style="
     position: absolute;
-    left: 1310px;
+    left: 1200px;
     top: 40px;
     z-index: 10000;
     width: 300px;
@@ -94,7 +94,7 @@
 
 <img src="/res/img/화면_졸라맨_2.png"style="
     position: absolute;
-    left: 660px;
+    left: 500px;
     top: 40px;
     z-index: 10000;
     width: 260px;
@@ -182,15 +182,20 @@
                                         <c:forEach items="${qnaList}" var="qna">
 
                                             <tr>
-                                                <td>${qna.qna_id }</td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_id }</a></td>
 
                                                     <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
                                                     <%--${qna.member_id }</a></td>--%>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${sessionScope.member.email}</a></td>
-                                                <td>${qna.qna_title} </td>
-                                                <td>${qna.qna_date}</td>
-                                                <td>${qna.anw_check}</td>
+
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_title}</a> </td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_date}</a></td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.anw_check}</a></td>
 
                                             </tr>
                                         </c:forEach>
