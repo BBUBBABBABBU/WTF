@@ -115,6 +115,21 @@
 </head>
 <body>
 
+<img src="/res/img/화면_졸라맨.png"style="
+    position: absolute;
+    left: 1200px;
+    top: 40px;
+    z-index: 10000;
+    width: 300px;
+">
+
+<img src="/res/img/화면_졸라맨_2.png"style="
+    position: absolute;
+    left: 500px;
+    top: 40px;
+    z-index: 10000;
+    width: 260px;
+">
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
@@ -189,7 +204,6 @@
 
                                 </div>
                             </div>
-
                             <div class="media-body p-2 mt-2">
                                 <h3 class="heading mb-3">CALL </h3>
                                 <p id="call_center">고객 센터</p>

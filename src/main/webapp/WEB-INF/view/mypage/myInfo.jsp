@@ -205,6 +205,22 @@
 </head>
 <body>
 
+<img src="/res/img/화면_졸라맨.png"style="
+    position: absolute;
+    left: 1200px;
+    top: 40px;
+    z-index: 10000;
+    width: 300px;
+">
+
+<img src="/res/img/화면_졸라맨_2.png"style="
+    position: absolute;
+    left: 500px;
+    top: 40px;
+    z-index: 10000;
+    width: 260px;
+">
+
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
@@ -213,7 +229,7 @@
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
                 <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
-                <li><a href="mypage/myInfo">나의 정보</a></li>
+                <li><a href="/mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
                 <li><a href="blog.html">내 피드 보기</a></li>
                 <li><a href="contact.html">내 취향 수정</a></li>

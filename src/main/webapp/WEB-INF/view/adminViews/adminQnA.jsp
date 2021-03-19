@@ -93,7 +93,7 @@
                                     <thead>
                                     <tr>
                                         <th>문의번호</th>
-                                        <th>이메일ID</th>
+                                        <th>회원번호</th>
                                         <th>제목</th>
                                         <th>등록일자</th>
                                         <th>답변여부</th>
@@ -111,17 +111,19 @@
                                     <c:forEach items="${adminqnaList}" var="admin_qna_list">
 
                                         <tr>
+                                            <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.qna_id }</a></td>
+                                            <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.member_id }</a></td>
 
-                                            <td>${admin_qna_list.qna_id }</td>
-                                            <td align="left">
-                                                    ${admin_qna_list.member_id }</td>
+                                            <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.qna_title}</a></td>
 
-                                            <%--adminQnadetail 들어갈시에 122라인 지우고 위에꺼 주석해제--%>
-                                            <%--<td> ${admin_qna_list.member_id }</td>--%>
-                                            <a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
-                                            <td>${admin_qna_list.qna_title} </td>    </a>
-                                            <td>${admin_qna_list.qna_date}</td>
-                                            <td>${admin_qna_list.anw_check}</td>
+                                            <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.qna_date}</a></td>]
+
+                                            <td><a href="adminqnadetail?qna_id=${admin_qna_list.qna_id }">
+                                                    ${admin_qna_list.anw_check}</a></td>
 
                                         </tr>
 

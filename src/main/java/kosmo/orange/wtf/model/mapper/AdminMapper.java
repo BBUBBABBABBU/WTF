@@ -1,9 +1,6 @@
 package kosmo.orange.wtf.model.mapper;
 
-import kosmo.orange.wtf.model.vo.AdminBoardVO;
-import kosmo.orange.wtf.model.vo.AdminVO;
-import kosmo.orange.wtf.model.vo.MemberVO;
-import kosmo.orange.wtf.model.vo.RestaurantVO;
+import kosmo.orange.wtf.model.vo.*;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -29,6 +26,13 @@ public interface AdminMapper {
      * >> 쌤과 얘기하다보니 AJAX를 탈 이유가 없음
      */
 //    AdminVO pwCheck(String id, String name);
+
+
+
+    //adminDetail
+    AdminVO adminDetail(AdminVO adminVO) throws Exception;
+
+
 
 
     /******************
@@ -77,6 +81,11 @@ public interface AdminMapper {
      * 대시보드의 전체 '리뷰' 수
      */
     int totalReviewCount();
+
+    /*******************
+     * 리뷰리스트 리뷰내용 가져오기
+     */
+    List<ReviewVO> reviewList() throws Exception;
 
 
     // ==========================================================

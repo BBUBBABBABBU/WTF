@@ -183,8 +183,8 @@
 
                                             <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12 col-12" >
                                                 <div class="user-avatar float-xl-left pr-4 float-none">
-                                                    <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-2.jpg"
-                                                         alt="User Avatar" class="rounded-circle user-avatar-xl">
+                                                    <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-2.jpg"--%>
+                                                         <%--alt="User Avatar" class="rounded-circle user-avatar-xl">--%>
                                                 </div>
                                                 <div class="pl-xl-3">
                                                     <div class="m-b-0">
@@ -202,7 +202,7 @@
                                                     </div>
                                                     <div class="user-avatar-address">
                                                         <p class="mb-2"><i
-                                                                class="fa  mr-2  text-primary"></i>${memberVOList.nickname}
+                                                                class="fa  mr-2  text-primary"></i>&nbsp;&nbsp;&nbsp;${memberVOList.nickname}
                                                             <span class="m-l-10">${memberVOList.gender}<span class="m-l-20">${memberVOList.birthday}</span><span>${memberVOList.favor}</span></span>
                                                         </p>
                                                         <div class="mt-3">

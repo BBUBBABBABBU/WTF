@@ -2,17 +2,18 @@
   Created by IntelliJ IDEA.
   User: kosmo_10
   Date: 2021-03-09
-  Time: 16:59
+  Time: 12:59
   To change this template use File | Settings | File Templates.
 --%>
 <%--
     QUIXLAB-MASTER > blank.html
-    tinydash-master > light > profile-settings.html
+    concept-master > influencer-profile.html
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>adminManagerDetail.jsp / 관리자 상세 (+수정)</title>
+
+    <title>adminMemberDetail.jsp / 회원(member) 상세</title>
 
     <%--meta tag--%>
     <%--QUIXLAB-MASTER > blank.html--%>
@@ -20,299 +21,348 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <%--tinydash-master > light > contacts-grid.html--%>
-    <meta charset="utf-8">
+    <%--concept-master > influencer-finder.html--%>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+
     <%--QUIXLAB-MASTER > blank.html--%>
-    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
-    <%--tinydash-master > light > contacts-grid.html--%>
-    <!-- Simple bar CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/simplebar.css">
-    <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <!-- Icons CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/feather.css">
-    <!-- Date Range Picker CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/daterangepicker.css">
-    <!-- App CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-dark.css" id="darkTheme" disabled>
+    <%--concept-master > influencer-finder.html--%>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate3/assets/libs/css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
 </head>
-<body class="vertical  light  ">
+<body>
 
-
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+        </svg>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+
+
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <!-- 여기부터 헤더 -->
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <jsp:include page="/WEB-INF/view/adminViews/layout/adminHeader.jsp"/>
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <!-- 여기까지 헤더 -->
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+
 
 
     <!--**********************************
-        Main wrapper start
+        Content body start
     ***********************************-->
-    <div id="main-wrapper">
+    <div class="content-body">
 
-
-
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <!-- 여기부터 헤더 -->
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <jsp:include page="/WEB-INF/view/adminViews/layout/adminHeader.jsp"/>
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <!-- 여기까지 헤더 -->
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-
-
-
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
-
-            <!--요기부터 내용 입력 !!!!!!!!!!!!!!!-->
-            <main role="main">
-                <div class="container-fluid">
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-lg-10 col-xl-8">
-                            <h2 class="h3 mb-4 page-title">Settings</h2>
-                            <div class="my-4">
-
-                                <form>
-                                    <div class="row mt-5 align-items-center">
-                                        <div class="col-md-3 text-center mb-5">
-                                            <div class="avatar avatar-xl">
-                                                <img src="${pageContext.request.contextPath}/res/adminTemplate2//assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="row align-items-center">
-                                                <div class="col-md-7">
-                                                    <h4 class="mb-1">Brown, Asher</h4>
-                                                    <p class="small mb-3"><span class="badge badge-dark">New York, USA</span></p>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-4">
-                                                <div class="col-md-7">
-                                                    <p class="text-muted"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus. In hac habitasse platea dictumst. Cras urna quam, malesuada vitae risus at, pretium blandit sapien. </p>
-                                                </div>
-                                                <div class="col">
-                                                    <p class="small mb-0 text-muted">Nec Urna Suscipit Ltd</p>
-                                                    <p class="small mb-0 text-muted">P.O. Box 464, 5975 Eget Avenue</p>
-                                                    <p class="small mb-0 text-muted">(537) 315-1481</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <hr class="my-4">
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="firstname">이름</label>
-                                            <input type="text" id="firstname" class="form-control" placeholder="Brown">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail4">이메일</label>
-                                        <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputAddress5">주소</label>
-                                        <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue">
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputCompany5">Company</label>
-                                            <input type="text" class="form-control" id="inputCompany5" placeholder="Nec Urna Suscipit Ltd">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputState5">State</label>
-                                            <select id="inputState5" class="form-control">
-                                                <option selected="">Choose...</option>
-                                                <option>...</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputZip5">Zip</label>
-                                            <input type="text" class="form-control" id="inputZip5" placeholder="98232">
-                                        </div>
-                                    </div>
-                                    <hr class="my-4">
-                                    <div class="row mb-4">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="inputPassword4">Old Password</label>
-                                                <input type="password" class="form-control" id="inputPassword4">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPassword5">New Password</label>
-                                                <input type="password" class="form-control" id="inputPassword5">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPassword6">Confirm Password</label>
-                                                <input type="password" class="form-control" id="inputPassword6">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <p class="mb-2">Password requirements</p>
-                                            <p class="small text-muted mb-2"> To create a new password, you have to meet all of the following requirements: </p>
-                                            <ul class="small text-muted pl-4 mb-0">
-                                                <li> Minimum 8 character </li>
-                                                <li>At least one special character</li>
-                                                <li>At least one number</li>
-                                                <li>Can’t be the same as a previous password </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Save Change</button>
-                                </form>
-                            </div> <!-- /.card-body -->
-                        </div> <!-- /.col-12 -->
-                    </div> <!-- .row -->
-                </div> <!-- .container-fluid -->
-                <div class="modal fade modal-notif modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-sm" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="defaultModalLabel">Notifications</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="list-group list-group-flush my-n3">
-                                    <div class="list-group-item bg-transparent">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span class="fe fe-box fe-24"></span>
-                                            </div>
-                                            <div class="col">
-                                                <small><strong>Package has uploaded successfull</strong></small>
-                                                <div class="my-0 text-muted small">Package is zipped and uploaded</div>
-                                                <small class="badge badge-pill badge-light text-muted">1m ago</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item bg-transparent">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span class="fe fe-download fe-24"></span>
-                                            </div>
-                                            <div class="col">
-                                                <small><strong>Widgets are updated successfull</strong></small>
-                                                <div class="my-0 text-muted small">Just create new layout Index, form, table</div>
-                                                <small class="badge badge-pill badge-light text-muted">2m ago</small>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="list-group-item bg-transparent">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span class="fe fe-inbox fe-24"></span>
-                                            </div>
-                                            <div class="col">
-                                                <small><strong>Notifications have been sent</strong></small>
-                                                <div class="my-0 text-muted small">Fusce dapibus, tellus ac cursus commodo</div>
-                                                <small class="badge badge-pill badge-light text-muted">30m ago</small>
-                                            </div>
-                                        </div> <!-- / .row -->
-                                    </div>
-                                    <div class="list-group-item bg-transparent">
-                                        <div class="row align-items-center">
-                                            <div class="col-auto">
-                                                <span class="fe fe-link fe-24"></span>
-                                            </div>
-                                            <div class="col">
-                                                <small><strong>Link was attached to menu</strong></small>
-                                                <div class="my-0 text-muted small">New layout has been attached to the menu</div>
-                                                <small class="badge badge-pill badge-light text-muted">1h ago</small>
-                                            </div>
-                                        </div>
-                                    </div> <!-- / .row -->
-                                </div> <!-- / .list-group -->
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Clear All</button>
+        <!--요기부터 내용 입력 !!!!!!!!!!!!!!!-->
+        <!-- ============================================================== -->
+        <!-- wrapper  -->
+        <!-- ============================================================== -->
+        <!-- <div class="dashboard-wrapper"> -->
+        <div class="influence-profile">
+            <div class="container-fluid dashboard-content ">
+                <!-- ============================================================== -->
+                <!-- pageheader -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="page-header">
+                            <h3 class="mb-2"> 매니저 정보 </h3>
+                            <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                            <div class="page-breadcrumb">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="#" class="breadcrumb-link"></a></li>
+                                        <li class="breadcrumb-item active" aria-current="page">  </li>
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal fade modal-shortcut modal-slide" tabindex="-1" role="dialog" aria-labelledby="defaultModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="defaultModalLabel">Shortcuts</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body px-5">
-                                <div class="row align-items-center">
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-success justify-content-center">
-                                            <i class="fe fe-cpu fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Control area</p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-primary justify-content-center">
-                                            <i class="fe fe-activity fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Activity</p>
-                                    </div>
+                <!-- ============================================================== -->
+                <!-- end pageheader -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- content -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- ============================================================== -->
+                    <!-- profile -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-6 col-lg-3 col-md-5 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        <!-- card profile -->
+                        <!-- ============================================================== -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="user-avatar text-center d-block">
+                                    <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">--%>
                                 </div>
-                                <div class="row align-items-center">
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-primary justify-content-center">
-                                            <i class="fe fe-droplet fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Droplet</p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-primary justify-content-center">
-                                            <i class="fe fe-upload-cloud fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Upload</p>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-primary justify-content-center">
-                                            <i class="fe fe-users fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Users</p>
-                                    </div>
-                                    <div class="col-6 text-center">
-                                        <div class="squircle bg-primary justify-content-center">
-                                            <i class="fe fe-settings fe-32 align-self-center text-white"></i>
-                                        </div>
-                                        <p>Settings</p>
-                                    </div>
+                                <div class="text-center">
+                                    <h2 class="font-24 mb-0">${manDetail.mgr_name} </h2>
+                                    <%
+                                        request.setCharacterEncoding("UTF-8");
+                                        String member = request.getParameter("member");
+                                    %>
+                                    <p> ${manDetail.mgr_id } </p>
                                 </div>
                             </div>
+                            <div class="card-body border-top">
+                                <h3 class="font-16">관리자 정보</h3>
+                                <div class="">
+                                    <ul class="list-unstyled mb-0">
+                                        <li class="mb-2" ><i ></i>인증 키(key) : ${manDetail.mgr_key} </li>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
+                        <!-- ============================================================== -->
+                        <!-- end card profile -->
+                        <!-- ============================================================== -->
+                    </div>
+                    <!-- ============================================================== -->
+                    <!-- end profile -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- campaign data -->
+                    <!-- ============================================================== -->
+                    <div class="col-xl-9 col-lg-9 col-md-7 col-sm-12 col-12">
+                        <!-- ============================================================== -->
+                        <!-- campaign tab one -->
+                        <!-- ============================================================== -->
+                        <div class="influence-profile-content pills-regular">
+
+                                    <div class="tab-pane fade" id="pills-packages" role="tabpanel" aria-labelledby="pills-packages-tab">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                                <div class="section-block">
+                                                    <h2 class="section-title">My Packages</h2>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <div class="card-header bg-primary text-center p-3 ">
+                                                        <h4 class="mb-0 text-white"> Basic</h4>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <h1 class="mb-1">$150</h1>
+                                                        <p>Per Month Plateform</p>
+                                                    </div>
+                                                    <div class="card-body border-top">
+                                                        <ul class="list-unstyled bullet-check font-14">
+                                                            <li>Facebook, Instagram, Pinterest,Snapchat.</li>
+                                                            <li>Guaranteed follower growth for increas brand awareness.</li>
+                                                            <li>Daily updates on choose platforms</li>
+                                                            <li>Stronger customer service through daily interaction</li>
+                                                            <li>Monthly progress report</li>
+                                                            <li>1 Million Followers</li>
+                                                        </ul>
+                                                        <a href="#" class="btn btn-outline-secondary btn-block btn-lg">Get Started</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <div class="card-header bg-info text-center p-3">
+                                                        <h4 class="mb-0 text-white"> Standard</h4>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <h1 class="mb-1">$350</h1>
+                                                        <p>Per Month Plateform</p>
+                                                    </div>
+                                                    <div class="card-body border-top">
+                                                        <ul class="list-unstyled bullet-check font-14">
+                                                            <li>Facebook, Instagram, Pinterest,Snapchat.</li>
+                                                            <li>Guaranteed follower growth for increas brand awareness.</li>
+                                                            <li>Daily updates on choose platforms</li>
+                                                            <li>Stronger customer service through daily interaction</li>
+                                                            <li>Monthly progress report</li>
+                                                            <li>2 Blog Post & 3 Social Post</li>
+                                                            <li>5 Millions Followers</li>
+                                                            <li>Growth Result</li>
+                                                        </ul>
+                                                        <a href="#" class="btn btn-secondary btn-block btn-lg">Get Started</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                                                <div class="card">
+                                                    <div class="card-header bg-primary text-center p-3">
+                                                        <h4 class="mb-0 text-white">Premium</h4>
+                                                    </div>
+                                                    <div class="card-body text-center">
+                                                        <h1 class="mb-1">$550</h1>
+                                                        <p>Per Month Plateform</p>
+                                                    </div>
+                                                    <div class="card-body border-top">
+                                                        <ul class="list-unstyled bullet-check font-14">
+                                                            <li>Facebook, Instagram, Pinterest,Snapchat.</li>
+                                                            <li>Guaranteed follower growth for increas brand awareness.</li>
+                                                            <li>Daily updates on choose platforms</li>
+                                                            <li>Stronger customer service through daily interaction</li>
+                                                            <li>Monthly progress report & Growth Result</li>
+                                                            <li>4 Blog Post & 6 Social Post</li>
+                                                        </ul>
+                                                        <a href="#" class="btn btn-secondary btn-block btn-lg">Contact us</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
+                                        <div class="card">
+                                            <h5 class="card-header">Campaign Reviews</h5>
+                                            <div class="card-body">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“Quisque lobortis vestibulum elit, vel fermentum elit pretium et. Nullam id ultrices odio. Cras id nulla mollis, molestie diam eu, facilisis tortor. Mauris ultrices lectus laoreet commodo hendrerit. Nullam varius arcu sed aliquam imperdiet. Etiam ut luctus augue.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Tabitha C. Campbell</span><small class="text-mute"> (Company name)</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body border-top">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“Maecenas rutrum viverra augue. Nulla in eros vitae ante ullamcorper congue. Praesent tristique massa ac arcu dapibus tincidunt. Mauris arcu mi, lacinia et ipsum vel, sollicitudin laoreet risus.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Luise M. Michet</span><small class="text-mute"> (Company name)</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body border-top">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“ Cras non rutrum neque. Sed lacinia ex elit, vel viverra nisl faucibus eu. Aenean faucibus neque vestibulum condimentum maximus. In id porttitor nisi. Quisque sit amet commodo arcu, cursus pharetra elit. Nam tincidunt lobortis augueat euismod ante sodales non. ”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Gloria S. Castillo</span><small class="text-mute"> (Company name)</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body border-top">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“Vestibulum cursus felis vel arcu convallis, viverra commodo felis bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin non auctor est, sed lacinia velit. Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Virgina G. Lightfoot</span><small class="text-mute"> (Company name)</small>
+                                                </div>
+                                            </div>
+                                            <div class="card-body border-top">
+                                                <div class="review-block">
+                                                    <p class="review-text font-italic m-0">“Integer pretium laoreet mi ultrices tincidunt. Suspendisse eget risus nec sapien malesuada ullamcorper eu ac sapien. Maecenas nulla orci, varius ac tincidunt non, ornare a sem. Aliquam sed massa volutpat, aliquet nibh sit amet, tincidunt ex. Donec interdum pharetra dignissim.”</p>
+                                                    <div class="rating-star mb-4">
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                        <i class="fa fa-fw fa-star"></i>
+                                                    </div>
+                                                    <span class="text-dark font-weight-bold">Ruby B. Matheny</span><small class="text-mute"> (Company name)</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <nav aria-label="Page navigation example">
+
+                                        </nav>
+                                    </div>
+                                    <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
+                                        <div class="card">
+                                            <h5 class="card-header">Send Messages</h5>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="row">
+                                                        <div class="offset-xl-3 col-xl-6 offset-lg-3 col-lg-3 col-md-12 col-sm-12 col-12 p-4">
+                                                            <div class="form-group">
+                                                                <label for="name">Your Name</label>
+                                                                <input type="text" class="form-control form-control-lg" id="name" placeholder="">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="email">Your Email</label>
+                                                                <input type="email" class="form-control form-control-lg" id="email" placeholder="">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="subject">Subject</label>
+                                                                <input type="text" class="form-control form-control-lg" id="subject" placeholder="">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="messages">Messgaes</label>
+                                                                <textarea class="form-control" id="messages" rows="3"></textarea>
+                                                            </div>
+                                                            <button type="submit" class="btn btn-primary float-right">Send Message</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ============================================================== -->
+                            <!-- end campaign tab one -->
+                            <!-- ============================================================== -->
+                        </div>
+                        <!-- ============================================================== -->
+                        <!-- end campaign data -->
+                        <!-- ============================================================== -->
                     </div>
                 </div>
-            </main> <!-- main -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- end content -->
+            <!-- ============================================================== -->
+
+            <!-- </div> -->
+            <!-- ============================================================== -->
+            <!-- end wrapper -->
+            <!-- ============================================================== -->
 
         </div>
         <!--**********************************
@@ -336,8 +386,10 @@
         Main wrapper end
     ***********************************-->
 
+
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
+
     <%--QUIXLAB-MASTER > blank.html--%>
     <!--**********************************
         Scripts
@@ -348,30 +400,20 @@
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
     <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
-    <%--tinydash-master > light > contacts-grid.html--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/popper.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/moment.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/bootstrap.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/simplebar.min.js"></script>--%>
-<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/daterangepicker.js'></script>--%>
-<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.stickOnScroll.js'></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/tinycolor-min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/config.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/apps.js"></script>--%>
-<%--    <!-- Global site tag (gtag.js) - Google Analytics -->--%>
-<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>--%>
-<%--    <script>--%>
-<%--        window.dataLayer = window.dataLayer || [];--%>
-
-<%--        function gtag()--%>
-<%--        {--%>
-<%--            dataLayer.push(arguments);--%>
-<%--        }--%>
-<%--        gtag('js', new Date());--%>
-<%--        gtag('config', 'UA-56159088-1');--%>
-<%--    </script>--%>
+    <%--concept-master > influencer-finder.html--%>
+    <!-- Optional JavaScript -->
+    <!-- jquery 3.3.1  -->
+    <%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/jquery/jquery-3.3.1.min.js"></script>--%>
+    <!-- bootstap bundle js -->
+    <%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/bootstrap/js/bootstrap.bundle.js"></script>--%>
+    <!-- slimscroll js -->
+    <%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/vendor/slimscroll/jquery.slimscroll.js"></script>--%>
+    <!-- main js -->
+    <%--    <script src="${pageContext.request.contextPath}/res/adminTemplate3/assets/libs/js/main-js.js"></script>--%>
 
 
 </body>
+
+
+
 </html>

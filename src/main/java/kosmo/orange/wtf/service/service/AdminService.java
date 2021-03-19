@@ -1,9 +1,6 @@
 package kosmo.orange.wtf.service.service;
 
-import kosmo.orange.wtf.model.vo.AdminBoardVO;
-import kosmo.orange.wtf.model.vo.AdminVO;
-import kosmo.orange.wtf.model.vo.MemberVO;
-import kosmo.orange.wtf.model.vo.RestaurantVO;
+import kosmo.orange.wtf.model.vo.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -46,6 +43,14 @@ public interface AdminService {
     public String otpCheck(String id);
 
 
+/**************************
+adminDetail
+ */
+    public AdminVO adminDetail(AdminVO adminVO);
+
+
+
+
     /*********************
      * 관리자 페이지 로그인
      */
@@ -68,7 +73,7 @@ public interface AdminService {
      * 대시보드의 전체 '리뷰' 수
      */
     public int totalReviewCount();
-
+    List<ReviewVO> reviewList();
 
 
 

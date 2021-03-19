@@ -68,6 +68,22 @@
 </head>
 <body>
 
+<img src="/res/img/화면_졸라맨.png"style="
+    position: absolute;
+    left: 1200px;
+    top: 40px;
+    z-index: 10000;
+    width: 300px;
+">
+
+<img src="/res/img/화면_졸라맨_2.png"style="
+    position: absolute;
+    left: 500px;
+    top: 40px;
+    z-index: 10000;
+    width: 260px;
+">
+
 
 <div id="colorlib-page">
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
