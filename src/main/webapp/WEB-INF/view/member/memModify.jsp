@@ -16,6 +16,9 @@
             width: 300px;
             align-items: center;
         }
+        .btn btn-default,joinBtn{
+            font-size: x-small;
+        }
 
 
     </style>
@@ -54,7 +57,7 @@
                     <input class="w3-input" type="password" id="pw2" type="password" required>
                 </p>
                 <p class="w3-center">
-                    <button type="submit" id="joinBtn" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round">비밀번호 변경</button>
+                    <button type="submit" id="joinBtn" class="w3-button w3-block w3-black w3-ripple w3-margin-top w3-round" style="font-size: x-small">비밀번호 변경</button>
                 </p>
             </form>
         </div>

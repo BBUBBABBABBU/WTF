@@ -124,6 +124,7 @@
             BORDER-TOP: medium none;
             background-color: white;
             font-family: 'Noto Sans KR', sans-serif;
+            font-size: x-small;
         }
 
     </style>
@@ -254,8 +255,8 @@
                         <div class="form-group"> </div>
 
                         <div>
-                            <button type="button" id="passwordChange" class="btn btn-default">비밀번호 변경</button>
-                            <button type="button" class="btn btn-default" id="InfoModify" onclick="changable()">정보 수정하기</button>
+                            <button type="button" id="passwordChange" class="btn btn-default" style="font-size: x-small">비밀번호 변경</button>
+                            <button type="button" class="btn btn-default" id="InfoModify" onclick="changable()" style="font-size: x-small">정보 수정하기</button>
                         </div></form>
 
 

@@ -127,20 +127,16 @@
                                     <hr class="my-4">
                                     <div class="form-row">
                                         <div class="form-group col-md-6">
-                                            <label for="firstname">Firstname</label>
+                                            <label for="firstname">이름</label>
                                             <input type="text" id="firstname" class="form-control" placeholder="Brown">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="lastname">Lastname</label>
-                                            <input type="text" id="lastname" class="form-control" placeholder="Asher">
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail4">Email</label>
+                                        <label for="inputEmail4">이메일</label>
                                         <input type="email" class="form-control" id="inputEmail4" placeholder="brown@asher.me">
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputAddress5">Address</label>
+                                        <label for="inputAddress5">주소</label>
                                         <input type="text" class="form-control" id="inputAddress5" placeholder="P.O. Box 464, 5975 Eget Avenue">
                                     </div>
                                     <div class="form-row">
