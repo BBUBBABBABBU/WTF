@@ -182,15 +182,20 @@
                                         <c:forEach items="${qnaList}" var="qna">
 
                                             <tr>
-                                                <td>${qna.qna_id }</td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_id }</a></td>
 
                                                     <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
                                                     <%--${qna.member_id }</a></td>--%>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${sessionScope.member.email}</a></td>
-                                                <td>${qna.qna_title} </td>
-                                                <td>${qna.qna_date}</td>
-                                                <td>${qna.anw_check}</td>
+
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_title}</a> </td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.qna_date}</a></td>
+                                                <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
+                                                        ${qna.anw_check}</a></td>
 
                                             </tr>
                                         </c:forEach>
