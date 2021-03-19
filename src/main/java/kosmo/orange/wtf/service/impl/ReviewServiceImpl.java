@@ -3,6 +3,7 @@ package kosmo.orange.wtf.service.impl;
 import kosmo.orange.wtf.model.mapper.RestaurantMapper;
 import kosmo.orange.wtf.model.mapper.ReviewMapper;
 import kosmo.orange.wtf.model.vo.PhotoVO;
+import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.model.vo.ReviewVO;
 import kosmo.orange.wtf.service.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,7 +102,28 @@ public class ReviewServiceImpl implements ReviewService {
         return null;
     }
 
+    /**
+     * 메인페이지 리뷰 가져오기
+     */
+    @Override
+    public List<ReviewVO> mainReview(String foodKind) {
+        try{
+            return reviewMapper.mainReview(foodKind);
+        }catch (Exception e){
+            System.out.println("ReviewServiceImpl 112line error: " + e.toString());
+            return null;
+        }
+    }
 
+    @Override
+    public List<ReviewVO> restaurantInfoReview(RestaurantVO restaurantVO) {
+        try{
+            return reviewMapper.restaurantInfoReview(restaurantVO);
+        }catch (Exception e){
+            System.out.println("restaurantInfoReview 123line error : " + e.toString());
+            return null;
+        }
+    }
 }
 
 

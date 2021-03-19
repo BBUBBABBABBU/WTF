@@ -6,7 +6,9 @@ import kosmo.orange.wtf.model.vo.RestaurantVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository("mainMapper")
 @Mapper
@@ -17,4 +19,6 @@ public interface MainMapper {
     List<PhotoVO> res_photo(RestaurantVO vo) throws Exception;
 
     List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO) throws Exception;
+
+    List<RestaurantVO> restaurantSort(Map<String, String> choiceCategory) throws Exception;
 }

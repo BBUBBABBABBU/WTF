@@ -51,6 +51,18 @@
                     </div>
                 </div>
             </div>
+            <%--<div class="customize-input">--%>
+                <%--<input class="form-control custom-shadow custom-radius border-0 bg-white" name='startDate'--%>
+                    <%--type="text" id="startDatePicker" placeholder="Start Date" aria-label="Search">--%>
+                <%--<i class="form-control-icon" data-feather="search"></i>--%>
+            <%--</div>--%>
+            <%--<div class="customize-input">--%>
+                <%--<input class="form-control custom-shadow custom-radius border-0 bg-white" name='startDate'--%>
+                    <%--type="text" id="endDatePicker" placeholder="End Date" aria-label="Search">--%>
+                <%--<i class="form-control-icon" data-feather="search"></i>--%>
+            <%--</div>--%>
+
+
             <div class="header-right">
                 <ul class="clearfix">
 
@@ -250,7 +262,7 @@
                     </a>
                     <ul aria-expanded="false">
                         <li><a href="./chart-flot.html">Flot</a></li>
-                        <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-morris.html">Morris</a></li>
+                        <li><a href="/chart-morris">Morris</a></li>
                         <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-chartjs.html">Chartjs</a></li>
                         <li><a href="${pageContext.request.contextPath}/res/adminTemplate/chart-chartist.html">Chartist</a></li>
                         <li><a href="./chart-sparkline.html">Sparkline</a></li>

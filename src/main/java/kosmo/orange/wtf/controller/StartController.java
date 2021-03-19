@@ -73,32 +73,7 @@ public class StartController {
     }
 
     /**
-     * 메인페이지 지도에 필요한 정보를 리턴
-     *
-     * @return
-     */
-    //TODO 나중에 선택한 식단으로 골라서 보여줄것
-//    @PostMapping("/restaurantMap")
-//    @ResponseBody
-//    public List<RestaurantVO> restaurantMap(String foodKind, Model model) {
-//        System.out.println("restaurantMap 66line : " + foodKind);
-//        List<RestaurantVO> restaurantList = mainService.checkRestaurant(foodKind);
-//
-//        List<PhotoVO> photoList;
-//
-//        for (int i = 0; i < restaurantList.size(); i++) {
-//            photoList = mainService.res_photo(restaurantList.get(i));
-//            for (PhotoVO photo : photoList) {
-//                restaurantList.get(i).setRtr_pic_loc(photo.getRtr_pic_loc());
-//            }
-//        }
-//
-//        return restaurantList;
-//    }
-
-    /**
      * 위치 기반 식당 목록
-     *
      * @param restaurantVO
      * @return
      */
@@ -130,6 +105,8 @@ public class StartController {
                 restaurantList.get(i).setRtr_pic_loc(photo.getRtr_pic_loc());
             }
         }
+
+        httpSession.setAttribute("userAddress",restaurantVO.getResAddr());
 
         return restaurantList;
     }

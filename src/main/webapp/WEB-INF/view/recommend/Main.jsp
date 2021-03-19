@@ -37,16 +37,16 @@
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
     <link href="/res/css/main/main.css" rel="stylesheet">
+    <link href="/res/css/font.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
     </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <%--<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9--%>
-    <%--"></script>--%>
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9&libraries=services"></script>
-
+    <script type="text/javascript" src="/res/js/review/mainReview.js"></script>
+    <script type="text/javascript" src="/res/js/mainSort.js"></script>
 
 </head>
 <body>
@@ -60,17 +60,28 @@
 
     <div class="site-section site-portfolio">
         <div id='recommend_container' class="container">
-            <div id = "map_div" class="row mb-5 align-items-center">
+            <div id="map_div" class="row mb-5 align-items-center">
                 <div class="map_wrap col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h2>현 위치(지도)</h2>
+                    <h2>내 위치</h2>
                     <div id="map" style="width: 1110px; height: 400px;"></div>
                     <div class="custom_zoomcontrol radius_border">
-                        <span><button id="fiveM" class="radius_button">500m</button></span>
-                        <span><button id="thousandM" class="radius_button">1000m</button></span>
+                        <span><button id="fiveM" class="radius_button" value="500">5분 거리</button></span>
+                        <span><button id="thousandM" class="radius_button" value="1000">10분 거리</button></span>
+                        <span><button id="twentyM" class="radius_button" value="2000">20분 거리</button></span>
                     </div>
                 </div>
             </div>
-            <br/><br/><br/>
+            <div id="category" class="row mb-5 align-items-center">
+                <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up"></div>
+                <div  class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up"
+                     data-aos-delay="100">
+                    <div style="margin-right: 70px">
+                        <span class="recommend_orderBy clickPointer font_hans" name="recommend_order"> 추천순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="rating_order"> 평점순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="review_order"> 리뷰순 </span>
+                    </div>
+                </div>
+            </div>
 
             <div id="recommend_div" class="owl-carousel testimonial-carousel">
 
@@ -193,130 +204,27 @@
                     <p>주소</p>
                 </div>
             </div>
-
-
         </div>
     </div>
-    </div>
-    </div>
-
-
-    <!-- <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-4">
-          <div class="col-5">
-            <h3 class="h3 heading">My Clients</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-adobe.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-uber.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-apple.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-netflix.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-nike.png" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-4 col-sm-4 col-md-2">
-            <a href="#" class="client-logo"><img src="img/logo-google.png" alt="Image" class="img-fluid"></a>
-          </div>
-
-        </div>
-      </div>
-    </div> -->
-
-
-    <!-- <div class="site-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-4">
-          <div class="col-5">
-            <h3 class="h3 heading">My Services</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-          </div>
-        </div>
-        <div class="row">
-
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-cube la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-mobile la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Mobile Applications</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-image la-3x mb-4"></span>
-            <h4 class="h4 mb-2">Graphic Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-          <div class="col-12 col-sm-6 col-md-6 col-lg-3">
-            <span class="la la-search la-3x mb-4"></span>
-            <h4 class="h4 mb-2">SEO</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit explicabo inventore.</p>
-            <ul class="list-unstyled list-line">
-              <li>Lorem ipsum dolor sit amet consectetur adipisicing</li>
-              <li>Non pariatur nisi</li>
-              <li>Magnam soluta quod</li>
-              <li>Lorem ipsum dolor</li>
-              <li>Cumque quae aliquam</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
     <div class="site-section pt-0">
-        <div class="container">
-
-            <div class="owl-carousel testimonial-carousel">
-
+        <div id="review_container" class="container">
+            <div id="review_div" class="owl-carousel testimonial-carousel">
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="/res/img/person_1.jpg" alt="Image" class="img-fluid">
                         <blockquote>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
-                                ut officiis
-                                explicabo inventore.</p>
+                            <a href=""><h3>가게명</h3></a>
+                            <h4>4.28</h4>
+                            <p>내용 블라블라</p>
                         </blockquote>
-                        <p>&mdash; Jean Hicks</p>
+                        <p>&mdash; 닉네임</p>
                     </div>
                 </div>
 
                 <div class="testimonial-wrap">
                     <div class="testimonial">
-                        <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                         <blockquote>
+                            <h3>가게명 평점</h3>
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus incidunt
                                 ut officiis
                                 explicabo inventore.</p>
@@ -346,7 +254,7 @@
 
 <!-- Template Main JS File -->
 <script src="/res/js/main.js"></script>
-<script type="text/javascript" src="/res/js/mainMap.js"></script>
+<script type="text/javascript" src="/res/js/mainPage.js"></script>
 
 </body>
 </html>

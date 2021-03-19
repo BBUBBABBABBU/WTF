@@ -41,6 +41,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7b96f15cc4513bf115640f0b076a2ad9
 "></script>
+    <script type="text/javascript" src="/res/js/review/restaurantInfo_review.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header_footer/mainHeader.jsp"/>
@@ -63,11 +64,12 @@
             <div class="container">
                 <div class="row align-items-stretch">
                     <div class="col-md-8" data-aos="fade-up">
-                        <img id = "restaurant_img" src=${restaurantPhoto} alt="Image" class="img-fluid">
+                        <img id="restaurant_img" src=${restaurantPhoto} alt="Image" class="img-fluid">
                     </div>
                     <div class="col-md-3 ml-auto" data-aos="fade-up" data-aos-delay="100">
                         <div class="sticky-content" id='restaurant_info' , name=${restaurantInfo.resId}>
-                            <h3 id='restaurant_name' class="h3 font_hans" style="font-size: 25px">${restaurantInfo.resName}</h3>
+                            <h3 id='restaurant_name' class="h3 font_hans"
+                                style="font-size: 25px">${restaurantInfo.resName}</h3>
                             <p class="mb-4"><span class="text-muted font_hans">평점 ${restaurantInfo.resRating}</span></p>
 
                             <div class="mb-5">
@@ -82,7 +84,8 @@
                                     <li class="font_hans">${restaurantMenu.menu} - ${restaurantMenu.price}</li>
                                 </c:forEach>
                             </ul>
-                            <a  href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}" name="RestaurantVO" class="font_hans" >리뷰작성하기</a>
+                            <a href="/review/reviewinsert?resId=${restaurantInfo.resId}&origin=${origin}"
+                               name="RestaurantVO" class="font_hans">리뷰작성하기</a>
                             <!-- <p><a href="#" class="readmore">Visit Website</a></p> -->
                         </div>
                     </div>
@@ -169,34 +172,28 @@
         </div>
 
 
-        <div class="site-section pb-0">
-            <div class="container">
-                <div class="row justify-content-center text-center mb-4">
-                    <div class="col-5">
-                        <h3 class="h3 heading">리뷰 글</h3>
-                    </div>
-                </div>
-                <div class="owl-carousel testimonial-carousel">
-
+        <div class="site-section pt-0">
+            <div id="review_container" class="container">
+                <div id="review_div" class="owl-carousel testimonial-carousel">
                     <div class="testimonial-wrap">
                         <div class="testimonial">
-                            <img src="/res/img/person_1.jpg" alt="Image" class="img-fluid">
                             <blockquote>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus
-                                    incidunt ut
-                                    officiis explicabo inventore.</p>
+                                <a href=""><h3>가게명</h3></a>
+                                <h4>4.28</h4>
+                                <p>내용 블라블라</p>
                             </blockquote>
-                            <p>&mdash; Jean Hicks</p>
+                            <p>&mdash; 닉네임</p>
                         </div>
                     </div>
 
                     <div class="testimonial-wrap">
                         <div class="testimonial">
-                            <img src="/res/img/person_2.jpg" alt="Image" class="img-fluid">
                             <blockquote>
+                                <h3>가게명 평점</h3>
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam necessitatibus
-                                    incidunt ut
-                                    officiis explicabo inventore.</p>
+                                    incidunt
+                                    ut officiis
+                                    explicabo inventore.</p>
                             </blockquote>
                             <p>&mdash; Chris Stanworth</p>
                         </div>

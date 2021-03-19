@@ -14,9 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <insert id="ReviewSave" >
         INSERT INTO review(review_id, member_id, res_id, rating_avg, rating_taste,
                            rating_service, rating_clean, rating_location, review_content,
-                           review_tag, pic_name, recommend_count, charge_count, res_tell)
+                           review_tag, review_pic1, recommend_count, charge_count, res_tell,review_date)
                            VALUES (#{review_id},#{mem_id},#{res_id},#{avg},#{taste},
-                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell});
+                                   #{service},#{clean},#{location},#{content},#{tag},#{pic_loc},0,0,#{res_tell},sysdate());
     </insert>
 
     <select id="ReviewSel" resultMap="getReview">
@@ -37,6 +37,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         SELECT nickname FROM member WHERE member_id = #{member_id};
     </select>
 
+    <select id="mainReview" parameterType="String" resultMap="getReview">
+        SELECT res.res_name res_name, rev.rating_avg rating_avg,rev.review_content review_content,
+        m.nickname nickname,res.res_id res_id
+        FROM review rev INNER JOIN member m
+        ON rev.member_id = m.member_id
+        INNER JOIN restaurant res
+        ON rev.res_id = res.res_id
+        WHERE res.res_keyword LIKE CONCAT('%',#{foodKind},'%')
+        AND rev.rating_avg >= 4
+        ORDER BY rev.review_date DESC
+        LIMIT 10;
+    </select>
+
+    <select id="restaurantInfoReview" resultMap="getReview">
+        SELECT res.res_name res_name, rev.rating_avg rating_avg,rev.review_content review_content,
+        m.nickname nickname,res.res_id res_id
+        FROM review rev INNER JOIN member m
+        ON rev.member_id = m.member_id
+        INNER JOIN restaurant res
+        ON rev.res_id = res.res_id
+        WHERE res.res_id = #{resId}
+        ORDER BY rev.review_date DESC
+        LIMIT 10;
+    </select>
+
     <resultMap id="getReview" type="ReviewVO">
         <result property="review_id" column="review_id"/>
         <result property="mem_id" column="member_id"/>
@@ -52,6 +77,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="charge_count" column="charge_count"/>
         <result property="res_tell" column="res_tell"/>
         <result property="review_date" column="review_date"/>
+        <result property="pic_name" column="review_pic1"/>
+        <collection property="memberVO" resultMap="getMember"/>
+        <collection property="restaurantVO" resultMap="getRestaurant"/>
     </resultMap>
 
     <resultMap id="getPhoto" type="PhotoVO">
@@ -59,6 +87,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         <result property="rtr_pic_loc" column="rtr_pic_loc"/>
     </resultMap>
 
+    <resultMap id="getMember" type="MemberVO">
+        <result property="memberId" column="member_id"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="nickname" column="nickname"/>
+        <result property="birthday" column="birth"/>
+        <result property="gender" column="gender"/>
+        <result property="favor" column="favor"/>
+        <result property="point" column="point"/>
+        <result property="registDate" column="regist_date"/>
+        <result property="exitCheck" column="exit_check"/>
+        <result property="exitDate" column="exit_date"/>
+    </resultMap>
 
+    <resultMap id="getRestaurant" type="RestaurantVO">
+        <result property="resId" column="res_id"/>
+        <result property="resName" column="res_name"/>
+        <result property="resTell" column="res_tell"/>
+        <result property="resAddr" column="res_addr"/>
+        <result property="resLatitude" column="res_latitude"/>
+        <result property="resLongitude" column="res_longitude"/>
+        <result property="resRuntime" column="res_runtime"/>
+        <result property="resKeyword" column="res_keyword"/>
+        <result property="resRating" column="res_rating"/>
+        <result property="likeCount" column="like_count"/>
+    </resultMap>
 
 </mapper>

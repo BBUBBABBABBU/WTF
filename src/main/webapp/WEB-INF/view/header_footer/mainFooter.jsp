@@ -10,22 +10,14 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <p class="mb-1">&copy; Copyright MyPortfolio. All Rights Reserved</p>
+                <p class="mb-1">&copy; 네가 이걸 먹을줄은 몰랐어</p>
                 <div class="credits">
-                    <!--
-                      All the links in the footer should remain intact.
-                      You can delete the links only if you purchased the pro version.
-                      Licensing information: https://bootstrapmade.com/license/
-                      Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=MyPortfolio
-                    -->
-                    Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+                    Designed by kosmo_orange
                 </div>
             </div>
             <div class="col-sm-6 social text-md-right">
-                <a href="#"><span class="icofont-twitter"></span></a>
-                <a href="#"><span class="icofont-facebook"></span></a>
-                <a href="#"><span class="icofont-dribbble"></span></a>
-                <a href="#"><span class="icofont-behance"></span></a>
+                <a href="/adminLogin"><span class="icofont-behance"></span></a>
+                <a id = "scroll_top_btn" class="scroll_top_btn" href="#header_container"><img src="/res/img/temp.png" align="center"></a>
             </div>
         </div>
     </div>

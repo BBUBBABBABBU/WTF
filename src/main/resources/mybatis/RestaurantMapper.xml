@@ -22,6 +22,7 @@
         FROM restaurant
         WHERE res_keyword LIKE CONCAT('%',#{resKeyword},'%')
         OR res_name LIKE CONCAT('%',#{resKeyword},'%')
+        ORDER BY res_rating DESC
     </select>
 
     <resultMap id="getRestaurant" type="RestaurantVO">

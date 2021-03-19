@@ -2,6 +2,7 @@ package kosmo.orange.wtf.model.mapper;
 
 import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.PhotoVO;
+import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.model.vo.ReviewVO;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -35,4 +36,10 @@ public interface ReviewMapper {
 
     //멤버 이름불러오기
     String memNickname(String mem_id) throws  Exception;
+
+    // 메인 페이지에 띄울 리뷰정보
+    List<ReviewVO> mainReview(String foodKind) throws Exception;
+
+    List<ReviewVO> restaurantInfoReview(RestaurantVO restaurantVO) throws Exception;
+
 }

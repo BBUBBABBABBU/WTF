@@ -35,6 +35,8 @@
 
     <!-- Template Main CSS File -->
     <link href="/res/css/style.css" rel="stylesheet">
+    <link href="/res/css/main/main.css" rel="stylesheet">
+    <link href="/res/css/font.css" rel="stylesheet">
 
     <%--폰트 연결--%>
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -74,22 +76,23 @@
         <div class="container recommend_container1">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1>니가 이걸 먹을줄 알고 있었어</h1>
+
+                    <h1>${sessionScope.member.nickname} 네가 이걸 먹을줄 알고 있었어</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy clickPointer" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy clickPointer" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy clickPointer" name="review"> 리뷰순 </span>
-
-
-
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
+                        <span class="recommend_orderBy clickPointer font_hans" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy clickPointer font_hans" name="review"> 리뷰순 </span>
 
                     </div>
+                    <br/>
+                    <h5>
+                        ${sessionScope.member.nickname} 님이 맘에 들어하신 식당을 기준으로 추천드려요!
+                    </h5>
                 </div>
             </div>
 
@@ -108,8 +111,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList.get(i).getRes_id()%>&origin=recom1" class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList.get(i)%>>
@@ -152,21 +154,24 @@
         <div class="container recommend_container2">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1>니가 이걸 먹어 보면 어떨까</h1>
+
+                    <h1>${sessionScope.member.nickname} 네가 이걸 먹어 보면 어떨까</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy2 clickPointer" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy2 clickPointer" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy2 clickPointer" name="review"> 리뷰순 </span>
+                        <span class="recommend_orderBy2 clickPointer font_hans" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy2 clickPointer font_hans" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy2 clickPointer font_hans" name="review"> 리뷰순 </span>
 
-
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
 
                     </div>
+                    <br/>
+                    <h5>
+                        ${sessionScope.member.nickname} 님과 비슷한 입맛을 가진 분들이 추천한 식당!
+                    </h5>
                 </div>
             </div>
 
@@ -185,8 +190,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList2.get(i).getRes_id()%>&origin=recom2"  class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList2.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList2.get(i)%>>
@@ -226,21 +230,25 @@
         <div class="container recommend_container3">
             <div class="row mb-5 align-items-center">
                 <div class="col-md-12 col-lg-6 mb-4 mb-lg-0" data-aos="fade-up">
-                    <h1>니가 이걸 안먹어 봤단 말이야?</h1>
+
+                    <h1> ${sessionScope.member.nickname} 네가 이걸 안먹어 봤단 말이야?</h1>
+
                     <!--<p class="mb-0">Freelance Creative &amp; Professional Graphics Designer</p>-->
                 </div>
 
                 <div class=" col-md-12 col-lg-6 text-left text-lg-right " data-aos="fade-up" data-aos-delay="100">
                     <div>
-                        <span class="recommend_orderBy3 clickPointer" name="recom"> 추천순 </span>
-                        <span class="recommend_orderBy3 clickPointer" name="rating"> 평점순 </span>
-                        <span class="recommend_orderBy3 clickPointer" name="review"> 리뷰순 </span>
+                        <span class="recommend_orderBy3 clickPointer font_hans" name="recom"> 추천순 </span>
+                        <span class="recommend_orderBy3 clickPointer font_hans" name="rating"> 평점순 </span>
+                        <span class="recommend_orderBy3 clickPointer font_hans" name="review"> 리뷰순 </span>
 
 
-                        <!--<a href="#" data-filter=".branding">Branding</a>
-                        <a href="#" data-filter=".photography">Photography</a>-->
 
                     </div>
+                    <br/>
+                    <h5>
+                        WTF 에서 ${sessionScope.member.nickname} 님께 추천 하는 리스트!
+                    </h5>
                 </div>
             </div>
 
@@ -259,8 +267,7 @@
                         <div class="item branding col-sm-6 col-md-4 col-lg-4 mb-4">
                             <a href="/restaurant/restaurantInfo?resId=<%=res_allList3.get(i).getRes_id()%>&origin=recom3"  class="item-wrap fancybox">
                                 <div class="work-info">
-                                    <h3>Cocooil</h3>
-                                    <span>Branding</span>
+                                    <h3><%=res_allList3.get(i).getRes_keyword()%></h3>
                                 </div>
                                 <%--                                    <img width="400" height="400" class="img-fluid" src=<%=photoList.get(i)%>>--%>
                                 <img class="res_img" width="400" height="300" src=<%=photoList3.get(i)%>>
@@ -473,7 +480,6 @@
 <script src="/res/vendor/owlcarousel/owl.carousel.min.js"></script>
 
 <!-- Template JS File -->
-<script src="/res/js/recommend.js"></script>
 <script src="/res/js/main.js"></script>
 
 
