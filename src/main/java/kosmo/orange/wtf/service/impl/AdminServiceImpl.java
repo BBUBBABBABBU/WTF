@@ -88,6 +88,24 @@ public class AdminServiceImpl implements AdminService {
 //    } // end of pwCheck
 
 
+//adminDetail
+   @Override
+    public AdminVO adminDetail(AdminVO adminVO){
+        AdminVO result= null;
+        try {
+            result = adminMapper.adminDetail(adminVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+
+
+
+
+
+
     /****************
      * 로그인
      */

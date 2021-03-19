@@ -43,6 +43,14 @@ public interface AdminService {
     public String otpCheck(String id);
 
 
+/**************************
+adminDetail
+ */
+    public AdminVO adminDetail(AdminVO adminVO);
+
+
+
+
     /*********************
      * 관리자 페이지 로그인
      */

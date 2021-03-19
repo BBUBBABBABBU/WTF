@@ -28,6 +28,13 @@ public interface AdminMapper {
 //    AdminVO pwCheck(String id, String name);
 
 
+
+    //adminDetail
+    AdminVO adminDetail(AdminVO adminVO) throws Exception;
+
+
+
+
     /******************
      * 로그인
      */

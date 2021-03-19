@@ -1,6 +1,7 @@
 package kosmo.orange.wtf.controller.adminController;
 
 import kosmo.orange.wtf.model.vo.AdminBoardVO;
+import kosmo.orange.wtf.model.vo.AdminVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,10 +35,12 @@ public class AdminManagerController {
      * adminManagerList.jsp > adminManagerDetail.jsp
      */
     @GetMapping("managerDetail")
-    public String managerDetail() {
-        System.out.println("AdminManagerController.managerDetail");
-
+    public String managerDetail(AdminVO adminVO, Model model) {
+        AdminVO result=(AdminVO) adminService.adminDetail(adminVO);
+//        System.out.println("result.get id"+result.getMgr_id());
+        model.addAttribute("manDetail",result);
         return "adminViews/adminManagerDetail";
+
 
     } // end of managerDetail
 

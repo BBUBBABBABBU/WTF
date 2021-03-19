@@ -94,7 +94,7 @@
                 <div class="row">
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                         <div class="page-header">
-                            <h3 class="mb-2"> 회원정보 </h3>
+                            <h3 class="mb-2"> 매니저 정보 </h3>
                             <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                             <div class="page-breadcrumb">
                                 <nav aria-label="breadcrumb">
@@ -117,7 +117,7 @@
                     <!-- ============================================================== -->
                     <!-- profile -->
                     <!-- ============================================================== -->
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-12 col-12">
+                    <div class="col-xl-6 col-lg-3 col-md-5 col-sm-12 col-12">
                         <!-- ============================================================== -->
                         <!-- card profile -->
                         <!-- ============================================================== -->
@@ -127,47 +127,25 @@
                                     <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">--%>
                                 </div>
                                 <div class="text-center">
-                                    <h2 class="font-24 mb-0">${member.nickname} </h2>
+                                    <h2 class="font-24 mb-0">${manDetail.mgr_name} </h2>
                                     <%
                                         request.setCharacterEncoding("UTF-8");
                                         String member = request.getParameter("member");
                                     %>
-                                    <p> ${member.email } </p>
+                                    <p> ${manDetail.mgr_id } </p>
                                 </div>
                             </div>
                             <div class="card-body border-top">
-                                <h3 class="font-16">개인정보</h3>
+                                <h3 class="font-16">관리자 정보</h3>
                                 <div class="">
                                     <ul class="list-unstyled mb-0">
-                                        <li class="mb-2" ><i ></i>등록번호 : ${member.memberId} </li>
-                                        <li class="mb-2"><i ></i>생일 : ${member.birthday} </li>
-                                        <li class="mb-0"><i ></i>성별 : ${member.gender} </li>
-                                        <li class="mb-0"><i ></i>회원등록일 : ${member.registDate} </li>
+                                        <li class="mb-2" ><i ></i>인증 키(key) : ${manDetail.mgr_key} </li>
 
 
                                     </ul>
                                 </div>
                             </div>
-                            <div class="card-body border-top">
-                                <h3 class="font-16">평균 별점</h3>
-                                <h1 class="mb-0">4.8</h1>
-                                <div class="rating-star">
-                                    <i class="fa fa-fw fa-star"></i>
-                                    <i class="fa fa-fw fa-star"></i>
-                                    <i class="fa fa-fw fa-star"></i>
-                                    <i class="fa fa-fw fa-star"></i>
-                                    <i class="fa fa-fw fa-star"></i>
-                                    <p class="d-inline-block text-dark">14 Reviews </p>
-                                </div>
-                            </div>
 
-                            <div class="card-body border-top">
-                                <h3 class="font-16">선호 음식</h3>
-                                <div>
-                                    <a href="#" class="badge badge-light mr-1"> ${member.favor} </a>
-                                    <%--<a href="#" class="badge badge-light mr-1">Life Style</a><a href="#" class="badge badge-light mr-1">Gym</a>--%>
-                                </div>
-                            </div>
                         </div>
                         <!-- ============================================================== -->
                         <!-- end card profile -->
@@ -184,198 +162,7 @@
                         <!-- campaign tab one -->
                         <!-- ============================================================== -->
                         <div class="influence-profile-content pills-regular">
-                            <%--<ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">--%>
-                            <%--<li class="nav-item">--%>
-                            <%--<a class="nav-link active" id="pills-campaign-tab" data-toggle="pill" href="#pills-campaign" role="tab" aria-controls="pills-campaign" aria-selected="true">Campaign</a>--%>
-                            <%--</li>--%>
-                            <%--<li class="nav-item">--%>
-                            <%--<a class="nav-link" id="pills-packages-tab" data-toggle="pill" href="#pills-packages" role="tab" aria-controls="pills-packages" aria-selected="false">Packages</a>--%>
-                            <%--</li>--%>
-                            <%--<li class="nav-item">--%>
-                            <%--<a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-selected="false">Reviews</a>--%>
-                            <%--</li>--%>
-                            <%--<li class="nav-item">--%>
-                            <%--<a class="nav-link" id="pills-msg-tab" data-toggle="pill" href="#pills-msg" role="tab" aria-controls="pills-msg" aria-selected="false">Send Messages</a>--%>
-                            <%--</li>--%>
-                            <%--</ul>--%>
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade show active" id="pills-campaign" role="tabpanel" aria-labelledby="pills-campaign-tab">
-                                    <div class="row">
-                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                            <div class="section-block">
-                                                <h3 class="section-title">회원활동 정보</h3>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h1 class="mb-1">9</h1>
-                                                    <p>앱사용시간</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h1 class="mb-1">35</h1>
-                                                    <p>팔로워 수</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h1 class="mb-1">8</h1>
-                                                    <p>팔로잉 수</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h1 class="mb-1">1</h1>
-                                                    <p>검색횟수</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="section-block">
-                                        <h3 class="section-title">고객이 남긴 리뷰</h3>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="row">
-                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                    <div class="media influencer-profile-data d-flex align-items-center p-2">
-                                                        <div class="mr-4">
-                                                            <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/slack.png" alt="User Avatar" class="user-avatar-lg">
-                                                        </div>
-                                                        <div class="media-body ">
-                                                            <div class="influencer-profile-data">
-                                                                <h3 class="m-b-10">Your Campaign Title Here</h3>
-                                                                <p>
-                                                                        <span class="m-r-20 d-inline-block">Draft Due Date
-                                                                            <span class="m-l-10 text-primary">24 Jan 2018</span>
-                                                                        </span>
-                                                                    <span class="m-r-20 d-inline-block"> Publish Date
-                                                                            <span class="m-l-10 text-secondary">30 Feb 2018</span>
-                                                                        </span>
-                                                                    <span class="m-r-20 d-inline-block">Ends <span class="m-l-10  text-info">30 May, 2018</span>
-                                                                        </span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="border-top card-footer p-0">
-                                            <div class="campaign-metrics d-xl-inline-block">
-                                                <h4 class="mb-0">45k</h4>
-                                                <p>Total Reach</p>
-                                            </div>
-                                            <div class="campaign-metrics d-xl-inline-block">
-                                                <h4 class="mb-0">29k</h4>
-                                                <p>Total Views</p>
-                                            </div>
-                                            <div class="campaign-metrics d-xl-inline-block">
-                                                <h4 class="mb-0">5k</h4>
-                                                <p>Total Click</p>
-                                            </div>
-                                            <div class="campaign-metrics d-xl-inline-block">
-                                                <h4 class="mb-0">4k</h4>
-                                                <p>Engagement</p>
-                                            </div>
-                                            <div class="campaign-metrics d-xl-inline-block">
-                                                <h4 class="mb-0">2k</h4>
-                                                <p>Conversion</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <%--<div class="card">--%>
-                                    <%--<div class="card-body">--%>
-                                    <%--<div class="row">--%>
-                                    <%--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">--%>
-                                    <%--<div class="media influencer-profile-data d-flex align-items-center p-2">--%>
-                                    <%--<div class="mr-4">--%>
-                                    <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dribbble.png" alt="User Avatar" class="rounded-circle user-avatar-lg">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="media-body">--%>
-                                    <%--<h3 class="m-b-10">Your Campaign Title Here</h3>--%>
-                                    <%--<p><span class="m-r-20 d-inline-block">Draft Due Date<span class="m-l-10 d-inline-block text-primary">28 Jan 2018</span></span><span class="m-r-20 d-inline-block"> Publish Date<span class="m-l-10 text-secondary">20 March 2018</span></span><span class="m-r-20">Ends<span class="m-l-10 text-info">10 July, 2018</span></span>--%>
-                                    <%--</p>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="border-top card-footer p-0">--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0 ">35k</h4>--%>
-                                    <%--<p>Total Reach</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0 ">45k</h4>--%>
-                                    <%--<p>Total Views</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">8k</h4>--%>
-                                    <%--<p>Total Click</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0 ">10k</h4>--%>
-                                    <%--<p>Engagement</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">3k</h4>--%>
-                                    <%--<p>Conversion</p>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="card">--%>
-                                    <%--<div class="card-body">--%>
-                                    <%--<div class="row">--%>
-                                    <%--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">--%>
-                                    <%--<div class="media influencer-profile-data d-flex align-items-center p-2">--%>
-                                    <%--<div class="mr-4">--%>
-                                    <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dropbox.png" alt="User Avatar" class="user-avatar-lg">--%>
-                                    <%--</div>--%>
-                                    <%--<div class="media-body">--%>
-                                    <%--<h3 class="m-b-10">Your Campaign Title Here</h3>--%>
-                                    <%--<p><span class="m-r-20 d-inline-block">Draft Due Date--%>
-                                    <%--<span class="m-l-10 text-primary">05 Feb 2018</span></span>--%>
-                                    <%--<span class="m-r-20 d-inline-block"> Publish Date--%>
-                                    <%--<span class="m-l-10 text-secondary">14 May 2018</span></span><span class="m-r-20 d-inline-block">Ends<span class="m-l-10 text-info">16 Aug, 2018</span></span>--%>
-                                    <%--</p>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="border-top card-footer p-0">--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">40k</h4>--%>
-                                    <%--<p>Total Reach</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0 ">35k</h4>--%>
-                                    <%--<p>Total Views</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">5k</h4>--%>
-                                    <%--<p>Total Click</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">15k</h4>--%>
-                                    <%--<p>Engagement</p>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="campaign-metrics d-xl-inline-block">--%>
-                                    <%--<h4 class="mb-0">14k</h4>--%>
-                                    <%--<p>Conversion</p>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
-                                    <%--</div>--%>
+
                                     <div class="tab-pane fade" id="pills-packages" role="tabpanel" aria-labelledby="pills-packages-tab">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -523,13 +310,7 @@
                                             </div>
                                         </div>
                                         <nav aria-label="Page navigation example">
-                                            <ul class="pagination">
-                                                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                <li class="page-item active"><a class="page-link " href="#">2</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                            </ul>
+
                                         </nav>
                                     </div>
                                     <div class="tab-pane fade" id="pills-msg" role="tabpanel" aria-labelledby="pills-msg-tab">
