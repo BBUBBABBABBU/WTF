@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-6 social text-md-right">
                 <a href="/adminLogin"><span class="icofont-behance"></span></a>
-                <a id = "scroll_top_btn" class="scroll_top_btn" href="#header_container"><img src="/res/img/temp.png" align="center"></a>
+                <a id = "scroll_top_btn" class="scroll_top_btn" href="#header_container"><img src="/res/img/top_btn.png" align="center"></a>
             </div>
         </div>
     </div>
