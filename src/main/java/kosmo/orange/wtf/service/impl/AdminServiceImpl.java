@@ -1,10 +1,7 @@
 package kosmo.orange.wtf.service.impl;
 
 import kosmo.orange.wtf.model.mapper.AdminMapper;
-import kosmo.orange.wtf.model.vo.AdminBoardVO;
-import kosmo.orange.wtf.model.vo.AdminVO;
-import kosmo.orange.wtf.model.vo.MemberVO;
-import kosmo.orange.wtf.model.vo.RestaurantVO;
+import kosmo.orange.wtf.model.vo.*;
 import kosmo.orange.wtf.service.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -188,9 +185,21 @@ public class AdminServiceImpl implements AdminService {
 
     } // end of totalReviewCount
 
+    /**
+     * 유저 리뷰 내용 가져오기
+     */
+    @Override
+    public List<ReviewVO> reviewList() {
+        try{
+            return adminMapper.reviewList();
+        }catch (Exception e){
+            System.out.println("AdminServiceImpl reviewList() 관리자페이지 유저 리뷰 가져오기 실패 : " + e.toString());
+        }
+        return null;
+    }
 
 
-    // ========================================================================
+// ========================================================================
     // ************************************
     //  AdminIndexController 관련
     // ************************************
