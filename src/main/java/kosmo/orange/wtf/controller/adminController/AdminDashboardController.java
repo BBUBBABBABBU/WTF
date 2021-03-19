@@ -1,4 +1,4 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.adminController;
 
 public class AdminDashboardController {
 

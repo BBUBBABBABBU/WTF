@@ -1,9 +1,8 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.adminController;
 
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminUserController {

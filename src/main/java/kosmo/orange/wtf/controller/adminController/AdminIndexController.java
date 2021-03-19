@@ -1,4 +1,4 @@
-package kosmo.orange.wtf.controller;
+package kosmo.orange.wtf.controller.adminController;
 
 import kosmo.orange.wtf.model.vo.AdminBoardVO;
 import kosmo.orange.wtf.model.vo.AdminVO;
@@ -6,7 +6,6 @@ import kosmo.orange.wtf.model.vo.MemberVO;
 import kosmo.orange.wtf.model.vo.RestaurantVO;
 import kosmo.orange.wtf.service.impl.AdminServiceImpl;
 import kosmo.orange.wtf.service.impl.MemberServiceImpl;
-import kosmo.orange.wtf.service.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

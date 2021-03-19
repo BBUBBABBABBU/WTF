@@ -32,8 +32,15 @@
             font-style: normal;
         }
 
+        @font-face {
+            font-family: 'Cafe24Ohsquare';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         .grgr * {
-            font-family: 'Cafe24Ssukssuk', Sans-Serif;
+            font-family: 'Cafe24Ohsquare', Sans-Serif;
         }
     </style>
 
@@ -43,12 +50,50 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
-
-        /***************************
-         *  id 중복 체크
-         *  https://xodgl2.tistory.com/22
-         */
         $(function(){
+
+            /*********************
+             * id 중복 체크
+             */
+            $('#email').blur(function(){
+                $.ajax({
+                    type:"POST",
+                    url:"idCheck",
+                    data:{
+                        "email":$('#email').val()
+                    },
+                    success:function(data){	//data : checkSignup에서 넘겨준 결과값
+                        if($.trim(result)=="ok"){
+                            if($('#id').val()!=''){
+                                $('#idDupleCheck').text("사용할 수 있는 ID(email)입니다.");
+                            }
+                            else if($('#id').val()==''){
+                                $('#idDupleCheck').text("ID(email)를 입력해주세요");
+                            }
+                        }else{
+                            if($('#id').val()!=''){
+                                alert("중복된 아이디입니다.");
+                                $('#id').val('');
+                                $('#id').focus();
+                            }
+                        }
+                    }
+                })
+            })
+
+        });
+
+
+
+        출처: https://xodgl2.tistory.com/22 [Beginning]
+
+
+
+
+        $(function(){
+            alert('test');
+
+
             $('#email').blur(function(){
                 $.ajax({
                     type:"POST",
@@ -57,34 +102,107 @@
                         "email":$('#email').val()
                     },
                     success:function(str){
-                        alert('>'+str);
+                        // alert('>'+str);
+                        $('#idDupleCheck').text('');
+                        onlyIdCheck();
 
-                        if($('#email').val() == "") {
-                            alert("id입력하셈");
-                            return;
-                        }
-                        else if(str === "ok"){
-                            //alert('if')
-                            if($('#email').val() != ''){
-                                alert("사용가능한 아이디입니다.");
-                                return;
-                            }
-                        }
-                        else{
-                            alert('else');
-                            if($('#email').val() != ''){
-                                alert("중복된 아이디입니다.");
-                                $('#email').val('');
-                                // $('#email').focus();
-                                return;
-                            }
-                        }
                     },
                     error:function (err) {
                         alert("아이디 중복체크 실패"+ err);
                     }
                 })
             });
+
+
+
+
+            // 입력 안 했으면 span 으로 알림 (기본)
+            if($('#name').val() ==''){
+                // alert('이름을 입력해주세요');
+                $('#nameCheck').text("이름을 입력해주세요");
+            }
+            if
+            if($('#email').val() == "") {
+                // alert("id 입력하라고");
+                $('#idDupleCheck').text("ID(email)를 입력해주세요");
+            }
+            if($('#email').val() == "") {
+                // alert("id 입력하라고");
+                $('#passCheck').text("ID(email)를 입력해주세요");
+            }
+            if($('#email').val() == "") {
+                // alert("id 입력하라고");
+                $('#passCheck').text("ID(email)를 입력해주세요");
+
+        });
+
+        /***************************
+         *  id 중복 체크
+         *  https://xodgl2.tistory.com/22
+         */
+        $(function(){
+
+            // email 정규식
+            var emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
+            var emailFlag = emailRegex.test($('#email').val())
+
+
+            $('#email').blur(function(){
+                $.ajax({
+                    type:"POST",
+                    url:"idCheck",
+                    data:{
+                        "email":$('#email').val()
+                    },
+                    success:function(str){
+                        // alert('>'+str);
+                        $('#idDupleCheck').text('');
+                        onlyIdCheck();
+
+                    },
+                    error:function (err) {
+                        alert("아이디 중복체크 실패"+ err);
+                    }
+                })
+            });
+
+
+        function onlyIdCheck(){
+            if($('#email').val() == "") {
+                // alert("id입력하셈");
+                $('#idDupleCheck').text("id를 입력하세요");
+            }
+
+            else if(!emailFlag){
+                $('#idDupleCheck').text("email 형식을 확인하세요")
+            }
+
+            else if(emailFlag) {
+                $('#idDupleCheck').text("");
+            }
+
+            else if(str === "ok"){
+                //alert('if')
+                if($('#email').val() != ''){
+                    // alert("사용가능한 아이디입니다.");
+                    $('#idDupleCheck').text("사용가능한 아이디입니다.");
+                }
+            }
+
+            else if(str === "duplicate"){
+                // alert('else');
+                if($('#email').val() != ''){
+                    // alert("중복된 아이디입니다.");
+                    $('#idDupleCheck').text("중복된 아이디입니다.");
+                    $('#email').val('');
+                    // $('#email').focus();
+                }
+            }
+
+
+
+
+        }
 
 
         /**************************
@@ -94,7 +212,8 @@
             $('#pass2').blur(function(){
                 if($('#pass').val() != $('#pass2').val()){
                     if($('#pass2').val()!=''){
-                        alert("비밀번호가 일치하지 않습니다.");
+                        // alert("비밀번호가 일치하지 않습니다.");
+                        $('#pass2Check').text('비밀번호가 일치하지 않습니다.');
                         $('#pass').val('');
                         $('#pass2').val('');
                         $('#pass').focus();
@@ -107,29 +226,32 @@
          * 회원가입
          */
             $('#join_account').click(()=>{
-                alert('ok')
+                // alert('ok')
                 // var check_list = ['name', 'email', 'pass']
                 //
                 // for(var check in check_list){
                 //     alert(check_list[check])
-                //
                 // }
                 if($('#name').val() ==''){
-                    alert('이름을 입력해주세요');
+                    // alert('이름을 입력해주세요');
+                    $('#nameCheck').text("이름을 입력해주세요");
                     return;
                 }
                 if($('#email').val() == "") {
-                    alert("id 입력하라고");
+                    // alert("id 입력하라고");
+                    $('#idDupleCheck').text("ID(email)를 입력해주세요");
                     return;
                 }
                 if($('#pass').val() == "") {
-                    alert('pw 입력해라')
+                    // alert('pw 입력해라')
+                    $('#passCheck').text("비밀번호를 입력해주세요");
                     return;
                 }
-                if($('pass2').val() == "") {
-                    alert('pw 확인 안 함?')
-                    return;
-                }
+                // if($('pass2').val() == "") {
+                //     // alert('pw 확인 안 함?')
+                //     $('#pass2Check').text();
+                //     return;
+                // }
 
                 $('#join_form').submit()
 
@@ -172,24 +294,28 @@
                             <div class="card-body pt-5">
 
                                 <a class="text-center grgr" href="/">
-                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                    <h1>니가 이걸 먹을줄은<br>정말로 몰랐어</h1>
                                 </a>
 
                                 <form class="mt-5 mb-5 login-input" id ="join_form" action="createAccount" method="post">
                                     <div class="form-group">
-                                        <input type="text" class="form-control"  placeholder="Name" required name="mgr_name" id="name">
+                                        <input type="text" class="form-control"  placeholder="이름" required name="mgr_name" id="name">
+                                        <span id="nameCheck"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control"  placeholder="Email / Id" required name="mgr_id" id="email">
+                                        <input type="email" class="form-control"  placeholder="ID(email)" required name="mgr_id" id="email">
+                                        <span id="idDupleCheck"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" required name="mgr_pass" id="pass">
+                                        <input type="password" class="form-control" placeholder="비밀번호" required name="mgr_pass" id="pass">
+                                        <span id="passCheck"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password Confirm" required id="pass2">
+                                        <input type="password" class="form-control" placeholder="비밀번호 확인" required id="pass2">
+                                        <span id="pass2Check"></span>
                                     </div>
                                     <button class="btn login-form__btn submit w-100 grgr" id="join_account">
-                                        <h4><a style="color: #fff;">함께하게 되어서 반가울줄은 몰랐어</a></h4>
+                                        <h4><a style="color: #fff;">함께하게 되어서 반가울줄 알고있었어</a></h4>
                                     </button>
                                 </form>
 
