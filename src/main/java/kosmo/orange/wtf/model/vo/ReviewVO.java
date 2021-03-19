@@ -22,7 +22,11 @@ public class ReviewVO {
     private int charge_count;
     private String res_tell;
     private String review_date;
-    private String pic_loc;
+    private String review_pic1;
+    private String review_pic2;
+    private String review_pic3;
+    private String review_pic4;
+    private String review_pic5;
     private MemberVO memberVO;
     private RestaurantVO restaurantVO;
 }

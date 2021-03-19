@@ -285,15 +285,14 @@
 
                                     <c:forEach var="adminVOList" items="${adminVOList}">
 
-                                        <div class="col-md-3" href="/managerDetail">
+                                        <div class="col-md-3">
 <%--                                            <a href="/managerDetail">--%>
                                                 <div class="card shadow mb-4">
+                                                    <a href="/managerDetail?mgr_id=${adminVOList.mgr_id}">
                                                     <div class="card-body text-center" style="cursor: pointer">
                                                         <div class="avatar avatar-lg mt-4">
-                                                            <a href="managerDetail">
                                                                 <img src="${pageContext.request.contextPath}/res/mypageTemplate/images/user-3.png"
-                                                                     alt="..." class="avatar-img rounded-circle" style="width:40; left:170; top:5;">
-                                                            </a>
+                                                                     alt="..." class="avatar-img rounded-circle" style="top: -30px;position: relative;">
                                                         </div>
                                                         <div class="card-text my-2">
                                                             <strong class="card-title my-0">${adminVOList.mgr_name}</strong>
@@ -301,6 +300,8 @@
                                                             <%--<p class="small"><span class="badge badge-light text-muted">${adminVOList.mgr_pass}</span></p>--%>
                                                         </div>
                                                     </div> <!-- ./card-text -->
+                                                    </a>
+
 <%--                                                <a href="/managerDetail">--%>
 
 

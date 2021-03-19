@@ -124,7 +124,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="user-avatar text-center d-block">
-                                        <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">
+                                        <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/avatar-1.jpg" alt="User Avatar" class="rounded-circle user-avatar-xxl">--%>
                                     </div>
                                     <div class="text-center">
                                         <h2 class="font-24 mb-0">${member.nickname} </h2>
@@ -292,90 +292,90 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                        <div class="media influencer-profile-data d-flex align-items-center p-2">
-                                                            <div class="mr-4">
-                                                                <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dribbble.png" alt="User Avatar" class="rounded-circle user-avatar-lg">
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h3 class="m-b-10">Your Campaign Title Here</h3>
-                                                                <p><span class="m-r-20 d-inline-block">Draft Due Date<span class="m-l-10 d-inline-block text-primary">28 Jan 2018</span></span><span class="m-r-20 d-inline-block"> Publish Date<span class="m-l-10 text-secondary">20 March 2018</span></span><span class="m-r-20">Ends<span class="m-l-10 text-info">10 July, 2018</span></span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="border-top card-footer p-0">
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0 ">35k</h4>
-                                                    <p>Total Reach</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0 ">45k</h4>
-                                                    <p>Total Views</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">8k</h4>
-                                                    <p>Total Click</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0 ">10k</h4>
-                                                    <p>Engagement</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">3k</h4>
-                                                    <p>Conversion</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                                        <div class="media influencer-profile-data d-flex align-items-center p-2">
-                                                            <div class="mr-4">
-                                                                <img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dropbox.png" alt="User Avatar" class="user-avatar-lg">
-                                                            </div>
-                                                            <div class="media-body">
-                                                                <h3 class="m-b-10">Your Campaign Title Here</h3>
-                                                                <p><span class="m-r-20 d-inline-block">Draft Due Date
-                                                                    <span class="m-l-10 text-primary">05 Feb 2018</span></span>
-                                                                    <span class="m-r-20 d-inline-block"> Publish Date
-                                                                        <span class="m-l-10 text-secondary">14 May 2018</span></span><span class="m-r-20 d-inline-block">Ends<span class="m-l-10 text-info">16 Aug, 2018</span></span>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="border-top card-footer p-0">
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">40k</h4>
-                                                    <p>Total Reach</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0 ">35k</h4>
-                                                    <p>Total Views</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">5k</h4>
-                                                    <p>Total Click</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">15k</h4>
-                                                    <p>Engagement</p>
-                                                </div>
-                                                <div class="campaign-metrics d-xl-inline-block">
-                                                    <h4 class="mb-0">14k</h4>
-                                                    <p>Conversion</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        <%--<div class="card">--%>
+                                            <%--<div class="card-body">--%>
+                                                <%--<div class="row">--%>
+                                                    <%--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">--%>
+                                                        <%--<div class="media influencer-profile-data d-flex align-items-center p-2">--%>
+                                                            <%--<div class="mr-4">--%>
+                                                                <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dribbble.png" alt="User Avatar" class="rounded-circle user-avatar-lg">--%>
+                                                            <%--</div>--%>
+                                                            <%--<div class="media-body">--%>
+                                                                <%--<h3 class="m-b-10">Your Campaign Title Here</h3>--%>
+                                                                <%--<p><span class="m-r-20 d-inline-block">Draft Due Date<span class="m-l-10 d-inline-block text-primary">28 Jan 2018</span></span><span class="m-r-20 d-inline-block"> Publish Date<span class="m-l-10 text-secondary">20 March 2018</span></span><span class="m-r-20">Ends<span class="m-l-10 text-info">10 July, 2018</span></span>--%>
+                                                                <%--</p>--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                            <%--<div class="border-top card-footer p-0">--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0 ">35k</h4>--%>
+                                                    <%--<p>Total Reach</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0 ">45k</h4>--%>
+                                                    <%--<p>Total Views</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">8k</h4>--%>
+                                                    <%--<p>Total Click</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0 ">10k</h4>--%>
+                                                    <%--<p>Engagement</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">3k</h4>--%>
+                                                    <%--<p>Conversion</p>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
+                                        <%--<div class="card">--%>
+                                            <%--<div class="card-body">--%>
+                                                <%--<div class="row">--%>
+                                                    <%--<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">--%>
+                                                        <%--<div class="media influencer-profile-data d-flex align-items-center p-2">--%>
+                                                            <%--<div class="mr-4">--%>
+                                                                <%--<img src="${pageContext.request.contextPath}/res/adminTemplate3/assets/images/dropbox.png" alt="User Avatar" class="user-avatar-lg">--%>
+                                                            <%--</div>--%>
+                                                            <%--<div class="media-body">--%>
+                                                                <%--<h3 class="m-b-10">Your Campaign Title Here</h3>--%>
+                                                                <%--<p><span class="m-r-20 d-inline-block">Draft Due Date--%>
+                                                                    <%--<span class="m-l-10 text-primary">05 Feb 2018</span></span>--%>
+                                                                    <%--<span class="m-r-20 d-inline-block"> Publish Date--%>
+                                                                        <%--<span class="m-l-10 text-secondary">14 May 2018</span></span><span class="m-r-20 d-inline-block">Ends<span class="m-l-10 text-info">16 Aug, 2018</span></span>--%>
+                                                                <%--</p>--%>
+                                                            <%--</div>--%>
+                                                        <%--</div>--%>
+                                                    <%--</div>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                            <%--<div class="border-top card-footer p-0">--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">40k</h4>--%>
+                                                    <%--<p>Total Reach</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0 ">35k</h4>--%>
+                                                    <%--<p>Total Views</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">5k</h4>--%>
+                                                    <%--<p>Total Click</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">15k</h4>--%>
+                                                    <%--<p>Engagement</p>--%>
+                                                <%--</div>--%>
+                                                <%--<div class="campaign-metrics d-xl-inline-block">--%>
+                                                    <%--<h4 class="mb-0">14k</h4>--%>
+                                                    <%--<p>Conversion</p>--%>
+                                                <%--</div>--%>
+                                            <%--</div>--%>
+                                        <%--</div>--%>
+                                    <%--</div>--%>
                                     <div class="tab-pane fade" id="pills-packages" role="tabpanel" aria-labelledby="pills-packages-tab">
                                         <div class="row">
                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
