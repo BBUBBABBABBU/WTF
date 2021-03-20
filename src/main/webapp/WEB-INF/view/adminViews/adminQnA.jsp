@@ -21,15 +21,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <%--css--%>
-    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
 
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
-
-    <%--js--%>
-    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
 </head>
 
@@ -102,12 +97,7 @@
                                     </thead>
                                     <tbody>
 
-
-                                    <%--<% List<QnaVO> temp=(List<QnaVO>)request.getAttribute("adminqnaList"); %>--%>
-                                    <%--<tr>--%>
-                                       <%--<td><%= temp.get(0).getQna_id() %></td>--%>
-                                    <%--</tr>--%>
-
+                                    <%--adninQnaController로 연결--%>
                                     <c:forEach items="${adminqnaList}" var="admin_qna_list">
 
                                         <tr>
@@ -130,16 +120,7 @@
                                     </c:forEach>
 
                                     </tbody>
-                                    <%--<tfoot>--%>
-                                    <%--<tr>--%>
-                                        <%--<th>Name</th>--%>
-                                        <%--<th>Position</th>--%>
-                                        <%--<th>Office</th>--%>
-                                        <%--<th>Age</th>--%>
-                                        <%--<th>Start date</th>--%>
-                                        <%--<th>Salary</th>--%>
-                                    <%--</tr>--%>
-                                    <%--</tfoot>--%>
+
                                 </table>
                             </div>
                         </div>

@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <%--table--%>
-    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/css/datatable/dataTables.bootstrap4.min.css"
+          rel="stylesheet">
 
 
     <!-- Favicons -->
@@ -50,8 +51,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
 
-        .bread{
-            font-family: 'Black Han Sans',sans-serif;
+        .bread {
+            font-family: 'Black Han Sans', sans-serif;
 
         }
 
@@ -84,7 +85,7 @@
 </head>
 <body>
 
-<img src="/res/img/화면_졸라맨.png"style="
+<img src="/res/img/화면_졸라맨.png" style="
     position: absolute;
     left: 1200px;
     top: 40px;
@@ -92,7 +93,7 @@
     width: 300px;
 ">
 
-<img src="/res/img/화면_졸라맨_2.png"style="
+<img src="/res/img/화면_졸라맨_2.png" style="
     position: absolute;
     left: 500px;
     top: 40px;
@@ -104,10 +105,11 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
 
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img"
+                                                       style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[
+            마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
-                <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
                 <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
@@ -124,7 +126,8 @@
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
 
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의사항</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span
+                                class="mr-2"><a href="/service">문의사항</a></span>
                         <h1 class="bread">문의사항(Q&A)</h1>
                     </div>
                 </div>
@@ -137,8 +140,6 @@
             <div class="row page-titles mx-0">
                 <div class="col p-md-0">
                     <ol class="breadcrumb">
-                        <%--<li class="breadcrumb-item"><a>나의 문의 게시글</a></li>--%>
-                        <%--<li class="breadcrumb-item active"><a href="javascript:void(0)">Home</a></li>--%>
                     </ol>
                 </div>
             </div>
@@ -159,44 +160,25 @@
                                             <th>제목</th>
                                             <th>등록일자</th>
                                             <th>답변여부</th>
-                                            <%--<th>Salary</th>--%>
                                         </tr>
                                         </thead>
+
                                         <tbody>
 
-                                        <%--<c:forEach items="${qnaList}" var="qna">--%>
-
-                                            <%--<tr>--%>
-                                                <%--<td>${qna.qna_id }</td>--%>
-
-                                                <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
-                                                        <%--${qna.member_id }</a></td>--%>
-                                                <%--<td>${qna.qna_title} </td>--%>
-                                                <%--<td>${qna.qna_date}</td>--%>
-                                                <%--<td>${qna.anw_check}</td>--%>
-
-                                            <%--</tr>--%>
-                                        <%--</c:forEach>--%>
-
-
+                                        <%--QnaController 로 연결--%>
                                         <c:forEach items="${qnaList}" var="qna">
 
                                             <tr>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${qna.qna_id }</a></td>
-
-                                                    <%--<td align="left"><a href="myqnadetail?qna_id=${qna.qna_id }">--%>
-                                                    <%--${qna.member_id }</a></td>--%>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${sessionScope.member.email}</a></td>
-
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
-                                                        ${qna.qna_title}</a> </td>
+                                                        ${qna.qna_title}</a></td>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${qna.qna_date}</a></td>
                                                 <td align="left"><a href="myqnadetail?qna_title=${qna.qna_title}">
                                                         ${qna.anw_check}</a></td>
-
                                             </tr>
                                         </c:forEach>
 
@@ -212,43 +194,41 @@
             <!-- #/ container -->
 
 
+        </div><!-- END COLORLIB-MAIN -->
+    </div><!-- END COLORLIB-PAGE -->
 
-    </div><!-- END COLORLIB-MAIN -->
-</div><!-- END COLORLIB-PAGE -->
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+            <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                    stroke="#F96D00"/>
+        </svg>
+    </div>
 
-<!-- loader -->
-<div id="ftco-loader" class="show fullscreen">
-    <svg class="circular" width="48px" height="48px">
-        <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
-        <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
-                stroke="#F96D00"/>
-    </svg>
-</div>
-
-<%-- table--%>
-<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/jquery.dataTables.min.js"></script>
-<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
-<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
-
+    <%-- table--%>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/jquery.dataTables.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable/dataTables.bootstrap4.min.js"></script>
+    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/tables/js/datatable-init/datatable-basic.min.js"></script>
 
 
-<script src="/res/mypageTemplate/js/jquery.min.js"></script>
-<script src="/res/mypageTemplate/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="/res/mypageTemplate/js/popper.min.js"></script>
-<script src="/res/mypageTemplate/js/bootstrap.min.js"></script>
-<script src="/res/mypageTemplate/js/jquery.easing.1.3.js"></script>
-<script src="/res/mypageTemplate/js/jquery.waypoints.min.js"></script>
-<script src="/res/mypageTemplate/js/jquery.stellar.min.js"></script>
-<script src="/res/mypageTemplate/js/owl.carousel.min.js"></script>
-<script src="/res/mypageTemplate/js/jquery.magnific-popup.min.js"></script>
-<script src="/res/mypageTemplate/js/aos.js"></script>
-<script src="/res/mypageTemplate/js/jquery.animateNumber.min.js"></script>
-<script src="/res/mypageTemplate/js/bootstrap-datepicker.js"></script>
-<script src="/res/mypageTemplate/js/jquery.timepicker.min.js"></script>
-<script src="/res/mypageTemplate/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="/res/mypageTemplate/js/google-map.js"></script>
-<script src="/res/mypageTemplate/js/main.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.min.js"></script>
+    <script src="/res/mypageTemplate/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/res/mypageTemplate/js/popper.min.js"></script>
+    <script src="/res/mypageTemplate/js/bootstrap.min.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.easing.1.3.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.waypoints.min.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.stellar.min.js"></script>
+    <script src="/res/mypageTemplate/js/owl.carousel.min.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.magnific-popup.min.js"></script>
+    <script src="/res/mypageTemplate/js/aos.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.animateNumber.min.js"></script>
+    <script src="/res/mypageTemplate/js/bootstrap-datepicker.js"></script>
+    <script src="/res/mypageTemplate/js/jquery.timepicker.min.js"></script>
+    <script src="/res/mypageTemplate/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="/res/mypageTemplate/js/google-map.js"></script>
+    <script src="/res/mypageTemplate/js/main.js"></script>
 
 </body>
 </html>

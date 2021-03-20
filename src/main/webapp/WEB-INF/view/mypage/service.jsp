@@ -13,9 +13,6 @@
     <title>wtf 문의사항</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <%--    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">--%>
-    <%--    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">--%>
-    <%--    <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">--%>
 
     <!-- Favicons -->
     <link href="/res/img/WTF_logo.png" rel="icon">
@@ -33,7 +30,6 @@
     <link rel="stylesheet" href="/res/mypageTemplate/css/ionicons.min.css">
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/bootstrap-datepicker.css">
-    <%--    <link rel="stylesheet" href="/res/mypageTemplate/css/jquery.timepicker.css">--%>
 
 
     <link rel="stylesheet" href="/res/mypageTemplate/css/flaticon.css">
@@ -58,10 +54,6 @@
         .colorlib-logo {
             font-family: 'Nanum Gothic', sans-serif;
         }
-
-        /* .breadcrumbs{
-            font-family: 'Nanum Gothic', sans-serif;
-        } */
 
 
         .answer {
@@ -138,7 +130,6 @@
 
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
-                <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
                 <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
                 <li><a href="collection.html">내 업적 / 포인트</a></li>
@@ -199,15 +190,12 @@
                         <div class="media block-6 services py-4 d-block">
                             <div class="d-flex justify-content-start">
                                 <div class="icon d-flex align-items-center justify-content-center">
-                                    <%--<span class="flaticon-alarm:before"></span>--%>
                                     <span class="icon-phone"></span>
-
                                 </div>
                             </div>
                             <div class="media-body p-2 mt-2">
                                 <h3 class="heading mb-3">CALL </h3>
                                 <p id="call_center">고객 센터</p>
-                                <%--<p>( Tel. 333 - 3333 )</p>--%>
                             </div>
                         </div>
                     </div>
@@ -438,7 +426,6 @@
 <script src="/res/mypageTemplate/js/aos.js"></script>
 <script src="/res/mypageTemplate/js/jquery.animateNumber.min.js"></script>
 <script src="/res/mypageTemplate/js/bootstrap-datepicker.js"></script>
-<%--<script src="/res/mypageTemplate/js/jquery.timepicker.min.js"></script>--%>
 <script src="/res/mypageTemplate/js/scrollax.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="/res/mypageTemplate/js/google-map.js"></script>

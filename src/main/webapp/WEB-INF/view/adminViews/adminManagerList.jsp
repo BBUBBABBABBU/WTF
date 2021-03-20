@@ -31,7 +31,8 @@
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
     <%--QUIXLAB-MASTER > blank.html--%>
-    <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16"
+          href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <!-- Custom Stylesheet -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
 
@@ -39,23 +40,26 @@
     <!-- Simple bar CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/simplebar.css">
     <!-- Fonts CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
     <!-- Icons CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/feather.css">
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-light.css" id="lightTheme">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-dark.css" id="darkTheme" disabled>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-light.css"
+          id="lightTheme">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate2/css/app-dark.css" id="darkTheme"
+          disabled>
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
         // alert('0')
-        $(document).ready(function() {
+        $(document).ready(function () {
             // alert('ready')
-            $("div[class='card-body text-center']").click(function(){
+            $("div[class='card-body text-center']").click(function () {
                 alert('click')
                 location.href = "/managerDetail"
             })
@@ -68,354 +72,139 @@
 <body class="vertical  light  ">
 
 
-    <!--*******************
-        Preloader start
-    ********************-->
-    <div id="preloader">
-        <div class="loader">
-            <svg class="circular" viewBox="25 25 50 50">
-                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
-            </svg>
-        </div>
+<!--*******************
+    Preloader start
+********************-->
+<div id="preloader">
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10"/>
+        </svg>
     </div>
-    <!--*******************
-        Preloader end
-    ********************-->
+</div>
+<!--*******************
+    Preloader end
+********************-->
+
+
+<!--**********************************
+    Main wrapper start
+***********************************-->
+<div id="main-wrapper">
+
+
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <!-- 여기부터 헤더 -->
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <jsp:include page="/WEB-INF/view/adminViews/layout/adminHeader.jsp"/>
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+    <!-- 여기까지 헤더 -->
+    <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
 
 
     <!--**********************************
-        Main wrapper start
+        Content body start
     ***********************************-->
-    <div id="main-wrapper">
+    <div class="content-body">
+
+        <!--요기부터 내용 입력 !!!!!!!!!!!!!!!-->
+        <div class="wrapper">
 
 
+            <%--                <main role="main" class="main-content">--%>
+            <main role="main">
 
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <!-- 여기부터 헤더 -->
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <jsp:include page="/WEB-INF/view/adminViews/layout/adminHeader.jsp"/>
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
-        <!-- 여기까지 헤더 -->
-        <!-- ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★ -->
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
 
+                        <c:forEach var="adminVOList" items="${adminVOList}">
 
+                            <div class="col-md-3">
+                                    <%--                                            <a href="/managerDetail">--%>
+                                <div class="card shadow mb-4">
+                                    <a href="/managerDetail?mgr_id=${adminVOList.mgr_id}">
+                                        <div class="card-body text-center" style="cursor: pointer">
+                                            <div class="avatar avatar-lg mt-4">
+                                                <img src="${pageContext.request.contextPath}/res/mypageTemplate/images/user-3.png"
+                                                     alt="..." class="avatar-img rounded-circle"
+                                                     style="top: -30px;position: relative;">
+                                            </div>
+                                            <div class="card-text my-2">
+                                                <strong class="card-title my-0">${adminVOList.mgr_name}</strong>
+                                                <p class="small text-muted mb-0">${adminVOList.mgr_id}</p>
+                                                    <%--<p class="small"><span class="badge badge-light text-muted">${adminVOList.mgr_pass}</span></p>--%>
+                                            </div>
+                                        </div> <!-- ./card-text -->
+                                    </a>
 
-        <!--**********************************
-            Content body start
-        ***********************************-->
-        <div class="content-body">
-
-            <!--요기부터 내용 입력 !!!!!!!!!!!!!!!-->
-            <div class="wrapper">
-
-
-<%--                <main role="main" class="main-content">--%>
-                <main role="main">
-
-                    <div class="container-fluid">
-                        <div class="row justify-content-center">
-                            <%--<div class="col-12">--%>
-                                <%--<div class="row align-items-center my-4">--%>
-                                    <%--<div class="col">--%>
-                                        <%--<h2 class="h3 mb-0 page-title">Contacts</h2>--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col-auto">--%>
-                                        <%--<button type="button" class="btn btn-secondary"><span class="fe fe-trash fe-12 mr-2"></span>Delete</button>--%>
-                                        <%--<button type="button" class="btn btn-primary"><span class="fe fe-filter fe-12 mr-2"></span>Create</button>--%>
-                                    <%--</div>--%>
-                                <%--</div>--%>
-                                <%--<div class="row">--%>
-                                    <%--<div class="col-md-3">--%>
-                                        <%--<div class="card shadow mb-4">--%>
-                                            <%--<div class="card-body text-center">--%>
-                                                <%--<div class="avatar avatar-lg mt-4">--%>
-                                                    <%--<a href="">--%>
-                                                        <%--<img src="${pageContext.request.contextPath}/res/adminTemplate2/assets/avatars/face-4.jpg" alt="..." class="avatar-img rounded-circle">--%>
-                                                    <%--</a>--%>
-                                                <%--</div>--%>
-                                                <%--<div class="card-text my-2">--%>
-                                                    <%--<strong class="card-title my-0">Bass Wendy </strong>--%>
-                                                    <%--<p class="small text-muted mb-0">Accumsan Consulting</p>--%>
-                                                    <%--<p class="small"><span class="badge badge-light text-muted">New York, USA</span></p>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- ./card-text -->--%>
-                                            <%--<div class="card-footer">--%>
-                                                <%--<div class="row align-items-center justify-content-between">--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<small>--%>
-                                                            <%--<span class="dot dot-lg bg-success mr-1"></span> Online </small>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<div class="file-action">--%>
-                                                            <%--<button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                                                                <%--<span class="text-muted sr-only">Action</span>--%>
-                                                            <%--</button>--%>
-                                                            <%--<div class="dropdown-menu m-2">--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>--%>
-                                                            <%--</div>--%>
-                                                        <%--</div>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- /.card-footer -->--%>
-                                        <%--</div>--%>
-                                    <%--</div> <!-- .col -->--%>
-                                    <%----%>
-                                    <%----%>
-                                    <%----%>
-                                    <%--<div class="col-md-3">--%>
-                                        <%--<div class="card shadow mb-4">--%>
-                                            <%--<div class="card-body text-center">--%>
-                                                <%--<div class="avatar avatar-lg mt-4">--%>
-                                                    <%--<a href="">--%>
-                                                        <%--<img src="${pageContext.request.contextPath}/res/adminTemplate2/assets/avatars/face-1.jpg" alt="..." class="avatar-img rounded-circle">--%>
-                                                    <%--</a>--%>
-                                                <%--</div>--%>
-                                                <%--<div class="card-text my-2">--%>
-                                                    <%--<strong class="card-title my-0">Leblanc Yoshio</strong>--%>
-                                                    <%--<p class="small text-muted mb-0">Tristique Ltd</p>--%>
-                                                    <%--<p class="small"><span class="badge badge-light text-muted">United Kingdom</span></p>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- ./card-text -->--%>
-                                            <%--<div class="card-footer">--%>
-                                                <%--<div class="row align-items-center justify-content-between">--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<small>--%>
-                                                            <%--<span class="dot dot-lg bg-secondary mr-1"></span> Offline </small>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<div class="file-action">--%>
-                                                            <%--<button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                                                                <%--<span class="text-muted sr-only">Action</span>--%>
-                                                            <%--</button>--%>
-                                                            <%--<div class="dropdown-menu m-2">--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>--%>
-                                                            <%--</div>--%>
-                                                        <%--</div>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- /.card-footer -->--%>
-                                        <%--</div>--%>
-                                    <%--</div> <!-- .col -->--%>
-                                    <%--<div class="col-md-3">--%>
-                                        <%--<div class="card shadow mb-4">--%>
-                                            <%--<div class="card-body text-center">--%>
-                                                <%--<div class="avatar avatar-lg mt-4">--%>
-                                                    <%--<a href="">--%>
-                                                        <%--<img src="${pageContext.request.contextPath}/res/adminTemplate2/assets/avatars/face-5.jpg" alt="..." class="avatar-img rounded-circle">--%>
-                                                    <%--</a>--%>
-                                                <%--</div>--%>
-                                                <%--<div class="card-text my-2">--%>
-                                                    <%--<strong class="card-title my-0">Higgins Uriah</strong>--%>
-                                                    <%--<p class="small text-muted mb-0">Suspendisse LLC</p>--%>
-                                                    <%--<p class="small"><span class="badge badge-light text-muted">Canada</span></p>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- ./card-text -->--%>
-                                            <%--<div class="card-footer">--%>
-                                                <%--<div class="row align-items-center justify-content-between">--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<small>--%>
-                                                            <%--<span class="dot dot-lg bg-success mr-1"></span> Online </small>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<div class="file-action">--%>
-                                                            <%--<button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                                                                <%--<span class="text-muted sr-only">Action</span>--%>
-                                                            <%--</button>--%>
-                                                            <%--<div class="dropdown-menu m-2">--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>--%>
-                                                            <%--</div>--%>
-                                                        <%--</div>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- /.card-footer -->--%>
-                                        <%--</div>--%>
-                                    <%--</div> <!-- .col -->--%>
+                                        <%--                                                <a href="/managerDetail">--%>
 
 
+                                        <%--@@@@@@@@@@@@@@@ 필요 X @@@@@@@@@@@@@@@@@--%>
+                                    <div class="card-footer">
+                                        <div class="row align-items-center justify-content-between">
+                                            <div class="col-auto">
+                                                <small>
+                                                    <span class="dot dot-lg bg-success mr-1"></span> 관리자
+                                                </small>
+                                            </div>
 
-                                    <%--<div class="col-md-3">--%>
-                                        <%--<div class="card shadow mb-4">--%>
-                                            <%--<div class="card-body text-center">--%>
-                                                <%--<div class="avatar avatar-lg mt-4">--%>
-                                                    <%--<a href="">--%>
-                                                        <%--<img src="${pageContext.request.contextPath}/res/adminTemplate2/assets/avatars/face-3.jpg" alt="..." class="avatar-img rounded-circle">--%>
-                                                    <%--</a>--%>
-                                                <%--</div>--%>
-                                                <%--<div class="card-text my-2">--%>
-                                                    <%--<strong class="card-title my-0">Brown Asher</strong>--%>
-                                                    <%--<p class="small text-muted mb-0">Orci Luctus Et Inc.</p>--%>
-                                                    <%--<p class="small"><span class="badge badge-dark">USA</span></p>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- ./card-text -->--%>
-                                            <%--<div class="card-footer">--%>
-                                                <%--<div class="row align-items-center justify-content-between">--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<small>--%>
-                                                            <%--<span class="dot dot-lg bg-success mr-1"></span> Online </small>--%>
-                                                    <%--</div>--%>
-                                                    <%--<div class="col-auto">--%>
-                                                        <%--<div class="file-action">--%>
-                                                            <%--<button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                                                                <%--<span class="text-muted sr-only">Action</span>--%>
-                                                            <%--</button>--%>
-                                                            <%--<div class="dropdown-menu m-2">--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>--%>
-                                                            <%--</div>--%>
-                                                        <%--</div>--%>
-                                                    <%--</div>--%>
-                                                <%--</div>--%>
-                                            <%--</div> <!-- /.card-footer -->--%>
-                                        <%--</div>--%>
-                                    <%--</div> <!-- .col -->--%>
+                                        </div>
+                                    </div> <!-- /.card-footer -->
+                                </div>
+                            </div>
+                            <!-- .col -->
 
+                        </c:forEach>
 
-                                    <!--jstl 이 잘 되나요????????????????-->
+                        <div class="col-md-9">
+                        </div> <!-- .col -->
+                    </div> <!-- .row -->
+                    <nav aria-label="Table Paging" class="my-3">
+                        <ul class="pagination justify-content-end mb-0">
+                            <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                        </ul>
+                    </nav>
+                </div> <!-- .col-12 -->
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
 
-                                    <c:forEach var="adminVOList" items="${adminVOList}">
+    </main> <!-- main -->
+</div> <!-- .wrapper -->
 
-                                        <div class="col-md-3">
-<%--                                            <a href="/managerDetail">--%>
-                                                <div class="card shadow mb-4">
-                                                    <a href="/managerDetail?mgr_id=${adminVOList.mgr_id}">
-                                                    <div class="card-body text-center" style="cursor: pointer">
-                                                        <div class="avatar avatar-lg mt-4">
-                                                                <img src="${pageContext.request.contextPath}/res/mypageTemplate/images/user-3.png"
-                                                                     alt="..." class="avatar-img rounded-circle" style="top: -30px;position: relative;">
-                                                        </div>
-                                                        <div class="card-text my-2">
-                                                            <strong class="card-title my-0">${adminVOList.mgr_name}</strong>
-                                                            <p class="small text-muted mb-0">${adminVOList.mgr_id}</p>
-                                                            <%--<p class="small"><span class="badge badge-light text-muted">${adminVOList.mgr_pass}</span></p>--%>
-                                                        </div>
-                                                    </div> <!-- ./card-text -->
-                                                    </a>
-
-<%--                                                <a href="/managerDetail">--%>
+</div>
+<!--**********************************
+    Content body end
+***********************************-->
 
 
-                                                    <%--@@@@@@@@@@@@@@@ 필요 X @@@@@@@@@@@@@@@@@--%>
-                                                    <div class="card-footer">
-                                                        <div class="row align-items-center justify-content-between">
-                                                            <div class="col-auto">
-                                                                <small>
-                                                                    <span class="dot dot-lg bg-success mr-1"></span> 관리자 </small>
-                                                            </div>
-
-                                                            <%--<div class="col-auto">--%>
-                                                                <%--<div class="file-action">--%>
-                                                                <%--<button type="button" class="btn btn-link dropdown-toggle more-vertical p-0 text-muted mx-auto" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-                                                                <%--<span class="text-muted sr-only">Action</span>--%>
-                                                                <%--</button>--%>
-                                                                <%--<div class="dropdown-menu m-2">--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-meh fe-12 mr-4"></i>Profile</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-message-circle fe-12 mr-4"></i>Chat</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-mail fe-12 mr-4"></i>Contact</a>--%>
-                                                                <%--<a class="dropdown-item" href="#"><i class="fe fe-delete fe-12 mr-4"></i>Delete</a>--%>
-                                                                <%--</div>--%>
-                                                                <%--</div>--%>
-                                                                <%--</div>--%>
-
-                                                        </div>
-                                                    </div> <!-- /.card-footer -->
-
-<%--                                                </a>--%>
-                                                </div>
-<%--                                            </a>--%>
-                                        </div> <!-- .col -->
-
-                                    </c:forEach>
-
-                                    <!--jstl 이 잘 되나요????????????????-->
+<!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
+<!-- 여기부터 푸터 -->
+<!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
+<jsp:include page="/WEB-INF/view/adminViews/layout/adminFooter.jsp"/>
+<!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
+<!-- 여기까지 푸터 -->
+<!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
 
 
-                                    <div class="col-md-9">
-                                    </div> <!-- .col -->
-                                </div> <!-- .row -->
-                                <nav aria-label="Table Paging" class="my-3">
-                                    <ul class="pagination justify-content-end mb-0">
-                                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                    </ul>
-                                </nav>
-                            </div> <!-- .col-12 -->
-                        </div> <!-- .row -->
-                    </div> <!-- .container-fluid -->
+</div>
+<!--**********************************
+    Main wrapper end
+***********************************-->
 
-                </main> <!-- main -->
-            </div> <!-- .wrapper -->
+<!--**********************************
+    Scripts
+***********************************-->
+<script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
+<script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
 
-        </div>
-        <!--**********************************
-            Content body end
-        ***********************************-->
-
-
-
-        <!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
-        <!-- 여기부터 푸터 -->
-        <!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
-        <jsp:include page="/WEB-INF/view/adminViews/layout/adminFooter.jsp"/>
-        <!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
-        <!-- 여기까지 푸터 -->
-        <!-- ☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆☆ -->
-
-
-
-    </div>
-    <!--**********************************
-        Main wrapper end
-    ***********************************-->
-
-    <%--js--%>
-    <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
-    <%--QUIXLAB-MASTER > blank.html--%>
-    <!--**********************************
-        Scripts
-    ***********************************-->
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/plugins/common/common.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/custom.min.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/settings.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/gleek.js"></script>
-    <script src="${pageContext.request.contextPath}/res/adminTemplate/js/styleSwitcher.js"></script>
-
-    <%--tinydash-master > light > contacts-grid.html--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/popper.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/moment.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/bootstrap.min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/simplebar.min.js"></script>--%>
-<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/daterangepicker.js'></script>--%>
-<%--    <script src='${pageContext.request.contextPath}/res/adminTemplate2/js/jquery.stickOnScroll.js'></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/tinycolor-min.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/config.js"></script>--%>
-<%--    <script src="${pageContext.request.contextPath}/res/adminTemplate2/js/apps.js"></script>--%>
-<%--    <!-- Global site tag (gtag.js) - Google Analytics -->--%>
-<%--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>--%>
-<%--    <script>--%>
-<%--        window.dataLayer = window.dataLayer || [];--%>
-<%----%>
-<%--        function gtag()--%>
-<%--        {--%>
-<%--            dataLayer.push(arguments);--%>
-<%--        }--%>
-<%--        gtag('js', new Date());--%>
-<%--        gtag('config', 'UA-56159088-1');--%>
-<%--    </script>--%>
 
 
 </body>
