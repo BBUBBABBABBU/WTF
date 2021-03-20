@@ -29,79 +29,63 @@ public class MemberController {
     SendEmailService sendEmailService;
 
 
-
     public String passwordTemp(String pw){
-
         pw=passwordEncoder.encode(pw);
         return pw;
     }
 
-
+    //mypage 안에 있는 페이지 매핑 없이 가도록.
     @RequestMapping("/mypage/{step}")
     public String Step(@PathVariable String step){
-        System.out.println("스텝");
     return "mypage/"+step;
     }
 
 
 
-
-
+    //비밀번호 교체시 컨트롤러
     @RequestMapping("/pwdChange")
     public String pwdChange( MemberVO memberVO, String currentPassword , Model model){
         MemberVO member=(MemberVO) session.getAttribute("member");
         MemberVO result=memberService.memberLogin(member);
+        //암호화된 db 결과값과 현재 비밀번호를 대조해 맞는지 확인해줌.
         boolean check = passwordEncoder.matches( currentPassword, result.getPassword());
         if (check){
             memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
-            System.out.println("비밀번호 교체 성공");
             model.addAttribute("passChge","success");
             memberService.passwordChge(memberVO);
         }
         else {
-            System.out.println("비밀번호 교체 실패");
             model.addAttribute("passChge","failed");
         }
-
-
-
-
-
-
         return "mypage/myInfo";
     }
 
 
-
-
+    //정보 변경 눌렀을 시
     @RequestMapping("/modifyInfo")
     public String memberUpdate(MemberVO member, Model model){
-
         MemberVO mem= (MemberVO) session.getAttribute("member");
         member.setEmail(mem.getEmail());
-
         MemberVO result=null;
-//        MemberVO memSession= (MemberVO) session.getAttribute("member");
-//        model.addAttribute("member",result);
         result=memberService.memberUpdate(member);
-//        session.setAttribute("member",result);
-
-        model.addAttribute("member",result);
+       model.addAttribute("member",result);
         return "mypage/myInfo";}
 
+//    //
+//    @RequestMapping("/join")
+//    public String join( MemberVO memberVO){
+//        return "member/Join";
+//    }
 
-    @RequestMapping("/join")
-    public String join( MemberVO memberVO){
-        return "member/Join";
-    }
-
-
+    //회원가입창
     @RequestMapping(value="/Info",method= RequestMethod.GET )
-    public String info(HttpSession session) {
+    public String info() {
         return "member/memInfo";
     }
 
 
+
+    //회원가입(memInfo) 에서 ajax 중간에 불리는 함수.(아이디 중복체크 버튼 클릭시)
     @RequestMapping(value = "/idCheckLogin")
     @ResponseBody
     public String idcheckLogin(MemberVO memberVO) throws Exception{
@@ -116,6 +100,7 @@ public class MemberController {
         }return message;
     }
 
+    //회원가입 완료 버튼 클릭시
     @RequestMapping(value = "/signUp",method= RequestMethod.POST)
     public String signUp(  MemberVO memberVO, Model model ){
         memberVO.setPassword(passwordEncoder.encode(memberVO.getPassword()));
@@ -124,6 +109,10 @@ public class MemberController {
         session.setAttribute("status","signUp");
         return "Start";
     }
+
+
+
+    //로그인 시 ,
     @RequestMapping(value = "/memberLogin", method = RequestMethod.POST)
     public String memberLogin(String foodKind,MemberVO memberVO, Model model){
         MemberVO result=memberService.memberLogin(memberVO);
@@ -139,12 +128,13 @@ public class MemberController {
                 session.setAttribute("status","fail");
                 System.out.println("비밀번호 불일치");
             }
-            if (check) {
+//            if (check) {
+//                return "redirect: /";
+//            }
+//            else {
+//                return "redirect: /";
+//            }
                 return "redirect: /";
-            }
-            else {
-                return "redirect: /";
-            }
         }else{
             session.setAttribute("status","fail");
             return "redirect: /";
@@ -153,8 +143,9 @@ public class MemberController {
 
 
 
+//비밀번호 찾기
+    //Email과 생일 일치여부를 체크하는 컨트롤러
 
-    //Email과 name의 일치여부를 check하는 컨트롤러
     @GetMapping("/check/findPw")
     @ResponseBody
     public
@@ -167,6 +158,8 @@ public class MemberController {
         return json;
     }
 
+
+//비밀번호 찾기
     //등록된 이메일로 임시비밀번호를 발송하고 발송된 임시비밀번호로 사용자의 pw를 변경하는 컨트롤러
     @PostMapping("/check/findPw/sendEmail")
     @ResponseBody
@@ -178,6 +171,7 @@ public class MemberController {
 
     }
 
+    //로그아웃
     @RequestMapping("memberLogout")
     public String memberLogout(){
         System.out.println("로그아웃");
