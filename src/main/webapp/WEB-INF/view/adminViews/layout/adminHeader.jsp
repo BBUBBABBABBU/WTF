@@ -11,17 +11,41 @@
     로그인 화면을 제외한 모든 jsp 에 적용
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<head>
+    <%--css--%>
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css" rel="stylesheet">
 
+
+    <%----%>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+    <%--body--%>
+        @font-face {
+            font-family: 'RIDIBatang';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        span .nav-text * {
+            font-family: 'RIDIBatang', Sans-Serif;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $('span .nav-text').addClass('titleFont');
+    </script>
+
+</head>
 
     <!--**********************************
         Nav header start
     ***********************************-->
-    <div class="nav-header">
+    <div class="nav-header titleFont">
         <div class="brand-logo">
             <a href="/">
-                <h2 style="color: #ffffff">니.이.먹.정</h2>
-                <span class="logo-compact"><img src="${pageContext.request.contextPath}/res/img/admin_brand.png" alt=""></span>
-                <span class="brand-title"><img src="${pageContext.request.contextPath}/res/img/admin_brand.png" alt=""></span>
+                <h1 style="color: #ffffff">니.이.먹.정</h1>
+                <%--<span class="logo-compact"><img src="${pageContext.request.contextPath}/res/img/admin_brand.png" alt=""></span>--%>
+                <%--<span class="brand-title"><img src="${pageContext.request.contextPath}/res/img/admin_brand.png" alt=""></span>--%>
             </a>
         </div>
     </div>
@@ -275,37 +299,37 @@
 
 
 
-                <%--=========================--%>
-                <%--Settings group--%>
-                <%--=========================--%>
-                <li class="nav-label"><!--빈칸--></li>
-                <%--<li class="nav-label">SETTINGS</li>--%>
-                <li class="nav-label">설정</li>
+                <%--&lt;%&ndash;=========================&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Settings group&ndash;%&gt;--%>
+                <%--&lt;%&ndash;=========================&ndash;%&gt;--%>
+                <%--<li class="nav-label"><!--빈칸--></li>--%>
+                <%--&lt;%&ndash;<li class="nav-label">SETTINGS</li>&ndash;%&gt;--%>
+                <%--<li class="nav-label">설정</li>--%>
 
-                <%--&lt;%&ndash;Achievement&ndash;%&gt;--%>
+                <%--&lt;%&ndash;&lt;%&ndash;Achievement&ndash;%&gt;&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<a href="/achieveSetting" aria-expanded="false">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<i class="icon-badge menu-icon"></i><span class="nav-text">업적 Achievement setting</span>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
+
+                <%--&lt;%&ndash;입맛 / 취향 / 선호도 > 등록, 수정, 삭제&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<li>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<a class="has-arrow" href="javascript:void(0)" aria-expanded="false">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<i class="icon-menu menu-icon"></i><span class="nav-text">입맛?취향?선호? Flavor</span>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</a>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;<ul aria-expanded="false">&ndash;%&gt;--%>
+                        <%--&lt;%&ndash;<li><a href="/flavorSetting" aria-expanded="false">Flavor setting</a></li>&ndash;%&gt;--%>
+                    <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</li>&ndash;%&gt;--%>
                 <%--<li>--%>
-                    <%--<a href="/achieveSetting" aria-expanded="false">--%>
-                        <%--<i class="icon-badge menu-icon"></i><span class="nav-text">업적 Achievement setting</span>--%>
+                    <%--<a href="flavorSetting" aria-expanded="false">--%>
+                        <%--<i class="icon-menu menu-icon"></i><span class="nav-text">유저 입맛 목록</span>--%>
                     <%--</a>--%>
                 <%--</li>--%>
-
-                <%--입맛 / 취향 / 선호도 > 등록, 수정, 삭제--%>
-                <%--<li>--%>
-                    <%--<a class="has-arrow" href="javascript:void(0)" aria-expanded="false">--%>
-                        <%--<i class="icon-menu menu-icon"></i><span class="nav-text">입맛?취향?선호? Flavor</span>--%>
-                    <%--</a>--%>
-                    <%--<ul aria-expanded="false">--%>
-                        <%--<li><a href="/flavorSetting" aria-expanded="false">Flavor setting</a></li>--%>
-                    <%--</ul>--%>
-                <%--</li>--%>
-                <li>
-                    <a href="flavorSetting" aria-expanded="false">
-                        <i class="icon-menu menu-icon"></i><span class="nav-text">유저 입맛 목록</span>
-                    </a>
-                </li>
-                <%--=========================--%>
-                <%--Settings group end--%>
-                <%--=========================--%>
+                <%--&lt;%&ndash;=========================&ndash;%&gt;--%>
+                <%--&lt;%&ndash;Settings group end&ndash;%&gt;--%>
+                <%--&lt;%&ndash;=========================&ndash;%&gt;--%>
 
 
 

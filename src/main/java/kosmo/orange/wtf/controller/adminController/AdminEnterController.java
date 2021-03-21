@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,19 +37,6 @@ public class AdminEnterController {
     @Autowired
     HttpSession session;
 
-    /****************************
-     * start.jsp > layout/adminBasic.jsp
-     * page test controller
-     *
-     * jsp / css 적용 테스트 용도
-     */
-    @GetMapping("/adminTest")
-    public String adminTest() {
-        return "adminViews/adminChart";
-
-    } // end of adminTest
-
-
 
     /***************************
      * 메인에서 관리자 페이지 접속
@@ -59,38 +45,13 @@ public class AdminEnterController {
      * or > 없는 경우 : adminLoginConfirm.jsp
      */
     @GetMapping("/adminLogin")
-    public String adminLogin(Model model , HttpServletRequest request) {
-        System.out.println("AdminEnterController.adminLogin : " + model);
+    public String adminLogin() {
+        System.out.println("AdminEnterController.adminLogin");
 
-        String email1 =  "buiop11";
-       // String email1 = request.getParameter("email");
-
-        // OTP TEST
-        HashMap<String, String> map = generate(email1, "naver.com");
-        String otpkey = map.get("encodedKey");
-        String url = map.get("url");
-        System.out.println("Generated Key : " + otpkey);
-        System.out.println("QR CODE : " + url);
-
-        //생성된 OTP 패스워드 인증 부분
-//        Scanner scan = new Scanner(System.in);
-//        System.out.print("Input OTP Code : ");
-//        boolean check = checkCode(scan.next(), otpkey);
-//        System.out.println(check);
-
-        // 모델로 보냅니당
-        model.addAttribute("otpkey",otpkey);
-        model.addAttribute("url",url);
-
-
-        // 근데 로그인이 되어 있으면 잠금화면
-
-
-
-        // 안되어있으면 로그인 화면
-//        int aa = 3;
-//        model.addAttribute("aaa", aa);
-
+        // 관리자 페이지에서 해당 탭에서 외부로 다녀왔을 때
+        // 로그인 한 상태면 비밀번호 확인 화면
+        // 로그인 하지 않은 상태면 로그인 화면
+        // 으로 하려고 했는데 안 함 / 못 함
         String page = "adminLogin";
 
         return "adminViews/" + page;
@@ -113,14 +74,14 @@ public class AdminEnterController {
 
     /************************
      * 회원가입 (DB에 넣기)
-     * adminJoin.jsp > DB > adminJoinConfirm.jsp (DB input> success : adminHome.jsp / fail : adminJoin.jsp)
+     * adminJoin.jsp > DB > adminJoinConfirm.jsp
+     * (DB input> success : adminHome.jsp / fail : adminJoin.jsp)
      */
     @PostMapping("/createAccount")
     public String createAccount(AdminVO adminVO, Model model) {
         System.out.println("AdminEnterController.createAccount : " + adminVO);
 
-        int account = 0;
-        account = adminService.createAccount(adminVO);
+        int account = adminService.createAccount(adminVO);
 
         model.addAttribute("result", account);
 

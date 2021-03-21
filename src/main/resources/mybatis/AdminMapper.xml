@@ -147,8 +147,8 @@
     <!--게시글 저장-->
     <insert id="saveArticle" parameterType="AdminBoardVO">
         INSERT INTO adminboard
-              (board_pw, board_title, board_content, board_writer, board_enterdate, board_modifydate)
-        VALUES(#{board_pw}, #{board_title}, #{board_content}, #{board_writer}, sysdate(), sysdate())
+              (board_pw, board_title, board_content, board_writer, board_enterdate, board_modifydate, board_viewcount)
+        VALUES(#{board_pw}, #{board_title}, #{board_content}, #{board_writer}, sysdate(), sysdate(), 0)
     </insert>
 
 
@@ -189,6 +189,14 @@
         FROM adminboard
         WHERE board_id = #{id}
     </select>
+
+
+    <!--게시글 조회수-->
+    <update id="boardCount" parameterType="int">
+        UPDATE adminboard
+        SET board_viewcount = board_viewcount + 1
+        WHERE board_id = #{board_id}
+    </update>
 
 
 <!--=======================================================================-->

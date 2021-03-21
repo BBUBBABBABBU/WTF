@@ -30,15 +30,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script type="text/javascript">
         $(function(){
-            alert('adminBoardForm.jsp');
+            // alert('adminBoardForm.jsp');
             alert('글번호 : ' + ${id});
-            alert('sep : ' + $('#sep').val());
+            // alert('sep : ' + $('#sep').val());
         });
 
 
             // 입력 폼 확인 - 글 신규 등록 (저장버튼 클릭시)
         function formCheck(param) {
-            alert('formCheck param + ' + param);
+            // alert('formCheck param + ' + param);
 
             var frm = document.frm;
 
@@ -73,7 +73,7 @@
 
         // 수정, 삭제
         function articleUpdate(param) {
-            alert('ararticleUpdate + ' + param);
+            // alert('ararticleUpdate + ' + param);
 
             var frm = document.frm;
 
@@ -99,7 +99,7 @@
             if(param == 'u') {
                 con = confirm("수정 ㄱ?");
                 if(con){
-                    alert('board_id = ' + ${id});
+                    <%--alert('board_id = ' + ${id});--%>
                     document.getElementById("article_id").value = "${id}";
                     document.getElementById("sep").value = "u";
                     postForm();
@@ -122,7 +122,7 @@
 
         // Form 보내기
         function postForm() {
-            alert('postForm');
+            // alert('postForm');
 
             $('textarea[name="content"]').val($('#summernote').summernote('code'));
 
