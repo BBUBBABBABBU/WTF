@@ -34,7 +34,7 @@
 
         // 수정, 삭제
         function articleUpdate(param) {
-            alert('ararticleUpdate + ' + param);
+            // alert('ararticleUpdate + ' + param);
 
             // 입력 폼 확인 - 비번 입력 확인
             var frm = document.frm;
@@ -44,10 +44,10 @@
                 return;
             }
             else if(frm.board_pw.value) {
-                alert("비번은 있고, ajax 로 확인 ㄱ");
+                // alert("비번은 있고, ajax 로 확인 ㄱ");
 
-                alert($('#board_pw').val());
-                alert($('#board_id').val());
+                // alert($('#board_pw').val());
+                // alert($('#board_id').val());
 
                 $.ajax({
                     type:"POST",
@@ -58,7 +58,7 @@
                     },
 
                     success:function(result) {
-                        alert(result);
+                        // alert(result);
 
                         if(result == 0) {
                             alert("비번틀림");
@@ -66,7 +66,7 @@
                             return;
                         }
                         else if(result == 1) {
-                            alert("비번맞네");
+                            // alert("비번맞네");
 
                             var con = "";
 

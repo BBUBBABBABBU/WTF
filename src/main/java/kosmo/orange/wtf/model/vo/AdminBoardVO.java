@@ -18,7 +18,7 @@ public class AdminBoardVO {
     private String board_writer;
     private String board_enterdate;
     private String board_modifydate;
-    private String board_viewcount;
+    private int board_viewcount;
 
 
 }

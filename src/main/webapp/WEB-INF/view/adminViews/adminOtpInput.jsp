@@ -22,18 +22,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Cafe24Ssukssuk';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css" rel="stylesheet">
 
-        .grgr * {
-            font-family: 'Cafe24Ssukssuk', Sans-Serif;
-        }
-    </style>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -65,7 +55,7 @@
 
 
 </head>
-<body class="h-100">
+<body class="h-100 titleFont">
 
     <!--*******************
         Preloader start
@@ -95,12 +85,12 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
                                 <a class="text-center grgr" href="/">
-                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                    <h1>네가<br>이걸 먹을줄은<br>정말로 몰랐어</h1>
                                     <h1>${alert}</h1>
                                 </a>
 
                                 <%--otp 코드 입력하는 form--%>
-                                <form class="mt-5 mb-3 login-input" action="/adminHome" method="post">
+                                <form class="mt-5 mb-3 login-input bodyFont" action="/adminHome" method="post">
 
                                     <%--otp 코드 입력하는 곳--%>
                                     <div class="form-group">
@@ -108,7 +98,7 @@
                                     </div>
 
                                     <button class="btn login-form__btn submit w-100 grgr">
-                                        <h4><a style="color: #fff">일하러 가자</a></h4>
+                                        <h4><a style="color: #fff">OTP 인증</a></h4>
                                     </button>
 
                                     <div class="bootstrap-modal">
@@ -123,7 +113,7 @@
                                                 <div class="modal-content">
 
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                                                        <h3 class="modal-title" id="exampleModalLabel">OTP 키 발급</h3>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
@@ -132,21 +122,22 @@
                                                         <form>
 
                                                             <div class="form-group">
-                                                                <label for="recipient-name" class="col-form-label">Recipient:</label>
+                                                                <label for="recipient-name" class="col-form-label">OTP Key:</label>
                                                                 <input type="text" class="form-control" id="recipient-name" readonly>${otpKey}
                                                             </div>
+                                                            <hr>
 
                                                             <div class="form-group">
-                                                                <label for="message-text" class="col-form-label">Message:</label>
+                                                                <label for="message-text" class="col-form-label">OTP Key QR Code:</label>
                                                                 <textarea class="form-control" id="message-text" readonly></textarea>
-                                                                <iframe src="${qrCode}" width="100%" height="350px"></iframe>
+                                                                <iframe src="${qrCode}" width="100%" height="200px"></iframe>
                                                             </div>
 
                                                         </form>
                                                     </div>
 
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
                                                     </div>
 
                                                 </div>

@@ -38,7 +38,7 @@
 <nav class="navbar navbar-light custom-navbar2">
     <div id="search_container" class="container">
         <form action="/restaurant/searchRestaurant" method="get">
-            <input type="text" name="resKeyword" placeholder="검색" size='65' style="border: border-color: burlywood;">
+            <input type="text" name="resKeyword" placeholder="검색" size='65' style="border-color: burlywood;">
             <input type="submit" class="btn btn-info" value="검색" style="background: #fcf9da; border-color: #fcf9da; color: black; font-family: 'Black Han Sans', sans-serif; font-size: x-large;">
         </form>
         <a href="#" class="burger active" data-toggle="collapse" data-target="#main-navbar">

@@ -1,0 +1,21 @@
+/* title */
+@font-face {
+    font-family: 'SDSamliphopangche_Outline';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.titleFont * {
+    font-family: 'SDSamliphopangche_Outline', Sans-Serif;
+}
+
+/* body */
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+.bodyFont * {
+    font-family: 'RIDIBatang', Sans-Serif;
+}

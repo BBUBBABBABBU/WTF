@@ -154,6 +154,10 @@ adminDetail
     public int deleteArticle(int id);
 
 
+    /*******************
+     * 게시판 조회수 +1
+     */
+    public int boardCount(int id);
 
 
 

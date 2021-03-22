@@ -47,7 +47,6 @@ public class MainServiceImpl implements MainService {
     public List<PhotoVO> res_photo(RestaurantVO vo) {
         try{
             return mainMapper.res_photo(vo);
-
         }catch (Exception e){
 
             System.out.println("res_photo 에러 :"+e.toString());
@@ -65,15 +64,21 @@ public class MainServiceImpl implements MainService {
         }
     }
 
+    /**
+     * 메인 및 검색 화면 정렬 서비스 impl
+     */
     @Override
     public List<RestaurantVO> restaurantSort(String choiceCategory) {
         Map<String,String> hashMap = new HashMap<>();
         hashMap.put("foodKind", (String)httpSession.getAttribute("foodKind"));
         hashMap.put("userAddress",(String)httpSession.getAttribute("userAddress"));
 
+        // 정렬 방식에대한 선택이 없으면 평점 순으로 정렬
         if (choiceCategory == null) {
             choiceCategory = "rating_order";
-        } else if (choiceCategory.contains("search")) {
+        }
+        // 검색 화면에서 정렬에 대한 요청
+        else if (choiceCategory.contains("search")) {
             choiceCategory = choiceCategory.replaceAll("search","").replace("R","r");
             hashMap.put("userAddress", null);
             hashMap.put("resKeyword",(String)httpSession.getAttribute("resKeyword"));
@@ -85,8 +90,6 @@ public class MainServiceImpl implements MainService {
             if (restaurantList.size() > 12) {
                 restaurantList = restaurantList.subList(0, 12);
             }
-
-
             for (int i = 0; i < restaurantList.size(); i++) {
                 List<PhotoVO> photoList = mainMapper.res_photo(restaurantList.get(i));
                 for (PhotoVO photo : photoList) {

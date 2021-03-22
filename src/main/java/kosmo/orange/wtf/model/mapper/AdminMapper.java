@@ -155,6 +155,12 @@ public interface AdminMapper {
     List<AdminBoardVO> boardDetail(int board_id);
 
 
+    /**************
+     * 게시글 클릭할 때마다 조회수 +1
+     */
+    int boardCount(int board_id);
+
+
 
 
 }

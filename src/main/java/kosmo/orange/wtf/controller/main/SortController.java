@@ -21,11 +21,13 @@ public class SortController {
     @Autowired
     HttpSession httpSession;
 
+    /**
+     * 메인페이지 및 검색화면 정렬
+     *
+     */
     @PostMapping("/restaurantSort")
     @ResponseBody
     public List<RestaurantVO> restaurantSort(String choiceCategory){
-        System.out.println("restaurantSort 24line : " + choiceCategory);
-
         List<RestaurantVO> restaurantList = mainService.restaurantSort(choiceCategory);
 
         return restaurantList;

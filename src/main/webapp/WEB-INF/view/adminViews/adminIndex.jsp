@@ -21,6 +21,19 @@
 
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css">
+    <style>
+        <%--body--%>
+        @font-face {
+            font-family: 'RIDIBatang';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        span .nav-text * {
+            font-family: 'RIDIBatang', Sans-Serif;
+        }
+    </style>
 
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
@@ -31,6 +44,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/res/adminTemplate/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
     <!-- Custom Stylesheet -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>

@@ -71,7 +71,7 @@ public class ReviewController{
 
     @RequestMapping("/reviewSave")
     public String reviewSave(MultipartFile[] uploadFile, ReviewVO reviewVO, int res_id){
-        String Path = "C:/Users/kosmo_17/Documents/GitHub/WTF/src/main/webapp";
+        String Path = "D:/WTF/src/main/webapp";
         String uploadFolder = "/res/img/reivew_pic/";
         for(MultipartFile multipartFile : uploadFile){
             System.out.println("-----------------------");
@@ -161,7 +161,6 @@ public class ReviewController{
 //        return "review/feed";
 //    }
 
-   //메세지를 위한 칸트롤러
 
     /**
      * 메인페이지 리뷰
@@ -169,7 +168,6 @@ public class ReviewController{
     @PostMapping("/mainReview")
     @ResponseBody
     public List<ReviewVO> mainReview(String foodKind){
-        System.out.println("mainReview() 16line" + foodKind);
         List<ReviewVO> reviewList = reviewService.mainReview(foodKind);
 
         return reviewList;
@@ -181,12 +179,7 @@ public class ReviewController{
     @PostMapping("/restaurantInfoReview")
     @ResponseBody
     public List<ReviewVO> restaurantInfoReview(RestaurantVO restaurantVO){
-        System.out.println("estaurantInfoReview 127line : " + restaurantVO.getResId());
-
         List<ReviewVO> reviewList = reviewService.restaurantInfoReview(restaurantVO);
-        for (ReviewVO review : reviewList){
-            System.out.println(review.getContent());
-        }
 
         return reviewList;
     }

@@ -16,4 +16,11 @@ ALTER TABLE review ADD deviation float;
 --데이터 추가를 위한 코드
 UPDATE review_test SET deviation = rating_avg -3;
 UPDATE review SET deviation = rating_avg -3;
+
 drop table review_pic;
+
+ALTER TABLE review ADD COLUMN review_pic1 VARCHAR(200);
+ALTER TABLE review ADD COLUMN review_pic2 VARCHAR(200);
+ALTER TABLE review ADD COLUMN review_pic3 VARCHAR(200);
+ALTER TABLE review ADD COLUMN review_pic4 VARCHAR(200);
+ALTER TABLE review ADD COLUMN review_pic5 VARCHAR(200);
