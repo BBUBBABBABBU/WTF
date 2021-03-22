@@ -85,9 +85,6 @@
             <ul>
                 <li><a href="/main?foodKind=${sessionScope.foodKind}">메인으로</a></li>
                 <li><a href="mypage/myInfo">나의 정보</a></li>
-                <li><a href="collection.html">내 업적 / 포인트</a></li>
-                <li><a href="blog.html">내 피드 보기</a></li>
-                <li><a href="contact.html">내 취향 수정</a></li>
                 <li><a href="/service">문의사항</a></li>
             </ul>
         </nav>
