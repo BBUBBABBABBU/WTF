@@ -79,7 +79,7 @@
     </form>
 </div>
 <img class="image" src="/res/img/background_img/title02.jpg"/><br/><br/>
-<a href="/adminLogin">관리자페이지로</a>
+<%--<a href="/adminLogin">관리자페이지로</a>--%>
 
 
 <%--화면 가운데 로그인 창  --%>

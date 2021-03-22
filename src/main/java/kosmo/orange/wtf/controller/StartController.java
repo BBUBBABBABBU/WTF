@@ -26,6 +26,7 @@ public class StartController {
     int temp=0;
 
 
+    //시작화면 매핑
     @GetMapping("/")
     public String start() {
         //로그인 실패시에만 실패 알림 창 뜨게 설정 한부분====================
@@ -45,13 +46,10 @@ public class StartController {
     /**
      * 시작페이지에서 메인페이지 호출
      */
-    //TODO 음식종류 처리할것)
     @GetMapping("/main")
     public String main(Model model, String foodKind) {
         List<RestaurantVO> restaurantList = mainService.checkRestaurant(foodKind);
         List<String> photoList = new ArrayList<>();
-
-        System.out.println("main 41line :" + foodKind);
 
         for (int i = 0; i < restaurantList.size(); i++) {
             List<PhotoVO> temp = mainService.res_photo(restaurantList.get(i));
@@ -77,7 +75,6 @@ public class StartController {
      * @param restaurantVO
      * @return
      */
-    //TODO 시작페이지에서 음식 종류 받아서 처리
     @PostMapping("/mainRecommend")
     @ResponseBody
     public List<RestaurantVO> mainRecommend(RestaurantVO restaurantVO, String foodKind, Model model) {
@@ -99,6 +96,7 @@ public class StartController {
 
         List<PhotoVO> photoList;
 
+        // 각각의 레스토랑 사진을 하나씩 가져옴
         for (int i = 0; i < restaurantList.size(); i++) {
             photoList = mainService.res_photo(restaurantList.get(i));
             for (PhotoVO photo : photoList) {

@@ -18,7 +18,7 @@ $(function () {
 
                 $('#testimonial'+i).append($('<blockquote>' +
                     '<p class="font_hans" style="font-size:45px">' + reviewList[i].content + '</p>' +
-                    '<a id="main_review'+i+'" href="/restaurant/restaurantInfo?resId=' + reviewList[i].restaurantVO.resId +'">' +
+                    '<a id="main_review'+i+'" href="/restaurant/restaurantInfo?resId=' + reviewList[i].restaurantVO.resId +'"></a>' +
                     '</blockquote>' +
                     '<p class="" style="font-size: 18px">' + reviewList[i].memberVO.nickname + '</p>'))
 

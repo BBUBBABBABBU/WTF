@@ -34,6 +34,7 @@
         ORDER BY res_rating DESC
     </select>
 
+    <!--레스토랑 정렬 query-->
     <select id="restaurantSort" parameterType="hashmap" resultMap="getRestaurant">
         SELECT r.res_id as
         res_id,res_name,res_tell,res_addr,res_runtime,res_keyword,res_latitude,res_longitude,res_rating,like_count,ifnull(review_count,0)
