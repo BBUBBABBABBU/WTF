@@ -25,18 +25,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Cafe24Ssukssuk';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css" rel="stylesheet">
 
-        .grgr * {
-            font-family: 'Cafe24Ssukssuk', Sans-Serif;
-        }
-    </style>
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
@@ -66,7 +56,7 @@
 
 
 </head>
-<body class="h-100">
+<body class="h-100 titleFont">
 
     <!--*******************
         Preloader start
@@ -91,32 +81,33 @@
                     <div class="form-input-content">
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
-                                <a class="text-center grgr" href="/">
-                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                <a class="text-center" href="/">
+                                    <h1>네가<br>이걸 먹을줄은<br>정말로 몰랐어</h1>
                                 </a>
 
                                 <%--id랑 name 입력하는 form--%>
-                                <form class="mt-5 mb-3 login-input" action="resetPw">
+                                <form class="mt-5 mb-3 login-input bodyFont" action="resetPw">
 
                                     <%--id--%>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="email(id)" required id="mgr_id" name="mgr_id">
+                                        <input type="email" class="form-control" placeholder="이-메일 (아이디)" required id="mgr_id" name="mgr_id">
                                     </div>
 
                                     <%--name--%>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="name" required id="mgr_name" name="mgr_name">
+                                        <input type="text" class="form-control" placeholder="이름" required id="mgr_name" name="mgr_name">
                                     </div>
 
                                     <button class="btn login-form__btn submit w-100 grgr">
-                                        <h4><a style="color: #fff">메일로 비번 보내줄줄은 몰랐어</a></h4>
+                                        <h4><a style="color: #fff">임시 비밀번호 발송</a></h4>
                                     </button>
 
-                                    <p class="mt-5 login-form__footer grgr">
-                                        <a href="/adminLogin" class="text-primary">비번 기억이 났다면 여기로</a>
-                                    </p>
-
                                 </form>
+
+                                <p class="mt-5 login-form__footer grgr">
+                                    <h4><a href="/adminLogin" class="text-primary">비번 기억이 났다면 여기로</a></h4>
+                                </p>
+
                             </div>
                         </div>
                     </div>

@@ -121,6 +121,9 @@
     </style>
     <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
     <script>
+
+
+        //비밀번호 유효성 검증
         function chkPW(){
 
             var pw = $("#nextPass").val();
@@ -151,7 +154,10 @@
             }
 
         }
-        function checkPassword() {
+
+
+        //비밀번호 확인 유효성 검증증
+        function checkPassword) {
             //비밀번호가 입력되었는지 확인하기
 
             //비밀번호와 비밀번호 확인이 맞지 않다면..

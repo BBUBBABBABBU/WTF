@@ -57,9 +57,12 @@ public class AdminManagerController {
 ////         페이지 더 안만들려고 세션을 만들어서 그 값으로 비교를 해보고자 했지 > 근데 실패함
 //        session.setAttribute("page", "boardDetail");
 
-        AdminBoardVO adminBoardVO = new AdminBoardVO();
+        // 게시글 조회수 +1
+        int result = adminService.boardCount(board_id);
+        System.out.println("result = " + result);
 
-        adminBoardVO = adminService.boardDetail(board_id);
+        // 게시글 데이타
+        AdminBoardVO adminBoardVO = adminService.boardDetail(board_id);
         System.out.println("AdminManagerController.boardDetail adminBoardVO = " + adminBoardVO);
 
         model.addAttribute("adminBoardVO", adminBoardVO);

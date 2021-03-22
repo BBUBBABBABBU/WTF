@@ -370,7 +370,6 @@ public class AdminServiceImpl implements AdminService {
     } // end of boardUpdate
 
 
-
     /*********************
      * 익명 게시판 글 수정
      */
@@ -400,6 +399,17 @@ public class AdminServiceImpl implements AdminService {
 
     } // end of deleteArticle
 
+
+    /*********************
+     * 게시판 조회수
+     */
+    @Override
+    public int boardCount(int id) {
+        System.out.println("AdminServiceImpl.boardCount");
+
+        return adminMapper.boardCount(id);
+
+    } // end of boardCount
 
 
 

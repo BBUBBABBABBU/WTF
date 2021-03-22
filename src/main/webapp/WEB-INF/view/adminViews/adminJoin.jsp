@@ -24,25 +24,31 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Cafe24Ssukssuk';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css" rel="stylesheet">
+    <%--<style>--%>
+        <%--&lt;%&ndash;title&ndash;%&gt;--%>
+        <%--@font-face {--%>
+            <%--font-family: 'SDSamliphopangche_Outline';--%>
+            <%--src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts-20-12@1.0/SDSamliphopangche_Outline.woff') format('woff');--%>
+            <%--font-weight: normal;--%>
+            <%--font-style: normal;--%>
+        <%--}--%>
+        <%--.titleFont * {--%>
+            <%--font-family: 'SDSamliphopangche_Outline', Sans-Serif;--%>
+        <%--}--%>
 
-        @font-face {
-            font-family: 'Cafe24Ohsquare';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
+        <%--&lt;%&ndash;body&ndash;%&gt;--%>
+        <%--@font-face {--%>
+            <%--font-family: 'RIDIBatang';--%>
+            <%--src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');--%>
+            <%--font-weight: normal;--%>
+            <%--font-style: normal;--%>
+        <%--}--%>
+        <%--.bodyFont * {--%>
+            <%--font-family: 'RIDIBatang', Sans-Serif;--%>
+        <%--}--%>
 
-        .grgr * {
-            font-family: 'Cafe24Ohsquare', Sans-Serif;
-        }
-    </style>
+    <%--</style>--%>
 
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
@@ -62,7 +68,7 @@
                     data:{
                         "email":$('#email').val()
                     },
-                    success:function(data){	//data : checkSignup에서 넘겨준 결과값
+                    success:function(result){
                         if($.trim(result)=="ok"){
                             if($('#id').val()!=''){
                                 $('#idDupleCheck').text("사용할 수 있는 ID(email)입니다.");
@@ -85,7 +91,6 @@
 
 
 
-        출처: https://xodgl2.tistory.com/22 [Beginning]
 
 
 
@@ -121,7 +126,7 @@
                 // alert('이름을 입력해주세요');
                 $('#nameCheck').text("이름을 입력해주세요");
             }
-            if
+            // if
             if($('#email').val() == "") {
                 // alert("id 입력하라고");
                 $('#idDupleCheck').text("ID(email)를 입력해주세요");
@@ -142,121 +147,6 @@
          */
         $(function(){
 
-            // email 정규식
-            var emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]$/i;
-            var emailFlag = emailRegex.test($('#email').val())
-
-
-            $('#email').blur(function(){
-                $.ajax({
-                    type:"POST",
-                    url:"idCheck",
-                    data:{
-                        "email":$('#email').val()
-                    },
-                    success:function(str){
-                        // alert('>'+str);
-                        $('#idDupleCheck').text('');
-                        onlyIdCheck();
-
-                    },
-                    error:function (err) {
-                        alert("아이디 중복체크 실패"+ err);
-                    }
-                })
-            });
-
-
-        function onlyIdCheck(){
-            if($('#email').val() == "") {
-                // alert("id입력하셈");
-                $('#idDupleCheck').text("id를 입력하세요");
-            }
-
-            else if(!emailFlag){
-                $('#idDupleCheck').text("email 형식을 확인하세요")
-            }
-
-            else if(emailFlag) {
-                $('#idDupleCheck').text("");
-            }
-
-            else if(str === "ok"){
-                //alert('if')
-                if($('#email').val() != ''){
-                    // alert("사용가능한 아이디입니다.");
-                    $('#idDupleCheck').text("사용가능한 아이디입니다.");
-                }
-            }
-
-            else if(str === "duplicate"){
-                // alert('else');
-                if($('#email').val() != ''){
-                    // alert("중복된 아이디입니다.");
-                    $('#idDupleCheck').text("중복된 아이디입니다.");
-                    $('#email').val('');
-                    // $('#email').focus();
-                }
-            }
-
-
-
-
-        }
-
-
-        /**************************
-         * 비번확인
-         * https://xodgl2.tistory.com/22
-         */
-            $('#pass2').blur(function(){
-                if($('#pass').val() != $('#pass2').val()){
-                    if($('#pass2').val()!=''){
-                        // alert("비밀번호가 일치하지 않습니다.");
-                        $('#pass2Check').text('비밀번호가 일치하지 않습니다.');
-                        $('#pass').val('');
-                        $('#pass2').val('');
-                        $('#pass').focus();
-                    }
-                }
-            });
-
-
-        /*****************************
-         * 회원가입
-         */
-            $('#join_account').click(()=>{
-                // alert('ok')
-                // var check_list = ['name', 'email', 'pass']
-                //
-                // for(var check in check_list){
-                //     alert(check_list[check])
-                // }
-                if($('#name').val() ==''){
-                    // alert('이름을 입력해주세요');
-                    $('#nameCheck').text("이름을 입력해주세요");
-                    return;
-                }
-                if($('#email').val() == "") {
-                    // alert("id 입력하라고");
-                    $('#idDupleCheck').text("ID(email)를 입력해주세요");
-                    return;
-                }
-                if($('#pass').val() == "") {
-                    // alert('pw 입력해라')
-                    $('#passCheck').text("비밀번호를 입력해주세요");
-                    return;
-                }
-                // if($('pass2').val() == "") {
-                //     // alert('pw 확인 안 함?')
-                //     $('#pass2Check').text();
-                //     return;
-                // }
-
-                $('#join_form').submit()
-
-            })
-
         }) // end of 회원가입 form submit
 
 
@@ -264,7 +154,7 @@
 
 </head>
 
-<body class="h-100">
+<body class="h-100 titleFont">
 
     <!--*******************
         Preloader start
@@ -293,17 +183,17 @@
                         <div class="card login-form mb-0">
                             <div class="card-body pt-5">
 
-                                <a class="text-center grgr" href="/">
-                                    <h1>니가 이걸 먹을줄은<br>정말로 몰랐어</h1>
+                                <a class="text-center titleFont" href="/">
+                                    <h1>네가<br>이걸 먹을줄은<br>정말로 몰랐어</h1>
                                 </a>
 
-                                <form class="mt-5 mb-5 login-input" id ="join_form" action="createAccount" method="post">
+                                <form class="mt-5 mb-5 login-input bodyFont" id ="join_form" action="createAccount" method="post">
                                     <div class="form-group">
                                         <input type="text" class="form-control"  placeholder="이름" required name="mgr_name" id="name">
                                         <span id="nameCheck"></span>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control"  placeholder="ID(email)" required name="mgr_id" id="email">
+                                        <input type="email" class="form-control"  placeholder="이-메일 (아이디)" required name="mgr_id" id="email">
                                         <span id="idDupleCheck"></span>
                                     </div>
                                     <div class="form-group">
@@ -315,12 +205,14 @@
                                         <span id="pass2Check"></span>
                                     </div>
                                     <button class="btn login-form__btn submit w-100 grgr" id="join_account">
-                                        <h4><a style="color: #fff;">함께하게 되어서 반가울줄 알고있었어</a></h4>
+                                        <h4><a style="color: #fff;">함께하게 되어서 반가워</a></h4>
                                     </button>
+
+                                    <%--<div style="text-align:center"><br>회원 가입 후 관리자 인증이 완료되면 로그인 하실 수 있습니당</div>--%>
                                 </form>
 
-                                <p class="mt-5 login-form__footer grgr">
-                                    <a href="/adminLogin" class="text-primary">아이디가 있었어???</a>
+                                <p class="mt-5 login-form__footer">
+                                    <a href="/adminLogin" class="text-primary"><h4>아이디가 있다면 로그인 화면으로</h4></a>
                                 </p>
 
                             </div>

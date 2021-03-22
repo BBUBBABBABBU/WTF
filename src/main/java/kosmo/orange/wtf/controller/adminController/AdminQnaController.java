@@ -20,10 +20,7 @@ public class AdminQnaController {
     // ****** 관리자 유저 문의 리스트 조회
     @GetMapping("adminQnA")
     public String AdminQnaList(QnaVO vo, Model model) {
-
-        System.out.println("adminqnalist 23 line 확인  : " + vo.getQna_id());
         List<QnaVO> result = adminQnaService.AdminQnaList();
-        System.out.println(result.get(0).getQna_id());
         model.addAttribute("adminqnaList", result);
 
 
@@ -34,7 +31,6 @@ public class AdminQnaController {
     // ****** 관리자 유저 문의 상세 보기
     @RequestMapping("/adminqnadetail")
     public String AdminQnaDetail(QnaVO vo, Model model){
-        System.out.println("adminqnadetail 23 line 확인  : " + vo.getMember_id());
         model.addAttribute("adminqna", adminQnaService.AdminQnaDetail(vo));
 
         return "adminViews/adminQnADetail";
@@ -44,7 +40,6 @@ public class AdminQnaController {
     // ****** 관리자 유저 문의 답변 / 수정
     @PostMapping(value ="/updateQna")
     public String AdminQnaUpdate(QnaVO vo) {
-        System.out.println("adminqnaupdate 45line 수정 : " + vo.getQna_id());
         adminQnaService.AdminQnaUpdate(vo);
 
         return "redirect:/adminQnA";

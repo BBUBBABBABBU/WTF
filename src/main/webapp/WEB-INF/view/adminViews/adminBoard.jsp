@@ -37,15 +37,15 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            alert("ready?")
+            // alert("ready?")
 
             // 글 번호
             $("tr.board").click(function () {
-                alert('click board function');
+                // alert('click board function');
 
                 var articleNo = $(this).children().first().text();
 
-                alert(articleNo);
+                // alert(articleNo);
                 location.href = "/boardDetail?board_id="+articleNo;
 
             });
@@ -156,12 +156,12 @@
                                         </tbody>
                                         <tfoot>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>글번호</th>
+                                            <th>제목</th>
+                                            <th>작성자</th>
+                                            <th>등록일</th>
+                                            <th>최종수정일</th>
+                                            <th>조회수</th>
                                         </tr>
                                         </tfoot>
                                     </table>

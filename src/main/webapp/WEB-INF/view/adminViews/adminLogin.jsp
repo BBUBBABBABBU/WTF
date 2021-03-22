@@ -25,38 +25,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="${pageContext.request.contextPath}/res/adminTemplate/images/favicon.png">
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <link href="${pageContext.request.contextPath}/res/adminTemplate/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/res/css/adminEnter.css" rel="stylesheet">
 
-    <style>
-        /*@font-face {*/
-            /*font-family: 'LotteMartHappy';*/
-            /*font-style: normal;*/
-            /*font-weight: 400;*/
-            /*src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyMedium.woff') format('woff');*/
-        /*}*/
-
-        /*@font-face {*/
-            /*font-family: 'LotteMartHappy';*/
-            /*font-style: normal;*/
-            /*font-weight: 700;*/
-            /*src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartHappy/LotteMartHappyBold.woff') format('woff');*/
-        /*}*/
-
-        /*.lottemarthappy * {*/
-            /*font-family: 'LotteMartHappy', sans-serif;*/
-        /*}*/
-
-        @font-face {
-            font-family: 'Cafe24Ssukssuk';
-            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Ssukssuk.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        .grgr * {
-            font-family: 'Cafe24Ssukssuk', Sans-Serif;
-        }
-
-    </style>
     <%--js--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminJs.jsp"/>--%>
 
@@ -101,7 +71,7 @@
 
 </head>
 
-<body class="h-100">
+<body class="h-100 titleFont">
 
     <!--*******************
         Preloader start
@@ -140,31 +110,36 @@
 
                                 <%--이름 클릭시 홈페이지로 이동--%>
                                 <a class="text-center grgr" href="/">
-                                    <h1>니가 이걸 먹을줄은 정말로 몰랐어</h1>
+                                    <h1>네가<br>이걸 먹을줄은<br>정말로 몰랐어</h1>
                                     <h2>${alert}</h2>
                                 </a>
 
                                 <%--로그인 폼--%>
-                                <form class="mt-5 mb-5 login-input" action="/login" id="login" method="post">
+                                <form class="mt-5 mb-5 login-input bodyFont" action="/login" id="login" method="post">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email" name="mgr_id">
+                                        <input type="email" class="form-control" placeholder="이-메일 (아이디)" name="mgr_id">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="mgr_pass">
+                                        <input type="password" class="form-control" placeholder="비밀번호" name="mgr_pass">
                                     </div>
                                     <button class="btn login-form__btn submit w-100 grgr" onclick="login();">
-                                        <h4><a style="color: #ffffff">니가 지금 일하러올줄은 정말로 몰랐어</a></h4>
+                                        <h4><a style="color: #ffffff">일하러 가자</a></h4>
                                     </button>
 <%--                                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>--%>
                                 </form>
 
 
-                                <p class="mt-5 login-form__footer grgr">
+                                <p class="mt-5 login-form__footer">
                                     <%--회원가입 페이지로 이동--%>
-                                    <a href="/moveToSignUp" class="text-primary">계정이 없다면 여기</a><br><br>
-
+                                    <a href="/moveToSignUp" class="text-primary">
+                                        <h4>계정이 없다면 여기로</h4>
+                                    </a>
+                                </p>
+                                <p class="mt-5 login-form__footer">
                                     <%--비번 찾기 페이지로 이동--%>
-                                    <a href="/findPw" class="text-primary">비번을 까먹었다면 요기로</a>
+                                    <a href="/findPw" class="text-primary">
+                                        <h4>비번을 까먹었다면 요기로</h4>
+                                    </a>
                                 </p>
 
 

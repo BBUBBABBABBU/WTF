@@ -43,8 +43,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
 
-        .bread{
-            font-family: 'Black Han Sans',sans-serif;
+        .bread {
+            font-family: 'Black Han Sans', sans-serif;
         }
 
         .breadcrumbs {
@@ -68,7 +68,7 @@
 </head>
 <body>
 
-<img src="/res/img/화면_졸라맨.png"style="
+<img src="/res/img/화면_졸라맨.png" style="
     position: absolute;
     left: 1200px;
     top: 40px;
@@ -76,7 +76,7 @@
     width: 300px;
 ">
 
-<img src="/res/img/화면_졸라맨_2.png"style="
+<img src="/res/img/화면_졸라맨_2.png" style="
     position: absolute;
     left: 500px;
     top: 40px;
@@ -89,7 +89,9 @@
     <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
     <aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
 
-        <h1 id="colorlib-logo"><a href="/mypage"><span class="img" style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[ 마이 페이지 ]</a></h1>
+        <h1 id="colorlib-logo"><a href="/mypage"><span class="img"
+                                                       style="background-image: url(/res/mypageTemplate/images/id-card-4.png);"></span>[
+            마이 페이지 ]</a></h1>
         <nav id="colorlib-main-menu" role="navigation">
             <ul>
                 <%--<li class="colorlib-active"><a href="/mypage">홈</a></li>--%>
@@ -109,7 +111,8 @@
                 <div class="row no-gutters slider-text justify-content-center align-items-center">
                     <div class="col-md-8 ftco-animate">
 
-                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span class="mr-2"><a href="/service">문의 작성</a></span>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="/mypage">마이 페이지 / </a></span><span
+                                class="mr-2"><a href="/service">문의 작성</a></span>
 
                         <h1 class="bread">문의사항(Q&A)</h1>
                     </div>
