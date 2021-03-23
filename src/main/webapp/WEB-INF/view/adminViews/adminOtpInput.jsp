@@ -30,11 +30,11 @@
     <script type="text/javascript">
 
         function keyUpdate() {
-            alert("keyUpdate 함수 실행");
+            // alert("keyUpdate 함수 실행");
 
             var key = "${otpKey}";  // 생성된 otp
             var id = "${getId}";
-            alert("생성된 otp : " + key + "// 세션의 id : " + id);
+            // alert("생성된 otp : " + key + "// 세션의 id : " + id);
 
             $.ajax({
                 type:"post",
@@ -42,10 +42,10 @@
                 data:{"id":id, "key":key},
 
                 success:function (result) {
-                    alert("썪쎼쓰 " + result);
+                    // alert("썪쎼쓰 " + result);
                 },
                 error: function () {
-                    alert("풰일");
+                    // alert("풰일");
                 }
             });
 
@@ -71,11 +71,11 @@
         Preloader end
     ********************-->
 
-    <h1>
-        input ID : ${inputId} <br>
-        get Id : ${getId} <br>
-        get Name : ${getName} <br>
-    </h1>
+    <%--<h1>--%>
+        <%--input ID : ${inputId} <br>--%>
+        <%--get Id : ${getId} <br>--%>
+        <%--get Name : ${getName} <br>--%>
+    <%--</h1>--%>
 
     <div class="login-form-bg h-100">
         <div class="container h-100">

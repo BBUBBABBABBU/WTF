@@ -88,12 +88,12 @@
     ********************-->
 
 
-    <h1>dfgdfgdfgdfgdfgdfgdfgdf ${aaa}  <br>
-     얀랸알나ㅣ아ㅣ런ㅇㄹ otp!!!!! ${otpkey} <br> ${url}
-    </h1>
+    <%--<h1>dfgdfgdfgdfgdfgdfgdfgdf ${aaa}  <br>--%>
+     <%--얀랸알나ㅣ아ㅣ런ㅇㄹ otp!!!!! ${otpkey} <br> ${url}--%>
+    <%--</h1>--%>
 
-    <input type="text" value="" id="otp"/>여기에 오티피를 입력
-    <input type="button" value="눌러" onclick="chk();" />
+    <%--<input type="text" value="" id="otp"/>여기에 오티피를 입력--%>
+    <%--<input type="button" value="눌러" onclick="chk();" />--%>
 
 
 

@@ -94,7 +94,7 @@
             Content body start
         ***********************************-->
         <div class="content-body">
-            <h1>${sessionScope.name}</h1>
+            <%--<h1>${sessionScope.name}</h1>--%>
 
             <div class="container-fluid mt-3">
 
