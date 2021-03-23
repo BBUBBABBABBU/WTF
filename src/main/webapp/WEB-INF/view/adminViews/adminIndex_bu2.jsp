@@ -19,10 +19,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    <%--ga--%>
-    <meta name="google-signin-client_id" content="<REPLACE_WITH_CLIENT_ID>">
-    <meta name="google-signin-scope" content="https://www.googleapis.com/auth/analytics.readonly">
-
     <%--css--%>
     <%--<jsp:include page="/WEB-INF/view/adminViews/layout/adminCss.jsp"/>--%>
     <link href="${pageContext.request.contextPath}/res/css/adminEnter.css">
@@ -178,7 +174,6 @@
                 </div>
 
                 <%--GA를 연결하자--%>
-
 
 
 
